@@ -1,0 +1,12 @@
+{
+  "version": "1.3.0",
+  "releaseDate": "2026-10-09",
+  "name": "Petri Heil Pro",
+  "changes": [
+    "Versionsanzeige und Update-Suche",
+    "176 Fisch- und Krebsillustrationen",
+    "21 Ausrüstungsillustrationen",
+    "Offlinecache für sämtliche Bilder"
+  ],
+  "notes": "Echte, nach wissenschaftlichen Artennamen gesuchte Creative-Commons-Fotos; eigene Fotos, Offline-Fotocache, Update-Suche und Versionsverlauf"
+}
