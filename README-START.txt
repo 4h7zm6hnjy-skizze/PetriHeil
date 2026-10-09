@@ -1,6 +1,6 @@
-PETRI HEIL PRO v1.4.0 · KI-BILDER OFFLINE · BY MARCEL HENTSCHEL
+PETRI HEIL PRO v1.5.0 · KI-BILDER OFFLINE · BY MARCEL HENTSCHEL
 
-10 KI-generierte Bilddateien sind in assets/ki-bilder hinterlegt. Fischarten: Hecht, Zander, Flussbarsch, Karpfen, Wels, Europäischer Aal, Bachforelle, Edelkrebs. Ausrüstung: Gummifisch, Spinner.
+20 KI-generierte Bilddateien sind in assets/ki-bilder hinterlegt. Fisch- und Krebseinträge: Hecht, Zander, Flussbarsch, Karpfen, Wels, Europäischer Aal, Bachforelle, Edelkrebs, Regenbogenforelle, Schleie, Rotauge, Brasse, Äsche, Quappe, Atlantischer Lachs, Kamberkrebs, Signalkrebs. Ausrüstung und Köder: Gummifisch, Spinner, Wobbler.
 Die Bilder sind KI-generierte illustrative Darstellungen, keine Beweise für die sichere Artbestimmung. Bitte nicht für Giftigkeit, Artenschutz oder Entnahmeentscheidungen verwenden.
 Die übrigen Arten und Produkte nutzen weiterhin die vorhandene externe Fotosuche bzw. eigene hochgeladene Fotos.
 Vorhandene private Fangfotos und vom Nutzer selbst zugewiesene Artenfotos haben Vorrang vor KI-Bildern.
@@ -32,3 +32,6 @@ Foto ist NICHT für jeden Eintrag garantiert. Die automatische Ausrüstungssuche
 manuell kuratiert, kann also unpassende Treffer liefern; daher die Quelle kontrollieren
 oder ein eigenes echtes Foto zuordnen. Es werden ausdrücklich keine schematischen
 Bildersatzzeichnungen verwendet.
+
+
+Version 1.5.0: 20 fest zugeordnete KI-Bilder sind lokal enthalten. Für Updates entpackte Dateien samt Ordner assets auf GitHub hochladen. Eigene Fangdaten vor Updates sichern.

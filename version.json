@@ -1,12 +1,12 @@
 {
-  "version": "1.4.0",
+  "version": "1.5.0",
   "releaseDate": "2026-10-09",
   "name": "Petri Heil Pro",
   "changes": [
-    "10 original KI-Bilder (7 Fische, 1 Krebsart, 2 Kunstköder) direkt integriert",
-    "KI-Bilder in Fisch- und Ausrüstungsansicht mit klarer Kennzeichnung",
-    "Integrierte Bilder offline im Service-Worker-Cache",
-    "Update-Suche und Versionshistorie vorhanden"
+    "10 weitere KI-Bilder: Regenbogenforelle, Schleie, Rotauge, Brasse, Äsche, Quappe, Lachs, Kamberkrebs, Signalkrebs, Wobbler",
+    "Insgesamt 20 lokal integrierte Bilder auf weißem Hintergrund, auch offline",
+    "Fest verdrahtete Zuordnung zu Arteinträgen und Ködern",
+    "Bisherige Fänge, Backups und weitere Appfunktionen bleiben unverändert"
   ],
-  "notes": "KI-generierte Bilder sind Beispiele und keine verlässliche Artbestimmung. Weitere Einträge verwenden freiwillig echte, lizenzierte Fotos."
+  "notes": "KI-Bilder dienen der Veranschaulichung und sind keine verlässlichen Bestimmungsfotos. Änderungen der Fischereiregeln sind unabhängig davon zu prüfen."
 }
