@@ -1,13 +1,12 @@
 {
-  "version": "1.7.0",
+  "version": "1.8.0",
   "releaseDate": "2026-10-09",
   "name": "Petri Heil Pro",
   "changes": [
-    "10 neue lokal integrierte KI-Artenbilder: Aland, Graskarpfen, Silberkarpfen, Marmorkarpfen, Bachsaibling, Seesaibling, Meerforelle, Hasel, Atlantischer Stör, Bitterling",
-    "40 lokal integrierte KI-Bilder mit festen Arten-/Produktzuordnungen, einschließlich Bildkennzeichnung",
-    "Service Worker und PWA-Offline-Cache um neue Bilder ergänzt",
-    "Konsistente Anzeige von Version 1.7.0 und korrigierter Versionsverlauf",
-    "Bestehende App-Datenstruktur, Fänge, Fangfotos, Sicherungen und Statistiken unverändert"
+    "10 zusätzliche KI-Bilder auf weißem Hintergrund: 9 Fischarten und eine Jigkopf-Montage",
+    "50 lokal fest zugeordnete KI-Bilder in Fischkunde und Ausrüstung, auch offline",
+    "22 Ausrüstungskarten, bisherige Inhalte und Fangdatenformate beibehalten",
+    "Version 1.8.0 und Offline-App-Cache aktualisiert"
   ],
   "notes": "KI-generierte Abbildungen sind keine fachlich validierten Bestimmungsfotos. Manche Merkmale können unzutreffend sein. Die Entnahmeentscheidung darf nicht anhand dieser Bilder getroffen werden."
 }

@@ -1,4 +1,4 @@
-PETRI HEIL PRO v1.7.0 · BY MARCEL HENTSCHEL
+PETRI HEIL PRO v1.8.0 · BY MARCEL HENTSCHEL
 
 Diese Web-App enthält 40 lokal integrierte, artspezifisch zugeordnete KI-Bilder.
 Die zehn neuen Bilder zeigen Aland, Graskarpfen, Silberkarpfen, Marmorkarpfen,
@@ -30,3 +30,5 @@ verifizierten Belegfotos; einzelne charakteristische Merkmale können fehlen.
 SCHONZEITEN
 Landesrecht, Gewässerordnung und aktuelle Fangverbote selbst prüfen.
 Eine unvollständige Datenlage bedeutet ausdrücklich keine Entnahmeerlaubnis.
+
+NEU: 10 Bilder (9 weitere Arten + Jigkopf-Montage), 50 KI-Bilder lokal und offline.

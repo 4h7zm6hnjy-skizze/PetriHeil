@@ -1,0 +1,14 @@
+BILDZUORDNUNG – KI-Bilder in Version 1.8.0
+
+KI-generierte Beispielbilder, NICHT als verlässliche Artbestimmung verwenden.
+
+Seeforelle (fish:f24) -> assets/ki-bilder/seeforelle.webp [Quelle: KI-Bild, bearbeitet/komprimiert aus grosser_gefleckter_lachs_im_profil.png]
+Schneider (fish:f40) -> assets/ki-bilder/schneider.webp [Quelle: KI-Bild, bearbeitet/komprimiert aus detailreicher_süsswasserfisch_im_seitenprofil.png]
+Elritze (fish:f37) -> assets/ki-bilder/elritze.webp [Quelle: KI-Bild, bearbeitet/komprimiert aus silberner_elritzenfisch_auf_weissem_hintergrund.png]
+Moderlieschen (fish:f38) -> assets/ki-bilder/moderlieschen.webp [Quelle: KI-Bild, bearbeitet/komprimiert aus silberner_kleinfisch_im_seitenprofil.png]
+Koppe / Groppe (fish:f52) -> assets/ki-bilder/koppe.webp [Quelle: KI-Bild, bearbeitet/komprimiert aus marmorierter_süsswassergrundel_auf_weiss.png]
+Bachschmerle (fish:f48) -> assets/ki-bilder/bachschmerle.webp [Quelle: KI-Bild, bearbeitet/komprimiert aus gefleckter_schmerlenfisch_auf_weiss.png]
+Sonnenbarsch (fish:f57) -> assets/ki-bilder/sonnenbarsch.webp [Quelle: KI-Bild, bearbeitet/komprimiert aus farbenprächtiger_sonnenbarsch_auf_weiss.png]
+Zwergwels (fish:f55) -> assets/ki-bilder/zwergwels.webp [Quelle: KI-Bild, bearbeitet/komprimiert aus marmorierter_wels_im_seitenprofil.png]
+Marmorierte Grundel (fish:f60) -> assets/ki-bilder/marmorierte-grundel.webp [Quelle: KI-Bild, bearbeitet/komprimiert aus detailreicher_goby_im_seitenprofil.png]
+Jigkopf-Montage (gear:21) -> assets/ki-bilder/jigkopf-montage.webp [Quelle: KI-Bild, bearbeitet/komprimiert aus realistischer_köder_mit_jigkopf.png]
