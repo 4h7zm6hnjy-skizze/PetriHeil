@@ -1,0 +1,7 @@
+PETRI HEIL PRO 2.0.4 – LERNEN-FIX
+
+Ursache: Dekoratives ::before-Element in der Startseiten-Hero-Fläche überdeckte auf schmalen Anzeigen Schaltflächen und fing Berührungen ab.
+
+Fix: pointer-events:none für Dekoration und Logo, Inhalt oberhalb platzieren. Der Knopf „Jetzt lernen“ startet den Lernmodus direkt. Prüfungsmodi sind weiterhin über Angelschein erreichbar.
+
+Achtung: Die ZIP auf dem Computer/iPhone entpacken. Alle Dateien auf GitHub in den ROOT der Repo laden. Die ZIP selbst ist keine automatisch installierte Version. Vorher Datenbackup machen.

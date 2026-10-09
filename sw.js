@@ -1,7 +1,7 @@
-// Petri Heil Pro 2.0.3 – cache-busting, network-first code and fault-tolerant offline image cache.
-const CACHE='petri-heil-pro-v2-0-3';
+// Petri Heil Pro 2.0.4 – cache-busting, network-first code and fault-tolerant offline image cache.
+const CACHE='petri-heil-pro-v2-0-4';
 const PHOTO_CACHE='petri-heil-real-photos-v1';
-const CORE=["./index.html", "./style.css?v=2.0.3", "./app.js?v=2.0.3", "./data.js?v=2.0.3", "./manifest.webmanifest", "./version.json"];
+const CORE=["./index.html", "./style.css?v=2.0.4", "./app.js?v=2.0.4", "./data.js?v=2.0.4", "./manifest.webmanifest", "./version.json"];
 const IMAGES=["./assets/icon-192.png","./assets/icon-512.png","./assets/petri-logo.webp"]; // AI-Bilder sind in app.js eingebettet.
 const PHOTO_HOSTS=['static.inaturalist.org','inaturalist-open-data.s3.amazonaws.com','upload.wikimedia.org'];
 self.addEventListener('message',e=>{if(e.data?.type==='SKIP_WAITING')self.skipWaiting()});

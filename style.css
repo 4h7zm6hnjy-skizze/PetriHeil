@@ -68,3 +68,7 @@
 .fish-card .photo-ai .photo-content img{height:173px;object-fit:contain}
 .species-detail-image .photo-ai .photo-content img{height:auto;max-height:440px;object-fit:contain}
 .gear-card .photo-ai .photo-content img{height:215px;object-fit:contain}
+
+/* 2.0.4: keep decorative hero circle and logo from intercepting buttons on iPhone. */
+.hero::before,.hero>img{pointer-events:none}
+.hero>div{position:relative;z-index:1}

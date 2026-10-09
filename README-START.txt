@@ -1,4 +1,4 @@
-PETRI HEIL PRO 2.0.3 – GEPRÜFTE REPARATURVERSION
+PETRI HEIL PRO 2.0.4 – GEPRÜFTE REPARATURVERSION
 ================================================
 
 NUTZUNG
@@ -6,7 +6,7 @@ NUTZUNG
 2. ZIP entpacken und ALLE Dateien, inklusive dem Ordner assets, in den Stammordner deines GitHub-Repositories laden.
 3. Frühere gleichnamige Dateien ersetzen. Die ZIP selbst NICHT hochladen.
 4. Nach der GitHub-Pages-Veröffentlichung die App online neu öffnen.
-5. Unter Mehr die Versionsnummer 2.0.3 prüfen und anschließend das Update-Feature testen.
+5. Unter Mehr die Versionsnummer 2.0.4 prüfen und anschließend das Update-Feature testen.
 6. Einmal vollständig online laden, erst danach Flugmodus/Offline-Test.
 
 WICHTIG
