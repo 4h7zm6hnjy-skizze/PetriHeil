@@ -1,12 +1,12 @@
 {
-  "version": "1.3.0",
+  "version": "1.4.0",
   "releaseDate": "2026-10-09",
   "name": "Petri Heil Pro",
   "changes": [
-    "Versionsanzeige und Update-Suche",
-    "176 Fisch- und Krebsillustrationen",
-    "21 Ausrüstungsillustrationen",
-    "Offlinecache für sämtliche Bilder"
+    "10 original KI-Bilder (7 Fische, 1 Krebsart, 2 Kunstköder) direkt integriert",
+    "KI-Bilder in Fisch- und Ausrüstungsansicht mit klarer Kennzeichnung",
+    "Integrierte Bilder offline im Service-Worker-Cache",
+    "Update-Suche und Versionshistorie vorhanden"
   ],
-  "notes": "Echte, nach wissenschaftlichen Artennamen gesuchte Creative-Commons-Fotos; eigene Fotos, Offline-Fotocache, Update-Suche und Versionsverlauf"
+  "notes": "KI-generierte Bilder sind Beispiele und keine verlässliche Artbestimmung. Weitere Einträge verwenden freiwillig echte, lizenzierte Fotos."
 }
