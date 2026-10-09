@@ -1,0 +1,14 @@
+Petri Heil Pro – KI-Bildzuordnung v1.9.0
+
+KI-generierte Illustrationsfotos, nicht fachlich validierte Bestimmungsfotos.
+
+Huchen (fish:f29) → assets/ki-bilder/huchen.webp
+Schlammpeitzger (fish:f51) → assets/ki-bilder/schlammpeitzger.webp
+Steinbeißer (fish:f49) → assets/ki-bilder/steinbeisser.webp
+Maifisch (fish:f69) → assets/ki-bilder/maifisch.webp
+Flunder (fish:s21) → assets/ki-bilder/flunder.webp
+Scholle (fish:s20) → assets/ki-bilder/scholle.webp
+Dorsch / Kabeljau (fish:s9) → assets/ki-bilder/dorsch.webp
+Hornhecht (fish:s7) → assets/ki-bilder/hornhecht.webp
+Makrele (fish:s5) → assets/ki-bilder/makrele.webp
+Wolfsbarsch (fish:s8) → assets/ki-bilder/wolfsbarsch.webp
