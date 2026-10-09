@@ -1,37 +1,32 @@
-PETRI HEIL PRO v1.5.0 · KI-BILDER OFFLINE · BY MARCEL HENTSCHEL
+PETRI HEIL PRO v1.7.0 · BY MARCEL HENTSCHEL
 
-20 KI-generierte Bilddateien sind in assets/ki-bilder hinterlegt. Fisch- und Krebseinträge: Hecht, Zander, Flussbarsch, Karpfen, Wels, Europäischer Aal, Bachforelle, Edelkrebs, Regenbogenforelle, Schleie, Rotauge, Brasse, Äsche, Quappe, Atlantischer Lachs, Kamberkrebs, Signalkrebs. Ausrüstung und Köder: Gummifisch, Spinner, Wobbler.
-Die Bilder sind KI-generierte illustrative Darstellungen, keine Beweise für die sichere Artbestimmung. Bitte nicht für Giftigkeit, Artenschutz oder Entnahmeentscheidungen verwenden.
-Die übrigen Arten und Produkte nutzen weiterhin die vorhandene externe Fotosuche bzw. eigene hochgeladene Fotos.
-Vorhandene private Fangfotos und vom Nutzer selbst zugewiesene Artenfotos haben Vorrang vor KI-Bildern.
-Die lokale Bildbibliothek ist im App-Offline-Cache enthalten, sofern die Web-App vollständig installiert/laden konnte.
+Diese Web-App enthält 40 lokal integrierte, artspezifisch zugeordnete KI-Bilder.
+Die zehn neuen Bilder zeigen Aland, Graskarpfen, Silberkarpfen, Marmorkarpfen,
+Bachsaibling, Seesaibling, Meerforelle, Hasel, Atlantischen Stör und Bitterling.
+Fische/Krebse werden im Seitenprofil auf weißem Hintergrund dargestellt.
+KI-Bilder sind für die Illustration bestimmt, nicht als sichere Artbestimmung.
 
-PETRI HEIL PRO v1.3.0 — ECHTE FOTOGRAFIEN — By Marcel Hentschel
+Die bestehende Funktionalität für Fangbuch, Trophäenranking, Gewichtstatistik,
+Angeluhr, Ausbildungsfragen, Rechtsauszüge, Ausrüstung und Datensicherung ist
+weiterhin enthalten. Die Bilder sind fest im Ordner assets/ki-bilder gespeichert.
 
-Die SVG-Zeichnungen früherer Entwürfe sind entfernt. Keine schematischen Fisch- oder Köderbilder enthalten.
+INSTALLATION
+1. Vor einem Update in der App ein JSON-Backup exportieren.
+2. ZIP entpacken. Nicht die ZIP-Datei, sondern ALLE enthaltenen Dateien und
+   Unterordner auf GitHub Pages im Repository-Stamm hochladen.
+3. Die Datei index.html und app.js, sw.js, version.json sowie den Ordner assets
+   vollständig ersetzen. Den gesamten assets-Ordner einschließlich ki-bilder behalten.
+4. GitHub Pages für main / (root) aktivieren und die Webseite im Browser neu laden.
+5. Einmal online öffnen, bis der neue Offline-Cache die Dateien laden konnte.
 
-FISCHFOTOS
-Beim Öffnen der Fischkunde sucht die App anhand des wissenschaftlichen Namens auf iNaturalist nach einer exakten Artzuordnung. Es werden nur Quellen mit einer offenen Creative-Commons-Lizenz ausgewählt. Die App zeigt Fotoquelle und Namens-/Lizenzhinweis an. Nicht alle der 176 Einträge haben zwangsläufig ein eindeutig zuordenbares und lizenzierbares Foto. In solchen Fällen bleibt ein Hinweis 'Foto nicht gefunden' stehen, kein falsches Bild.
+Datenschutz: Fangdaten verbleiben lokal im Browser; beim Entfernen der
+Browserdaten kann der Datenbestand verloren gehen. Regelmäßig Backups erstellen.
 
-AUSRÜSTUNGSFOTOS
-Die App sucht auf Wikimedia Commons nach Fotos mit passenden englischen Stichwörtern und offenem Lizenznachweis. Automatische Fotoauswahl ist nicht in jedem Fall gleichbedeutend mit fachlicher Gewissheit: Quelle prüfen. Eigene Fotos können zu jedem Typ hochgeladen werden.
+BILDER
+Eigene hochgeladene Bilder haben Vorrang. Noch nicht zugeordnete Einträge
+können Online-Fotos suchen. KI-generierte Bilder sind keine naturkundlich
+verifizierten Belegfotos; einzelne charakteristische Merkmale können fehlen.
 
-OFFLINE
-App-Grundfunktionen sind offline. Um externe echte Fotos offline zu verwenden: Unter 'Daten & Einstellungen' > 'Fotos offline vorbereiten' klicken (Internetzugang). Jede Fotoquelle wird lokal gespeichert, soweit der Webbrowser das zulässt. Die erste Vorbereitung bei 197 Einträgen kann mehrere Minuten dauern. Ohne vorherigen Online-Download werden fehlende Fotos im Offline-Modus nicht angezeigt. Browser-Cache und Gerätespeicher beeinflussen, welche Fotos erhalten bleiben.
-
-DATEN & BACKUP
-Eigene zugeordnete Fotos werden zusammen mit dem Fangbuch in der bestehenden IndexedDB gespeichert und in neuen JSON-Backups mit exportiert. Vor jedem Versionswechsel ein Backup erstellen. Kein automatischer Server-Upload persönlicher Fänge. Lizenz und Quelle für Fremdfotos beachten.
-
-GITHUB
-Alle Dateien aus ZIP entpacken und ALLE Datein/Ordner auf Branch main an die oberste Ebene des Repositories hochladen. index.html, app.js, data.js, style.css, sw.js, version.json und manifest.webmanifest gehören ins Stammverzeichnis, die Icons in assets/. GitHub Pages unter Settings > Pages > Deploy from a branch > main > /(root) aktivieren.
-
-
-EINSCHRÄNKUNG ZUR BILDQUALITÄT
-Die Fotoquellen müssen beim ersten Zugriff aus dem Internet geladen werden. Ein passendes
-Foto ist NICHT für jeden Eintrag garantiert. Die automatische Ausrüstungssuche ist nicht
-manuell kuratiert, kann also unpassende Treffer liefern; daher die Quelle kontrollieren
-oder ein eigenes echtes Foto zuordnen. Es werden ausdrücklich keine schematischen
-Bildersatzzeichnungen verwendet.
-
-
-Version 1.5.0: 20 fest zugeordnete KI-Bilder sind lokal enthalten. Für Updates entpackte Dateien samt Ordner assets auf GitHub hochladen. Eigene Fangdaten vor Updates sichern.
+SCHONZEITEN
+Landesrecht, Gewässerordnung und aktuelle Fangverbote selbst prüfen.
+Eine unvollständige Datenlage bedeutet ausdrücklich keine Entnahmeerlaubnis.
