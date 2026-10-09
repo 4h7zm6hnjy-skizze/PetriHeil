@@ -1,11 +1,12 @@
 {
-  "version": "1.9.0",
+  "version": "2.0.0",
   "releaseDate": "2026-10-09",
   "name": "Petri Heil Pro",
   "changes": [
-    "10 neue KI-Bilder auf weißem Hintergrund: Huchen, Schlammpeitzger, Steinbeißer, Maifisch, Flunder, Scholle, Dorsch, Hornhecht, Makrele und Wolfsbarsch",
-    "60 fest zugeordnete, lokal verfügbare KI-Bilder inkl. Offline-Cache",
-    "Alle bisherigen Funktionen und Nutzerdatenformate bleiben unverändert",
+    "10 neue KI-Bilder auf weißem Hintergrund: Hering, Sprotte, Sardine, Meeräsche, Kliesche, Steinbutt, Seeteufel, Roter Knurrhahn, Finte und Goldbrasse",
+    "70 fest zugeordnete, lokal verfügbare KI-Bilder inkl. Offline-Cache",
+    "Seeteufel als neuer Arteneintrag im Fischlexikon (nun 177 Fisch- und Krebsarten)",
+    "Vorhandene App-Funktionen und persönliche Fangdatenformate bleiben unverändert",
     "Versionsanzeige und Versionsverlauf aktualisiert"
   ],
   "notes": "KI-generierte Abbildungen sind keine fachlich validierten Bestimmungsfotos. Manche Merkmale können unzutreffend sein. Die Entnahmeentscheidung darf nicht anhand dieser Bilder getroffen werden."

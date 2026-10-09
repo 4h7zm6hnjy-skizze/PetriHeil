@@ -1,4 +1,4 @@
-PETRI HEIL PRO v1.9.0 · BY MARCEL HENTSCHEL
+PETRI HEIL PRO v2.0.0 · BY MARCEL HENTSCHEL
 
 Diese Web-App enthält 40 lokal integrierte, artspezifisch zugeordnete KI-Bilder.
 Die zehn neuen Bilder zeigen Aland, Graskarpfen, Silberkarpfen, Marmorkarpfen,
@@ -34,3 +34,5 @@ Eine unvollständige Datenlage bedeutet ausdrücklich keine Entnahmeerlaubnis.
 NEU: 10 Bilder (9 weitere Arten + Jigkopf-Montage), 50 KI-Bilder lokal und offline.
 
 NEU: 10 Fische (darunter 6 Küsten-/Meeresfische), 60 lokal zugeordnete KI-Bilder, auch offline.
+
+NEU: 10 Meeresfisch-KI-Bilder, 70 lokal zugeordnete KI-Bilder, 1 neuer Fischlexikoneintrag, offline gepuffert.

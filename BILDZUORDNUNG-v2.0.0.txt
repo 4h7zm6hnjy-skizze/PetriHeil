@@ -1,0 +1,14 @@
+Petri Heil Pro – KI-Bildzuordnung v2.0.0
+
+KI-generierte Illustrationsfotos, NICHT fachlich validierte Bestimmungsfotos.
+
+Atlantischer Hering (fish:s1) → assets/ki-bilder/hering.webp
+Sprotte (fish:s2) → assets/ki-bilder/sprotte.webp
+Europäische Sardine (fish:s3) → assets/ki-bilder/sardine.webp
+Meeräsche (Dicklippige) (fish:s56) → assets/ki-bilder/meeraesche.webp
+Kliesche (fish:s22) → assets/ki-bilder/kliesche.webp
+Steinbutt (fish:s24) → assets/ki-bilder/steinbutt.webp
+Europäischer Seeteufel (fish:s74) → assets/ki-bilder/seeteufel.webp
+Roter Knurrhahn (fish:s34) → assets/ki-bilder/knurrhahn.webp
+Finte (fish:f70) → assets/ki-bilder/finte.webp
+Goldbrasse (fish:s60) → assets/ki-bilder/goldbrasse.webp
