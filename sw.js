@@ -1,18 +1,61 @@
-const CACHE='petri-heil-pro-v2-0-0';
+// Petri Heil Pro 2.0.2 – cache-busting, network-first code and fault-tolerant offline image cache.
+const CACHE='petri-heil-pro-v2-0-2';
 const PHOTO_CACHE='petri-heil-real-photos-v1';
-const SHELL=["./","./index.html","./style.css","./app.js","./data.js","./manifest.webmanifest","./assets/icon-192.png","./assets/icon-512.png","./assets/petri-logo.webp","./version.json","./assets/ki-bilder/hecht.webp","./assets/ki-bilder/zander.webp","./assets/ki-bilder/flussbarsch.webp","./assets/ki-bilder/karpfen.webp","./assets/ki-bilder/wels.webp","./assets/ki-bilder/aal.webp","./assets/ki-bilder/bachforelle.webp","./assets/ki-bilder/edelkrebs.webp","./assets/ki-bilder/gummifisch.webp","./assets/ki-bilder/spinner.webp","./assets/ki-bilder/regenbogenforelle.webp","./assets/ki-bilder/schleie.webp","./assets/ki-bilder/rotauge.webp","./assets/ki-bilder/brasse.webp","./assets/ki-bilder/aesche.webp","./assets/ki-bilder/quappe.webp","./assets/ki-bilder/lachs.webp","./assets/ki-bilder/kamberkrebs.webp","./assets/ki-bilder/signalkrebs.webp","./assets/ki-bilder/wobbler.webp","./assets/ki-bilder/barbe.webp","./assets/ki-bilder/doebel.webp","./assets/ki-bilder/rapfen.webp","./assets/ki-bilder/karausche.webp","./assets/ki-bilder/gruendling.webp","./assets/ki-bilder/laube.webp","./assets/ki-bilder/kaulbarsch.webp","./assets/ki-bilder/guester.webp","./assets/ki-bilder/rotfeder.webp","./assets/ki-bilder/nase.webp","./assets/ki-bilder/aland.webp","./assets/ki-bilder/graskarpfen.webp","./assets/ki-bilder/silberkarpfen.webp","./assets/ki-bilder/marmorkarpfen.webp","./assets/ki-bilder/bachsaibling.webp","./assets/ki-bilder/seesaibling.webp","./assets/ki-bilder/meerforelle.webp","./assets/ki-bilder/hasel.webp","./assets/ki-bilder/atlantischer-stoer.webp","./assets/ki-bilder/bitterling.webp","./assets/ki-bilder/seeforelle.webp","./assets/ki-bilder/schneider.webp","./assets/ki-bilder/elritze.webp","./assets/ki-bilder/moderlieschen.webp","./assets/ki-bilder/koppe.webp","./assets/ki-bilder/bachschmerle.webp","./assets/ki-bilder/sonnenbarsch.webp","./assets/ki-bilder/zwergwels.webp","./assets/ki-bilder/marmorierte-grundel.webp","./assets/ki-bilder/jigkopf-montage.webp","./assets/ki-bilder/huchen.webp","./assets/ki-bilder/schlammpeitzger.webp","./assets/ki-bilder/steinbeisser.webp","./assets/ki-bilder/maifisch.webp","./assets/ki-bilder/flunder.webp","./assets/ki-bilder/scholle.webp","./assets/ki-bilder/dorsch.webp","./assets/ki-bilder/hornhecht.webp","./assets/ki-bilder/makrele.webp","./assets/ki-bilder/wolfsbarsch.webp","./assets/ki-bilder/hering.webp","./assets/ki-bilder/sprotte.webp","./assets/ki-bilder/sardine.webp","./assets/ki-bilder/meeraesche.webp","./assets/ki-bilder/kliesche.webp","./assets/ki-bilder/steinbutt.webp","./assets/ki-bilder/seeteufel.webp","./assets/ki-bilder/knurrhahn.webp","./assets/ki-bilder/finte.webp","./assets/ki-bilder/goldbrasse.webp"];
+const CORE=["./index.html", "./style.css?v=2.0.2", "./app.js?v=2.0.2", "./data.js?v=2.0.2", "./manifest.webmanifest", "./version.json"];
+const IMAGES=[]; // AI-Bilder sind in app.js eingebettet.
 const PHOTO_HOSTS=['static.inaturalist.org','inaturalist-open-data.s3.amazonaws.com','upload.wikimedia.org'];
 self.addEventListener('message',e=>{if(e.data?.type==='SKIP_WAITING')self.skipWaiting()});
-self.addEventListener('install',e=>{e.waitUntil((async()=>{const c=await caches.open(CACHE);await c.addAll(SHELL);await self.skipWaiting()})())});
-self.addEventListener('activate',e=>{e.waitUntil((async()=>{for(const key of await caches.keys())if(key.startsWith('petri-heil-pro-')&&key!==CACHE)await caches.delete(key);await self.clients.claim()})())});
-self.addEventListener('fetch',e=>{if(e.request.method!=='GET')return;const url=new URL(e.request.url);
- if(PHOTO_HOSTS.includes(url.hostname)){
-  e.respondWith((async()=>{const c=await caches.open(PHOTO_CACHE);const old=await c.match(e.request,{ignoreVary:true});if(old)return old;
-   try{const res=await fetch(e.request);if(res.ok||res.type==='opaque')e.waitUntil(c.put(e.request,res.clone()).catch(()=>{}));return res}catch(err){return new Response('',{status:503})}
-  })());return;
+async function prefetchImages(cache){
+ // Each image is independent: a missing resource cannot abort the update.
+ let i=0;
+ async function worker(){while(i<IMAGES.length){const file=IMAGES[i++];try{
+  const found=await cache.match(file);if(found)continue;
+  const r=await fetch(file);if(r.ok)await cache.put(file,r);
+ }catch(err){console.warn('Offline image skipped:',file,String(err))}}}
+ await Promise.all(Array.from({length:6},worker));
+}
+self.addEventListener('install',e=>{e.waitUntil((async()=>{
+ const cache=await caches.open(CACHE);
+ await cache.addAll(CORE);
+ // A failed image may not block the essential app or update activation.
+ await prefetchImages(cache);
+ await self.skipWaiting();
+})())});
+self.addEventListener('activate',e=>{e.waitUntil((async()=>{
+ const keys=await caches.keys();
+ for(const key of keys){
+  if(key.startsWith('petri-heil-pro-')&&key!==CACHE){
+   const from=await caches.open(key),to=await caches.open(CACHE);
+   // Image cache no longer needed for embedded illustrations.
+   for(const asset of IMAGES){if(!(await to.match(asset))){const response=await from.match(asset);if(response)await to.put(asset,response)}}
+   await caches.delete(key);
+  }
  }
+ await self.clients.claim();
+})())});
+function fetchOrCache(req,key){return fetch(req).then(async res=>{
+ if(res.ok){const c=await caches.open(CACHE);await c.put(key||req,res.clone()).catch(()=>{})}
+ return res;
+}).catch(()=>caches.match(key||req));}
+self.addEventListener('fetch',e=>{
+ if(e.request.method!=='GET')return;
+ const url=new URL(e.request.url);
+ if(PHOTO_HOSTS.includes(url.hostname)){e.respondWith((async()=>{
+  const c=await caches.open(PHOTO_CACHE),old=await c.match(e.request,{ignoreVary:true});
+  if(old)return old;
+  try{const r=await fetch(e.request);if(r.ok||r.type==='opaque')e.waitUntil(c.put(e.request,r.clone()).catch(()=>{}));return r}
+  catch(err){return new Response('',{status:503})}
+ })());return}
  if(url.origin!==self.location.origin)return;
- if(url.pathname.endsWith('/version.json')){e.respondWith(fetch(e.request,{cache:'no-store'}).catch(()=>caches.match('./version.json')));return}
- if(e.request.mode==='navigate'){e.respondWith(fetch(e.request).then(r=>{if(r.ok)e.waitUntil(caches.open(CACHE).then(c=>c.put('./index.html',r.clone())));return r}).catch(()=>caches.match('./index.html')));return}
- e.respondWith(caches.match(e.request).then(old=>old||fetch(e.request).then(r=>{if(r.ok)e.waitUntil(caches.open(CACHE).then(c=>c.put(e.request,r.clone())));return r})))
+ if(url.pathname.endsWith('/version.json')){
+  e.respondWith(fetch(e.request,{cache:'no-store'}).catch(()=>caches.match('./version.json')));return;
+ }
+ if(e.request.mode==='navigate'){
+  e.respondWith(fetchOrCache(e.request,'./index.html'));return;
+ }
+ // Never serve stale JS/CSS/data when online. Offline falls back to the latest core.
+ if(/\/(?:app|data)\.js$|\/style\.css$|\/manifest\.webmanifest$/.test(url.pathname)){
+  e.respondWith(fetchOrCache(e.request).then(r=>r||caches.match(e.request,{ignoreSearch:true})));return;
+ }
+ e.respondWith(caches.match(e.request).then(old=>old||fetchOrCache(e.request)));
 });

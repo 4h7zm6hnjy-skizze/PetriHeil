@@ -1,13 +1,14 @@
 {
-  "version": "2.0.0",
-  "releaseDate": "2026-10-09",
+  "version": "2.0.2",
+  "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "10 neue KI-Bilder auf weißem Hintergrund: Hering, Sprotte, Sardine, Meeräsche, Kliesche, Steinbutt, Seeteufel, Roter Knurrhahn, Finte und Goldbrasse",
-    "70 fest zugeordnete, lokal verfügbare KI-Bilder inkl. Offline-Cache",
-    "Seeteufel als neuer Arteneintrag im Fischlexikon (nun 177 Fisch- und Krebsarten)",
-    "Vorhandene App-Funktionen und persönliche Fangdatenformate bleiben unverändert",
-    "Versionsanzeige und Versionsverlauf aktualisiert"
+    "Behoben: 70 Fisch-, Krebs- und Köderbilder sind direkt in app.js integriert und benötigen keinen separat hochgeladenen Ordner assets/ki-bilder",
+    "Defekte Bildsymbole vermieden: externe Bildquellen erhalten verständliche Ersatzanzeige bei Ladefehlern",
+    "Logo und Browser-Symbol sind ebenfalls direkt eingebettet",
+    "Offline-Installation funktioniert auch, wenn auf GitHub einzelne Bilder fehlen; Kern-Dateien werden weiterhin lokal gespeichert",
+    "Versionsanzeige und Update-Suche auf 2.0.2 aktualisiert",
+    "Fangbuch, Angelzeit-Uhr, Statistiken und gespeicherte Datenformate unverändert"
   ],
   "notes": "KI-generierte Abbildungen sind keine fachlich validierten Bestimmungsfotos. Manche Merkmale können unzutreffend sein. Die Entnahmeentscheidung darf nicht anhand dieser Bilder getroffen werden."
 }

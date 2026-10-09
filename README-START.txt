@@ -1,38 +1,39 @@
-PETRI HEIL PRO v2.0.0 · BY MARCEL HENTSCHEL
+PETRI HEIL PRO 2.0.2 – BILDER-REPARATUR
+========================================
 
-Diese Web-App enthält 40 lokal integrierte, artspezifisch zugeordnete KI-Bilder.
-Die zehn neuen Bilder zeigen Aland, Graskarpfen, Silberkarpfen, Marmorkarpfen,
-Bachsaibling, Seesaibling, Meerforelle, Hasel, Atlantischen Stör und Bitterling.
-Fische/Krebse werden im Seitenprofil auf weißem Hintergrund dargestellt.
-KI-Bilder sind für die Illustration bestimmt, nicht als sichere Artbestimmung.
+URSACHE
+Im veröffentlichten GitHub-Repository fehlten Bilddateien im Ordner
+assets/ki-bilder. Der Browser zeigte darum defekte Bildsymbole an.
 
-Die bestehende Funktionalität für Fangbuch, Trophäenranking, Gewichtstatistik,
-Angeluhr, Ausbildungsfragen, Rechtsauszüge, Ausrüstung und Datensicherung ist
-weiterhin enthalten. Die Bilder sind fest im Ordner assets/ki-bilder gespeichert.
+DIESE VERSION BENÖTIGT DIESE BILDDATEIEN NICHT MEHR!
+Die 70 bisher erzeugten KI-Bilder sind direkt in app.js eingebettet.
+Fischkunde und Ausrüstung können sie ohne weitere Bildordner anzeigen.
+Das App-Logo ist in index.html eingebettet.
 
-INSTALLATION
-1. Vor einem Update in der App ein JSON-Backup exportieren.
-2. ZIP entpacken. Nicht die ZIP-Datei, sondern ALLE enthaltenen Dateien und
-   Unterordner auf GitHub Pages im Repository-Stamm hochladen.
-3. Die Datei index.html und app.js, sw.js, version.json sowie den Ordner assets
-   vollständig ersetzen. Den gesamten assets-Ordner einschließlich ki-bilder behalten.
-4. GitHub Pages für main / (root) aktivieren und die Webseite im Browser neu laden.
-5. Einmal online öffnen, bis der neue Offline-Cache die Dateien laden konnte.
+GITHUB UPLOAD
+1. Erstelle in der bisherigen App ein BACKUP deiner Fangdaten.
+2. Entpacke die ZIP-Datei auf deinem Gerät.
+3. Lade mindestens folgende Dateien in den HAUPTORDNER deines
+   GitHub-Repositories hoch und ersetze gleichnamige Dateien:
+   - index.html
+   - app.js
+   - data.js
+   - style.css
+   - sw.js
+   - version.json
+   - manifest.webmanifest
+   Weitere assets-Dateien kannst du ebenfalls hochladen.
+   WICHTIG: GitHub ZIP-Datei nicht ungeöffnet ablegen.
+4. GitHub Pages braucht etwas Zeit bis zur Veröffentlichung.
+5. Öffne die App online, wähle Mehr > Update suchen,
+   und aktualisiere. Alternativ die GitHub-Pages-Adresse in Safari
+   mit ?v=2.0.2 aufrufen (URL-Parameter an die Basisadresse anhängen).
 
-Datenschutz: Fangdaten verbleiben lokal im Browser; beim Entfernen der
-Browserdaten kann der Datenbestand verloren gehen. Regelmäßig Backups erstellen.
+ZUM TESTEN
+App-Fischkunde: Hecht, Zander, Flussbarsch, Kaulbarsch. Die
+Bilder funktionieren nun auch ohne assets/ki-bilder.
+Alte installierte Web-App auf dem Home-Bildschirm ggf. komplett
+beenden und erneut über Safari starten; persönliche Daten nicht löschen.
 
-BILDER
-Eigene hochgeladene Bilder haben Vorrang. Noch nicht zugeordnete Einträge
-können Online-Fotos suchen. KI-generierte Bilder sind keine naturkundlich
-verifizierten Belegfotos; einzelne charakteristische Merkmale können fehlen.
-
-SCHONZEITEN
-Landesrecht, Gewässerordnung und aktuelle Fangverbote selbst prüfen.
-Eine unvollständige Datenlage bedeutet ausdrücklich keine Entnahmeerlaubnis.
-
-NEU: 10 Bilder (9 weitere Arten + Jigkopf-Montage), 50 KI-Bilder lokal und offline.
-
-NEU: 10 Fische (darunter 6 Küsten-/Meeresfische), 60 lokal zugeordnete KI-Bilder, auch offline.
-
-NEU: 10 Meeresfisch-KI-Bilder, 70 lokal zugeordnete KI-Bilder, 1 neuer Fischlexikoneintrag, offline gepuffert.
+HINWEIS: KI-Bilder sind illustrative Darstellungen, keine sicheren
+Bestimmungsfotos. Schonzeiten und Fischereirecht gesondert prüfen.
