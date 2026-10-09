@@ -1,14 +1,13 @@
 {
-  "version": "2.0.2",
+  "version": "2.0.3",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Behoben: 70 Fisch-, Krebs- und Köderbilder sind direkt in app.js integriert und benötigen keinen separat hochgeladenen Ordner assets/ki-bilder",
-    "Defekte Bildsymbole vermieden: externe Bildquellen erhalten verständliche Ersatzanzeige bei Ladefehlern",
-    "Logo und Browser-Symbol sind ebenfalls direkt eingebettet",
-    "Offline-Installation funktioniert auch, wenn auf GitHub einzelne Bilder fehlen; Kern-Dateien werden weiterhin lokal gespeichert",
-    "Versionsanzeige und Update-Suche auf 2.0.2 aktualisiert",
-    "Fangbuch, Angelzeit-Uhr, Statistiken und gespeicherte Datenformate unverändert"
+    "Funktionsprüfung: GPS-Koordinaten in Fängen und Angelspots werden jetzt vollständig validiert",
+    "Backup berücksichtigt jetzt auch laufende oder pausierte Angelsitzungen; alte Backups bleiben kompatibel",
+    "Updates prüfen zusätzlich index.html und Versionsverweise; aktualisierte Startseite und Code müssen zusammenpassen",
+    "Offline-Cache: Netzwerkausfälle und fehlende Dateien werden abgefangen, Icons werden optional gespeichert",
+    "Fischkunde: 70 KI-Bilder sind weiterhin lokal eingebettet, kein separater Bilderordner für diese 70 nötig"
   ],
   "notes": "KI-generierte Abbildungen sind keine fachlich validierten Bestimmungsfotos. Manche Merkmale können unzutreffend sein. Die Entnahmeentscheidung darf nicht anhand dieser Bilder getroffen werden."
 }

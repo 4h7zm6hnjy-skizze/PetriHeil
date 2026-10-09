@@ -1,0 +1,32 @@
+PETRI HEIL PRO – PRÜFBERICHT V2.0.3
+Datum: 10.10.2026
+
+GEPRÜFTE FUNKTIONEN
+- Alle 10 Navigationsbereiche erzeugen eine Ansicht ohne Fehler in einer JavaScript-Testumgebung.
+- Fischkunde: 177 Datensätze; Bildzuordnungen auf existierende Fisch- und Geräte-Einträge geprüft.
+- 70 eingebettete WebP-Bilder: alle base64-decodierbar, Bilddaten durch Pillow validiert.
+- Angelschein: 110 Fragen; 16 Bundesländer anwählbar; simulierte NRW-Prüfung mit 60 Fragen und Lernmodus mit 20 Fragen.
+- 22 Ausrüstungs- und Ködertypen vorhanden.
+- Fangbuch: Größe/Gewicht und kg→g-Umrechnung; ungewogene Fänge aus Gewichtsstatistik ausgeschlossen.
+- Trophäen/Backup: Fang-, Spot-, Sitzungs- und laufende Timerdaten im Import getestet.
+- Datenprüfung: ungültige GPS-Koordinaten im Fang werden abgewiesen.
+- Offline-Service-Worker (simuliert): Installation auch bei fehlenden optionalen Icons; JS und Startseite aus Cache nach Netzausfall; fehlende Ressourcen erzeugen keinen falschen Erfolg.
+- ZIP-Archiv: sämtliche Dateien per CRC geprüft; JavaScript-Dateien durch Syntaxprüfung.
+
+GEFUNDENE UND BEHOBENE PROBLEME
+1. Laufende/pausierte Angelzeit wurde beim Daten-Backup nicht zurückgespielt – jetzt in Backups enthalten.
+2. GPS-Koordinaten mit ungültigen Zahlen oder außerhalb zulässiger Bereiche konnten in Datensätzen landen – wird jetzt geprüft.
+3. Versionsnummer und JavaScript konnten bei unvollständig hochgeladenem Update inkonsistent sein – Updateprüfung umfasst nun zusätzlich die Startseite und Fisch-/Fragendaten.
+4. Beim Ausfall einzelner Ressourcen hatte der Service Worker teils keine sichere Offline-Rückfallantwort – korrigiert.
+5. Veraltete Beschreibung im App-Manifest – korrigiert.
+
+NICHT VERIFIZIERBAR IN DIESER UMGEBUNG
+- Echter iPhone-Safari-Test, installierte Home-Bildschirm-PWA, Kamerazugriff, GPS-Freigabe, iOS-Dateidialoge.
+- Vollständige Ende-zu-Ende-Tests in einem echten Browser: der Browserzugriff wird administrativ blockiert.
+- Die Aktualität aller gesetzlichen Schonzeiten, Mindestmaße und aller Fischkundeangaben wurde nicht neu überprüft.
+- Externe Online-Fotodienste und GitHub-Pages-Auslieferung von Nutzerdateien sind nicht abschließend getestet.
+
+WICHTIG
+Vor dem Hochladen der neuen Version ein Datenbackup exportieren und sicher speichern.
+Die ZIP ist lokal erstellt; dein GitHub-Repository wird dadurch NICHT automatisch aktualisiert.
+Die KI-Bilder sind illustrative Beispiele, keine verifizierten Bestimmungsaufnahmen.

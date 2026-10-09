@@ -1,8 +1,8 @@
-// Petri Heil Pro 2.0.2 – cache-busting, network-first code and fault-tolerant offline image cache.
-const CACHE='petri-heil-pro-v2-0-2';
+// Petri Heil Pro 2.0.3 – cache-busting, network-first code and fault-tolerant offline image cache.
+const CACHE='petri-heil-pro-v2-0-3';
 const PHOTO_CACHE='petri-heil-real-photos-v1';
-const CORE=["./index.html", "./style.css?v=2.0.2", "./app.js?v=2.0.2", "./data.js?v=2.0.2", "./manifest.webmanifest", "./version.json"];
-const IMAGES=[]; // AI-Bilder sind in app.js eingebettet.
+const CORE=["./index.html", "./style.css?v=2.0.3", "./app.js?v=2.0.3", "./data.js?v=2.0.3", "./manifest.webmanifest", "./version.json"];
+const IMAGES=["./assets/icon-192.png","./assets/icon-512.png","./assets/petri-logo.webp"]; // AI-Bilder sind in app.js eingebettet.
 const PHOTO_HOSTS=['static.inaturalist.org','inaturalist-open-data.s3.amazonaws.com','upload.wikimedia.org'];
 self.addEventListener('message',e=>{if(e.data?.type==='SKIP_WAITING')self.skipWaiting()});
 async function prefetchImages(cache){
@@ -33,10 +33,20 @@ self.addEventListener('activate',e=>{e.waitUntil((async()=>{
  }
  await self.clients.claim();
 })())});
-function fetchOrCache(req,key){return fetch(req).then(async res=>{
- if(res.ok){const c=await caches.open(CACHE);await c.put(key||req,res.clone()).catch(()=>{})}
- return res;
-}).catch(()=>caches.match(key||req));}
+async function fetchOrCache(req,key){
+ const cacheKey=key||req;
+ try{
+  const res=await fetch(req);
+  if(!res.ok)throw new Error('HTTP '+res.status);
+  const c=await caches.open(CACHE);
+  await c.put(cacheKey,res.clone()).catch(()=>{});
+  return res;
+ }catch(err){
+  const old=await caches.match(cacheKey,{ignoreSearch:true});
+  if(old)return old;
+  return Response.error();
+ }
+}
 self.addEventListener('fetch',e=>{
  if(e.request.method!=='GET')return;
  const url=new URL(e.request.url);
