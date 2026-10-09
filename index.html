@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#081b1d"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Petri Heil Pro"><meta name="description" content="Offlinefähiger Angler-Begleiter: Angelschein, Fischkunde, Fangbuch, Angelzeit und Statistiken.">
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="assets/icon-192.png"><link rel="icon" href="assets/icon-192.png"><link rel="stylesheet" href="style.css">
+<title>Petri Heil Pro · By Marcel Hentschel</title>
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><div class="brand-mark">PH<span>↗</span></div><div><strong>PETRI HEIL <span>PRO</span></strong><small>By Marcel Hentschel</small></div></div>
+  <div class="sidebar-meta"><span class="status-dot"></span><span id="offline-state">Bereit für offline</span></div>
+  <p class="side-heading">DEIN COCKPIT</p>
+  <nav class="nav" id="nav-desktop" aria-label="Hauptnavigation"></nav>
+  <div class="side-bottom"><img src="assets/petri-logo.webp" alt="Petri Heil Hecht Logo"><p>FANG DEN MOMENT.</p><small>Deine Angelerlebnisse. Deine Daten.</small><button class="side-cta" data-action="openCatch">+ Fang eintragen</button></div>
+  <div class="tiny">Version 1.1.0 · Offline-PWA</div>
+</aside>
+<div class="mobile-shade" id="mobile-shade"></div>
+<div class="workspace">
+<header class="topbar"><button class="icon-button mobile-only" id="menu-toggle" aria-label="Menü öffnen">☰</button><div class="header-title"><span class="eyebrow" id="crumb">DEIN ANGELCOCKPIT</span><h1 id="page-title">Übersicht</h1></div><div class="header-actions"><span class="network-tag" id="network-tag">OFFLINE READY</span><button class="button button-primary top-add" data-action="openCatch"><span>＋</span> Fang erfassen</button></div></header>
+<main id="main" tabindex="-1" aria-live="polite"></main>
+<footer class="foot-note">Petri Heil Pro · By Marcel Hentschel · Lokale Speicherung auf deinem Gerät · Rechtshinweise sorgfältig prüfen</footer>
+</div>
+</div>
+<nav class="bottom-nav" aria-label="Schnellnavigation" id="nav-bottom"></nav>
+<div id="modal-root"></div><div id="toast" role="status" aria-live="polite"></div>
+<script src="data.js"></script><script src="app.js"></script>
+</body>
+</html>
