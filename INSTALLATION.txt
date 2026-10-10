@@ -1,22 +1,18 @@
-Petri Heil Pro – Version 2.0.28
+PETRI HEIL PRO – Logo-Update 2.0.29
 
-Drei neue weiße KI-Ausrüstungsbilder + Funktion »Update installieren«.
+ZIEL:
+- OBEN IM SEITENMENÜ: Petri Heil Pro + by Marcel Hentschel als freigestelltes Logo.
+- STARTSEITE, SEITENMENÜ UNTEN UND FISCHKUNDE-ICONS: freigestellter Hecht ohne Text, ohne weiße Kachel.
 
-WICHTIG: Alle Dateien direkt in das Hauptverzeichnis des GitHub-Repositories PetriHeil hochladen, nicht nur die ZIP-Datei und nicht in einen neuen Unterordner. Vorhandene Dateien ersetzen.
+INSTALLATION:
+1. ZIP-Datei auf iPhone im Ordner Dateien entpacken.
+2. Alle 10 App-Dateien aus dem entpackten Ordner ins HAUPTVERZEICHNIS
+   des GitHub-Repositories 4h7zm6hnjy-skizze/PetriHeil hochladen.
+3. Vorhandene Dateien ersetzen und Commit changes auswählen.
+4. Die App zunächst online in Safari öffnen und neu laden.
+5. Danach die Home-Bildschirm-App vollständig schließen und erneut öffnen.
+6. Über Mehr → Update suchen die Version 2.0.29 prüfen.
 
-Dateien:
-- gear-abhakmatte.webp (NEU)
-- gear-massband-waage.webp (NEU)
-- gear-hakenloeser-zange.webp (NEU)
-- petri-gear-media-v2.0.28.js (NEU; ersetzt die Script-Einbindung v2.0.27 in index.html)
-- petri-update-install-v2.0.28.js (NEU)
-- index.html (ERSETZEN)
-- sw.js (ERSETZEN)
-- species-images-v2.0.5.js (ERSETZEN)
-- version.json (ERSETZEN)
-
-Die bisherigen gear-*.webp Bilder und das vorhandene icon-fischkunde-hecht.webp müssen im GitHub-Hauptverzeichnis bleiben.
-
-Nach dem Commit zweimal online laden. Danach in Mehr > Update suchen / Update installieren testen.
-
-Update installieren ist KEINE GitHub-Datei-Upload-Funktion: Der Button lädt später veröffentlichte PWA-Versionen per Service Worker und startet die App neu. Vorherige lokale Eingaben bitte speichern. Beim Update werden lokal gespeicherte Fangdaten nicht gelöscht.
+Die INSTALLATION.txt dient nur als Hilfe und muss nicht hochgeladen werden.
+Fangdaten, Einstellungen und bestehende Bildkataloge bleiben unangetastet.
+Die App nicht vom Home-Bildschirm löschen, bevor lokale Fangdaten gesichert sind.

@@ -1,13 +1,13 @@
 {
-  "version": "2.0.28",
+  "version": "2.0.29",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Drei neue KI-Produktfotos auf weißem Hintergrund für Abhakmatte, Maßband & Waage sowie Hakenlöser & Zange.",
-    "Bildzuordnung in der Ausrüstung und den Detailansichten erweitert.",
-    "Neuer Update-installieren-Knopf unter Mehr; installiert nach GitHub-Veröffentlichung verfügbare Service-Worker-Updates in der Web-App.",
-    "Aktualisierter Offline-Cache mit den drei neuen Bildern und Installationssteuerung.",
-    "Bisherige Fischkunde-, Hecht-Icon-, Design- und Fangbuchfunktionen unverändert."
+    "Oben im Seitenmenü neues freistehendes Petri-Heil-Pro-Logo mit lesbarem Schriftzug und by Marcel Hentschel.",
+    "Auf der Startseite und im unteren Menü freistehender Hecht mit Köder ohne quadratischen oder kreisförmigen Hintergrund.",
+    "Alte lila Fischkunde-Zeichen in Navigation und Startseiten-Aktionen durch das freistehende Hecht-Motiv ersetzt.",
+    "Transparente WebP-Assets offline eingebunden, Service-Worker-Cache aktualisiert.",
+    "Fischkunde, Ausrüstung, Datenhaltung, Backup und Update-installieren-Funktion beibehalten."
   ],
-  "notes": "Eine PWA kann nur Änderungen installieren, die zuvor auf GitHub veröffentlicht wurden. Der Update-Button lädt veröffentlichte App-Dateien neu und leert keine Fangdaten. Für zukünftige Updates muss die neue Version ebenfalls auf GitHub veröffentlicht sein."
+  "notes": "Hochladen nach GitHub erforderlich. Neue Logos erscheinen nach Aktualisierung der bereits installierten PWA. Keine Neuinstallation oder Löschung lokaler Website-Daten nötig."
 }

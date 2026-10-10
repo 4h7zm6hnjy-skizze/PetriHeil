@@ -1,0 +1,51 @@
+/* Petri Heil Pro 2.0.29 – freistehende Logos ohne Kreis, Kachel oder weißen Rand */
+.sidebar .brand.petri-marke29 {display:flex;justify-content:center;align-items:center;gap:0;padding:0 4px 5px;min-height:126px}
+.sidebar .brand.petri-marke29 > .petri-marke29-bild {display:block;width:100%;height:125px;max-width:300px;object-fit:contain;object-position:center;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+/* The standalone pike in the splash replaces the framed promotional and hero badge. */
+.hero > img.petri-fisch29-hero,
+.sidebar .side-bottom > img.petri-fisch29-promo {
+  background:transparent!important;border:0!important;border-radius:0!important;
+  box-shadow:none!important;outline:0!important;object-fit:contain!important;
+}
+.sidebar .side-bottom > img.petri-fisch29-promo {display:block;width:100%;height:115px;padding:4px 10px;background:transparent!important}
+.hero > img.petri-fisch29-hero {width:100%;max-width:240px;height:auto;filter:drop-shadow(0 5px 9px rgba(6,64,100,.16));}
+/* Neutral, unframed fish icon, used in the navigation and other Fishkunde actions. */
+.petri-fisch29-icon,
+.petri-gear27-icon.petri-fisch29-icon,
+.bottom-nav .petri-gear27-icon.petri-fisch29-icon,
+#nav-bottom .petri-gear27-icon.petri-fisch29-icon,
+#nav-desktop .petri-gear27-icon.petri-fisch29-icon {
+  display:inline-block!important;box-sizing:content-box!important;
+  background-image:url('./petri-fisch-v2.0.29.webp')!important;
+  background-color:transparent!important;
+  background-size:contain!important;background-position:center!important;background-repeat:no-repeat!important;
+  border:0!important;outline:0!important;border-radius:0!important;
+  box-shadow:none!important;filter:none!important;
+  color:transparent!important;line-height:0!important;font-size:0!important;
+  text-indent:-9999px!important;overflow:hidden!important;
+  width:27px!important;height:27px!important;min-width:27px!important;min-height:27px!important;
+  padding:0!important;vertical-align:middle!important;flex:none!important;
+}
+#nav-bottom .petri-fisch29-icon,.bottom-nav .petri-fisch29-icon {
+  width:28px!important;height:28px!important;min-width:28px!important;min-height:28px!important;
+}
+.sidebar .nav .petri-fisch29-icon {width:27px!important;height:27px!important}
+.metric .petri-fisch29-icon,.quick-actions .petri-fisch29-icon,.card .petri-fisch29-icon {
+  width:37px!important;height:37px!important;min-width:37px!important;min-height:37px!important;
+}
+/* Some original icon badges put a square behind the Pisces glyph. Remove it only when we replace the glyph. */
+.fish-icon.petri-fisch29-icon,.ico.petri-fisch29-icon,.petri-gear27-icon.petri-fisch29-icon {
+  background-color:transparent!important;background-image:url('./petri-fisch-v2.0.29.webp')!important;
+}
+@media(max-width:850px) {
+  .hero > img.petri-fisch29-hero {max-width:180px;height:auto}
+}
+@media(max-width:550px) {
+  .hero > img.petri-fisch29-hero {
+    width:clamp(112px,29vw,160px)!important;
+    height:auto!important;
+    right:7px!important;top:12px!important;
+  }
+  .sidebar .brand.petri-marke29 > .petri-marke29-bild{height:116px}
+  .sidebar .brand.petri-marke29{min-height:118px}
+}
