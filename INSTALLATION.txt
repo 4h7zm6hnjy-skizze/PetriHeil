@@ -1,20 +1,15 @@
-PetriHeil Pro 2.0.24 – iPhone-Home-Bildschirm-Fix
+PetriHeil Logo-Update 2.0.25
 
-Problem: In Safari ist das neue Design hell, die installierte Home-Bildschirm-App startet noch mit dem alten dunklen Design.
-Ursache: Das helle CSS und der Bildloader wurden bislang nur durch den Service Worker nachträglich in das HTML eingefügt; das ursprüngliche index.html und das PWA-Manifest waren weiterhin dunkel.
+Enthalten:
+- neues Home-Bildschirm-Icon (icon-192.png, icon-512.png)
+- neues In-App-Logo (petri-logo.webp)
+- aktualisierte Dateien: index.html, species-images-v2.0.5.js, sw.js, version.json
 
-1. ZIP entpacken.
-2. Diese SECHS Dateien im Hauptverzeichnis des bestehenden GitHub-Projekts hochladen bzw. ersetzen:
-   index.html
-   manifest.webmanifest
-   petri-ocean-theme.css
-   species-images-v2.0.5.js
-   sw.js
-   version.json
-3. Commit speichern und Veröffentlichung auf GitHub Pages abwarten.
-4. Bereits installierte Home-Bildschirm-App MIT INTERNET öffnen und zweimal vollständig schließen und neu starten. In der App unter Mehr > Update suchen Version 2.0.24 prüfen.
-5. Erst wenn die App online aktualisiert ist, den Offline-Betrieb ausprobieren.
+Installation:
+1. ZIP-Datei entpacken.
+2. Alle Dateien aus diesem Ordner in das Hauptverzeichnis des PetriHeil-GitHub-Repositories hochladen und vorhandene Dateien ersetzen.
+3. Änderungen speichern/committen.
+4. Die App zweimal online öffnen, dann die Home-Bildschirm-App vollständig schließen und erneut starten.
 
-ACHTUNG: Die Home-Bildschirm-App NICHT einfach löschen. Dadurch könnten lokal gespeicherte Fangdaten verloren gehen. Falls ein Neuinstallieren irgendwann nötig ist, vorher in der App ein Backup exportieren.
-
-Dieses Paket ändert weder app.js noch data.js und löscht keine Nutzerdaten. Die alten eingebetteten Icons im index.html wurden durch Links auf die bereits vorhandenen Dateien icon-192.png und petri-logo.webp ersetzt.
+Hinweis:
+Wenn das alte Symbol auf dem Home-Bildschirm noch angezeigt wird, kurz warten oder die Verknüpfung neu zum Home-Bildschirm hinzufügen.
