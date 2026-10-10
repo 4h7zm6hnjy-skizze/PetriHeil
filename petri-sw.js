@@ -1,10 +1,10 @@
-/* Petri Heil Pro: stabiler Worker-Pfad, Version 2.1.5.
+/* Petri Heil Pro: stabiler Worker-Pfad, Version 2.1.6.
    Updated in place on future releases. Does not import legacy workers. */
 'use strict';
-const VERSION='2.1.5';
+const VERSION='2.1.6';
 const ROOT=new URL('./',self.location.href);
-const CORE_CACHE='petri-core-2.1.5';
-const IMAGE_CACHE='petri-images-2.1.5';
+const CORE_CACHE='petri-core-2.1.6';
+const IMAGE_CACHE='petri-images-2.1.6';
 const CORE=[
  'index.html','update-rettung.html','version.json','manifest.webmanifest',
  'style.css?v=2.0.4','data.js?v=2.0.4','app.js?v=2.0.4',
@@ -13,15 +13,18 @@ const CORE=[
  'petri-next-v2.0.37.css?v=2.0.42','petri-gesamt-v2.0.39.css?v=2.0.42',
  'petri-gps-v2.0.42.css?v=2.0.42','petri-ui-v2.1.2.css?v=2.1.2',
  'petri-species-regions-v2.1.3.css?v=2.1.3','petri-hero-logo-v2.1.4.css?v=2.1.4',
+ 'petri-start-design-v2.1.6.css?v=2.1.6','petri-start-design-v2.1.6.js?v=2.1.6',
+ 'petri-hero-uebersicht-v2.1.6.webp',
+ 'petri-hero-uebersicht-v2.1.6.webp',
  'species-images-v2.0.5.js?v=2.0.42','petri-anglerclock-pruefung-v2.0.30.js?v=2.0.42',
  'petri-pro-suite-v2.0.42.js?v=2.0.42','petri-data-bridge-v2.0.33.js?v=2.0.42',
  'petri-report-v2.0.36.js?v=2.0.42','petri-next-v2.0.37.js?v=2.0.42',
  'petri-gesamt-v2.0.41.js?v=2.0.42','petri-unified-ui-v2.1.2.js?v=2.1.2',
- 'petri-species-regions-v2.1.3.js?v=2.1.3','petri-updater.js?v=2.1.5'
+ 'petri-species-regions-v2.1.3.js?v=2.1.3','petri-updater.js?v=2.1.6'
 ];
 const IMAGES=[
  'petri-fisch-v2.0.29.webp','petri-marke-v2.0.29.webp',
- 'icon-192.png','icon-512.png',
+ 'icon-192.png','icon-512.png','petri-hero-uebersicht-v2.1.6.webp',
  'gear-bissfestes-vorfach.webp','gear-boilie.webp','gear-mais-teig.webp',
  'gear-wuermer-maden.webp','gear-pilker-paternoster.webp','gear-rettungsweste.webp'
 ];

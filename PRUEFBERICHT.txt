@@ -1,5 +1,10 @@
-Petri Heil Pro 2.1.4
-- Index verweist auf neues CSS petri-hero-logo-v2.1.4.css.
-- Update-Skript und Service Worker auf 2.1.4 umgestellt.
-- Hero-Hecht im Startbereich per CSS deutlich vergrößert.
-- Regionserweiterung 2.1.3 bleibt erhalten.
+Petri Heil Pro 2.1.6
+- Ziel: Startseite entsprechend Nutzerbild; kein Designwechsel bei anderen Bereichen.
+- Dynamische Original-Elemente verschoben; originale Event-Handler bleiben an ihren DOM-Elementen.
+- JS-Syntax und JSON verifiziert, neue Dateien im Offline-Kerncache referenziert.
+- Bild stammt aus der im Gespräch ausgewählten KI-Vorlage, auf das Hero-Feld zugeschnitten.
+- Einschränkung: Die Banner-Texte sind Teil des Bildes und nicht live editierbar. Originaltext bleibt für Screenreader in DOM, Klickflächen liegen transparent über den abgebildeten Schaltflächen.
+- Realer iPhone-Test und Veröffentlichung auf GitHub sind noch nicht abgeschlossen.
+- Neues Banner wird nur sichtbar, wenn die Bilddatei erfolgreich lädt; andernfalls bleibt die ursprüngliche Startkarte bedienbar.
+- Bannerbild ist jetzt Bestandteil des verpflichtenden Offline-Kerncaches.
+- Platzierungen werden in Gold, Silber und Bronze unterschieden.
