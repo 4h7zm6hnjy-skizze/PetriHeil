@@ -1,0 +1,49 @@
+PETRI HEIL PRO 2.1.0 – EINMALIGES SAMMELUPDATE
+================================================
+
+WAS DIESES PAKET ENTHAELT
+- index.html: lädt die neue Version und ersetzt die bisherigen gestapelten
+  Bild-/Menü-/Kontrast-Hotfixe durch eine gemeinsame UI-Schicht.
+- petri-unified-ui-v2.1.0.js: bestehende Ausrüstungsbilder, sechs zusätzliche
+  KI-Bilder, Logos und Menüsymbole mit einer gemeinsamen Aktualisierungssteuerung.
+- petri-ui-v2.1.0.css: zusammengelegte Layout-, Kontrast- und Foto-Regeln.
+- petri-update-v2.1.0.js: neue Versionskontrolle, Installation des neuen Workers.
+- sw-v2.1.0.js: Offline-Zusatz-Cache; übernimmt den bisherigen Fischbilder-
+  Offline-Code mit importScripts('./sw.js'). sw.js unbedingt erhalten!
+- version.json: veröffentlichte Version 2.1.0.
+- gear-*.webp: alle sechs zusätzlichen KI-Bilder (erneut mitgeliefert).
+
+INSTALLATION IN GITHUB (WICHTIG)
+1. ZUERST in der bisherigen App ein Backup erstellen.
+2. Dieses ZIP entpacken – NICHT die ZIP-Datei allein hochladen.
+3. https://github.com/4h7zm6hnjy-skizze/PetriHeil öffnen.
+4. Im Repository-Stammverzeichnis „Add file“ -> „Upload files“ wählen.
+5. ALLE Dateien dieses Pakets hochladen. index.html und version.json ersetzen.
+6. „Commit changes“ bestätigen; auf Abschluss der GitHub-Pages-Veröffentlichung warten.
+7. Petri Heil in Safari online neu öffnen; unter Backup & Einstellungen
+   „Version prüfen“ und danach nötigenfalls „Update installieren“ wählen.
+8. App schließen und wieder öffnen, Offline-Einsatz testen.
+
+NICHT ENTFERNEN
+- sw.js (der neue Offline-Worker importiert weiterhin diesen Code).
+- app.js, data.js, vorhandene Fischbilder und übrige alte Pro-Module.
+- Alte Hotfix-Dateien dürfen im Repository verbleiben, werden jedoch von
+  der neuen index.html nicht mehr geladen. Nicht vorschnell löschen.
+
+KOMPATIBILITAET UND SICHERHEIT
+- Dieses Paket greift NICHT auf localStorage oder IndexedDB zu, um Daten
+  zu migrieren, zu leeren oder umzuschreiben.
+- Fangbuch, Prüfungsfragen, Angelzeiten, Fotos und Dokumente bleiben in ihren
+  bisherigen Speichern. Die alte Datenstruktur wird NICHT zusammengelegt,
+  sondern bewusst kompatibel weiter genutzt, weil eine verlustfreie Migration
+  dafür einen vollständigen Datenexport und echte Gerätetests benötigt.
+- Die bestehende Menüanordnung und Klickfunktionen bleiben unverändert.
+- Der neue Worker nutzt den alten Fischbild-Cache weiter. Offline-Assets
+  müssen bei der ersten Aktualisierung online vollständig geladen werden.
+- Der Safari-Zoom-Wunsch wird über Meta-Viewport, feste Breiten und Eingaben
+  ab 16px umgesetzt. Systemseitige Accessibility-Vergrößerung kann bestehen.
+- GitHub-Pages-Veröffentlichung, echte iPhone-Bedienung und Wiederherstellung
+  mit echten Nutzerdaten können hier nicht vollständig getestet werden.
+- UPDATE-PAKET, kein Komplett-Export aller unveränderten Quell-Dateien.
+
+Version: 2.1.0 / 10.10.2026

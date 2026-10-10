@@ -1,0 +1,120 @@
+/* Petri Heil Pro 2.1.0: einheitliche Oberflaechenkorrekturen (aus 2.0.43 und 2.0.44). */
+/* Petri Heil Pro · iPhone layout & navigation hotfix 2.0.44.
+   Only presentation: no changes to App-Daten, routes, fish cards or menus. */
+html, body {width:100%;max-width:100%;overflow-x:hidden}
+html { -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+body { margin:0; overscroll-behavior-x:none; }
+.app-shell {width:100%;max-width:100%;min-width:0;}
+.workspace, #main {width:100%;max-width:100%;min-width:0;}
+#main > *, #main .grid, #main .grid > *, #main .gear-card,
+#main .card, #main .photo-host {min-width:0;max-width:100%;}
+#main h1, #main h2, #main h3, #main p,
+#main .gear-card, #main .gear-card .button {overflow-wrap:anywhere;}
+#main .gear-card .button {white-space:normal;}
+#main .gear-card p {color:#42667c!important;}
+/* Uniform line icons in the existing sidebar and fixed bottom navigation. */
+#nav-desktop button .ico.petri44-line-icon {
+  display:inline-flex; align-items:center; justify-content:center;
+  flex:0 0 28px; width:28px; height:30px; min-width:28px;
+  color:#d8edfa; line-height:1;
+}
+#nav-desktop button.active .ico.petri44-line-icon {color:#fff;}
+#nav-bottom button .ico.petri44-line-icon {
+  display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;min-width:26px;color:inherit;
+}
+.petri44-line-icon svg {display:block;width:23px;height:23px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+#nav-bottom .petri44-line-icon svg{width:21px;height:21px;}
+/* Do not change the fish illustration or Angelzentrale brand icon. */
+.sidebar, .bottom-nav, #nav-desktop button, #nav-bottom button,
+.topbar button, .gear-card button {touch-action:manipulation;}
+@media(max-width:850px) {
+  /* Prevent page-wide expansion: overflow belongs only to purpose-built inner lists/tables. */
+  #main {overflow-x:clip;}
+  .sidebar {width:min(86vw,320px);max-width:calc(100vw - 24px);}
+  .workspace > .topbar {max-width:100%;}
+  .bottom-nav {max-width:100%;width:100%;}
+  .bottom-nav button {flex:1 1 0;min-width:0;padding-left:3px;padding-right:3px;}
+  /* iOS otherwise zooms the ENTIRE page when a <16px input is focused. */
+  input:not([type=checkbox]):not([type=radio]), select, textarea {
+    font-size:16px!important;
+  }
+  input,select,textarea {max-width:100%;}
+}
+@media(max-width:380px) {
+  #nav-desktop button {gap:10px;}
+  .bottom-nav button {font-size:10px;letter-spacing:0;}
+}
+
+/* Petri Heil Pro – Lesbarkeits-Hotfix fuer Lernsystem und Pruefungssimulation.
+   Die hellen Theme-Variablen setzten dunklen Text auf unveraendert dunklen
+   Quiz-Karten. Nur Quiz-Oberflaechen und Zustaende werden geaendert. */
+.quiz-option {
+  background: #eff8fd;
+  border-color: #a8cfe3;
+  color: #153b53;
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.quiz-option .option-letter {
+  background: #d2eaf7;
+  color: #07547e;
+}
+.quiz-option:hover:not(:disabled) {
+  background: #e2f3fc;
+  border-color: #087db9;
+}
+.quiz-option.selected {
+  background: #d6effe;
+  border-color: #067db9;
+  color: #123b57;
+}
+.quiz-option.selected .option-letter {
+  background: #087db9;
+  color: #ffffff;
+}
+.quiz-option.correct {
+  background: #e3f7eb;
+  border-color: #2e8554;
+  color: #164b30;
+}
+.quiz-option.correct .option-letter {
+  background: #287449;
+  color: #ffffff;
+}
+.quiz-option.wrong {
+  background: #ffeae7;
+  border-color: #b4544d;
+  color: #7a2928;
+}
+.quiz-option.wrong .option-letter {
+  background: #a83f39;
+  color: #ffffff;
+}
+.quiz-option:disabled { opacity: 1; }
+.quiz-option:focus-visible { outline: 3px solid #087db9; outline-offset: 3px; }
+
+/* Einheitlicher Medienrahmen; Objekt stets vollstaendig sichtbar. */
+.gear-card .petri21-photo .photo-content{background:#fff!important;display:flex;align-items:center;justify-content:center;min-height:155px}
+.gear-card .petri21-photo img{display:block!important;width:100%!important;height:210px!important;max-height:210px;object-fit:contain!important;object-position:center!important;background:#fff!important}
+.gear-card .petri21-photo .photo-info{background:#f6fbff!important;color:#46657d!important}
+.gear-card .petri21-photo .photo-credit{color:#46657d!important;font-size:11px!important;line-height:1.45!important}
+.gear-card > p,.gear-card .gear-description{color:#42667c!important}
+/* Nur Menuesymbole; Marken-Hecht bleibt eigene Bilddatei. */
+#nav-desktop button .ico.petri21-icon{display:inline-flex!important;align-items:center;justify-content:center;flex:0 0 28px;width:28px;min-width:28px;height:30px;color:#d8edfa;line-height:1}
+#nav-desktop button.active .ico.petri21-icon{color:#fff}
+#nav-bottom button .ico.petri21-icon{display:inline-flex!important;align-items:center;justify-content:center;flex:0 0 26px;width:26px;height:26px;color:inherit}
+.petri21-icon svg{display:block;width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+#nav-bottom .petri21-icon svg{width:21px;height:21px}
+/* UI darf sich nicht durch sehr lange Eintraege seitlich ausdehnen. */
+#main .grid > *{min-width:0}
+#main img{max-width:100%}
+#p31-overlay,.p31-app,.p31-panel{min-width:0;max-width:100vw}
+#p31-overlay .p31-app{max-width:100%}
+#main .table-scroll,#p31-overlay .p38-table{overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch}
+@media(max-width:600px){
+  .gear-card .petri21-photo img{height:160px!important;max-height:160px}
+  .gear-card .button{max-width:100%;word-break:normal;white-space:normal!important}
+}

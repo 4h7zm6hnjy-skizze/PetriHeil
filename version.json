@@ -1,19 +1,17 @@
 {
-  "version": "2.0.42",
+  "version": "2.1.0",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "GPS-Fehlerdiagnose für iPhone und Safari: unterscheidet Standort verweigert, Standort nicht verfügbar, Zeitüberschreitung und fehlende Browser-Unterstützung.",
-    "Pro-Angelwetter: Ermittlung des aktuellen GPS-Standorts mit Standortfreigabe und zweitem Versuch bei vorübergehendem Fehler.",
-    "Ermittelte Koordinaten erscheinen als Eingabewerte und werden direkt für die Wetterabfrage verwendet.",
-    "Gewässerverwaltung: aktuelle GPS-Koordinaten per Knopfdruck in das Gewässerformular übertragen; erst nach dem bewussten Speichern werden sie dauerhaft gesichert.",
-    "Dauerhaft sichtbare GPS-Statusanzeige und Hilfe zur Freigabe unter iOS; manuelle Orts- und Koordinateneingabe bleibt erhalten.",
-    "Offline-Cache, Updatefunktion und Versionsanzeige auf 2.0.42 aktualisiert. Bestehende lokale Daten werden nicht verändert."
+    "Menüsymbole, Markenbilder und Ausrüstungsfotos werden aus einem gemeinsamen UI-Modul gesteuert.",
+    "Bilder für Boilie, Mais & Teig, Würmer & Maden, bissfestes Vorfach, Pilker/Paternoster und Rettungsweste bleiben offline eingebunden.",
+    "Vereinheitlichte Kontrast-, Foto- und iPhone-Layoutregeln, ohne Änderungen an den gespeicherten Daten.",
+    "Versionsanzeige und Offline-Worker melden gemeinsam 2.1.0; neuer PWA-Kerncache mit aktuellen Dateien.",
+    "Die bestehenden Prüfungs-, Angelzeit-, Fangbuch- und Pro-Daten bleiben getrennt und rückwärtskompatibel lesbar; keine riskante automatische Migration."
   ],
   "limitations": [
-    "In integrierten In-App-Browsern kann GPS durch die Plattform blockiert sein. Die App kann dies nicht umgehen; direkt in Safari öffnen und Standortfreigabe prüfen.",
-    "Aktuelle Wetterdaten brauchen Internet, der GPS-Empfänger dagegen keine Wetter-API.",
-    "Standortkoordinaten und Genauigkeit stammen aus der Browser-Geolocation-API; die App kann eine systemseitig verweigerte Standortfreigabe nicht erzwingen.",
-    "Echte iPhone-Bedienung und Live-GPS-Signal können in dieser Umgebung nicht vollständig getestet werden."
+    "Für Live-Wetter und externe Nachschlageinformationen kann Internet erforderlich sein.",
+    "Die iPhone-Systembedienung und alle Datenbankszenarien benötigen zusätzliche Tests auf realen Geräten.",
+    "Dieses ZIP ist ein vollständiges Update-Paket der geänderten Dateien, kein Komplett-Export aller unveränderten Repository-Dateien."
   ]
 }
