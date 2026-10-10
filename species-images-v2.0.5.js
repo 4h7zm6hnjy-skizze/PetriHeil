@@ -1,9 +1,9 @@
-/* Petri Heil Pro 2.0.14: 80 local WebP reference images, 85 species mappings and update-check repair.
+/* Petri Heil Pro 2.0.15: 92 distinct local WebP references, 95 species mappings and update-check repair.
    Original 70 embedded illustrations and local user data remain unchanged.
    Images are illustrative, NOT validated for species identification. */
 (()=>{
   'use strict';
-  const VERSION='2.0.14';
+  const VERSION='2.0.15';
   const SPECIES=[
     ['f32','Giebel','giebel'],
     ['f33','Goldfisch','goldfisch'],
@@ -90,6 +90,16 @@
     ['s71','Aal (Küste)','aal'],
     ['s72','Flussneunauge (Küste)','flussneunauge'],
     ['s73','Meerneunauge (Küste)','meerneunauge'],
+    ['s10','Wittling','wittling'],
+    ['s11','Schellfisch','schellfisch'],
+    ['s12','Seelachs / Köhler','seelachs-koehler'],
+    ['s13','Pollack','pollack'],
+    ['s14','Seehecht','seehecht'],
+    ['s15','Leng','leng'],
+    ['s17','Franzosendorsch','franzosendorsch'],
+    ['s18','Zwergdorsch','zwergdorsch'],
+    ['s4','Europäische Sardelle','europaeische-sardelle'],
+    ['s6','Stöcker','stoecker'],
   ].map(([id,name,file])=>({id,name,url:new URL(file+'.webp',document.baseURI).href}));
   const norm=s=>String(s||'').replace(/\s+/g,' ').trim().toLocaleLowerCase('de-DE');
   const identify=s=>SPECIES.find(v=>norm(v.name)===norm(s));
@@ -156,25 +166,25 @@
       const item=titles.map(identify).find(Boolean);
       if(item)void apply(detail,item);
     }
-    // Dynamic app.js 2.0.4 is preserved; show 2.0.14 accurately in the visible UI.
+    // Dynamic app.js 2.0.4 is preserved; show 2.0.15 accurately in the visible UI.
     for (const el of document.querySelectorAll('.sidebar .tiny,#app-update-card')) {
       if(!el.dataset.petri214VersionChecked){
         el.dataset.petri214VersionChecked='yes';
-        if(el.classList.contains('tiny')) el.textContent=el.textContent.replace(/2\.0\.(?:[4-9]|1[0-3])\b/g,'2.0.14');
+        if(el.classList.contains('tiny')) el.textContent=el.textContent.replace(/2\.0\.(?:[4-9]|1[0-4])\b/g,'2.0.15');
         if(el.id==='app-update-card'){
           for(const node of el.querySelectorAll('h1,h2,h3,strong,span')){
-            if(node.children.length===0 && /Version 2\.0\.(?:[4-9]|1[0-3])\b/.test(node.textContent))
-              node.textContent=node.textContent.replace(/2\.0\.(?:[4-9]|1[0-3])\b/g,'2.0.14');
+            if(node.children.length===0 && /Version 2\.0\.(?:[4-9]|1[0-4])\b/.test(node.textContent))
+              node.textContent=node.textContent.replace(/2\.0\.(?:[4-9]|1[0-4])\b/g,'2.0.15');
           }
         }
       }
     }
     // The info text refers to 70 images embedded in app.js. Distinguish the
-    // additional 80 separately bundled WebP files rather than calling them embedded.
+    // additional 92 distinct local WebP references rather than calling them embedded.
     const box=main.querySelector('#real-photo-settings');
     if(box && !box.querySelector('.petri-additional-images-notice')){
       const note=document.createElement('p');note.className='petri-additional-images-notice';
-      note.textContent='Zusätzlich zu den 70 eingebetteten Bildern stehen 80 weitere lokale WebP-Bilder bereit. Insgesamt sind 85 Arteinträge über den Bildloader zugeordnet (5 Küstenvarianten verwenden vorhandene Bilder). Nach dem ersten vollständigen Laden stehen sie offline bereit.';
+      note.textContent='Zusätzlich zu den 70 eingebetteten Bildern stehen 92 unterschiedliche lokale WebP-Bilder bereit. Insgesamt sind 95 Arteinträge über den Bildloader zugeordnet (5 Küstenvarianten verwenden vorhandene Bilder). Nach dem ersten vollständigen Laden stehen sie offline bereit.';
       note.style.cssText='font-size:13px;line-height:1.55;color:#bbef69';
       box.append(note);
     }
@@ -221,7 +231,7 @@
       const result=cmp(info.version,VERSION);
       if(result===null)throw new Error('ungültige Versionsangabe');
       if(result>0)showUpdateStatus(button,'Eine neuere Version '+info.version+' ist gemeldet. Vor der Installation die vollständigen Dateien prüfen.');
-      else if(result===0)showUpdateStatus(button,'Version '+VERSION+' ist aktuell. 70 eingebettete Bilder, 80 lokale WebP-Bilder und 85 Artzuordnungen.');
+      else if(result===0)showUpdateStatus(button,'Version '+VERSION+' ist aktuell. 70 eingebettete Bilder, 92 unterschiedliche lokale WebP-Bilder und 95 Artzuordnungen.');
       else showUpdateStatus(button,'App '+VERSION+' installiert; Server meldet noch '+info.version+'. Veröffentlichung prüfen.');
     }catch(e){showUpdateStatus(button,'Update-Prüfung fehlgeschlagen ('+(e.name==='AbortError'?'Zeitüberschreitung':e.message)+'). HTTPS-Verbindung und version.json prüfen.');}
   }

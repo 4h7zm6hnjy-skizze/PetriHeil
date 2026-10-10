@@ -1,19 +1,20 @@
-PETRIHEIL – BILDERUPDATE 2.0.14
+PETRI HEIL PRO – BILDERUPDATE 2.0.15
 
-1. Entpacken.
-2. Auf GitHub im Hauptverzeichnis des Repositories PetriHeil die Dateien hochladen:
-   ziege.webp
-   mairenke.webp
-   sw.js
-   species-images-v2.0.5.js
-   version.json
-3. Vorhandene gleichnamige Dateien ersetzen. Die ZIP nicht als Einzeldatei hochladen.
-4. GitHub Pages veröffentlichen lassen, die App zweimal ONLINE öffnen.
-5. Version 2.0.14 und beide Artenbilder prüfen.
-6. Erst vollständig online laden, dann Flugmodus/Offline prüfen.
+Installation: ZIP entpacken. ALLE 13 Dateien aus diesem Paket in den Hauptordner
+https://github.com/4h7zm6hnjy-skizze/PetriHeil hochladen bzw. bestehende gleichnamige Dateien ersetzen:
+- 10 *.webp Artenbilder
+- species-images-v2.0.5.js (dieser Dateiname bleibt bewusst unverändert)
+- sw.js
+- version.json
 
-Die fünf anderen, neu zugeordneten Küstenarten verwenden bestehende WebPs: meerforelle-neu.webp, lachs.webp, aal.webp, flussneunauge.webp, meerneunauge.webp. Diese müssen nicht neu hochgeladen werden.
+ARTENZUORDNUNG.json, BILDVORSCHAU.html und INSTALLATION.txt sind Zusatzinformationen und
+muessen NICHT in das Repository hochgeladen werden.
 
-Von der zuletzt erzeugten Serie sind acht Motive bereits bebilderten Arten ähnlich. Sie werden NICHT als andere Arten ausgegeben oder überschreiben.
+GitHub: Änderungen per Commit speichern. Die PWA anschließend zweimal mit Internetverbindung öffnen,
+unter Mehr -> Update suchen die Version 2.0.15 kontrollieren. Die Offlinebilder werden beim Laden
+in den Cache übernommen. Bei längerem Verbleib auf einer alten Version App neu laden; Fangbuchdaten nicht löschen.
 
-WARNUNG: KI-Bilder sind keine wissenschaftlich geprüften Bestimmungsfotos. Die Ziege-Darstellung kann anatomische Unschärfen haben. Nutzer-Fangdaten werden nicht angetastet.
+Es werden keine existierenden Nutzerdaten geändert. Bisherige 85 Artzuordnungen bleiben erhalten;
+10 neue Zuordnungen ergeben 95. 92 unterschiedliche referenzierte WebP-Bilder + 70 eingebettete Illustrationen.
+
+WICHTIG: KI-generierte Beispielbilder, keine validierten Fotos für eine sichere Artbestimmung.

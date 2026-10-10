@@ -1,52 +1,95 @@
 {
-  "version": "2.0.14",
-  "newImages": [
+  "version": "2.0.15",
+  "images": [
     {
-      "id": "f84",
-      "name": "Ziege",
-      "scientificName": "Pelecus cultratus",
-      "filename": "ziege.webp",
-      "bytes": 119144,
-      "sha256": "99997ac052d96570bcc5f3ef0bc3a2051c2d029285019513a166956bd4b7a7c5",
-      "type": "KI-Illustration, Artmerkmale nicht wissenschaftlich validiert"
+      "id": "s10",
+      "name": "Wittling",
+      "scientificName": "Merlangius merlangus",
+      "filename": "wittling.webp",
+      "bytes": 106204,
+      "sha256": "91bb0d5e21c6d43315ae78315ec11948ee4142a282e41629e01e6c858a2a00ef",
+      "type": "KI-Beispielbild – nicht zur sicheren Artbestimmung"
     },
     {
-      "id": "f85",
-      "name": "Mairenke",
-      "scientificName": "Alburnus mento",
-      "filename": "mairenke.webp",
-      "bytes": 80836,
-      "sha256": "11e454dbfa5247686e7bfd89fc14456d880e07bad36580b7540489ce11acaf85",
-      "type": "KI-Illustration, Artmerkmale nicht wissenschaftlich validiert"
+      "id": "s11",
+      "name": "Schellfisch",
+      "scientificName": "Melanogrammus aeglefinus",
+      "filename": "schellfisch.webp",
+      "bytes": 107152,
+      "sha256": "cf4c86eddb5bfb10d3da1a129b8b7c24e830a3149a293d38170ffe971c7ef731",
+      "type": "KI-Beispielbild – nicht zur sicheren Artbestimmung"
+    },
+    {
+      "id": "s12",
+      "name": "Seelachs / Köhler",
+      "scientificName": "Pollachius virens",
+      "filename": "seelachs-koehler.webp",
+      "bytes": 98188,
+      "sha256": "9bfda21fd7ea48a88be3758a46dd659ef6f646d1a7ad908088cb0a3861e5d988",
+      "type": "KI-Beispielbild – nicht zur sicheren Artbestimmung"
+    },
+    {
+      "id": "s13",
+      "name": "Pollack",
+      "scientificName": "Pollachius pollachius",
+      "filename": "pollack.webp",
+      "bytes": 113582,
+      "sha256": "138c44bc336efc7fe02fd7ff792316cf948c56b8780c87fe3f414471a1f0a474",
+      "type": "KI-Beispielbild – nicht zur sicheren Artbestimmung"
+    },
+    {
+      "id": "s14",
+      "name": "Seehecht",
+      "scientificName": "Merluccius merluccius",
+      "filename": "seehecht.webp",
+      "bytes": 99866,
+      "sha256": "716bc14726f721fff0ea87721a1889f705c1d8ff6b35ed93357c72a74c79e9a5",
+      "type": "KI-Beispielbild – nicht zur sicheren Artbestimmung"
+    },
+    {
+      "id": "s15",
+      "name": "Leng",
+      "scientificName": "Molva molva",
+      "filename": "leng.webp",
+      "bytes": 102724,
+      "sha256": "87a2b6ded565928a57efc70abe0cd1aac47be9f8216838192957b24b9873a403",
+      "type": "KI-Beispielbild – nicht zur sicheren Artbestimmung"
+    },
+    {
+      "id": "s17",
+      "name": "Franzosendorsch",
+      "scientificName": "Trisopterus luscus",
+      "filename": "franzosendorsch.webp",
+      "bytes": 114118,
+      "sha256": "93333885cb8e4db65f9be8e5631cdb3f7ee79bccad93e19e8c0ed6ff441d7aa2",
+      "type": "KI-Beispielbild – nicht zur sicheren Artbestimmung"
+    },
+    {
+      "id": "s18",
+      "name": "Zwergdorsch",
+      "scientificName": "Trisopterus minutus",
+      "filename": "zwergdorsch.webp",
+      "bytes": 115344,
+      "sha256": "11f71ea051a09a12da8318c1ca0d8e362bf7bd6a8b2408a8b80359762d39e00c",
+      "type": "KI-Beispielbild – nicht zur sicheren Artbestimmung"
+    },
+    {
+      "id": "s4",
+      "name": "Europäische Sardelle",
+      "scientificName": "Engraulis encrasicolus",
+      "filename": "europaeische-sardelle.webp",
+      "bytes": 84434,
+      "sha256": "eaadde395f3028211fe5610b1e59d345a63393489b3024fd7bde15f05aea394d",
+      "type": "KI-Beispielbild – nicht zur sicheren Artbestimmung"
+    },
+    {
+      "id": "s6",
+      "name": "Stöcker",
+      "scientificName": "Trachurus trachurus",
+      "filename": "stoecker.webp",
+      "bytes": 113632,
+      "sha256": "aca4825ed74ba9906c77759ca0a6602615ab5bf95316608e31255e9814b32bf6",
+      "type": "KI-Beispielbild – nicht zur sicheren Artbestimmung"
     }
-  ],
-  "existingImagesReused": [
-    {
-      "id": "s69",
-      "name": "Meerforelle (Küste)",
-      "filename": "meerforelle-neu.webp"
-    },
-    {
-      "id": "s70",
-      "name": "Atlantischer Lachs (Küste)",
-      "filename": "lachs.webp"
-    },
-    {
-      "id": "s71",
-      "name": "Aal (Küste)",
-      "filename": "aal.webp"
-    },
-    {
-      "id": "s72",
-      "name": "Flussneunauge (Küste)",
-      "filename": "flussneunauge.webp"
-    },
-    {
-      "id": "s73",
-      "name": "Meerneunauge (Küste)",
-      "filename": "meerneunauge.webp"
-    }
-  ],
-  "additionalWebpFiles": 80,
-  "mappedEntries": 85
+  ]
 }

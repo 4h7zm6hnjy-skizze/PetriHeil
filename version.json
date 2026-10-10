@@ -1,13 +1,12 @@
 {
-  "version": "2.0.14",
+  "version": "2.0.15",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Zwei neue KI-Abbildungen auf weißem Hintergrund: Ziege (f84) und Mairenke (f85).",
-    "Fünf zusätzliche Küsten-Arteinträge verwenden passende bereits vorhandene Bilder (Meerforelle, Lachs, Aal, Fluss- und Meerneunauge).",
-    "Bildloader auf 85 Arteinträge erweitert; 80 separat gespeicherte WebP-Abbildungen und 70 bisherige eingebettete Abbildungen.",
-    "Offline-Cache um die zwei neuen Bilder sowie bereits vorhandene, nun ebenfalls zugeordnete Root-Bilder erweitert.",
-    "Acht weitere Motive dieser Generierungsserie nicht automatisch eingebaut, weil sie bereits bebilderte Arten darstellen."
+    "Zehn weitere KI-Artenbilder auf weißem Hintergrund: Wittling, Schellfisch, Seelachs/Köhler, Pollack, Seehecht, Leng, Franzosendorsch, Zwergdorsch, Europäische Sardelle und Stöcker.",
+    "Bildloader erweitert auf 95 Artzuordnungen und 92 unterschiedliche zugeordnete WebP-Bilddateien; 70 frühere eingebettete Illustrationen bleiben unverändert.",
+    "Offline-Cache und Update-Anzeige an Version 2.0.15 angepasst.",
+    "Bestehende Fangbuchdaten, App-Layout und übrige Funktionen bleiben unverändert."
   ],
-  "notes": "KI-Abbildungen sind nicht fachlich validiert, insbesondere die Ziege. Nicht zur sicheren Artbestimmung, Entnahme oder Beurteilung von Schutzvorschriften verwenden. Bestehende Fangdaten werden nicht verändert."
+  "notes": "KI-Illustrationen sind nicht wissenschaftlich geprüfte Fischbestimmungsfotos. Einige Merkmale können anatomisch ungenau sein. Schutzvorschriften und Artbestimmung anhand zuverlässiger Quellen prüfen."
 }
