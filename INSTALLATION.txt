@@ -1,11 +1,10 @@
-PetriHeil Pro Update v2.0.36 – Jahresbericht und Fangfotos
+PETRIHEIL PRO 2.0.37
 
-1. Bitte in PetriHeil Pro unter Backup vorab eine Datensicherung erstellen.
-2. Die ZIP auf dem iPhone entpacken.
-3. Nur die 8 APP-Dateien im Archiv (ohne diese Anleitung) direkt in das Hauptverzeichnis auf GitHub hochladen; vorhandene Dateien ersetzen.
-4. Commit changes speichern; GitHub Pages abwarten.
-5. PetriHeil-App online zweimal öffnen.
-6. In Angelzentrale > Fangbuch Pro, Cockpit oder Backup auf „Jahresbericht öffnen“ tippen.
-7. Jahr und Datenschutz wählen. PDF oder CSV speichern.
+1. VORHER unter Angelzentrale > Backup eine JSON-Sicherung erstellen und außerhalb der App speichern.
+2. ZIP entpacken und nur die 6 App-Dateien aus dem ZIP ins HAUPTVERZEICHNIS des GitHub-Repositories 4h7zm6hnjy-skizze/PetriHeil hochladen.
+3. Vorhandene Dateien ersetzen und Commit changes bestätigen.
+4. App https://4h7zm6hnjy-skizze.github.io/PetriHeil/ zweimal mit Internetverbindung öffnen.
+5. Neue Bereiche in Angelzentrale Pro: Prüfung > Interaktive NRW-Prüfungssimulation, Fangbuch > Alte Fangfotos zuordnen, Gewässer > Gewässerkarte Pro.
+6. Die Übungsfragen sind nicht amtlich bestätigt; OpenStreetMap ist nur online nutzbar.
 
-Wichtig: Originalfangbuch bleibt unverändert. Keine Cloud-Synchronisierung. PDFs enthalten keine Fotos.
+Die Original-Fangbücher bleiben unberührt; gespeicherte Pro-Bilder nur nach deiner Zuordnung.

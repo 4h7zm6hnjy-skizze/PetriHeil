@@ -1,0 +1,24 @@
+/* 2.0.37 Pro extension — scoped styles */
+#p31-overlay .p37-card{margin-top:16px;border:1px solid #9ecddd;background:#f7fcff;color:#193b50}
+#p31-overlay .p37-card h4{font-size:18px;margin:0 0 12px;color:#124362}
+#p31-overlay .p37-card p{line-height:1.5}
+#p31-overlay .p37-card .p37-muted{font-size:13px;color:#526e7f}
+#p31-overlay .p37-card .p37-status{min-height:1.4em;font-size:14px;font-weight:600;color:#1b657c}
+#p31-overlay .p37-card .p37-error{color:#b0332b}
+#p31-overlay .p37-quiztop{display:flex;gap:12px;flex-wrap:wrap;justify-content:space-between;align-items:center;padding:12px;background:#e0f3f8;border-radius:10px;margin-bottom:12px}
+#p31-overlay .p37-clock{font-variant-numeric:tabular-nums;font-weight:800;font-size:20px}
+#p31-overlay .p37-answers{display:grid;gap:9px;margin:14px 0}
+#p31-overlay .p37-choice{display:flex;align-items:start;gap:10px;cursor:pointer;background:#fff;border:1px solid #c8e2ed;padding:12px;border-radius:11px;color:#14374d}
+#p31-overlay .p37-choice:has(input:checked){border:2px solid #18759b;background:#e6f6fb}
+#p31-overlay .p37-choice input{margin-top:3px;min-width:18px;min-height:18px;accent-color:#16769b}
+#p31-overlay .p37-breakdown{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:7px}
+#p31-overlay .p37-breakdown span{background:#e6f5fa;border-radius:8px;padding:10px}
+#p31-overlay .p37-photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px;margin-top:12px}
+#p31-overlay .p37-photo-tile{display:grid;gap:6px;border:1px solid #b7d7e5;border-radius:10px;padding:8px;min-width:0;background:#fff;color:#17405d}
+#p31-overlay .p37-photo-tile img{display:block;width:100%;height:120px;object-fit:contain;border-radius:7px}
+#p31-overlay .p37-photo-tile small{word-break:break-word;font-size:11px}
+#p31-overlay .p37-photo-tile button{white-space:normal}
+#p31-overlay .p37-card select,#p31-overlay .p37-card input[type=file]{color:#14374d;background:#fff;max-width:100%}
+#p31-overlay #p37-map-view iframe{margin-top:10px}
+#p31-overlay #p37-map-view>a{margin-top:10px;display:inline-block}
+@media(max-width:520px){#p31-overlay .p37-card{padding:14px}#p31-overlay .p37-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#p31-overlay .p37-quiztop{font-size:13px}}

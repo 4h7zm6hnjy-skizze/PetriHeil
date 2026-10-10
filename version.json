@@ -1,19 +1,19 @@
 {
-  "version": "2.0.36",
+  "version": "2.0.37",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Neuer offline erzeugter PDF-Jahresbericht im Pro-Fangbuch, Cockpit und Backup: Jahresfilter, Monatsfangzahlen, Angelstunden, Fischarten, Köder, Rekorde und Fangliste.",
-    "Angelstunden aus abgeschlossenen Pro-Angeltagen und manuellen Zeiten werden je Jahr und Monat ohne doppelte Überschneidungen berechnet.",
-    "Datenschutz-Schalter blendet Gewässernamen im PDF und CSV standardmäßig aus.",
-    "CSV-Export der dokumentierten Pro-Fänge mit deutschem Semikolonformat und Excel-Formelschutz.",
-    "Fotogalerie zeigt vorhandene, lokal gespeicherte Fangfotos aus Fangbuch Pro (bis zu 80 neueste Bilder).",
-    "Offline-Cache und Versionsanzeige auf 2.0.36 aktualisiert; ältere Fangbucheinträge werden nicht verändert."
+    "Neue interaktive 60-Fragen-Übungsprüfung mit 60 Minuten, zehn Fragen pro Fachgebiet, Bewertung 45/60 und mindestens 6/10 pro Fachgebiet. Die 110 eingebauten Übungsfragen werden genutzt; dies sind keine bestätigten amtlichen Originalfragen.",
+    "JSON-Import für einen extern vorbereiteten, vom Nutzer zu prüfenden Fragenkatalog (alle sechs Fachgebiete, mindestens zehn pro Gebiet), ohne irreführende amtliche Kennzeichnung.",
+    "Manuelle Zuordnung vorhandener Bilder zu einzelnen Pro-Fängen, wahlweise aus iPhone-Fotomediathek oder nach optionaler, begrenzter Suche in alten lokalen IndexedDB-Datenbanken.",
+    "Gewässerkarte Pro für lokal gespeicherte GPS-Angelstellen, Online-Karte von OpenStreetMap nur auf Knopfdruck, Ortsübersicht und externer Kartenlink.",
+    "Alte Fangdatenbanken werden bei der Fotoprüfung ausschließlich gelesen, nie verändert. Daten bleiben lokal; Bilder werden nur nach expliziter Fangwahl verknüpft.",
+    "Versionsanzeige, Offline-Cache und Updateinstallation auf 2.0.37 aktualisiert."
   ],
   "limitations": [
-    "Der Bericht enthält Pro-Fänge und bereits ausdrücklich dorthin kopierte alte Fänge; noch getrennte Originalfangbuchdaten werden nicht automatisch erfasst.",
-    "Bisherige Fangfotos werden in der Galerie gezeigt, aber nicht in das PDF eingebettet. Aus dem alten Fangbuch werden Bilder nicht automatisch zugeordnet.",
-    "Externe Wetterdaten, amtliche Prüfungsfragen und Tiefenkarten sind nicht Teil dieses Updates.",
-    "Die App-Funktion muss nach der GitHub-Veröffentlichung auf dem iPhone getestet werden."
+    "Der neue Übungstrainer basiert standardmäßig auf 110 selbst erstellten PetriHeil-Fragen, nicht auf dem vollständigen amtlichen Fragenkatalog. PDFs werden nicht in interaktive Fragen umgewandelt.",
+    "Alte Fotos lassen sich nur finden, wenn der Browser Zugriff auf die ursprünglichen lokalen Datenbanken gewährt und deren Bildfelder lesbar sind. Eine verlässliche automatische Zuordnung ist nicht implementiert.",
+    "OpenStreetMap benötigt eine Internetverbindung und enthält keine garantierten Tiefenkarten. Gespeicherte private GPS-Punkte werden nur beim aktiven Kartenaufruf an OpenStreetMap übergeben.",
+    "Fangbuch-Originaleinträge bleiben unverändert. Ein vollständiger Test auf dem iPhone steht noch aus."
   ]
 }
