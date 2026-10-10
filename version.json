@@ -1,20 +1,17 @@
 {
-  "version": "2.0.34",
+  "version": "2.0.35",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Alle wichtigen Fangbuchfelder auf dem iPhone direkt per Tastatur ausfüllbar.",
-    "Gewässer und Angelort frei eingeben, auch ohne vorher einen Ort zu speichern; optionale Ortsauswahl bleibt erhalten.",
-    "Fangzeit und weitere Datum-/Zeitfelder können direkt in TT.MM.JJJJ HH:MM eingegeben und beim Speichern überprüft werden.",
-    "Länge, Gewicht und Preis auch mit deutschem Dezimalkomma eingeben.",
-    "Fangstatus und Auswahlkategorien als Texteingabe mit Vorschlagsliste; individuelle Werte möglich.",
-    "Notizen mehrzeilig; Fangdaten nachträglich bearbeiten und erneut speichern.",
-    "Originale Fangbuchdaten, Fotos, Backup- und Datenübernahmefunktionen bleiben bestehen.",
-    "Optische Tastatur-/Fokus-Verbesserungen auf dem iPhone, Offline-Cache und Versionshinweis 2.0.34."
+    "Pro-Stoppuhr: Gewässer direkt per Tastatur eingeben (kein vorher gespeichertes Gewässer nötig), bestehende Orte als Vorschläge und Angelort optional speichern.",
+    "Angelwetter: Stadt-/Ortssuche, gespeicherte Gewässer, manuelle GPS-Koordinaten und iPhone-GPS als alternative Wege; verständliche Fehlermeldungen.",
+    "Gewässer: Ort ohne GPS speichern und bei Bedarf Koordinaten anhand einer benachbarten Stadt suchen.",
+    "Wetterabfragen nutzen weiterhin Open-Meteo und erfordern eine Online-Verbindung; private Angelplätze werden nicht hochgeladen.",
+    "Versionsanzeige, Service-Worker und Offline-App-Dateien auf 2.0.35 aktualisiert."
   ],
   "limitations": [
-    "Neue Eingaben werden im vorhandenen Pro-Fangbuch gespeichert; das ältere ursprüngliche Fangbuch bleibt unberührt.",
-    "Eine gespeicherte Angelzeit kann optional zur Fangstatistik zugeordnet werden; bloß eingetippte Fangorte ersetzen keine erfasste Angelzeit.",
-    "Der iOS-Praxischeck muss nach dem Hochladen erfolgen."
+    "Open-Meteo-Ortssuche findet Städte und Orte, nicht verlässlich jeden See oder private Angelstellen; Koordinaten oder GPS sind dafür präziser.",
+    "Bei Online-Wetterabfragen werden Koordinaten an Open-Meteo gesendet. Das Wetter lässt sich offline nicht neu abrufen.",
+    "Der Praxistest auf dem iPhone ist nach dem Hochladen erforderlich."
   ]
 }

@@ -1,18 +1,10 @@
-PetriHeil Pro – v2.0.34: Freie Eingabe und iPhone-Formularfix
+PetriHeil Pro 2.0.35 – Wetter, Stoppuhr und Gewässer repariert
 
-1. Alle 6 folgenden App-Dateien ins Hauptverzeichnis von GitHub hochladen:
-   index.html
-   sw.js
-   version.json
-   petri-pro-suite-v2.0.34.js
-   petri-pro-suite-v2.0.34.css
-   petri-update-install-v2.0.28.js
-2. Vorhandene gleichnamige Dateien überschreiben und committen.
-3. App mit Internet öffnen, warten und noch einmal neu starten.
-4. Angelzentrale > Fangbuch öffnen und freie Eingabe testen.
+1. VORHER unter Angelzentrale → Backup eine Datensicherung exportieren.
+2. ZIP entpacken.
+3. Alle 6 App-Dateien (ohne INSTALLATION.txt) im HAUPTVERZEICHNIS des GitHub-Repositories hochladen, vorhandene ersetzen.
+4. Commit changes ausführen.
+5. Die App zweimal mit Internet öffnen, bis die neue Version aktiv ist.
 
-Datum/Uhrzeit direkt eintippen: 10.10.2026 20:15. Auch ISO-Eingabe möglich.
-Gewässer direkt eingeben oder vorhandenes Gewässer wählen.
-Zahlen mit Komma, z. B. 57,5 cm oder 1,35 kg.
-Wichtig: Vor dem Test ein vollständiges Backup der vorhandenen Daten erstellen.
-Keine alten Fänge löschen. Backend/PWA-Dateien bleiben ansonsten unverändert.
+Die ursprüngliche App sowie Nutzerfangdaten und bestehende IndexedDB werden nicht gelöscht.
+Wetter/Ortssuche benötigt Internet; Open-Meteo kennt nicht jeden See als Ortsnamen.
