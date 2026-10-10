@@ -1,12 +1,13 @@
 {
-  "version": "2.0.9",
+  "version": "2.0.10",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "10 weitere einzelne KI-Artenbilder mit weißem Hintergrund: Kleine Seenadel, Schlangennadel, Kurzschnäuziges Seepferdchen, Schwarzgrundel, Sandgrundel, Strandgrundel, Fleckengrundel, Goldstrieme, Meerbrasse und Kleingefleckter Katzenhai.",
-    "50 zusätzliche lokal zugeordnete Artenbilder, bestehende 70 in app.js eingebettete KI-Bilder unverändert.",
-    "Offline-Cache (Service Worker) auf Version 2.0.9 und alle 50 zusätzlichen WebP-Bilder erweitert.",
-    "Anzeige der Zusatzbildanzahl und Versionsprüfung auf 2.0.9 angepasst."
+    "Fünf zusätzliche KI-Artenbilder auf weißem Hintergrund: Dornhai, Heringshai, Nagelrochen, Sternrochen und Glattrochen.",
+    "55 separat gespeicherte Artenbilder zusätzlich zu den bisherigen 70 in app.js eingebetteten Illustrationen.",
+    "Lokale Bilddateien und Service-Worker-Offline-Cache auf v2.0.10 erweitert.",
+    "Fünf weitere Generierungen wurden nicht als neue Artenbilder übernommen, weil sie andere Arten zeigen oder bereits vorhanden sind.",
+    "Fangdaten und bisherige Funktionen werden durch den Patch nicht verändert."
   ],
-  "notes": "KI-Bilder sind illustrative Beispiele und keine fachlich geprüften Bestimmungsfotos. Entscheidungen zur Artbestimmung und Entnahme benötigen verlässliche Quellen."
+  "notes": "KI-Illustrationen sind keine fachlich validierten Bestimmungsfotos. Bei Rochen- und Haiarten anhand verlässlicher Bestimmungsmerkmale verifizieren."
 }

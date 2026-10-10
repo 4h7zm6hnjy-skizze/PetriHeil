@@ -1,82 +1,71 @@
-[
-  {
-    "id": "s48",
-    "name": "Kleine Seenadel",
-    "latin": "Syngnathus rostellatus",
-    "image": "kleine-seenadel.webp",
-    "bytes": 31594,
-    "sha256": "3dbbff98d7695e3bc0c91c0ffc9ade858db22a847fa6e3b03077394de111a0ff"
-  },
-  {
-    "id": "s49",
-    "name": "Schlangennadel",
-    "latin": "Entelurus aequoreus",
-    "image": "schlangennadel.webp",
-    "bytes": 26684,
-    "sha256": "8899586ed96cae8b44f47e3ee40ea0e416afe0d5b22e201dff6f310fcf92010d"
-  },
-  {
-    "id": "s51",
-    "name": "Seepferdchen (Kurzschnäuziges)",
-    "latin": "Hippocampus hippocampus",
-    "image": "seepferdchen-kurzschnauziges.webp",
-    "bytes": 104120,
-    "sha256": "52f4c340c97f6f19af69ab6d54e894e5b83605c03c53a6e8c009115e33bc762c"
-  },
-  {
-    "id": "s52",
-    "name": "Schwarzgrundel",
-    "latin": "Gobius niger",
-    "image": "schwarzgrundel.webp",
-    "bytes": 127330,
-    "sha256": "6357ef7d40d7df90666363db47d2192b1c6a22d00b941a25f61d34dc5c7bceaa"
-  },
-  {
-    "id": "s53",
-    "name": "Sandgrundel",
-    "latin": "Pomatoschistus minutus",
-    "image": "sandgrundel.webp",
-    "bytes": 90212,
-    "sha256": "41f96e38f3d98bb16284677e6d10cfed0bb4e9c2dd5073ca5c2af8503298046d"
-  },
-  {
-    "id": "s54",
-    "name": "Strandgrundel",
-    "latin": "Pomatoschistus microps",
-    "image": "strandgrundel.webp",
-    "bytes": 80100,
-    "sha256": "60f6cd97104c05bde815d2ef1e60527611728b3936447caf6b0b4eb3f44e661e"
-  },
-  {
-    "id": "s55",
-    "name": "Fleckengrundel",
-    "latin": "Pomatoschistus pictus",
-    "image": "fleckengrundel.webp",
-    "bytes": 98678,
-    "sha256": "7bace44b19c7ce5a4bbb58aa505d51a828f5576acb497c152873a7e075dfc504"
-  },
-  {
-    "id": "s58",
-    "name": "Goldstrieme",
-    "latin": "Sarpa salpa",
-    "image": "goldstrieme.webp",
-    "bytes": 148346,
-    "sha256": "6d789479170618d7489ee7a4c545fa16ce42e93cbe87f2161b07aac070b85669"
-  },
-  {
-    "id": "s59",
-    "name": "Meerbrasse",
-    "latin": "Pagellus bogaraveo",
-    "image": "meerbrasse.webp",
-    "bytes": 140296,
-    "sha256": "27fd2032935c431c2d777fe35c71ec3fcadd8f9450b540f63d14f28a28a19155"
-  },
-  {
-    "id": "s61",
-    "name": "Hai (Kleingefleckter Katzenhai)",
-    "latin": "Scyliorhinus canicula",
-    "image": "hai-kleingefleckter-katzenhai.webp",
-    "bytes": 46822,
-    "sha256": "a51839a6e8001edb6412f5a81b9522c2d260ef185c5eaf060a95e32e2d67c03d"
-  }
-]
+{
+  "accepted": [
+    {
+      "id": "s62",
+      "name": "Dornhai",
+      "scientificName": "Squalus acanthias",
+      "filename": "dornhai.webp",
+      "bytes": 34470,
+      "sha256": "b0e762fb389eeebbb37292268dd5f831866eb35c8330e700e34d3589b8d62d36",
+      "type": "KI-Illustration, keine geprüfte Artbestimmung"
+    },
+    {
+      "id": "s64",
+      "name": "Heringshai",
+      "scientificName": "Lamna nasus",
+      "filename": "heringshai.webp",
+      "bytes": 55512,
+      "sha256": "f9104d8412bb4483cd4f03e5c3266ecb0efa1abc485103447f862170a7687e7b",
+      "type": "KI-Illustration, keine geprüfte Artbestimmung"
+    },
+    {
+      "id": "s65",
+      "name": "Nagelrochen",
+      "scientificName": "Raja clavata",
+      "filename": "nagelrochen.webp",
+      "bytes": 135030,
+      "sha256": "9a34316f23beefe821b7b049057713afd12b8740d41f027c64bda75a7b026f15",
+      "type": "KI-Illustration, keine geprüfte Artbestimmung"
+    },
+    {
+      "id": "s66",
+      "name": "Sternrochen",
+      "scientificName": "Amblyraja radiata",
+      "filename": "sternrochen.webp",
+      "bytes": 163412,
+      "sha256": "389437c8233827d150bcff8c29d7e3641b8338f99ac8ebbdcd8f3b2fea3a6206",
+      "type": "KI-Illustration, keine geprüfte Artbestimmung"
+    },
+    {
+      "id": "s67",
+      "name": "Glattrochen",
+      "scientificName": "Dipturus batis",
+      "filename": "glattrochen.webp",
+      "bytes": 126974,
+      "sha256": "96456a861f713a0873df3f78294e624e8ce7185b83bbbcb82594a78060fdecce",
+      "type": "KI-Illustration, keine geprüfte Artbestimmung"
+    }
+  ],
+  "excluded": [
+    {
+      "file": "blauer_hai_im_seitenprofil.png",
+      "reason": "Blauhai – nicht Hundshai (Galeorhinus galeus)"
+    },
+    {
+      "file": "fuchshai_mit_langem_peitschenschwanz.png",
+      "reason": "Fuchshai – kein solcher Arteintrag im Lexikon"
+    },
+    {
+      "file": "marmorierter_engelhai_auf_weissem_hintergrund.png",
+      "reason": "Engelhai – kein solcher Arteintrag im Lexikon"
+    },
+    {
+      "file": "symmetrischer_adlerrochen_auf_weissem_hintergrund.png",
+      "reason": "Adlerrochen – nicht Kuckucksrochen (Leucoraja naevus)"
+    },
+    {
+      "file": "gefleckter_katzenhai_im_seitenprofil.png",
+      "reason": "Kleingefleckter Katzenhai – Arteintrag s61 besitzt bereits ein eigenes Bild"
+    }
+  ]
+}
