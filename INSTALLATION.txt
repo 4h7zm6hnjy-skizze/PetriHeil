@@ -1,9 +1,18 @@
-PetriHeil 2.0.33 – Datenübernahme + Backup
+PetriHeil Pro – v2.0.34: Freie Eingabe und iPhone-Formularfix
 
-1. Vor dem Update Fangbuch-Backup anfertigen.
-2. ZIP entpacken. Die 7 App-Dateien (ohne INSTALLATION.txt) in das Hauptverzeichnis von https://github.com/4h7zm6hnjy-skizze/PetriHeil hochladen, vorhandene gleichnamige Dateien ersetzen.
-3. Commit changes. Die App zweimal online neu starten.
-4. Unter Angelzentrale Pro > Fangbuch Pro: "Alte Fänge suchen" anklicken, Vorschau prüfen, gewünschte Quellen auswählen und Kopie bestätigen. Originale bleiben erhalten.
-5. Unter Backup: erweiterten Export anlegen. Beim Wiederherstellen alter Datenbanken ausdrücklich das Kontrollkästchen wählen (optional).
+1. Alle 6 folgenden App-Dateien ins Hauptverzeichnis von GitHub hochladen:
+   index.html
+   sw.js
+   version.json
+   petri-pro-suite-v2.0.34.js
+   petri-pro-suite-v2.0.34.css
+   petri-update-install-v2.0.28.js
+2. Vorhandene gleichnamige Dateien überschreiben und committen.
+3. App mit Internet öffnen, warten und noch einmal neu starten.
+4. Angelzentrale > Fangbuch öffnen und freie Eingabe testen.
 
-Wichtig: Alte Fangfotos sind nicht automatisch mit den Pro-Fängen verknüpft; je nach Browser und Speicherstruktur kann die Erkennung weitere alte Einträge nicht erfassen. Die App verändert app.js nicht, und importiert keine Datensätze ohne Nutzerfreigabe. Keine automatische Cloud-Synchronisierung.
+Datum/Uhrzeit direkt eintippen: 10.10.2026 20:15. Auch ISO-Eingabe möglich.
+Gewässer direkt eingeben oder vorhandenes Gewässer wählen.
+Zahlen mit Komma, z. B. 57,5 cm oder 1,35 kg.
+Wichtig: Vor dem Test ein vollständiges Backup der vorhandenen Daten erstellen.
+Keine alten Fänge löschen. Backend/PWA-Dateien bleiben ansonsten unverändert.

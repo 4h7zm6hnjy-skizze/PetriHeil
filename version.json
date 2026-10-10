@@ -1,20 +1,20 @@
 {
-  "version": "2.0.33",
+  "version": "2.0.34",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Alte Fangbucheinträge aus lokalen Browserdatenquellen suchen, prüfen und nach ausdrücklicher Auswahl in Fangbuch Pro kopieren; keine Änderung der Originaleinträge.",
-    "Dublettenprüfung für kopierte Fänge und zusätzliche Herkunftsangabe, damit nachträgliche Kopierversuche nicht mehrfach zählen.",
-    "Erweiterter JSON-Backup-Export einschließlich aller vom Browser auflistbaren und lesbaren zusätzlichen IndexedDB-Datenbanken; Warnung bei nicht möglicher vollständiger Sicherung.",
-    "Optionale Wiederherstellung alter Datenbanken mit eigener Zustimmung. Ältere Backups der Versionen 2.0.31 und 2.0.32 bleiben lesbar.",
-    "Anzeigefehler ${DATA.fish.length} auf der Startseite korrigiert, ohne ursprüngliches app.js zu verändern.",
-    "Offline-Cache und Versionsprüfung auf 2.0.33 aktualisiert."
+    "Alle wichtigen Fangbuchfelder auf dem iPhone direkt per Tastatur ausfüllbar.",
+    "Gewässer und Angelort frei eingeben, auch ohne vorher einen Ort zu speichern; optionale Ortsauswahl bleibt erhalten.",
+    "Fangzeit und weitere Datum-/Zeitfelder können direkt in TT.MM.JJJJ HH:MM eingegeben und beim Speichern überprüft werden.",
+    "Länge, Gewicht und Preis auch mit deutschem Dezimalkomma eingeben.",
+    "Fangstatus und Auswahlkategorien als Texteingabe mit Vorschlagsliste; individuelle Werte möglich.",
+    "Notizen mehrzeilig; Fangdaten nachträglich bearbeiten und erneut speichern.",
+    "Originale Fangbuchdaten, Fotos, Backup- und Datenübernahmefunktionen bleiben bestehen.",
+    "Optische Tastatur-/Fokus-Verbesserungen auf dem iPhone, Offline-Cache und Versionshinweis 2.0.34."
   ],
   "limitations": [
-    "Keine automatische Übernahme unbekannter Speicherformate; Benutzer muss gefundene Fänge prüfen und Quellen einzeln auswählen.",
-    "Fangfotos aus alten Datenbanken werden im Backup nach Möglichkeit mitgesichert, aber nicht automatisch den kopierten Pro-Fängen zugeordnet.",
-    "Die Sicherung kann bei fehlender Browserunterstützung, großen Medien oder nicht lesbaren IndexedDB-Datenbanken unvollständig sein. In diesem Fall erscheint vor dem Export eine Warnung.",
-    "Backup-Wiederherstellung früherer Datenbanken ist optional und kann vorhandene Datensätze mit gleichem Schlüssel überschreiben. Vorher eigenes Backup exportieren.",
-    "Nicht implementiert: vollautomatische Zusammenführung aller möglichen Fangbuchstrukturen, amtlicher Prüfungsfragen-Import oder KI-Fischbestimmung."
+    "Neue Eingaben werden im vorhandenen Pro-Fangbuch gespeichert; das ältere ursprüngliche Fangbuch bleibt unberührt.",
+    "Eine gespeicherte Angelzeit kann optional zur Fangstatistik zugeordnet werden; bloß eingetippte Fangorte ersetzen keine erfasste Angelzeit.",
+    "Der iOS-Praxischeck muss nach dem Hochladen erfolgen."
   ]
 }

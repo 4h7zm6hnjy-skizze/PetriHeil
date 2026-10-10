@@ -4,7 +4,7 @@
  */
 (()=>{
   'use strict';
-  const CURRENT='2.0.33';
+  const CURRENT='2.0.34';
   const compare=(a,b)=>{
     const parse=s=>String(s||'').match(/^\d+\.\d+\.\d+$/)?s.split('.').map(Number):null;
     const x=parse(a),y=parse(b);if(!x||!y)return null;
