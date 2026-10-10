@@ -1,4 +1,4 @@
-PETRI HEIL PRO 2.1.0 – EINMALIGES SAMMELUPDATE
+PETRI HEIL PRO 2.1.1 – EINMALIGES SAMMELUPDATE
 ================================================
 
 WAS DIESES PAKET ENTHAELT
@@ -47,3 +47,6 @@ KOMPATIBILITAET UND SICHERHEIT
 - UPDATE-PAKET, kein Komplett-Export aller unveränderten Quell-Dateien.
 
 Version: 2.1.0 / 10.10.2026
+
+
+Zusätzlich in 2.1.1: fehlende Fischsymbole auf der Übersichtsseite und in Schnellaktionen behoben.
