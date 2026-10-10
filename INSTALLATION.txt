@@ -1,11 +1,10 @@
-PetriHeil Pro 2.0.41 — Biggesee-Wetter und Versionsanzeige
+PetriHeil Pro 2.0.43 – automatischer Standort
 
-1. In PetriHeil unter Angelzentrale > Backup eine Sicherung erstellen.
-2. Diese ZIP-Datei entpacken.
-3. Im GitHub-Repository 4h7zm6hnjy-skizze/PetriHeil die 6 App-Dateien direkt im Hauptverzeichnis hochladen (gleichnamige Dateien ersetzen).
-4. Commit changes bestätigen. INSTALLATION.txt nicht ins Repo erforderlich.
-5. In Safari https://4h7zm6hnjy-skizze.github.io/PetriHeil/ online öffnen, bei Bedarf schließen und erneut öffnen.
-6. Unter Angelzentrale > Angelwetter „Biggesee direkt“ drücken oder Biggesee eintippen.
-7. Unter Mehr > Backup & Einstellungen Version prüfen; geladene App und aktive Offline-Version vergleichen.
+1. Bitte vorab Gesamtsicherung in der Angelzentrale erstellen.
+2. Die sieben App-Dateien (index.html, sw.js, version.json, petri-pro-suite-v2.0.43.js, petri-gesamt-v2.0.43.js, petri-update-install-v2.0.28.js und petri-location-v2.0.43.js) im Root des GitHub-Repositories hochladen und vorhandene gleichnamige Dateien ersetzen.
+3. Commit changes. GitHub Pages abwarten, PetriHeil zweimal direkt in Safari öffnen.
+4. Die erste native iPhone-Standortfreigabe bestätigen. Das Wetter wird nach Freigabe automatisch geladen.
+5. Bei blockierter Berechtigung im Hinweis „Erneut freigeben“ verwenden und Website-Berechtigungen in Safari prüfen.
+6. „Ausschalten“ beendet die automatische Standortabfrage für spätere Starts.
 
-Hinweise: Der Biggesee-Koordinatenpunkt liegt am nördlichen Staudamm, nicht mittig im gesamten Gewässer. Andere Uferstellen kannst du über GPS angeben. Open-Meteo benötigt Internet; Nutzungsbedingungen gelten weiterhin. Es werden keine Fangdaten gelöscht. Erst nach Upload ist Version 2.0.41 auf GitHub verfügbar.
+Hinweis: Es sind SIEBEN App-Dateien plus diese Anleitung. Daten werden nicht gelöscht. Internet für aktuelles Wetter nötig.

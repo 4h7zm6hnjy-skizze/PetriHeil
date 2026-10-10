@@ -1,19 +1,20 @@
 {
-  "version": "2.0.41",
+  "version": "2.0.43",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Wetter am Biggesee direkt abrufen: geprüfte lokale Standortkoordinaten am Nordbereich/Staudamm (Attendorn) statt erfolgloser Stadtsuche.",
-    "Neue Schaltfläche „Biggesee direkt“ sowie freie Eingabe für Orte und Gewässer; kein zusätzlicher Geocoding-Dienst, keine Lizenzgebühr und keine API-Schlüssel.",
-    "Weitere Orte weiterhin über Open-Meteo-Geocoding (Städte, Postleitzahlen) oder frei eingegebene GPS-Koordinaten.",
-    "Pro-Angelzentrale, Erweiterungsübersicht, Systemcheck und Seitenmenü zeigen einheitlich Version 2.0.41.",
-    "Aktualisierte Update-Installation mit Offline-Service-Worker-Versionsabfrage sowie zeitlich begrenztem Installationsprozess.",
-    "Service-Worker-Cache und Skriptbezüge auf Version 2.0.41 aktualisiert; lokale Fangdaten bleiben unverändert."
+    "Beim App-Start wird auf HTTPS automatisch die iPhone-Standortberechtigung angefragt; die Freigabe bleibt Entscheidung des Nutzers.",
+    "Nach erfolgreicher Standortfreigabe wird das Angelwetter einmalig pro Sitzung automatisch für den aktuellen Standort geladen.",
+    "Das gespeicherte GPS-Ergebnis kann für Gewässer und Wetter auf Knopfdruck übernommen werden, ohne eine zweite Berechtigungsabfrage.",
+    "Sichtbarer Standortstatus, erneut versuchen und Standortautomatik ausschalten; automatische Wiederholung nur nach erneuter App-Nutzung und ausreichendem Abstand.",
+    "Bei verweigerter Berechtigung, eingebettetem Browser oder fehlendem GPS bleiben manuelle Orts- und Koordinateneingaben nutzbar.",
+    "GPS-Positionen werden nur im Arbeitsspeicher vorgehalten; Wetterdienst erhält auf circa 100 m gerundete Koordinaten.",
+    "GPS-Diagnose aus Version 2.0.42, Update-Version und Offline-Cache auf 2.0.43 aktualisiert."
   ],
   "limitations": [
-    "Für das aktuelle Wetter ist weiterhin Internet erforderlich. Biggesee-Punkt ist die Nordseite am Staudamm; für andere Uferabschnitte GPS verwenden.",
-    "Andere See- und Flussnamen werden nicht automatisch weltweit erkannt; vorerst die nächstgelegene Stadt oder GPS verwenden.",
-    "Der neue JavaScript-Code kann in Safari erst nach Service-Worker-Aktivierung und erneutem Öffnen geladen werden. Ein echter iPhone-Livetest steht aus.",
-    "Im ursprünglichen app.js existiert eine alte fest eingetragene Versionsanzeige; die neue Update-Steuerung korrigiert sie nur in der laufenden Ansicht."
+    "Eine Website kann iOS-Standortberechtigungen weder selbst erteilen noch eine native Freigabe erzwingen. Eingebettete Browser können automatische Anfragen blockieren; dann ist ein zusätzlicher Tipp oder Safari nötig.",
+    "GPS benötigt HTTPS und aktive Ortungsdienste. Ein Wetterabruf über Open-Meteo braucht eine Internetverbindung.",
+    "Der Standort wird nur bei Eröffnung/erneuter Aktivierung ermittelt, nicht dauerhaft im Hintergrund verfolgt.",
+    "Ein echter iPhone-Berechtigungstest muss nach dem Upload auf dem Gerät durchgeführt werden."
   ]
 }
