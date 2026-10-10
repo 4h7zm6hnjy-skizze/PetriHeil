@@ -1,9 +1,9 @@
-/* Petri Heil Pro 2.0.5: 10 local AI reference images and update-check repair.
+/* Petri Heil Pro 2.0.6: 10 local AI reference images and update-check repair.
    Original 70 embedded illustrations and local user data remain unchanged.
    Images are illustrative, NOT validated for species identification. */
 (()=>{
   'use strict';
-  const VERSION='2.0.5';
+  const VERSION='2.0.6';
   const SPECIES=[
     ['f32','Giebel','giebel'],
     ['f33','Goldfisch','goldfisch'],
@@ -14,7 +14,17 @@
     ['f86','Bachneunauge','bachneunauge'],
     ['s35','Petermännchen','petermaennchen'],
     ['c12','Europäischer Hummer','europaeischer-hummer'],
-    ['c9','Chinesische Wollhandkrabbe','chinesische-wollhandkrabbe']
+    ['c9','Chinesische Wollhandkrabbe','chinesische-wollhandkrabbe'],
+    ['f54','Neunstachliger Stichling','neunstachliger-stichling'],
+    ['f62','Kesslergrundel','kesslergrundel'],
+    ['f63','Flussgrundel','flussgrundel'],
+    ['f64','Nackthalsgrundel','nackthalsgrundel'],
+    ['f65','Amurgrundel','amurgrundel'],
+    ['f87','Flussneunauge','flussneunauge'],
+    ['f88','Meerneunauge','meerneunauge'],
+    ['c10','Gemeine Strandkrabbe','gemeine-strandkrabbe'],
+    ['c11','Nordseegarnele','nordseegarnele'],
+    ['c13','Taschenkrebs','taschenkrebs']
   ].map(([id,name,file])=>({id,name,url:new URL(file+'.webp',document.baseURI).href}));
   const norm=s=>String(s||'').replace(/\s+/g,' ').trim().toLocaleLowerCase('de-DE');
   const identify=s=>SPECIES.find(v=>norm(v.name)===norm(s));
@@ -51,6 +61,7 @@
     }
     image.alt=item.name+' – KI-Beispielbild (keine sichere Artbestimmung)';
     const placeholder=host.querySelector('.photo-placeholder');if(placeholder)placeholder.hidden=true;
+    for(const oldLink of host.querySelectorAll('.photo-source'))oldLink.remove();
     let credit=host.querySelector('.photo-credit');
     if(!credit){
       let info=host.querySelector('.photo-info');
@@ -62,6 +73,13 @@
   }
   function scan(){
     const main=document.getElementById('main');if(!main)return;
+    // Repair old app.js hero-logo URL without changing any existing layout.
+    const logo=main.querySelector('.hero > img');
+    if(logo){
+      const original=logo.getAttribute('src')||'';
+      if(/(?:^|\/)assets\/petri-logo\.webp(?:\?.*)?$/.test(original))
+        logo.src=new URL('petri-logo.webp',document.baseURI).href;
+    }
     for(const card of main.querySelectorAll('.fish-card')){
       const label=card.querySelector('.fish-card-top h3')||card.querySelector('h3');
       const item=identify(label?.textContent);
@@ -73,15 +91,15 @@
       const item=titles.map(identify).find(Boolean);
       if(item)void apply(detail,item);
     }
-    // Dynamic app.js 2.0.4 is preserved; show 2.0.5 accurately in the visible UI.
+    // Dynamic app.js 2.0.4 is preserved; show 2.0.6 accurately in the visible UI.
     for (const el of document.querySelectorAll('.sidebar .tiny,#app-update-card')) {
-      if(!el.dataset.petri205VersionChecked){
-        el.dataset.petri205VersionChecked='yes';
-        if(el.classList.contains('tiny')) el.textContent=el.textContent.replace(/2\.0\.4/g,'2.0.5');
+      if(!el.dataset.petri206VersionChecked){
+        el.dataset.petri206VersionChecked='yes';
+        if(el.classList.contains('tiny')) el.textContent=el.textContent.replace(/2\.0\.[45]/g,'2.0.6');
         if(el.id==='app-update-card'){
           for(const node of el.querySelectorAll('h1,h2,h3,strong,span')){
-            if(node.children.length===0 && /Version 2\.0\.4/.test(node.textContent))
-              node.textContent=node.textContent.replace('2.0.4','2.0.5');
+            if(node.children.length===0 && /Version 2\.0\.[45]/.test(node.textContent))
+              node.textContent=node.textContent.replace(/2\.0\.[45]/g,'2.0.6');
           }
         }
       }
@@ -91,7 +109,7 @@
     const box=main.querySelector('#real-photo-settings');
     if(box && !box.querySelector('.petri-additional-images-notice')){
       const note=document.createElement('p');note.className='petri-additional-images-notice';
-      note.textContent='Zusätzlich zu den 70 eingebetteten Bildern sind 10 neue KI-Artenbilder als lokale WebP-Dateien verfügbar. Nach dem ersten vollständigen Laden stehen sie über den Offline-Cache bereit.';
+      note.textContent='Zusätzlich zu den 70 eingebetteten Bildern sind 20 zusätzliche KI-Artenbilder als lokale WebP-Dateien verfügbar. Nach dem ersten vollständigen Laden stehen sie über den Offline-Cache bereit.';
       note.style.cssText='font-size:13px;line-height:1.55;color:#bbef69';
       box.append(note);
     }
@@ -104,8 +122,8 @@
   function showUpdateStatus(button,message){
     const card=button.closest('#app-update-card')||button.parentElement;
     if(!card)return;
-    let own=card.querySelector('#petri205-update-status');
-    if(!own){own=document.createElement('p');own.id='petri205-update-status';own.setAttribute('role','status');
+    let own=card.querySelector('#petri206-update-status');
+    if(!own){own=document.createElement('p');own.id='petri206-update-status';own.setAttribute('role','status');
       own.style.cssText='margin:10px 0;color:#bbef69;font-size:13px;line-height:1.5;white-space:normal';
       button.insertAdjacentElement('afterend',own);
     }
@@ -138,7 +156,7 @@
       const result=cmp(info.version,VERSION);
       if(result===null)throw new Error('ungültige Versionsangabe');
       if(result>0)showUpdateStatus(button,'Eine neuere Version '+info.version+' ist gemeldet. Vor der Installation die vollständigen Dateien prüfen.');
-      else if(result===0)showUpdateStatus(button,'Version '+VERSION+' ist aktuell. 70 integrierte und 10 zusätzliche lokale KI-Bilder.');
+      else if(result===0)showUpdateStatus(button,'Version '+VERSION+' ist aktuell. 70 integrierte und 20 zusätzliche lokale KI-Bilder.');
       else showUpdateStatus(button,'App '+VERSION+' installiert; Server meldet noch '+info.version+'. Veröffentlichung prüfen.');
     }catch(e){showUpdateStatus(button,'Update-Prüfung fehlgeschlagen ('+(e.name==='AbortError'?'Zeitüberschreitung':e.message)+'). HTTPS-Verbindung und version.json prüfen.');}
   }

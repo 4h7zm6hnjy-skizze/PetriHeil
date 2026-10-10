@@ -1,13 +1,13 @@
 {
-  "version": "2.0.5",
+  "version": "2.0.6",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Die zuvor auf GitHub hochgeladenen zehn KI-Artenbilder werden aus dem Hauptverzeichnis geladen.",
-    "Offline-Pufferung aller zehn neuen WebP-Bilder im Service Worker.",
-    "Fisch- und Krebskunde zeigt die lokalen Motive nach Cache-/App-Aktualisierung an.",
-    "Update suchen liest die kleine version.json anstatt die große app.js-Datei.",
-    "Vorhandene 70 KI-Bilder und persönliche Fangdaten bleiben unangetastet."
+    "10 neue KI-Fisch- und Krebsbilder, insgesamt 20 zusätzliche lokal gespeicherte Artenbilder.",
+    "Alle neuen Bilder erscheinen automatisch in passenden Artkarten und Detailansichten.",
+    "Offline-Cache für die 20 zusätzlichen WebP-Bilder erweitert.",
+    "Version 2.0.6 und Update-Suche aktualisiert; Bildpfade zum GitHub-Hauptordner korrigiert.",
+    "Bestehende 70 eingebettete Bilder und persönliche Fangdaten bleiben unverändert."
   ],
-  "notes": "KI-generierte Motive sind keine wissenschaftlich validierten Bestimmungsfotos."
+  "notes": "Die Bilder sind KI-generierte Illustrationen, keine geprüften Bestimmungsfotos. Keine Art- oder Entnahmeentscheidung allein aufgrund der Bilder treffen."
 }
