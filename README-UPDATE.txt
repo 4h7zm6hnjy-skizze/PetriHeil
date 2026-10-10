@@ -1,38 +1,41 @@
-PETRIHEIL PRO 2.0.6 – 10 weitere Bilder / 20 zusätzliche Bilder insgesamt
+PETRIHEIL PRO 2.0.7 – Update von der vorhandenen GitHub-Version 2.0.6
+10 neue Fischbilder • jetzt 30 ergänzende KI-Bilder • bisherige 70 eingebettete Bilder bleiben erhalten
 
-DAS IST EIN UPDATE-PAKET zum bestehenden GitHub-Repository, NICHT die komplette App.
-Bestehende app.js, data.js, style.css und die vorhandenen 80 Artenbilder dürfen nicht entfernt werden.
+WICHTIG: Dieses Paket ergänzt das GitHub-Projekt; es ist NICHT das vollständige App-Projekt.
+Eine ZIP im GitHub-Hauptordner entpackt sich NICHT automatisch. Dateien einzeln hochladen.
 
-ANWENDEN (GitHub, Hauptordner des Projekts 4h7zm6hnjy-skizze/PetriHeil):
-1. Diese ZIP entpacken.
-2. Die 10 .webp-Bilder sowie sw.js, species-images-v2.0.5.js und version.json
-   über Add file > Upload files in den HAUPTORDNER hochladen.
-   Die bisherigen gleichnamigen drei Dateien ersetzen; Änderungen committen.
-3. Die Datei ARTENZUORDNUNG.json und diese Anleitung müssen nicht online veröffentlicht werden.
-4. Safari-App bei Internetverbindung zweimal neu öffnen / Seite neu laden.
-   Der aktualisierte Service Worker lädt die Erweiterung und 20 Bilder in den Offline-Cache.
-5. Fischkunde testen, z. B. Kesslergrundel / Neunstachliger Stichling / Nordseegarnele.
-6. Danach im Flugmodus Offline-Anzeige testen.
+VERÖFFENTLICHUNG
+1. ZIP lokal entpacken.
+2. Auf https://github.com/4h7zm6hnjy-skizze/PetriHeil im Branch main
+   die zehn neuen .webp-Dateien in den HAUPTORDNER hochladen.
+3. Ebenso die drei Dateien species-images-v2.0.5.js, sw.js und version.json
+   hochladen und die bestehenden Dateien ersetzen (GitHub: Änderungen committen).
+4. ARTENZUORDNUNG.json ist nur zu Kontrollzwecken und muss nicht auf GitHub.
+5. App https://4h7zm6hnjy-skizze.github.io/PetriHeil/ online mehrfach neu laden,
+   anschließend Fischkunde und die Version unter Mehr prüfen.
+6. Nachdem das Laden abgeschlossen ist, im Flugmodus die Bildanzeige testen.
 
-BITTE BEACHTEN:
-- Nicht einfach die ZIP-Datei im GitHub-Repository ablegen; sie wird nicht automatisch entpackt.
-- Version steht nach Laden des Bildloaders auf 2.0.6. Die ursprüngliche index.html
-  der 2.0.4-App wird durch den Service Worker ergänzt; beim allerersten Aufruf
-  kann der alte Versionshinweis noch sichtbar sein.
-- Die 70 eingebetteten KI-Bilder bleiben in app.js, die ersten 10 weiteren .webp-Bilder
-  verbleiben im Hauptordner. Die neueren 10 ergänzen sie.
-- Den iPhone-Websitespeicher nicht löschen: Dort können persönliche Fangdaten liegen.
-- KI-Motive können für Artbestimmung anatomisch ungenau sein!
-- Die Veröffentlichung auf GitHub wird durch diese ZIP allein NICHT ausgeführt.
+Bestehende app.js, data.js, index.html, style.css, Bilder und Fangdaten nicht löschen.
+Bitte NICHT den Safari-Websitespeicher löschen: Er enthält möglicherweise persönliche Daten.
+Die neue Service-Worker-Datei injiziert das aktualisierte Bildskript in die bestehende
+index.html, die weiterhin aus der Basisversion stammt. Beim ersten Laden ist deshalb
+unter Umständen noch eine alte Versionsnummer sichtbar, bis der neue Worker aktiv ist.
 
-ALLE ZEHN NEUEN BILDER:
-- Neunstachliger Stichling (f54): neunstachliger-stichling.webp
-- Kesslergrundel (f62): kesslergrundel.webp
-- Flussgrundel (f63): flussgrundel.webp
-- Nackthalsgrundel (f64): nackthalsgrundel.webp
-- Amurgrundel (f65): amurgrundel.webp
-- Flussneunauge (f87): flussneunauge.webp
-- Meerneunauge (f88): meerneunauge.webp
-- Gemeine Strandkrabbe (c10): gemeine-strandkrabbe.webp
-- Nordseegarnele (c11): nordseegarnele.webp
-- Taschenkrebs (c13): taschenkrebs.webp
+HINWEIS ZUR SACHLICHEN KORREKTHEIT
+KI-generierte Darstellungen können anatomische Merkmale falsch abbilden. Daher
+keine sichere Fischbestimmung oder Fang-/Entnahmeentscheidung allein damit treffen.
+Die bestehende Appdatenbank verwendet bei zwei Störarten wissenschaftliche und
+umgangssprachliche Namen in möglicherweise widersprüchlicher Kombination;
+diese Arten sollten vor Einsatz als Bestimmungsreferenz fachlich geprüft werden.
+
+NEUE ARTENBILDER:
+  - Meerforelle [f25]: meerforelle-neu.webp
+  - Atlantischer Stör [f71]: atlantischer-stoer-neu.webp
+  - Europäischer Stör [f72]: europaeischer-stoer.webp
+  - Donau-Neunauge [f89]: donau-neunauge.webp
+  - Stintdorsch [s19]: stintdorsch.webp
+  - Kleines Petermännchen [s36]: kleines-petermaennchen.webp
+  - Lippfisch (Goldmaid) [s39]: lippfisch-goldmaid.webp
+  - Gefleckter Lippfisch [s41]: gefleckter-lippfisch.webp
+  - Meeräsche (Dicklippige) [s56]: meeraesche-dicklippige.webp
+  - Meeräsche (Dünnlippige) [s57]: meeraesche-duennlippige.webp

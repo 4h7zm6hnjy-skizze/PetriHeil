@@ -1,14 +1,14 @@
-/* Petri Heil Pro 2.0.6: compatible update for the existing 2.0.4 app.
-   This service worker adds the twenty local GitHub ROOT species images to the offline cache.
+/* Petri Heil Pro 2.0.7: compatible update for the existing 2.0.4 app.
+   This service worker adds the thirty local GitHub ROOT species images to the offline cache.
    It injects the non-destructive photo loader into index.html when the new worker controls navigation.
 */
-const CACHE='petri-heil-pro-v2-0-6';
+const CACHE='petri-heil-pro-v2-0-7';
 const PHOTO_CACHE='petri-heil-real-photos-v1';
 const CORE=[
   './index.html','./style.css?v=2.0.4','./app.js?v=2.0.4','./data.js?v=2.0.4',
-  './species-images-v2.0.5.js?v=2.0.6','./manifest.webmanifest','./version.json'
+  './species-images-v2.0.5.js?v=2.0.7','./manifest.webmanifest','./version.json'
 ];
-const IMAGES=["./icon-192.png", "./icon-512.png", "./petri-logo.webp", "./giebel.webp", "./goldfisch.webp", "./dreistachliger-stichling.webp", "./schwarzmundgrundel.webp", "./stint.webp", "./sterlet.webp", "./bachneunauge.webp", "./petermaennchen.webp", "./europaeischer-hummer.webp", "./chinesische-wollhandkrabbe.webp", "./neunstachliger-stichling.webp", "./kesslergrundel.webp", "./flussgrundel.webp", "./nackthalsgrundel.webp", "./amurgrundel.webp", "./flussneunauge.webp", "./meerneunauge.webp", "./gemeine-strandkrabbe.webp", "./nordseegarnele.webp", "./taschenkrebs.webp"];
+const IMAGES=["./icon-192.png", "./icon-512.png", "./petri-logo.webp", "./giebel.webp", "./goldfisch.webp", "./dreistachliger-stichling.webp", "./schwarzmundgrundel.webp", "./stint.webp", "./sterlet.webp", "./bachneunauge.webp", "./petermaennchen.webp", "./europaeischer-hummer.webp", "./chinesische-wollhandkrabbe.webp", "./neunstachliger-stichling.webp", "./kesslergrundel.webp", "./flussgrundel.webp", "./nackthalsgrundel.webp", "./amurgrundel.webp", "./flussneunauge.webp", "./meerneunauge.webp", "./gemeine-strandkrabbe.webp", "./nordseegarnele.webp", "./taschenkrebs.webp", "./meerforelle-neu.webp", "./atlantischer-stoer-neu.webp", "./europaeischer-stoer.webp", "./donau-neunauge.webp", "./stintdorsch.webp", "./kleines-petermaennchen.webp", "./lippfisch-goldmaid.webp", "./gefleckter-lippfisch.webp", "./meeraesche-dicklippige.webp", "./meeraesche-duennlippige.webp"];
 const PHOTO_HOSTS=['static.inaturalist.org','inaturalist-open-data.s3.amazonaws.com','upload.wikimedia.org'];
 self.addEventListener('message',e=>{if(e.data&&e.data.type==='SKIP_WAITING')self.skipWaiting()});
 async function prefetchImages(cache){
@@ -53,7 +53,7 @@ async function networkFirst(req,key){
 async function withPhotoLoader(result){
   if(!result||!result.ok)return result;
   const html=await result.text();
-  const loader='<script src="./species-images-v2.0.5.js?v=2.0.6" defer></script>';
+  const loader='<script src="./species-images-v2.0.5.js?v=2.0.7" defer></script>';
   if(!html.includes('</body>'))return new Response(html,{status:result.status,statusText:result.statusText,headers:result.headers});
   const patched=html.includes('species-images-v2.0.5.js')?html:html.replace('</body>',loader+'\n</body>');
   const headers=new Headers(result.headers);
