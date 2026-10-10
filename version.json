@@ -1,20 +1,19 @@
 {
-  "version": "2.0.40",
+  "version": "2.0.41",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Fehlerhafte Versionsanzeige im alten Einstellungsbildschirm korrigiert: keine feste Anzeige 2.0.28 mehr.",
-    "Update-Status vereinheitlicht: geladene App-Version, veröffentlichte Version und aktive Offline-Version separat geprüft.",
-    "Wiederholte Version-prüfen-Schaltflächen zusammengefasst und das alte Suchverhalten durch eine eindeutige Prüfung ersetzt.",
-    "Installationsvorgang mit maximalen Wartezeiten und klaren Fehlermeldungen statt dauerhaftem Installationsstatus.",
-    "Service-Worker-Versionsantwort ergänzt, damit erfolgreiche Aktivierung nachgewiesen statt angenommen wird.",
-    "Manueller Knopf „App neu laden“ mit Cache-Umgehungsparameter, ohne lokale Fangdaten zu löschen.",
-    "Offline-Dateiliste und App-Versionsanzeige auf 2.0.40 aktualisiert."
+    "Wetter am Biggesee direkt abrufen: geprüfte lokale Standortkoordinaten am Nordbereich/Staudamm (Attendorn) statt erfolgloser Stadtsuche.",
+    "Neue Schaltfläche „Biggesee direkt“ sowie freie Eingabe für Orte und Gewässer; kein zusätzlicher Geocoding-Dienst, keine Lizenzgebühr und keine API-Schlüssel.",
+    "Weitere Orte weiterhin über Open-Meteo-Geocoding (Städte, Postleitzahlen) oder frei eingegebene GPS-Koordinaten.",
+    "Pro-Angelzentrale, Erweiterungsübersicht, Systemcheck und Seitenmenü zeigen einheitlich Version 2.0.41.",
+    "Aktualisierte Update-Installation mit Offline-Service-Worker-Versionsabfrage sowie zeitlich begrenztem Installationsprozess.",
+    "Service-Worker-Cache und Skriptbezüge auf Version 2.0.41 aktualisiert; lokale Fangdaten bleiben unverändert."
   ],
   "limitations": [
-    "Service-Worker-Updates benötigen eine aktive Internetverbindung und werden je nach iOS-Browserkontext eingeschränkt.",
-    "In älteren Tabs kann die bisherige Oberfläche bis zur vollständigen Neuöffnung sichtbar bleiben.",
-    "Die Korrektur wurde mit simulierten Service-Worker-Antworten getestet; ein echter iPhone-Test steht aus.",
-    "Keine App-Fangdaten werden verändert. Vor weiteren größeren Updates dennoch Backups exportieren."
+    "Für das aktuelle Wetter ist weiterhin Internet erforderlich. Biggesee-Punkt ist die Nordseite am Staudamm; für andere Uferabschnitte GPS verwenden.",
+    "Andere See- und Flussnamen werden nicht automatisch weltweit erkannt; vorerst die nächstgelegene Stadt oder GPS verwenden.",
+    "Der neue JavaScript-Code kann in Safari erst nach Service-Worker-Aktivierung und erneutem Öffnen geladen werden. Ein echter iPhone-Livetest steht aus.",
+    "Im ursprünglichen app.js existiert eine alte fest eingetragene Versionsanzeige; die neue Update-Steuerung korrigiert sie nur in der laufenden Ansicht."
   ]
 }

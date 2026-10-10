@@ -1,11 +1,11 @@
-/* Petri Heil Pro 2.0.40 – einheitlicher Versions- und Update-Dialog.
+/* Petri Heil Pro 2.0.41 – einheitlicher Versions- und Update-Dialog.
  * Die alte App schreibt ihre ursprüngliche Versionsnummer in das Einstellungen-HTML.
  * Dieses Modul zeigt stattdessen die tatsächlich geladene Release-Version an,
  * prüft die veröffentlichte Version und bestätigt einen Worker-Wechsel erst nach
  * Rückmeldung des aktiven Workers. Keine Benutzer-/Fangdaten werden verändert. */
 (()=>{
   'use strict';
-  const RELEASE='2.0.40';
+  const RELEASE='2.0.41';
   const ROOT=new URL('./',document.baseURI);
   let busy=false, queued=false, reported='';
   const $=id=>document.getElementById(id);

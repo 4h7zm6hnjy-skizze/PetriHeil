@@ -1,38 +1,11 @@
-PETRIHEIL PRO – UPDATE 2.0.40 (VERSIONSANZEIGE UND INSTALLATION)
-=============================================================
+PetriHeil Pro 2.0.41 — Biggesee-Wetter und Versionsanzeige
 
-Problem: Unter „Backup & Einstellungen“ wurde trotz aktueller App
-„Version 2.0.28“ angezeigt, waehrend „Update installieren“ bei
-„Installiere Version 2.0.39 …“ haengen bleiben konnte.
+1. In PetriHeil unter Angelzentrale > Backup eine Sicherung erstellen.
+2. Diese ZIP-Datei entpacken.
+3. Im GitHub-Repository 4h7zm6hnjy-skizze/PetriHeil die 6 App-Dateien direkt im Hauptverzeichnis hochladen (gleichnamige Dateien ersetzen).
+4. Commit changes bestätigen. INSTALLATION.txt nicht ins Repo erforderlich.
+5. In Safari https://4h7zm6hnjy-skizze.github.io/PetriHeil/ online öffnen, bei Bedarf schließen und erneut öffnen.
+6. Unter Angelzentrale > Angelwetter „Biggesee direkt“ drücken oder Biggesee eintippen.
+7. Unter Mehr > Backup & Einstellungen Version prüfen; geladene App und aktive Offline-Version vergleichen.
 
-Dieses Update enthaelt 4 App-Dateien:
-  1. index.html
-  2. sw.js
-  3. petri-update-install-v2.0.28.js
-  4. version.json
-
-Der Dateiname des Update-Skripts bleibt absichtlich unveraendert,
-damit bereits vorhandene Verknuepfungen nicht kaputtgehen.
-
-INSTALLATION
-1. Vorher ein Backup deiner Fangdaten exportieren.
-2. ZIP entpacken und die VIER oben genannten Dateien direkt
-   im Hauptverzeichnis von 4h7zm6hnjy-skizze/PetriHeil hochladen.
-3. Vorhandene Dateien ueberschreiben, „Commit changes“ bestaetigen.
-4. Nach kurzer GitHub-Pages-Verarbeitung die App im Safari-Browser
-   oeffnen (nicht nur den alten, bereits offenen ChatGPT-Browser-Tab).
-   https://4h7zm6hnjy-skizze.github.io/PetriHeil/?petri_refresh=2.0.40
-5. Unter „Mehr“ -> „Backup & Einstellungen“ die Version pruefen.
-   Dort soll 2.0.40 stehen. „Version pruefen“ zeigt den Serverstand
-   und – wenn moeglich – die tatsaechliche Offline-Version.
-6. Wenn ein aelterer Offline-Worker gemeldet wird, „Update
-   installieren“ verwenden. Nach der Aktivierung laedt die App neu.
-
-WICHTIG
-- Neuinstallation/Loeschen der Home-Bildschirm-App vermeiden,
-  solange keine vollstaendige Datensicherung vorhanden ist.
-- Der Service Worker benoetigt HTTPS und Internet fuer Updates.
-- In eingebetteten Browserfenstern ist die Offline-Installation
-  eventuell nicht verfuegbar; in diesem Fall in Safari oeffnen.
-- Die App-Daten und Fangbuecher werden vom Update nicht veraendert.
-- Die Updatebestätigung wurde nicht auf einem echten iPhone getestet.
+Hinweise: Der Biggesee-Koordinatenpunkt liegt am nördlichen Staudamm, nicht mittig im gesamten Gewässer. Andere Uferstellen kannst du über GPS angeben. Open-Meteo benötigt Internet; Nutzungsbedingungen gelten weiterhin. Es werden keine Fangdaten gelöscht. Erst nach Upload ist Version 2.0.41 auf GitHub verfügbar.
