@@ -15,7 +15,7 @@
     ['s35','Petermännchen','petermaennchen'],
     ['c12','Europäischer Hummer','europaeischer-hummer'],
     ['c9','Chinesische Wollhandkrabbe','chinesische-wollhandkrabbe']
-  ].map(([id,name,file])=>({id,name,url:new URL('assets/ki-bilder/'+file+'.webp',document.baseURI).href}));
+  ].map(([id,name,file])=>({id,name,url:new URL(file+'.webp',document.baseURI).href}));
   const norm=s=>String(s||'').replace(/\s+/g,' ').trim().toLocaleLowerCase('de-DE');
   const identify=s=>SPECIES.find(v=>norm(v.name)===norm(s));
   const checks=new Map();
@@ -72,6 +72,19 @@
       const titles=Array.from(main.querySelectorAll('h1,h2,h3')).map(x=>x.textContent);
       const item=titles.map(identify).find(Boolean);
       if(item)void apply(detail,item);
+    }
+    // Dynamic app.js 2.0.4 is preserved; show 2.0.5 accurately in the visible UI.
+    for (const el of document.querySelectorAll('.sidebar .tiny,#app-update-card')) {
+      if(!el.dataset.petri205VersionChecked){
+        el.dataset.petri205VersionChecked='yes';
+        if(el.classList.contains('tiny')) el.textContent=el.textContent.replace(/2\.0\.4/g,'2.0.5');
+        if(el.id==='app-update-card'){
+          for(const node of el.querySelectorAll('h1,h2,h3,strong,span')){
+            if(node.children.length===0 && /Version 2\.0\.4/.test(node.textContent))
+              node.textContent=node.textContent.replace('2.0.4','2.0.5');
+          }
+        }
+      }
     }
     // The info text refers to 70 images embedded in app.js. Distinguish the
     // additional 10 separately bundled WebP files rather than calling them embedded.

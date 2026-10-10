@@ -1,0 +1,10 @@
+f32: Giebel -> giebel.webp
+f33: Goldfisch -> goldfisch.webp
+f53: Dreistachliger Stichling -> dreistachliger-stichling.webp
+f61: Schwarzmundgrundel -> schwarzmundgrundel.webp
+f68: Stint -> stint.webp
+f73: Sterlet -> sterlet.webp
+f86: Bachneunauge -> bachneunauge.webp
+s35: Petermännchen -> petermaennchen.webp
+c12: Europäischer Hummer -> europaeischer-hummer.webp
+c9: Chinesische Wollhandkrabbe -> chinesische-wollhandkrabbe.webp

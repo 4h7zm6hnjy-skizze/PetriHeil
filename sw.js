@@ -1,71 +1,92 @@
-// Petri Heil Pro 2.0.4 – cache-busting, network-first code and fault-tolerant offline image cache.
-const CACHE='petri-heil-pro-v2-0-4';
+/* Petri Heil Pro 2.0.5: compatible update for the existing 2.0.4 app.
+   This service worker adds the ten existing GitHub ROOT images to the offline cache.
+   It injects the non-destructive photo loader into index.html when the new worker controls navigation.
+*/
+const CACHE='petri-heil-pro-v2-0-5';
 const PHOTO_CACHE='petri-heil-real-photos-v1';
-const CORE=["./index.html", "./style.css?v=2.0.4", "./app.js?v=2.0.4", "./data.js?v=2.0.4", "./manifest.webmanifest", "./version.json"];
-const IMAGES=["./assets/icon-192.png","./assets/icon-512.png","./assets/petri-logo.webp"]; // AI-Bilder sind in app.js eingebettet.
+const CORE=[
+  './index.html','./style.css?v=2.0.4','./app.js?v=2.0.4','./data.js?v=2.0.4',
+  './species-images-v2.0.5.js?v=2.0.5','./manifest.webmanifest','./version.json'
+];
+const IMAGES=["./icon-192.png", "./icon-512.png", "./petri-logo.webp", "./giebel.webp", "./goldfisch.webp", "./dreistachliger-stichling.webp", "./schwarzmundgrundel.webp", "./stint.webp", "./sterlet.webp", "./bachneunauge.webp", "./petermaennchen.webp", "./europaeischer-hummer.webp", "./chinesische-wollhandkrabbe.webp"];
 const PHOTO_HOSTS=['static.inaturalist.org','inaturalist-open-data.s3.amazonaws.com','upload.wikimedia.org'];
-self.addEventListener('message',e=>{if(e.data?.type==='SKIP_WAITING')self.skipWaiting()});
+self.addEventListener('message',e=>{if(e.data&&e.data.type==='SKIP_WAITING')self.skipWaiting()});
 async function prefetchImages(cache){
- // Each image is independent: a missing resource cannot abort the update.
- let i=0;
- async function worker(){while(i<IMAGES.length){const file=IMAGES[i++];try{
-  const found=await cache.match(file);if(found)continue;
-  const r=await fetch(file);if(r.ok)await cache.put(file,r);
- }catch(err){console.warn('Offline image skipped:',file,String(err))}}}
- await Promise.all(Array.from({length:6},worker));
-}
-self.addEventListener('install',e=>{e.waitUntil((async()=>{
- const cache=await caches.open(CACHE);
- await cache.addAll(CORE);
- // A failed image may not block the essential app or update activation.
- await prefetchImages(cache);
- await self.skipWaiting();
-})())});
-self.addEventListener('activate',e=>{e.waitUntil((async()=>{
- const keys=await caches.keys();
- for(const key of keys){
-  if(key.startsWith('petri-heil-pro-')&&key!==CACHE){
-   const from=await caches.open(key),to=await caches.open(CACHE);
-   // Image cache no longer needed for embedded illustrations.
-   for(const asset of IMAGES){if(!(await to.match(asset))){const response=await from.match(asset);if(response)await to.put(asset,response)}}
-   await caches.delete(key);
+  let n=0;
+  async function work(){
+    while(n<IMAGES.length){
+      const path=IMAGES[n++];
+      try{
+        if(await cache.match(path))continue;
+        const r=await fetch(path,{cache:'reload'});
+        if(r.ok)await cache.put(path,r);
+      }catch(err){console.warn('Bild kann nicht offline gespeichert werden',path,err)}
+    }
   }
- }
- await self.clients.claim();
-})())});
-async function fetchOrCache(req,key){
- const cacheKey=key||req;
- try{
-  const res=await fetch(req);
-  if(!res.ok)throw new Error('HTTP '+res.status);
-  const c=await caches.open(CACHE);
-  await c.put(cacheKey,res.clone()).catch(()=>{});
-  return res;
- }catch(err){
-  const old=await caches.match(cacheKey,{ignoreSearch:true});
-  if(old)return old;
-  return Response.error();
- }
+  await Promise.all(Array.from({length:4},work));
+}
+self.addEventListener('install',e=>e.waitUntil((async()=>{
+  const cache=await caches.open(CACHE);
+  await cache.addAll(CORE);
+  await prefetchImages(cache);
+  await self.skipWaiting();
+})()));
+self.addEventListener('activate',e=>e.waitUntil((async()=>{
+  const keys=await caches.keys();
+  for(const k of keys){
+    if(k.startsWith('petri-heil-pro-')&&k!==CACHE)await caches.delete(k);
+  }
+  await self.clients.claim();
+})()));
+async function networkFirst(req,key){
+  const cacheKey=key||req;
+  try{
+    const result=await fetch(req);
+    if(!result.ok)throw new Error('HTTP '+result.status);
+    const cache=await caches.open(CACHE);
+    await cache.put(cacheKey,result.clone()).catch(()=>{});
+    return result;
+  }catch(err){
+    return await caches.match(cacheKey,{ignoreSearch:true})||Response.error();
+  }
+}
+async function withPhotoLoader(result){
+  if(!result||!result.ok)return result;
+  const html=await result.text();
+  const loader='<script src="./species-images-v2.0.5.js?v=2.0.5" defer></script>';
+  if(!html.includes('</body>'))return new Response(html,{status:result.status,statusText:result.statusText,headers:result.headers});
+  const patched=html.includes('species-images-v2.0.5.js')?html:html.replace('</body>',loader+'\n</body>');
+  const headers=new Headers(result.headers);
+  headers.set('content-type','text/html; charset=UTF-8');
+  headers.delete('content-length');
+  headers.delete('content-encoding');
+  return new Response(patched,{status:result.status,statusText:result.statusText,headers});
 }
 self.addEventListener('fetch',e=>{
- if(e.request.method!=='GET')return;
- const url=new URL(e.request.url);
- if(PHOTO_HOSTS.includes(url.hostname)){e.respondWith((async()=>{
-  const c=await caches.open(PHOTO_CACHE),old=await c.match(e.request,{ignoreVary:true});
-  if(old)return old;
-  try{const r=await fetch(e.request);if(r.ok||r.type==='opaque')e.waitUntil(c.put(e.request,r.clone()).catch(()=>{}));return r}
-  catch(err){return new Response('',{status:503})}
- })());return}
- if(url.origin!==self.location.origin)return;
- if(url.pathname.endsWith('/version.json')){
-  e.respondWith(fetch(e.request,{cache:'no-store'}).catch(()=>caches.match('./version.json')));return;
- }
- if(e.request.mode==='navigate'){
-  e.respondWith(fetchOrCache(e.request,'./index.html'));return;
- }
- // Never serve stale JS/CSS/data when online. Offline falls back to the latest core.
- if(/\/(?:app|data)\.js$|\/style\.css$|\/manifest\.webmanifest$/.test(url.pathname)){
-  e.respondWith(fetchOrCache(e.request).then(r=>r||caches.match(e.request,{ignoreSearch:true})));return;
- }
- e.respondWith(caches.match(e.request).then(old=>old||fetchOrCache(e.request)));
+  if(e.request.method!=='GET')return;
+  const u=new URL(e.request.url);
+  if(PHOTO_HOSTS.includes(u.hostname)){
+    e.respondWith((async()=>{
+      const c=await caches.open(PHOTO_CACHE);
+      const old=await c.match(e.request,{ignoreVary:true});
+      if(old)return old;
+      try{
+        const r=await fetch(e.request);
+        if(r.ok||r.type==='opaque')e.waitUntil(c.put(e.request,r.clone()).catch(()=>{}));
+        return r;
+      }catch(err){return new Response('',{status:503})}
+    })());return;
+  }
+  if(u.origin!==self.location.origin)return;
+  if(u.pathname.endsWith('/version.json')){
+    e.respondWith(fetch(e.request,{cache:'no-store'}).catch(()=>caches.match('./version.json')));return;
+  }
+  if(e.request.mode==='navigate'){
+    e.respondWith(networkFirst(e.request,'./index.html').then(withPhotoLoader));return;
+  }
+  if(/\/(?:app|data)\.js$|\/style\.css$|\/manifest\.webmanifest$|\/species-images-v2\.0\.5\.js$/.test(u.pathname)){
+    e.respondWith(networkFirst(e.request));return;
+  }
+  // Precached root image files are therefore available offline.
+  e.respondWith(caches.match(e.request,{ignoreSearch:true}).then(r=>r||networkFirst(e.request)));
 });

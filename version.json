@@ -1,13 +1,13 @@
 {
-  "version": "2.0.4",
+  "version": "2.0.5",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Jetzt lernen: Button auf der Startseite wird nicht mehr von einer dekorativen Ebene blockiert.",
-    "Jetzt lernen startet sofort den Trainingsmodus mit der ersten Übungsfrage.",
-    "Training und Prüfung öffnen die richtige Ansicht auch nach erneutem Aufruf.",
-    "Versionsbezüge 2.0.4 und neuer Offline-Cache, Stylesheet mit Versionskennung.",
-    "70 eingebettete KI-Bilder und persönliche Fangdatenfunktionen unverändert."
+    "Die zuvor auf GitHub hochgeladenen zehn KI-Artenbilder werden aus dem Hauptverzeichnis geladen.",
+    "Offline-Pufferung aller zehn neuen WebP-Bilder im Service Worker.",
+    "Fisch- und Krebskunde zeigt die lokalen Motive nach Cache-/App-Aktualisierung an.",
+    "Update suchen liest die kleine version.json anstatt die große app.js-Datei.",
+    "Vorhandene 70 KI-Bilder und persönliche Fangdaten bleiben unangetastet."
   ],
-  "notes": "KI-generierte Abbildungen sind keine fachlich validierten Bestimmungsfotos. Manche Merkmale können unzutreffend sein. Die Entnahmeentscheidung darf nicht anhand dieser Bilder getroffen werden."
+  "notes": "KI-generierte Motive sind keine wissenschaftlich validierten Bestimmungsfotos."
 }
