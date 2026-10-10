@@ -1,13 +1,12 @@
 {
-  "version": "2.0.10",
+  "version": "2.0.11",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Fünf zusätzliche KI-Artenbilder auf weißem Hintergrund: Dornhai, Heringshai, Nagelrochen, Sternrochen und Glattrochen.",
-    "55 separat gespeicherte Artenbilder zusätzlich zu den bisherigen 70 in app.js eingebetteten Illustrationen.",
-    "Lokale Bilddateien und Service-Worker-Offline-Cache auf v2.0.10 erweitert.",
-    "Fünf weitere Generierungen wurden nicht als neue Artenbilder übernommen, weil sie andere Arten zeigen oder bereits vorhanden sind.",
-    "Fangdaten und bisherige Funktionen werden durch den Patch nicht verändert."
+    "10 neue KI-Artenbilder auf weißem Hintergrund für Zope, Zobel, Zährte, Frauennerfling, Strömer, Perlfisch, Stromgründling, Donau-Steinbeißer, Schwarzen Zwergwels und Schwarzbarsch.",
+    "65 zusätzliche lokal gespeicherte Artenbilder sind Artkarten und Detailansichten zugeordnet; 70 ältere in app.js eingebettete Illustrationen bleiben unverändert.",
+    "Offline-Cache und Bildloader auf Version 2.0.11 angepasst.",
+    "Fangbuch, Nutzerdaten und übrige Funktionen nicht verändert."
   ],
-  "notes": "KI-Illustrationen sind keine fachlich validierten Bestimmungsfotos. Bei Rochen- und Haiarten anhand verlässlicher Bestimmungsmerkmale verifizieren."
+  "notes": "KI-Illustrationen, nicht fachlich validierte Bestimmungsfotos. Artbestimmung und Schonvorschriften anhand zuverlässiger Quellen prüfen."
 }
