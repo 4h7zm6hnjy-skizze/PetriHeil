@@ -1,72 +1,82 @@
 [
   {
-    "id": "s37",
-    "name": "Seehase",
-    "filename": "seehase.webp",
-    "bytes": 187842,
-    "sha256": "0444d88a2ad997997064c5f39dd33663e64cec90fd0f009a6ad3ed567f9c026e"
+    "id": "s48",
+    "name": "Kleine Seenadel",
+    "latin": "Syngnathus rostellatus",
+    "image": "kleine-seenadel.webp",
+    "bytes": 31594,
+    "sha256": "3dbbff98d7695e3bc0c91c0ffc9ade858db22a847fa6e3b03077394de111a0ff"
   },
   {
-    "id": "s38",
-    "name": "Seewolf (Gestreifter)",
-    "filename": "seewolf-gestreifter.webp",
-    "bytes": 134822,
-    "sha256": "d3f23dc2d8947e9ccf054c74a5d4c2e430c4cc244d412f3149707c1158c245c5"
+    "id": "s49",
+    "name": "Schlangennadel",
+    "latin": "Entelurus aequoreus",
+    "image": "schlangennadel.webp",
+    "bytes": 26684,
+    "sha256": "8899586ed96cae8b44f47e3ee40ea0e416afe0d5b22e201dff6f310fcf92010d"
   },
   {
-    "id": "s40",
-    "name": "Kuckuckslippfisch",
-    "filename": "kuckuckslippfisch.webp",
-    "bytes": 128498,
-    "sha256": "f5d432cb5e41a9077f5f9031f62cb6c1a16b8d1160a61c632262a09532c25c89"
+    "id": "s51",
+    "name": "Seepferdchen (Kurzschnäuziges)",
+    "latin": "Hippocampus hippocampus",
+    "image": "seepferdchen-kurzschnauziges.webp",
+    "bytes": 104120,
+    "sha256": "52f4c340c97f6f19af69ab6d54e894e5b83605c03c53a6e8c009115e33bc762c"
   },
   {
-    "id": "s42",
-    "name": "Großer Scheibenbauch",
-    "filename": "grosser-scheibenbauch.webp",
-    "bytes": 86686,
-    "sha256": "7060264c00a3e5062ebf302d9d82a8de6ba8b5cd707165fdeb9d930aa7746c1d"
+    "id": "s52",
+    "name": "Schwarzgrundel",
+    "latin": "Gobius niger",
+    "image": "schwarzgrundel.webp",
+    "bytes": 127330,
+    "sha256": "6357ef7d40d7df90666363db47d2192b1c6a22d00b941a25f61d34dc5c7bceaa"
   },
   {
-    "id": "s43",
-    "name": "Europäischer Butterfisch",
-    "filename": "europaeischer-butterfisch.webp",
-    "bytes": 94798,
-    "sha256": "f46d77dcda57fc3b4515f235ffcdd35ae571f001cf23f0f29b6100845a1a84a9"
+    "id": "s53",
+    "name": "Sandgrundel",
+    "latin": "Pomatoschistus minutus",
+    "image": "sandgrundel.webp",
+    "bytes": 90212,
+    "sha256": "41f96e38f3d98bb16284677e6d10cfed0bb4e9c2dd5073ca5c2af8503298046d"
   },
   {
-    "id": "s44",
-    "name": "Aalmutter",
-    "filename": "aalmutter.webp",
-    "bytes": 102918,
-    "sha256": "a88b838f5a61f85aa34307ffcfef45c429aba373e3ed378ee0307ede820a9e49"
+    "id": "s54",
+    "name": "Strandgrundel",
+    "latin": "Pomatoschistus microps",
+    "image": "strandgrundel.webp",
+    "bytes": 80100,
+    "sha256": "60f6cd97104c05bde815d2ef1e60527611728b3936447caf6b0b4eb3f44e661e"
   },
   {
-    "id": "s45",
-    "name": "Seestichling",
-    "filename": "seestichling.webp",
-    "bytes": 83206,
-    "sha256": "12dee8782ab2981420c5a2655266ddfad7406b172bf24afd52959714fb197004"
+    "id": "s55",
+    "name": "Fleckengrundel",
+    "latin": "Pomatoschistus pictus",
+    "image": "fleckengrundel.webp",
+    "bytes": 98678,
+    "sha256": "7bace44b19c7ce5a4bbb58aa505d51a828f5576acb497c152873a7e075dfc504"
   },
   {
-    "id": "s46",
-    "name": "Grasnadel",
-    "filename": "grasnadel.webp",
-    "bytes": 30750,
-    "sha256": "052ecb9e025ebcf5ba3a337318df54c21b24df7baf9553f0ca2ce43d74ee0f10"
+    "id": "s58",
+    "name": "Goldstrieme",
+    "latin": "Sarpa salpa",
+    "image": "goldstrieme.webp",
+    "bytes": 148346,
+    "sha256": "6d789479170618d7489ee7a4c545fa16ce42e93cbe87f2161b07aac070b85669"
   },
   {
-    "id": "s47",
-    "name": "Große Seenadel",
-    "filename": "grosse-seenadel.webp",
-    "bytes": 38224,
-    "sha256": "f4dcbd514518238ffdf70b52d6a83e64a6b31068e324486998b59a89c2c5ae63"
+    "id": "s59",
+    "name": "Meerbrasse",
+    "latin": "Pagellus bogaraveo",
+    "image": "meerbrasse.webp",
+    "bytes": 140296,
+    "sha256": "27fd2032935c431c2d777fe35c71ec3fcadd8f9450b540f63d14f28a28a19155"
   },
   {
-    "id": "s50",
-    "name": "Seepferdchen (Langschnäuziges)",
-    "filename": "seepferdchen-langschnauziges.webp",
-    "bytes": 118160,
-    "sha256": "ad0144390bf7c9cc1de13d986ce20562c698ea79aef1c6583724698117b37fcc"
+    "id": "s61",
+    "name": "Hai (Kleingefleckter Katzenhai)",
+    "latin": "Scyliorhinus canicula",
+    "image": "hai-kleingefleckter-katzenhai.webp",
+    "bytes": 46822,
+    "sha256": "a51839a6e8001edb6412f5a81b9522c2d260ef185c5eaf060a95e32e2d67c03d"
   }
 ]

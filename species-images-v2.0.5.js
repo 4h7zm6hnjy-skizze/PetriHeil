@@ -1,9 +1,9 @@
-/* Petri Heil Pro 2.0.8: 10 local AI reference images and update-check repair.
+/* Petri Heil Pro 2.0.9: 10 local AI reference images and update-check repair.
    Original 70 embedded illustrations and local user data remain unchanged.
    Images are illustrative, NOT validated for species identification. */
 (()=>{
   'use strict';
-  const VERSION='2.0.8';
+  const VERSION='2.0.9';
   const SPECIES=[
     ['f32','Giebel','giebel'],
     ['f33','Goldfisch','goldfisch'],
@@ -44,7 +44,17 @@
     ['s45','Seestichling','seestichling'],
     ['s46','Grasnadel','grasnadel'],
     ['s47','Große Seenadel','grosse-seenadel'],
-    ['s50','Seepferdchen (Langschnäuziges)','seepferdchen-langschnauziges']
+    ['s50','Seepferdchen (Langschnäuziges)','seepferdchen-langschnauziges'],
+    ['s48','Kleine Seenadel','kleine-seenadel'],
+    ['s49','Schlangennadel','schlangennadel'],
+    ['s51','Seepferdchen (Kurzschnäuziges)','seepferdchen-kurzschnauziges'],
+    ['s52','Schwarzgrundel','schwarzgrundel'],
+    ['s53','Sandgrundel','sandgrundel'],
+    ['s54','Strandgrundel','strandgrundel'],
+    ['s55','Fleckengrundel','fleckengrundel'],
+    ['s58','Goldstrieme','goldstrieme'],
+    ['s59','Meerbrasse','meerbrasse'],
+    ['s61','Hai (Kleingefleckter Katzenhai)','hai-kleingefleckter-katzenhai']
   ].map(([id,name,file])=>({id,name,url:new URL(file+'.webp',document.baseURI).href}));
   const norm=s=>String(s||'').replace(/\s+/g,' ').trim().toLocaleLowerCase('de-DE');
   const identify=s=>SPECIES.find(v=>norm(v.name)===norm(s));
@@ -111,25 +121,25 @@
       const item=titles.map(identify).find(Boolean);
       if(item)void apply(detail,item);
     }
-    // Dynamic app.js 2.0.4 is preserved; show 2.0.8 accurately in the visible UI.
+    // Dynamic app.js 2.0.4 is preserved; show 2.0.9 accurately in the visible UI.
     for (const el of document.querySelectorAll('.sidebar .tiny,#app-update-card')) {
-      if(!el.dataset.petri208VersionChecked){
-        el.dataset.petri208VersionChecked='yes';
-        if(el.classList.contains('tiny')) el.textContent=el.textContent.replace(/2\.0\.[4567]/g,'2.0.8');
+      if(!el.dataset.petri209VersionChecked){
+        el.dataset.petri209VersionChecked='yes';
+        if(el.classList.contains('tiny')) el.textContent=el.textContent.replace(/2\.0\.[45678]/g,'2.0.9');
         if(el.id==='app-update-card'){
           for(const node of el.querySelectorAll('h1,h2,h3,strong,span')){
-            if(node.children.length===0 && /Version 2\.0\.[4567]/.test(node.textContent))
-              node.textContent=node.textContent.replace(/2\.0\.[4567]/g,'2.0.8');
+            if(node.children.length===0 && /Version 2\.0\.[45678]/.test(node.textContent))
+              node.textContent=node.textContent.replace(/2\.0\.[45678]/g,'2.0.9');
           }
         }
       }
     }
     // The info text refers to 70 images embedded in app.js. Distinguish the
-    // additional 40 separately bundled WebP files rather than calling them embedded.
+    // additional 50 separately bundled WebP files rather than calling them embedded.
     const box=main.querySelector('#real-photo-settings');
     if(box && !box.querySelector('.petri-additional-images-notice')){
       const note=document.createElement('p');note.className='petri-additional-images-notice';
-      note.textContent='Zusätzlich zu den 70 eingebetteten Bildern sind 40 zusätzliche KI-Artenbilder als lokale WebP-Dateien verfügbar. Nach dem ersten vollständigen Laden stehen sie über den Offline-Cache bereit.';
+      note.textContent='Zusätzlich zu den 70 eingebetteten Bildern sind 50 zusätzliche KI-Artenbilder als lokale WebP-Dateien verfügbar. Nach dem ersten vollständigen Laden stehen sie über den Offline-Cache bereit.';
       note.style.cssText='font-size:13px;line-height:1.55;color:#bbef69';
       box.append(note);
     }
@@ -142,8 +152,8 @@
   function showUpdateStatus(button,message){
     const card=button.closest('#app-update-card')||button.parentElement;
     if(!card)return;
-    let own=card.querySelector('#petri208-update-status');
-    if(!own){own=document.createElement('p');own.id='petri208-update-status';own.setAttribute('role','status');
+    let own=card.querySelector('#petri209-update-status');
+    if(!own){own=document.createElement('p');own.id='petri209-update-status';own.setAttribute('role','status');
       own.style.cssText='margin:10px 0;color:#bbef69;font-size:13px;line-height:1.5;white-space:normal';
       button.insertAdjacentElement('afterend',own);
     }
@@ -176,7 +186,7 @@
       const result=cmp(info.version,VERSION);
       if(result===null)throw new Error('ungültige Versionsangabe');
       if(result>0)showUpdateStatus(button,'Eine neuere Version '+info.version+' ist gemeldet. Vor der Installation die vollständigen Dateien prüfen.');
-      else if(result===0)showUpdateStatus(button,'Version '+VERSION+' ist aktuell. 70 integrierte und 40 zusätzliche lokale KI-Bilder.');
+      else if(result===0)showUpdateStatus(button,'Version '+VERSION+' ist aktuell. 70 integrierte und 50 zusätzliche lokale KI-Bilder.');
       else showUpdateStatus(button,'App '+VERSION+' installiert; Server meldet noch '+info.version+'. Veröffentlichung prüfen.');
     }catch(e){showUpdateStatus(button,'Update-Prüfung fehlgeschlagen ('+(e.name==='AbortError'?'Zeitüberschreitung':e.message)+'). HTTPS-Verbindung und version.json prüfen.');}
   }

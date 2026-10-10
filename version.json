@@ -1,12 +1,12 @@
 {
-  "version": "2.0.8",
+  "version": "2.0.9",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "10 weitere einzeln generierte KI-Bilder auf weißem Hintergrund für Seehase, Seewolf, Kuckuckslippfisch, Scheibenbauch, Butterfisch, Aalmutter, Seestichling, zwei Seenadeln und Seepferdchen.",
-    "40 zusätzliche lokale Artenbilder in Artkarten und Detailansichten zugeordnet; vorhandene 70 eingebettete KI-Abbildungen bleiben erhalten.",
-    "Alle 40 zusätzlichen WebP-Dateien können im Service-Worker-Offline-Cache gespeichert werden.",
-    "Update-Anzeige und Versionsvergleich auf 2.0.8 angepasst."
+    "10 weitere einzelne KI-Artenbilder mit weißem Hintergrund: Kleine Seenadel, Schlangennadel, Kurzschnäuziges Seepferdchen, Schwarzgrundel, Sandgrundel, Strandgrundel, Fleckengrundel, Goldstrieme, Meerbrasse und Kleingefleckter Katzenhai.",
+    "50 zusätzliche lokal zugeordnete Artenbilder, bestehende 70 in app.js eingebettete KI-Bilder unverändert.",
+    "Offline-Cache (Service Worker) auf Version 2.0.9 und alle 50 zusätzlichen WebP-Bilder erweitert.",
+    "Anzeige der Zusatzbildanzahl und Versionsprüfung auf 2.0.9 angepasst."
   ],
-  "notes": "KI-Bilder sind illustrative Beispiele, keine fachlich validierten Bestimmungsfotos; bei Schutz, Fischbestimmung oder Entnahme auf geprüfte Quellen zurückgreifen."
+  "notes": "KI-Bilder sind illustrative Beispiele und keine fachlich geprüften Bestimmungsfotos. Entscheidungen zur Artbestimmung und Entnahme benötigen verlässliche Quellen."
 }
