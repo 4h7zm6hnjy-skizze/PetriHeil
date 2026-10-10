@@ -1,0 +1,49 @@
+/* Petri Heil Pro – Lesbarkeits-Hotfix fuer Lernsystem und Pruefungssimulation.
+   Die hellen Theme-Variablen setzten dunklen Text auf unveraendert dunklen
+   Quiz-Karten. Nur Quiz-Oberflaechen und Zustaende werden geaendert. */
+.quiz-option {
+  background: #eff8fd;
+  border-color: #a8cfe3;
+  color: #153b53;
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.quiz-option .option-letter {
+  background: #d2eaf7;
+  color: #07547e;
+}
+.quiz-option:hover:not(:disabled) {
+  background: #e2f3fc;
+  border-color: #087db9;
+}
+.quiz-option.selected {
+  background: #d6effe;
+  border-color: #067db9;
+  color: #123b57;
+}
+.quiz-option.selected .option-letter {
+  background: #087db9;
+  color: #ffffff;
+}
+.quiz-option.correct {
+  background: #e3f7eb;
+  border-color: #2e8554;
+  color: #164b30;
+}
+.quiz-option.correct .option-letter {
+  background: #287449;
+  color: #ffffff;
+}
+.quiz-option.wrong {
+  background: #ffeae7;
+  border-color: #b4544d;
+  color: #7a2928;
+}
+.quiz-option.wrong .option-letter {
+  background: #a83f39;
+  color: #ffffff;
+}
+.quiz-option:disabled { opacity: 1; }
+.quiz-option:focus-visible { outline: 3px solid #087db9; outline-offset: 3px; }

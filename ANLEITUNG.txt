@@ -1,30 +1,28 @@
-PetriHeil 2.0.5 - Drei-Dateien-Fix für bereits hochgeladenen GitHub-Hauptordner
+PETRI HEIL PRO – KONTRASTFIX FUER LERNSYSTEM / PRUEFUNG
+=========================================================
 
-STAND: Auf GitHub liegen die zehn neuen .webp-Bilder bereits im HAUPTORDNER.
-Das vorliegende Paket stellt genau dazu kompatible Dateien bereit.
+Enthaelt exakt 2 Webapp-Dateien:
+- index.html (bestehende 2.0.42: nur 1 zusaetzlicher CSS-Link vor </head>)
+- petri-contrast-fix.css (NEU: gut lesbare Antwortfelder)
 
-GITHUB-UPLOAD:
-1. Entpacke dieses ZIP (nicht ZIP selbst zu GitHub hochladen).
-2. Öffne https://github.com/4h7zm6hnjy-skizze/PetriHeil und wechsle nach main.
-3. Lade die DREI Dateien sw.js, species-images-v2.0.5.js und version.json
-   in den GitHub-Hauptordner hoch. Gleichnamige Dateien müssen ersetzt werden.
-4. Commit changes ausführen. Prüfen, dass alle drei Dateien im Hauptordner liegen.
-5. Öffne die veröffentlichte HTTPS-Pages-Webapp, online.
-6. Nach dem ersten Laden/Update die Webapp vollständig schließen und neu öffnen.
-   Je nach iOS-Service-Worker-Aktualisierung kann ein weiterer Reload nötig sein.
-7. Unter "Mehr" Update suchen: Version 2.0.5 prüfen.
-8. In Fischkunde z.B. Giebel, Stint und Wollhandkrabbe aufrufen.
-9. Danach Flugmodus einschalten und die Bilder offline prüfen.
+ANWENDUNG
+1. Im GitHub-Repository 4h7zm6hnjy-skizze/PetriHeil das Hauptverzeichnis oeffnen.
+2. Die beiden Dateien aus diesem ZIP ins Hauptverzeichnis hochladen. Die vorhandene
+   index.html muss dabei durch die mitgelieferte ersetzt werden. Alle anderen
+   Dateien und die Verzeichnisstruktur unveraendert lassen.
+3. Die Web-App nach dem Veroeffentlichen mit Internetverbindung neu laden.
+4. Lernsystem und Pruefungssimulation testen (A, B, C, D gut lesbar).
 
-WICHTIG: Die App ist weiterhin eine bestehende 2.0.4-Codebasis mit einem
-kompatiblen 2.0.5-Erweiterungsskript; app.js mit den bisherigen 70 KI-Bildern
-wird NICHT überschrieben. Dieser Fix nutzt die vorhandenen Root-WebP-Dateien.
+Falls GitHub im Browser keine vorhandene index.html beim Upload ersetzen laesst:
+- index.html im Repository oeffnen und ueber das Stiftsymbol bearbeiten.
+- DIREKT VOR </head> diese Zeile einfuegen:
+  <link rel="stylesheet" href="./petri-contrast-fix.css?v=2.0.43">
+- Nur die neue CSS-Datei hochladen.
 
-KEIN Löschen von Safari-Website-Daten oder PWA-Speicher: sonst können lokale
-Fangdaten verloren gehen.
+Hinweis: Ein HOTFIX der bestehenden 2.0.42. Die App-Versionsanzeige bleibt
+bewusst 2.0.42, damit ihr Update-Dialog keine neue Worker-Version vorgaukelt.
+Die neue CSS-Datei wird bei Internetverbindung geladen und vom bisherigen
+Service Worker nach dem ersten Online-Laden zwischengespeichert.
 
-Hinweis: Fehler 'Load failed' kann je nach Netz/Hosting nach wie vor aus der
-alten Update-Funktion stammen; das Ergänzungsskript fängt den Klick in der
-Version-Karte ab und zeigt eine gesonderte Versionsprüfung.
-
-KI-Abbildungen dienen zur Veranschaulichung, nicht zur rechtssicheren Artbestimmung.
+Kein Austausch von Fangdaten, Bildern, Fragenkatalogen oder Datenbanken.
+Hinweis: Eine visuelle Pruefung auf dem iPhone steht noch aus.
