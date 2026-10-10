@@ -1,33 +1,52 @@
 {
-  "version": "2.0.13",
-  "images": [
+  "version": "2.0.14",
+  "newImages": [
     {
-      "id": "f81",
-      "name": "Schrätzer",
-      "scientificName": "Gymnocephalus schraetser",
-      "filename": "schraetzer.webp",
-      "bytes": 139974,
-      "sha256": "71a0702e129940e613ebf677b7788b7a6c62cba57862ba954b6cffd8b50a2837",
-      "verification": "KI-Illustration – Artenmerkmale nicht wissenschaftlich verifiziert"
+      "id": "f84",
+      "name": "Ziege",
+      "scientificName": "Pelecus cultratus",
+      "filename": "ziege.webp",
+      "bytes": 119144,
+      "sha256": "99997ac052d96570bcc5f3ef0bc3a2051c2d029285019513a166956bd4b7a7c5",
+      "type": "KI-Illustration, Artmerkmale nicht wissenschaftlich validiert"
     },
     {
-      "id": "f82",
-      "name": "Streber",
-      "scientificName": "Zingel streber",
-      "filename": "streber.webp",
-      "bytes": 97814,
-      "sha256": "49746ca1cb4a05f086ee50f98ee7685c87197f42fd74ca097b6c61eb08013551",
-      "verification": "KI-Illustration – Artenmerkmale nicht wissenschaftlich verifiziert"
-    },
-    {
-      "id": "f83",
-      "name": "Zingel",
-      "scientificName": "Zingel zingel",
-      "filename": "zingel.webp",
-      "bytes": 101404,
-      "sha256": "623fcb6370f42898b23d30370c4290e9d295b4eacf235f2ea7566655bb3d17e0",
-      "verification": "KI-Illustration – Artenmerkmale nicht wissenschaftlich verifiziert"
+      "id": "f85",
+      "name": "Mairenke",
+      "scientificName": "Alburnus mento",
+      "filename": "mairenke.webp",
+      "bytes": 80836,
+      "sha256": "11e454dbfa5247686e7bfd89fc14456d880e07bad36580b7540489ce11acaf85",
+      "type": "KI-Illustration, Artmerkmale nicht wissenschaftlich validiert"
     }
   ],
-  "excluded": "7 der zuletzt generierten Motive nicht neu zugeordnet, da Arten bereits bebildert oder nicht im Artenlexikon enthalten."
+  "existingImagesReused": [
+    {
+      "id": "s69",
+      "name": "Meerforelle (Küste)",
+      "filename": "meerforelle-neu.webp"
+    },
+    {
+      "id": "s70",
+      "name": "Atlantischer Lachs (Küste)",
+      "filename": "lachs.webp"
+    },
+    {
+      "id": "s71",
+      "name": "Aal (Küste)",
+      "filename": "aal.webp"
+    },
+    {
+      "id": "s72",
+      "name": "Flussneunauge (Küste)",
+      "filename": "flussneunauge.webp"
+    },
+    {
+      "id": "s73",
+      "name": "Meerneunauge (Küste)",
+      "filename": "meerneunauge.webp"
+    }
+  ],
+  "additionalWebpFiles": 80,
+  "mappedEntries": 85
 }

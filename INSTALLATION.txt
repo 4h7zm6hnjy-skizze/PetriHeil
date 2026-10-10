@@ -1,0 +1,19 @@
+PETRIHEIL – BILDERUPDATE 2.0.14
+
+1. Entpacken.
+2. Auf GitHub im Hauptverzeichnis des Repositories PetriHeil die Dateien hochladen:
+   ziege.webp
+   mairenke.webp
+   sw.js
+   species-images-v2.0.5.js
+   version.json
+3. Vorhandene gleichnamige Dateien ersetzen. Die ZIP nicht als Einzeldatei hochladen.
+4. GitHub Pages veröffentlichen lassen, die App zweimal ONLINE öffnen.
+5. Version 2.0.14 und beide Artenbilder prüfen.
+6. Erst vollständig online laden, dann Flugmodus/Offline prüfen.
+
+Die fünf anderen, neu zugeordneten Küstenarten verwenden bestehende WebPs: meerforelle-neu.webp, lachs.webp, aal.webp, flussneunauge.webp, meerneunauge.webp. Diese müssen nicht neu hochgeladen werden.
+
+Von der zuletzt erzeugten Serie sind acht Motive bereits bebilderten Arten ähnlich. Sie werden NICHT als andere Arten ausgegeben oder überschreiben.
+
+WARNUNG: KI-Bilder sind keine wissenschaftlich geprüften Bestimmungsfotos. Die Ziege-Darstellung kann anatomische Unschärfen haben. Nutzer-Fangdaten werden nicht angetastet.

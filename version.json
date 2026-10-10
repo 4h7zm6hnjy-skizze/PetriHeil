@@ -1,12 +1,13 @@
 {
-  "version": "2.0.13",
+  "version": "2.0.14",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Drei neue KI-Illustrationen auf weißem Hintergrund für Schrätzer, Streber und Zingel.",
-    "78 zusätzliche Bildzuordnungen und 70 frühere eingebettete Illustrationen unverändert.",
-    "Offline-Service-Worker und Versionsprüfung auf 2.0.13 erweitert.",
-    "Andere zuletzt erzeugte Bilder nicht übernommen: vorhandene Artenbilder oder kein zugehöriger Lexikoneintrag."
+    "Zwei neue KI-Abbildungen auf weißem Hintergrund: Ziege (f84) und Mairenke (f85).",
+    "Fünf zusätzliche Küsten-Arteinträge verwenden passende bereits vorhandene Bilder (Meerforelle, Lachs, Aal, Fluss- und Meerneunauge).",
+    "Bildloader auf 85 Arteinträge erweitert; 80 separat gespeicherte WebP-Abbildungen und 70 bisherige eingebettete Abbildungen.",
+    "Offline-Cache um die zwei neuen Bilder sowie bereits vorhandene, nun ebenfalls zugeordnete Root-Bilder erweitert.",
+    "Acht weitere Motive dieser Generierungsserie nicht automatisch eingebaut, weil sie bereits bebilderte Arten darstellen."
   ],
-  "notes": "KI-Motive sind NICHT wissenschaftlich geprüft und können Artmerkmale falsch darstellen. Nicht zur sicheren Artbestimmung verwenden. Keine Nutzerdaten oder Fangbuchfunktionen verändert."
+  "notes": "KI-Abbildungen sind nicht fachlich validiert, insbesondere die Ziege. Nicht zur sicheren Artbestimmung, Entnahme oder Beurteilung von Schutzvorschriften verwenden. Bestehende Fangdaten werden nicht verändert."
 }
