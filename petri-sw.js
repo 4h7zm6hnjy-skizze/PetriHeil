@@ -1,10 +1,10 @@
-/* Petri Heil Pro: stabiler Worker-Pfad, Version 2.1.7.
+/* Petri Heil Pro: stabiler Worker-Pfad, Version 2.2.0.
    Updated in place on future releases. Does not import legacy workers. */
 'use strict';
-const VERSION='2.1.7';
+const VERSION='2.2.0';
 const ROOT=new URL('./',self.location.href);
-const CORE_CACHE='petri-core-2.1.7';
-const IMAGE_CACHE='petri-images-2.1.7';
+const CORE_CACHE='petri-core-2.2.0';
+const IMAGE_CACHE='petri-media-2.2.0';
 const CORE=[
  'index.html','update-rettung.html','version.json','manifest.webmanifest',
  'style.css?v=2.0.4','data.js?v=2.0.4','app.js?v=2.0.4',
@@ -19,7 +19,8 @@ const CORE=[
  'petri-pro-suite-v2.0.42.js?v=2.0.42','petri-data-bridge-v2.0.33.js?v=2.0.42',
  'petri-report-v2.0.36.js?v=2.0.42','petri-next-v2.0.37.js?v=2.0.42',
  'petri-gesamt-v2.0.41.js?v=2.0.42','petri-unified-ui-v2.1.2.js?v=2.1.2',
- 'petri-species-regions-v2.1.3.js?v=2.1.3','petri-updater.js?v=2.1.7'
+ 'petri-species-regions-v2.1.3.js?v=2.1.3','petri-updater.js?v=2.2.0',
+ 'petri-media-v2.2.0.json','petri-offline-v2.2.0.js?v=2.2.0','offline-check.html'
 ];
 const IMAGES=[
  'petri-fisch-v2.0.29.webp','petri-marke-v2.0.29.webp',
@@ -136,7 +137,8 @@ self.addEventListener('fetch',evt=>{
   if(evt.request.method!=='GET')return;
   if(evt.request.mode==='navigate'){
     // Repair page is never replaced by an old cached index.html.
-    const key=/\/update-rettung\.html$/.test(url.pathname)?file('update-rettung.html'):essentialKey;
+    const key=/\/offline-check\.html$/.test(url.pathname)?file('offline-check.html'):
+      /\/update-rettung\.html$/.test(url.pathname)?file('update-rettung.html'):essentialKey;
     evt.respondWith(networkFirst(evt.request,key));return;
   }
   if(/\.(?:png|webp|jpe?g|gif|svg)$/.test(url.pathname)){
@@ -146,27 +148,23 @@ self.addEventListener('fetch',evt=>{
     evt.respondWith(networkFirst(evt.request));return;
   }
 });
+// Previously installed app modules request a background prefetch automatically.
+// Only cache a few app graphics here. The complete 228-image library is prepared
+// and VERIFIED by the foreground Offline-Check, so iOS cannot silently truncate
+// a claimed-complete image set when the application is suspended.
 let prefetching=null;
 function prefetchImages(){
   if(prefetching)return prefetching;
   prefetching=(async()=>{
-    const urls=new Set(IMAGES.map(file));
-    // Image names are extracted from the already-deployed species photo map.
-    // No downloads from external sites, no data storage changes.
-    try{
-      const source=await (await fetch(file('species-images-v2.0.5.js'),{cache:'force-cache'})).text();
-      const regexp=/\[\s*['"][fsc]\d+['"]\s*,\s*['"][^'"]+['"]\s*,\s*['"]([a-zA-Z0-9-]+)['"]/g;
-      for(const match of source.matchAll(regexp))urls.add(file(match[1]+'.webp'));
-    }catch{}
-    const list=Array.from(urls);const cache=await caches.open(IMAGE_CACHE);let pos=0;
-    async function consume(){
-      while(pos<list.length){
-        const uri=list[pos++];
-        if(await cache.match(uri)||await caches.match(uri))continue;
-        try{const resp=await fetch(uri,{cache:'reload'});if(resp.ok)await cache.put(uri,resp)}catch{}
-      }
+    const c=await caches.open(IMAGE_CACHE);
+    for(const name of IMAGES.slice(0,5)){
+      const url=file(name);
+      try{
+        if(await c.match(url)||await caches.match(url))continue;
+        const r=await fetch(url,{cache:'reload'});
+        if(r.ok&&r.headers.get('content-type')?.startsWith('image/'))await c.put(url,r);
+      }catch{}
     }
-    await Promise.all(Array.from({length:4},consume));
   })().finally(()=>{prefetching=null});
   return prefetching;
 }

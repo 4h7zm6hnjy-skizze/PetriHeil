@@ -1,10 +1,25 @@
-Petri Heil Pro 2.1.6
-- Ziel: Startseite entsprechend Nutzerbild; kein Designwechsel bei anderen Bereichen.
-- Dynamische Original-Elemente verschoben; originale Event-Handler bleiben an ihren DOM-Elementen.
-- JS-Syntax und JSON verifiziert, neue Dateien im Offline-Kerncache referenziert.
-- Bild stammt aus der im Gespräch ausgewählten KI-Vorlage, auf das Hero-Feld zugeschnitten.
-- Einschränkung: Die Banner-Texte sind Teil des Bildes und nicht live editierbar. Originaltext bleibt für Screenreader in DOM, Klickflächen liegen transparent über den abgebildeten Schaltflächen.
-- Realer iPhone-Test und Veröffentlichung auf GitHub sind noch nicht abgeschlossen.
-- Neues Banner wird nur sichtbar, wenn die Bilddatei erfolgreich lädt; andernfalls bleibt die ursprüngliche Startkarte bedienbar.
-- Bannerbild ist jetzt Bestandteil des verpflichtenden Offline-Kerncaches.
-- Platzierungen werden in Gold, Silber und Bronze unterschieden.
+Prüfbericht – Petri Heil Pro 2.2.0 (lokaler Stand)
+
+Geprüft anhand der tatsächlichen GitHub-Dateiliste und relevanter JS-Module:
+- 177 Fisch/Krebs-Einträge enthalten 172 eindeutige Bildzuordnungen; alle 172 Dateinamen sind vorhanden.
+- Im Repository sind 228 lokale PNG/WebP-Bilder (ca. 26,8 MB).
+- Vorheriger Service Worker 2.1.7 hatte 30 eindeutige lokale Kernressourcen; die Quell-Dateien existieren.
+- Alle 228 Medien sind im neuen Manifest aufgelistet, Wiederaufnahme und Verifikation vorgesehen.
+- Keine Änderungen an Fangbuch-Datenbank, Speicher-Keys oder Benutzerfotos.
+- Live-Wetter, externe Karten und externe amtliche Links sind NICHT ohne Internet aktualisierbar.
+
+WICHTIGE GRENZEN:
+- Der 4,5 MB große, minifizierte Altcode 'app.js' war mit dem GitHub-Textzugriff nicht vollständig auslesbar; End-to-End-Funktionstest daher nicht vollständig.
+- Keine echte Installation auf dem iPhone dieses Nutzers durchgeführt.
+- Ohne abgeschlossenen Mediencheck kann nicht zugesichert werden, dass alle Bilder offline verfügbar sind.
+- 100%% allgemeine Fehlerfreiheit ist aus diesen Prüfungen nicht ableitbar.
+
+Ergänzende automatisierte Tests:
+- 14 vorhandene JS-Erweiterungen aus GitHub syntaktisch überprüft: alle ohne Parsefehler.
+- Neuer Offline-Worker 2.2.0: 33 unterschiedliche Kernressourcen erfolgreich simuliert installiert.
+- Fehlende Kernressource: Fehlermeldung mit Dateiname, neue Teilinstallation entfernt, alte Caches beibehalten.
+- Falsche Server-/HTML-Version: Installation korrekt verweigert.
+- Offline-Bildvorbereitung: 228/228 simulierte Bilder gespeichert und nach Aktivierung des Offline-Modus ohne Netzwerk erneut überprüft.
+- Bei dieser Testserie gefundener und behobener Fehler: Medienliste akzeptierte keine Dateinamen mit Versionspunkten (v2.0.29); Regex korrigiert.
+- Browser-Chromium-Test in der Containerumgebung nach 15 s ohne nutzbares Ergebnis abgebrochen. Tests ersetzen keinen Safari-Gerätetest.
+- Zusatzprüfung: Offline-Check-Seite wird ohne Netzwerk vom neuen Service Worker aus dem Offline-Cache geladen.

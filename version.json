@@ -1,28 +1,22 @@
 {
-  "version": "2.1.7",
+  "version": "2.2.0",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "changes": [
+    "Lokale Offline-Prüfung und wiederaufnehmbare Vorbereitung aller 228 Bilder (Fischkunde, Ausrüstung, Logos und Grafiken).",
+    "Offline-Anzeige trennt vollständige Medienvorbereitung vom grundlegenden App-Start; Erfolge nur nach Cache-Prüfung.",
+    "Stabile Versionserkennung und Reparatur bleiben aktiv; keine Löschung von Benutzerdaten.",
+    "PWA-Grunddateien vollständig vor Aktivierung geprüft; keine doppelten Kern-Dateinamen.",
+    "Hecht-Startdesign 2.1.6, Fang-Podium, Angelzentrale und Artenverbreitung bleiben erhalten.",
     "Offline-Updatefehler behoben: Doppelte Bildressource in der Pflichtdatei-Liste entfernt.",
     "Service Worker lädt und prüft alle Kernressourcen einzeln mit kontrollierter Parallelität statt doppeltem Cache.addAll.",
-    "Detaillierte Update-Fehlermeldungen und Fortschrittsanzeige auf der Reparaturseite.",
-    "Vorherige App- und Bildercaches bleiben bei einem fehlgeschlagenen Update erhalten.",
-    "Startseiten-Design 2.1.6 und alle bisherigen Funktionen bleiben erhalten.",
-    "Übersichtsseite mit ausgewähltem Hecht-KI-Banner und integriertem Text gestaltet.",
-    "Dein Fang-Podium direkt unter dem Banner, anschließend Angelzentrale Pro und Statistik-Karten.",
-    "Originale Buttons und dynamische Fangdaten bleiben erhalten; Menü und übrige Ansichten unverändert.",
-    "Update-System neu aufgebaut: stabiler Worker-Pfad und dynamische Server-Versionsprüfung.",
-    "Reparaturseite update-rettung.html für iPhone und ältere zwischengespeicherte App-Versionen.",
-    "Versionswechsel wird erst nach Aktivierung des neuen Offline-Workers als erfolgreich gemeldet.",
-    "Offline-Startseiten und alle App-Kernressourcen im neuen Cache; bestehende Fischbilder bleiben im bisherigen Cache zugänglich.",
-    "Abwärtskompatible Weiterleitung für ältere Update-Skripte und sw.js-Registrierungen.",
-    "Bisherige Funktionen, Fischarten-Verbreitung und großes Hechtlogo bleiben erhalten."
+    "Detaillierte Update-Fehlermeldungen und Fortschrittsanzeige auf der Reparaturseite."
   ],
   "limitations": [
-    "Verbreitungsangaben sind zusammenfassende regionale Einordnungen; es erfolgte keine vollständige artbezogene Prüfung jeder Verbreitungsangabe anhand aktueller Gewässernachweise.",
-    "Für Live-Wetter und externe Nachschlageinformationen kann Internet erforderlich sein.",
-    "Die iPhone-Systembedienung und alle Datenbankszenarien benötigen zusätzliche Tests auf realen Geräten.",
-    "Dieses ZIP ist ein vollständiges Update-Paket der geänderten Dateien, kein Komplett-Export aller unveränderten Repository-Dateien."
+    "Live-Wetter, externe Webseiten und Online-Karten können nicht vollständig offline aktualisiert werden; Internet ist hierfür erforderlich.",
+    "Der vollständige Quellcode der sehr großen app.js (4,5 MB) konnte nicht mit den verfügbaren GitHub-Textwerkzeugen extrahiert und end-to-end getestet werden.",
+    "Für den vollständigen Bildbestand muss die Vorbereitung auf dem iPhone bei Internetverbindung bis 228/228 abgeschlossen werden.",
+    "Echte iOS-Tests von Fangbuch, GPS, Kamerazugriff und Speicherberechtigungen bleiben erforderlich."
   ],
   "serviceWorker": "sw.js"
 }

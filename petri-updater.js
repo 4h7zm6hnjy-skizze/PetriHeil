@@ -1,4 +1,4 @@
-/* Petri Heil Pro – stabiler, versionsunabhängiger Update-Client ab 2.1.7.
+/* Petri Heil Pro – stabiler, versionsunabhängiger Update-Client ab 2.2.0.
    Kein automatischer Austausch vorhandener Worker, keine Speicherlöschung.
    Zielversion und Worker-Datei werden immer frisch von version.json gelesen. */
 (() => {
