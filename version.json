@@ -1,13 +1,13 @@
 {
-  "version": "2.0.17",
+  "version": "2.0.18",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "10 weitere KI-Beispielbilder auf weißem Hintergrund: Lumb, Roter Knurrhahn, Hundshai, Kuckucksrochen, Dohlenkrebs, Steinkrebs, Edelkrebs, Signalkrebs, Kamberkrebs, Roter Amerikanischer Sumpfkrebs.",
-    "Bildloader auf 115 Artzuordnungen und 112 unterschiedliche lokale WebP-Artenbilder erweitert; 70 ältere eingebettete Illustrationen bleiben unverändert.",
-    "Für die bereits vorhandenen Dateien edelkrebs.webp, signalkrebs.webp und kamberkrebs.webp wurden die neuen Motive unter separaten -ki-weiss.webp-Dateinamen ergänzt, ohne sie zu überschreiben.",
-    "Offline-Bildcache, Service-Worker und Versionsprüfung auf 2.0.17 aktualisiert.",
-    "Fangbuchdaten, App-Layout und übrige Funktionen nicht verändert."
+    "10 neue KI-Artenbilder auf weißem Hintergrund: Plattfisch Scholle, Flunder, Kliesche, Steinbutt, Atlantischer Hering, Sprotte, Europäische Sardine, Makrele, Hornhecht und Wolfsbarsch.",
+    "Bildloader von 115 auf 125 eindeutige Artzuordnungen erweitert; 122 unterschiedliche lokale WebP-Artenbilder.",
+    "Vorhandene Artbilder bleiben als Originaldateien erhalten; neue KI-Beispielbilder tragen das Suffix -ki-weiss.",
+    "Offline-Cache, Versionsanzeige und Update-Erkennung auf Version 2.0.18 aktualisiert.",
+    "Bestehende Fangdaten und übrige App-Funktionen werden nicht verändert."
   ],
-  "notes": "KI-Beispielbilder sind nicht wissenschaftlich validiert. Insbesondere Krustentier-Merkmale können fehlerhaft dargestellt sein. Nicht zur sicheren Artbestimmung verwenden."
+  "notes": "Alle KI-Bilder sind illustrative Darstellungen, keine wissenschaftlich validierten Bestimmungsfotos. Besonders Hering, Sprotte und Sardine können ungenaue artunterscheidende Merkmale aufweisen. Kein Einsatz zur sicheren Artbestimmung, rechtlichen Entnahmeentscheidung oder Schutzstatusprüfung."
 }

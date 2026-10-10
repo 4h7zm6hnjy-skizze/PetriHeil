@@ -1,95 +1,135 @@
 {
-  "version": "2.0.17",
+  "version": "2.0.18",
   "images": [
     {
-      "id": "s16",
-      "name": "Lumb",
-      "scientificName": "Brosme brosme",
-      "filename": "lumb.webp",
-      "bytes": 76952,
-      "sha256": "a72e3cb72d691e819725a8055b4c6620d2039662bc67bf998fdec2c4beab3f32",
-      "type": "KI-Beispielbild auf weißem Hintergrund; nicht zur sicheren Artenbestimmung"
+      "id": "s20",
+      "name": "Plattfisch Scholle",
+      "scientificName": "Pleuronectes platessa",
+      "filename": "scholle-ki-weiss.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "bytes": 227604,
+      "sha256": "70cd3b54df86236d59fd11abbcc25fba0534582acf33814daee16f3507514195",
+      "type": "KI-Illustration auf weißem Hintergrund – keine geprüfte Bestimmungsaufnahme"
     },
     {
-      "id": "s34",
-      "name": "Roter Knurrhahn",
-      "scientificName": "Chelidonichthys cuculus",
-      "filename": "roter-knurrhahn.webp",
-      "bytes": 160894,
-      "sha256": "144dfe4f6d94a5e4c596ec0e251390bd0b90857810c06dffffa8de818498d524",
-      "type": "KI-Beispielbild auf weißem Hintergrund; nicht zur sicheren Artenbestimmung"
+      "id": "s21",
+      "name": "Flunder",
+      "scientificName": "Platichthys flesus",
+      "filename": "flunder-ki-weiss.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "bytes": 199180,
+      "sha256": "10abcf08a51a9e592aeda44f09675669788a80a44c8898706606ebf28ede1225",
+      "type": "KI-Illustration auf weißem Hintergrund – keine geprüfte Bestimmungsaufnahme"
     },
     {
-      "id": "s63",
-      "name": "Hundshai",
-      "scientificName": "Galeorhinus galeus",
-      "filename": "hundshai.webp",
-      "bytes": 37164,
-      "sha256": "1b093abd1c4bde6aa3f77a0b88fa4f03979276a1a26d0bdd781e3868aa340b10",
-      "type": "KI-Beispielbild auf weißem Hintergrund; nicht zur sicheren Artenbestimmung"
+      "id": "s22",
+      "name": "Kliesche",
+      "scientificName": "Limanda limanda",
+      "filename": "kliesche-ki-weiss.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "bytes": 202868,
+      "sha256": "405c03f24ff9b009ae18e173183458754b9e3a5402c1fbb2406aa7e54b7089f6",
+      "type": "KI-Illustration auf weißem Hintergrund – keine geprüfte Bestimmungsaufnahme"
     },
     {
-      "id": "s68",
-      "name": "Kuckucksrochen",
-      "scientificName": "Leucoraja naevus",
-      "filename": "kuckucksrochen.webp",
-      "bytes": 159802,
-      "sha256": "bd2447b24036c443b787328d5b8104d08c69de55c41cd487c26f4f3f4167cf66",
-      "type": "KI-Beispielbild auf weißem Hintergrund; nicht zur sicheren Artenbestimmung"
+      "id": "s24",
+      "name": "Steinbutt",
+      "scientificName": "Scophthalmus maximus",
+      "filename": "steinbutt-ki-weiss.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "bytes": 330558,
+      "sha256": "2c13ae536239441aa4092203dff0cfe6f4b2a23dcfcbf9e586d579760a2772e1",
+      "type": "KI-Illustration auf weißem Hintergrund – keine geprüfte Bestimmungsaufnahme"
     },
     {
-      "id": "c3",
-      "name": "Dohlenkrebs",
-      "scientificName": "Austropotamobius pallipes",
-      "filename": "dohlenkrebs.webp",
-      "bytes": 199494,
-      "sha256": "49104232ac21afdb8056cd90fbd78df1d6d7339456a8010730e01a7e40014471",
-      "type": "KI-Beispielbild auf weißem Hintergrund; nicht zur sicheren Artenbestimmung"
+      "id": "s1",
+      "name": "Atlantischer Hering",
+      "scientificName": "Clupea harengus",
+      "filename": "hering-ki-weiss.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "bytes": 104472,
+      "sha256": "ff60bc8bdb1e2eb579e243edebfee1251d9758275af9ca70e8e226241cff37ba",
+      "type": "KI-Illustration auf weißem Hintergrund – keine geprüfte Bestimmungsaufnahme"
     },
     {
-      "id": "c2",
-      "name": "Steinkrebs",
-      "scientificName": "Austropotamobius torrentium",
-      "filename": "steinkrebs.webp",
-      "bytes": 199990,
-      "sha256": "9477e388a8589ac8d9cc9e3651cd0854ee80912876ce044c7ef3d4692524b42c",
-      "type": "KI-Beispielbild auf weißem Hintergrund; nicht zur sicheren Artenbestimmung"
+      "id": "s2",
+      "name": "Sprotte",
+      "scientificName": "Sprattus sprattus",
+      "filename": "sprotte-ki-weiss.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "bytes": 93032,
+      "sha256": "3edd13401bcd4043d27ca22bb773b2cc1723e8734f4f608f87226806e0138efd",
+      "type": "KI-Illustration auf weißem Hintergrund – keine geprüfte Bestimmungsaufnahme"
     },
     {
-      "id": "c1",
-      "name": "Edelkrebs",
-      "scientificName": "Astacus astacus",
-      "filename": "edelkrebs-ki-weiss.webp",
-      "bytes": 193210,
-      "sha256": "b64ed9dffd5a4be87a731a4a40ebce85459beb66c411d0cd4e7a40c8c936e890",
-      "type": "KI-Beispielbild auf weißem Hintergrund; nicht zur sicheren Artenbestimmung"
+      "id": "s3",
+      "name": "Europäische Sardine",
+      "scientificName": "Sardina pilchardus",
+      "filename": "sardine-ki-weiss.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "bytes": 102752,
+      "sha256": "45d45247e1b0d1c67f214f67559e94f4e3beed616aa16cedcb303e9ba65ac07e",
+      "type": "KI-Illustration auf weißem Hintergrund – keine geprüfte Bestimmungsaufnahme"
     },
     {
-      "id": "c5",
-      "name": "Signalkrebs",
-      "scientificName": "Pacifastacus leniusculus",
-      "filename": "signalkrebs-ki-weiss.webp",
-      "bytes": 224176,
-      "sha256": "4c1f37ddfebfbb3df1a3e0bcf67d4800e8996c2fd17acaeb49ac3ce5da208810",
-      "type": "KI-Beispielbild auf weißem Hintergrund; nicht zur sicheren Artenbestimmung"
+      "id": "s5",
+      "name": "Makrele",
+      "scientificName": "Scomber scombrus",
+      "filename": "makrele-ki-weiss.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "bytes": 93188,
+      "sha256": "a2485417c57b09175921e2b95cc075bc9677e4b5c3f8fe6e83deb18f7e4e3b21",
+      "type": "KI-Illustration auf weißem Hintergrund – keine geprüfte Bestimmungsaufnahme"
     },
     {
-      "id": "c4",
-      "name": "Kamberkrebs",
-      "scientificName": "Faxonius limosus",
-      "filename": "kamberkrebs-ki-weiss.webp",
-      "bytes": 161476,
-      "sha256": "476d155e55d278e41a450ebc4dc74246e35361599125eb7fe5aca8bfc2fdff89",
-      "type": "KI-Beispielbild auf weißem Hintergrund; nicht zur sicheren Artenbestimmung"
+      "id": "s7",
+      "name": "Hornhecht",
+      "scientificName": "Belone belone",
+      "filename": "hornhecht-ki-weiss.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "bytes": 49578,
+      "sha256": "f73574b019f42b1b75cd840ab437803c3e67410c54c8f93f14d18d843c89873a",
+      "type": "KI-Illustration auf weißem Hintergrund – keine geprüfte Bestimmungsaufnahme"
     },
     {
-      "id": "c6",
-      "name": "Roter Amerikanischer Sumpfkrebs",
-      "scientificName": "Procambarus clarkii",
-      "filename": "roter-amerikanischer-sumpfkrebs.webp",
-      "bytes": 162928,
-      "sha256": "cf563ef43ced3f0beeefdd09d7a5d8d84e555443cc075159dd5cd59348e44f4b",
-      "type": "KI-Beispielbild auf weißem Hintergrund; nicht zur sicheren Artenbestimmung"
+      "id": "s8",
+      "name": "Wolfsbarsch",
+      "scientificName": "Dicentrarchus labrax",
+      "filename": "wolfsbarsch-ki-weiss.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "bytes": 135492,
+      "sha256": "ccc929a1f5c3b609404cbe22f729fced024d3794b37778b4bf811ecd013da426",
+      "type": "KI-Illustration auf weißem Hintergrund – keine geprüfte Bestimmungsaufnahme"
     }
   ]
 }

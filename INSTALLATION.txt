@@ -1,15 +1,30 @@
-PetriHeil Bilderupdate v2.0.17
+PetriHeil – Bilderupdate 2.0.18
+==================================
+Aktualisierung der App Version 2.0.17 (GitHub Pages).
 
-INSTALLATION IN GITHUB (Repository 4h7zm6hnjy-skizze/PetriHeil):
-1. Diese ZIP entpacken.
-2. Im GitHub-Repository alle 10 WebP-Dateien aus diesem Paket in den HAUPTORDNER hochladen.
-3. sw.js, species-images-v2.0.5.js und version.json im HAUPTORDNER ersetzen.
-4. In GitHub die Änderungen bestätigen (Commit changes).
-5. https://4h7zm6hnjy-skizze.github.io/PetriHeil/ zweimal ONLINE öffnen, damit der aktualisierte Service Worker übernimmt.
-6. Unter Mehr -> Update suchen die Version 2.0.17 kontrollieren und die 10 Artenkarten testen.
-7. Erst nach erfolgreichem Online-Laden den Offline-Modus testen.
+INSTALLATION AUF GITHUB
+1. Dieses ZIP vollständig entpacken.
+2. Alle 10 neuen .webp-Dateien in den HAUPTORDNER des GitHub-Repositories
+   4h7zm6hnjy-skizze/PetriHeil hochladen (nicht in einen Unterordner).
+3. Diese drei Dateien im Hauptordner durch die neuen ersetzen:
+   - species-images-v2.0.5.js
+   - sw.js
+   - version.json
+4. Auf GitHub Commit changes speichern.
+5. GitHub Pages die Veröffentlichung abschließen lassen.
+6. PetriHeil online öffnen und ggf. ein zweites Mal neu starten.
+7. Unter Mehr -> Update suchen die Version 2.0.18 prüfen.
+8. Zur Offline-Prüfung die App einmal mit Internetverbindung laden,
+   dann Flugmodus aktivieren und die Fischkunde öffnen.
 
-WICHTIG: Keine vorhandenen Bilder löschen. edelkrebs-ki-weiss.webp, signalkrebs-ki-weiss.webp und
-kamberkrebs-ki-weiss.webp sind NEUE Dateien; ihre älteren Namensvettern bleiben erhalten.
-Die ZIP ist ein UPDATE, keine vollständige Neuinstallation. Daten und Fangbuch werden nicht geändert.
-Die Bilder sind KI-Illustrationen auf weißem Hintergrund, keine sichere taxonomische Referenz.
+BILDER
+Neue KI-Illustrationen auf weißem Hintergrund, alle 1254 x 1254 Pixel.
+Die originalen bestehenden Bilder werden nicht überschrieben.
+Die Artzuordnungen beziehen sich auf die interne data.js (177 Arten).
+Insgesamt 125 Bildloader-Zuordnungen, davon 122 verschiedene WebP-Dateien.
+Weitere eingebettete Illustrationen in app.js bleiben unverändert.
+Die neuen Bilder sind KEINE wissenschaftlich geprüften Bestimmungsfotos.
+Insbesondere Hering, Sardine und Sprotte nur mit zuverlässigen Quellen bestimmen.
+
+Hinweis: Das ZIP aktualisiert GitHub NICHT automatisch. Der Upload muss
+manuell erfolgen, wenn keine GitHub-Schreibberechtigung bereitsteht.

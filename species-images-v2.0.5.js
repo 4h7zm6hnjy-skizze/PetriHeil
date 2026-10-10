@@ -1,9 +1,9 @@
-/* Petri Heil Pro 2.0.17: 112 distinct local WebP references, 115 species mappings and update-check repair.
+/* Petri Heil Pro 2.0.18: 122 distinct local WebP references, 125 species mappings and update-check repair.
    Original 70 embedded illustrations and local user data remain unchanged.
    Images are illustrative, NOT validated for species identification. */
 (()=>{
   'use strict';
-  const VERSION='2.0.17';
+  const VERSION='2.0.18';
   const SPECIES=[
     ['f32','Giebel','giebel'],
     ['f33','Goldfisch','goldfisch'],
@@ -120,6 +120,16 @@
     ['c5','Signalkrebs','signalkrebs-ki-weiss'],
     ['c4','Kamberkrebs','kamberkrebs-ki-weiss'],
     ['c6','Roter Amerikanischer Sumpfkrebs','roter-amerikanischer-sumpfkrebs'],
+    ['s20','Plattfisch Scholle','scholle-ki-weiss'],
+    ['s21','Flunder','flunder-ki-weiss'],
+    ['s22','Kliesche','kliesche-ki-weiss'],
+    ['s24','Steinbutt','steinbutt-ki-weiss'],
+    ['s1','Atlantischer Hering','hering-ki-weiss'],
+    ['s2','Sprotte','sprotte-ki-weiss'],
+    ['s3','Europäische Sardine','sardine-ki-weiss'],
+    ['s5','Makrele','makrele-ki-weiss'],
+    ['s7','Hornhecht','hornhecht-ki-weiss'],
+    ['s8','Wolfsbarsch','wolfsbarsch-ki-weiss'],
   ].map(([id,name,file])=>({id,name,url:new URL(file+'.webp',document.baseURI).href}));
   const norm=s=>String(s||'').replace(/\s+/g,' ').trim().toLocaleLowerCase('de-DE');
   const identify=s=>SPECIES.find(v=>norm(v.name)===norm(s));
