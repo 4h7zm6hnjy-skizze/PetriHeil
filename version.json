@@ -1,13 +1,14 @@
 {
-  "version": "2.1.1",
+  "version": "2.1.2",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
+    "Nur das lila Fisch-Platzhaltersymbol wird durch das Hecht-Bild ersetzt; Uhr, Waage und weitere normale Symbole bleiben unverändert.",
     "Hecht-Bildsymbole auf Übersicht, leeren Fangkarten und Schnellaktionen wiederhergestellt.",
     "Menüsymbole, Markenbilder und Ausrüstungsfotos werden aus einem gemeinsamen UI-Modul gesteuert.",
     "Bilder für Boilie, Mais & Teig, Würmer & Maden, bissfestes Vorfach, Pilker/Paternoster und Rettungsweste bleiben offline eingebunden.",
     "Vereinheitlichte Kontrast-, Foto- und iPhone-Layoutregeln, ohne Änderungen an den gespeicherten Daten.",
-    "Versionsanzeige und Offline-Worker melden gemeinsam 2.1.0; neuer PWA-Kerncache mit aktuellen Dateien.",
+    "Versionsanzeige und Offline-Worker melden gemeinsam 2.1.2; neuer PWA-Kerncache mit aktuellen Dateien.",
     "Die bestehenden Prüfungs-, Angelzeit-, Fangbuch- und Pro-Daten bleiben getrennt und rückwärtskompatibel lesbar; keine riskante automatische Migration."
   ],
   "limitations": [
