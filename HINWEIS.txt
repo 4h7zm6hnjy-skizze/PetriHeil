@@ -1,0 +1,11 @@
+Petri Heil Pro 2.1.4 – Offline-Korrektur
+
+In sw-v2.1.4.js wurden zwei fehlerhafte Pfade auf existierende Dateien korrigiert:
+- petri-unified-ui-v2.1.2.js
+- petri-ui-v2.1.2.css
+
+Außerdem wurde der doppelte Eintrag für das Hero-Logo-CSS entfernt.
+
+Installation: sw-v2.1.4.js aus dieser ZIP in das Hauptverzeichnis des PetriHeil-GitHub-Repositories hochladen und die gleichnamige Datei ersetzen. Alle anderen Dateien unverändert lassen. Danach die App online öffnen und unter Backup & Einstellungen »Update installieren« aufrufen. Die Versionsnummer bleibt 2.1.4.
+
+Es werden keine Benutzerdaten verändert. Vollständiger iPhone-Test steht aus.

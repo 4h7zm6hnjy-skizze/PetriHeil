@@ -6,11 +6,10 @@ const PETRI_SHELL_CACHE='petri-shell-2-1-4';
 const PETRI_CORE=[
  './index.html','./style.css?v=2.0.4','./app.js?v=2.0.4','./data.js?v=2.0.4',
  './petri-ocean-theme.css?v=2.0.42','./petri-logos-v2.0.29.css?v=2.0.42',
- './petri-unified-ui-v2.1.4.js?v=2.1.4','./petri-ui-v2.1.4.css?v=2.1.4',
+ './petri-unified-ui-v2.1.2.js?v=2.1.2','./petri-ui-v2.1.2.css?v=2.1.2',
  './petri-update-v2.1.4.js?v=2.1.4',
  './petri-species-regions-v2.1.3.js?v=2.1.3',
  './petri-species-regions-v2.1.3.css?v=2.1.3',
- './petri-hero-logo-v2.1.4.css?v=2.1.4',
  './petri-hero-logo-v2.1.4.css?v=2.1.4',
  './petri-pro-suite-v2.0.42.js?v=2.0.42','./petri-pro-suite-v2.0.39.css?v=2.0.42',
  './petri-gps-v2.0.42.css?v=2.0.42',
