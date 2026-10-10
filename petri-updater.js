@@ -1,4 +1,4 @@
-/* Petri Heil Pro – stabiler, versionsunabhängiger Update-Client ab 2.1.5.
+/* Petri Heil Pro – stabiler, versionsunabhängiger Update-Client ab 2.1.7.
    Kein automatischer Austausch vorhandener Worker, keine Speicherlöschung.
    Zielversion und Worker-Datei werden immer frisch von version.json gelesen. */
 (() => {
@@ -20,7 +20,7 @@
     return version(meta)||version(side)||'unbekannt';
   };
   const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
-  let working=false, latestInfo=null, lastMessage='';
+  let working=false, latestInfo=null, lastMessage='', lastInstallError='';
   function message(text){
     lastMessage=String(text);
     for(const id of ['petri-update-status','petri-repair-status']){
@@ -59,6 +59,16 @@
       try{worker.postMessage({type:'PETRI_GET_WORKER_VERSION'},[channel.port2])}catch{finish(null)}
     });
   }
+  // Fortschritt stammt aus dem NEU installierenden Worker; die vorhandene App bleibt bedienbar.
+  function onWorkerMessage(evt){
+    const data=evt.data||{};
+    if(data.type==='PETRI_INSTALL_PROGRESS' && data.version){
+      message('Offline-Dateien '+data.done+'/'+data.total+' geladen (Version '+data.version+').');
+    }else if(data.type==='PETRI_INSTALL_FAILURE'){
+      lastInstallError=String(data.error||'Unbekannter Fehler');
+      message('Offline-Installation fehlgeschlagen: '+lastInstallError);
+    }
+  }
   async function activeRegistration(){return 'serviceWorker' in navigator ? navigator.serviceWorker.getRegistration(BASE.href) : null}
   async function check(){
     if(working)return;
@@ -81,6 +91,7 @@
     if(location.protocol!=='https:'&&location.hostname!=='localhost'){
       message('Die Offline-Installation erfordert HTTPS.');return;
     }
+    lastInstallError='';
     disable(true);message('Ermittle die aktuelle Serverversion …');
     try{
       const info=await fetchLatest();
@@ -98,10 +109,10 @@
         if(reg.waiting)reg.waiting.postMessage({type:'SKIP_WAITING'});
         installed=await workerVersion(reg.active,1200);
         if(installed&&cmp(installed,info.version)>=0)break;
-        if(reg.installing?.state==='redundant')throw Error('Offline-Installation abgebrochen; möglicherweise fehlt eine benötigte Datei.');
+        if(reg.installing?.state==='redundant')throw Error(lastInstallError||'Offline-Installation abgebrochen. Bitte erneut versuchen.');
         await sleep(450);
       }
-      if(!installed||cmp(installed,info.version)<0)throw Error('Der neue Offline-Worker wurde nicht aktiv. Bitte Reparaturseite benutzen.');
+      if(!installed||cmp(installed,info.version)<0)throw Error(lastInstallError||'Neuer Offline-Worker noch nicht aktiv. Bitte Reparaturseite benutzen.');
       message('Version '+installed+' installiert. Öffne die neue App …');
       const target=new URL('index.html',BASE);
       target.searchParams.set('petri_refresh',info.version+'-'+Date.now());
@@ -127,12 +138,13 @@
       const status=document.createElement('p');status.id='petri-update-status';status.setAttribute('role','status');status.style.cssText='width:100%;font-size:13px;line-height:1.5;color:#245777';status.textContent=lastMessage||'App-Version '+versionText+'. Bitte Version prüfen.';
       const repair=document.createElement('a');repair.href=new URL('update-rettung.html',BASE).href;repair.textContent='Update-Reparatur öffnen';repair.style.cssText='display:block;width:100%;color:#0573b0;font-weight:700';
       panel.append(create('petri-check','Version prüfen','button-outline'),create('petri-install','Update installieren','button-primary'),create('petri-refresh','Neu laden','button-outline'),status,repair);
-      card.append(panel);
+      const details=card.querySelector('details');
+      if(details)details.before(panel);else card.append(panel);
     }
     // Hide previous stale status rows, but retain the release notes.
     for(const node of card.querySelectorAll('button')){
       if(node.closest('#petri-stable-update'))continue;
-      if(/^(?:↻|⟳)?\s*(?:updates? suchen|version prüfen)$/i.test(node.textContent.trim()))node.hidden=true;
+      if(/^(?:↻|⟳)?\s*(?:updates? suchen|version prüfen)$/i.test(node.textContent.trim())){node.hidden=true;node.style.setProperty('display','none','important');}
     }
     for(const node of card.querySelectorAll('b,strong,span,small')){
       if(node.children.length||node.textContent?.trim()!=='Update-Status'||node.closest('#petri-stable-update'))continue;
@@ -149,6 +161,7 @@
   }
   function start(){
     document.addEventListener('click',handleClick,true);
+    if('serviceWorker' in navigator)navigator.serviceWorker.addEventListener('message',onWorkerMessage);
     attachCard();
     if($('petri-repair-install'))void check();
     const main=$('main');

@@ -1,27 +1,17 @@
-PETRI HEIL PRO – BILDERUPDATE 2.0.13
-====================================
-Dieses Update enthält 3 zusätzliche illustrative WebP-Bilder:
-Schrätzer (f81), Streber (f82) und Zingel (f83).
-Die übrigen sieben generierten Motive würden vorhandene Bilder doppeln
-oder haben keinen passenden neuen Art-Eintrag. Sie sind daher bewusst
-NICHT zugeordnet.
+Petri Heil Pro 2.1.7 – Update-Reparatur
 
-INSTALLATION:
-1. VORHER die Nutzerdaten über die App-Funktion Backup sichern.
-2. ZIP entpacken. Nur folgende Dateien in den HAUPTORDNER des GitHub-Repositories
-   PetriHeil hochladen (nicht die ZIP selbst):
-   - schraetzer.webp
-   - streber.webp
-   - zingel.webp
-   - species-images-v2.0.5.js (bestehende Datei ersetzen)
-   - sw.js (bestehende Datei ersetzen)
-   - version.json (bestehende Datei ersetzen)
-3. GitHub-Veröffentlichung abwarten; App zweimal ONLINE öffnen.
-4. Unter Mehr > Update suchen prüfen, ob Version 2.0.13 erscheint.
-5. Artkarten prüfen, anschließend Flugmodus für Offline-Test aktivieren.
+1. Eine Sicherung deiner Fangdaten erstellen, sofern die App erreichbar ist.
+2. Alle 8 Dateien aus dieser ZIP direkt im GitHub-Repositorium PetriHeil im Hauptverzeichnis hochladen.
+   Vorhandene Dateien mit identischem Namen ersetzen. Keine anderen Dateien loeschen.
+3. Warten, bis GitHub Pages die Dateien veroeffentlicht hat.
+4. Die bisherige Petri-Heil-App auf dem iPhone mit Internetverbindung oeffnen.
+5. Unter "Mehr" / "Backup & Einstellungen" auf "Update-Reparatur oeffnen" tippen.
+6. "Aktuelle Version installieren & App oeffnen" waehlen und die Fortschrittsanzeige beobachten.
+7. Nach erfolgreicher Installation: App vollstaendig schliessen und neu oeffnen; Version 2.1.7 pruefen.
 
-WICHTIG: Die KI-generierten Motive sind nicht fachlich validiert. Die
-Darstellungen ähneln Barschartigen und können für eine sichere Abgrenzung
-von Schrätzer, Streber und Zingel ungenau sein. Sie sind keine Grundlage
-für Schonzeit- oder Artbestimmungsentscheidungen.
-Das Update verändert weder app.js noch data.js noch Anwenderdaten.
+WICHTIG: App nicht deinstallieren. Keine Website-Daten, LocalStorage, IndexedDB oder Caches manuell loeschen.
+Alte Cache-Versionen bleiben erhalten; beim fehlgeschlagenen Download bleibt der alte Worker aktiv.
+
+Ursache in 2.1.6: Die Ressource petri-hero-uebersicht-v2.1.6.webp stand im gleichen
+Cache.addAll mehrfach. Die Updateinstallation konnte dadurch als InvalidStateError scheitern.
+2.1.7 entdupliziert alle Pfade und zeigt bei Dateifehlern den betroffenen Dateinamen.

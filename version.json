@@ -1,12 +1,16 @@
 {
-  "version": "2.1.6",
+  "version": "2.1.7",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "changes": [
+    "Offline-Updatefehler behoben: Doppelte Bildressource in der Pflichtdatei-Liste entfernt.",
+    "Service Worker lädt und prüft alle Kernressourcen einzeln mit kontrollierter Parallelität statt doppeltem Cache.addAll.",
+    "Detaillierte Update-Fehlermeldungen und Fortschrittsanzeige auf der Reparaturseite.",
+    "Vorherige App- und Bildercaches bleiben bei einem fehlgeschlagenen Update erhalten.",
+    "Startseiten-Design 2.1.6 und alle bisherigen Funktionen bleiben erhalten.",
     "Übersichtsseite mit ausgewähltem Hecht-KI-Banner und integriertem Text gestaltet.",
     "Dein Fang-Podium direkt unter dem Banner, anschließend Angelzentrale Pro und Statistik-Karten.",
     "Originale Buttons und dynamische Fangdaten bleiben erhalten; Menü und übrige Ansichten unverändert.",
-    "Stabile Update-Infrastruktur ab 2.1.5 weiterverwendet.",
     "Update-System neu aufgebaut: stabiler Worker-Pfad und dynamische Server-Versionsprüfung.",
     "Reparaturseite update-rettung.html für iPhone und ältere zwischengespeicherte App-Versionen.",
     "Versionswechsel wird erst nach Aktivierung des neuen Offline-Workers als erfolgreich gemeldet.",

@@ -1,30 +1,14 @@
-PETRI HEIL PRO 2.1.5 – TECHNISCHER TESTBERICHT
-================================================
-BEOBACHTETER FEHLER
-Die bisherige Datei petri-update-v2.1.2.js enthält RELEASE='2.1.2' und
-registriert fest sw-v2.1.2.js, auch wenn version.json eine neuere Version
-meldet. Zusätzlich führt sie die Registrierung beim Start automatisch aus.
+2.1.7 – statische Pruefung
+- Doppelten Hecht-Banner-Pfad in der Offline-Kernliste entfernt.
+- Installationspfade werden zusaetzlich mit Set() entdupliziert.
+- Einzeldownloads werden auf HTTP-Fehler geprueft.
+- Alte Caches werden auch bei Fehlern nicht geloescht.
+- Neue Startseite/Worker/Versionsdatei geben 2.1.7 an.
+- Reparaturseite und Updateanzeige koennen Fehlermeldungen des Workers anzeigen.
+- Vorhandenes Startseiten-Design 2.1.6 bleibt eingebunden.
+- Browserbasierter iPhone-/Safari-Test nicht moeglich; auf Endgeraet pruefen.
 
-BEHEBUNG
-- Neuer stabiler Worker unter sw.js; interne Offline-Logik aus petri-sw.js.
-- Update-Client liest aktuelle Serverversion; kein alter fest kodierter Worker.
-- Reparaturseite unabhängig von der zwischengespeicherten alten App.
-- Legacy-Update-Skripte leiten auf den neuen Updater weiter.
-- Aktiver Worker bestätigt seine reale Version per MessageChannel.
-- Nur vollständiger Kerncache und übereinstimmende HTML-/JSON-Version
-  erlauben eine erfolgreiche Installation.
-
-PRÜFUNGEN
-- node --check: neue JS-Dateien syntaktisch gültig.
-- Service-Worker per Node-VM simuliert: vollständig abrufbare App-Dateien
-  werden gecacht und der Worker aktiviert.
-- Simulierter Offline-Neustart: index.html Version 2.1.5 verfügbar.
-- Simulierte veraltete index.html: Aktivierung wird abgebrochen.
-- Python/Playwright Browserversuch: durch Administrationsrichtlinie der
-  Testumgebung gesperrt (ERR_BLOCKED_BY_ADMINISTRATOR).
-- NICHT geprüft: echte iPhone-Home-Bildschirm-App, Verhalten des GitHub-
-  Pages-Deployments, alle Funktionen im Produktivbetrieb.
-
-KEIN SPEICHERLÖSCHEN
-Der neue Code ruft weder localStorage.clear() noch indexedDB.deleteDatabase()
-noch CacheStorage-Löschung auf.
+Zusatztest mit simuliertem Service Worker:
+- 30 unterschiedliche Kernressourcen erfolgreich installierbar.
+- Simulierter HTTP-404 bei einer Kernressource verhindert Aktivierung und benennt die defekte Datei.
+- Vorhandener alter Cache bleibt bei fehlgeschlagener Installation erhalten.

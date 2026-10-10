@@ -1,10 +1,10 @@
-/* Petri Heil Pro: stabiler Worker-Pfad, Version 2.1.6.
+/* Petri Heil Pro: stabiler Worker-Pfad, Version 2.1.7.
    Updated in place on future releases. Does not import legacy workers. */
 'use strict';
-const VERSION='2.1.6';
+const VERSION='2.1.7';
 const ROOT=new URL('./',self.location.href);
-const CORE_CACHE='petri-core-2.1.6';
-const IMAGE_CACHE='petri-images-2.1.6';
+const CORE_CACHE='petri-core-2.1.7';
+const IMAGE_CACHE='petri-images-2.1.7';
 const CORE=[
  'index.html','update-rettung.html','version.json','manifest.webmanifest',
  'style.css?v=2.0.4','data.js?v=2.0.4','app.js?v=2.0.4',
@@ -15,12 +15,11 @@ const CORE=[
  'petri-species-regions-v2.1.3.css?v=2.1.3','petri-hero-logo-v2.1.4.css?v=2.1.4',
  'petri-start-design-v2.1.6.css?v=2.1.6','petri-start-design-v2.1.6.js?v=2.1.6',
  'petri-hero-uebersicht-v2.1.6.webp',
- 'petri-hero-uebersicht-v2.1.6.webp',
  'species-images-v2.0.5.js?v=2.0.42','petri-anglerclock-pruefung-v2.0.30.js?v=2.0.42',
  'petri-pro-suite-v2.0.42.js?v=2.0.42','petri-data-bridge-v2.0.33.js?v=2.0.42',
  'petri-report-v2.0.36.js?v=2.0.42','petri-next-v2.0.37.js?v=2.0.42',
  'petri-gesamt-v2.0.41.js?v=2.0.42','petri-unified-ui-v2.1.2.js?v=2.1.2',
- 'petri-species-regions-v2.1.3.js?v=2.1.3','petri-updater.js?v=2.1.6'
+ 'petri-species-regions-v2.1.3.js?v=2.1.3','petri-updater.js?v=2.1.7'
 ];
 const IMAGES=[
  'petri-fisch-v2.0.29.webp','petri-marke-v2.0.29.webp',
@@ -40,21 +39,65 @@ self.addEventListener('message',evt=>{
     evt.waitUntil(prefetchImages());
   }
 });
+// Distinct cache keys are essential: Cache.addAll rejects duplicate requests.
+// Each required file is cached only once and its individual failure is reported.
+function announceInstall(type, extra={}){
+  return self.clients.matchAll({includeUncontrolled:true,type:'window'}).then(list=>{
+    for(const client of list){try{client.postMessage({type,version:VERSION,...extra})}catch{}}
+  }).catch(()=>{});
+}
 self.addEventListener('install',evt=>evt.waitUntil((async()=>{
   const cache=await caches.open(CORE_CACHE);
-  // The worker becomes active only if ALL app shell files are cached.
-  // Version mismatches and 404s therefore never mark an incomplete release installed.
-  const requests=CORE.map(s=>new Request(file(s),{cache:'reload'}));
-  await cache.addAll(requests);
-  // Never activate a worker advertising a release whose HTML/manifest is still old.
-  const cachedPage=await cache.match(essentialKey);
-  const html=cachedPage?await cachedPage.text():'';
-  if(!html.includes('name="petri-app-version" content="'+VERSION+'"'))
-    throw Error('Neue App-Dateien noch nicht vollständig veröffentlicht.');
-  const versionResponse=await cache.match(file('version.json'));
-  const versionData=versionResponse?await versionResponse.json():{};
-  if(versionData.version!==VERSION)throw Error('Versionsdatei und Worker stimmen nicht überein.');
-  await self.skipWaiting();
+  const paths=[...new Set(CORE)];
+  const required=['index.html','version.json'];
+  let completed=0;
+  async function load(path){
+    const uri=file(path);
+    let last;
+    for(let attempt=1;attempt<=2;attempt++){
+      const ctrl=new AbortController();
+      const timer=setTimeout(()=>ctrl.abort(),30000);
+      try{
+        const response=await fetch(uri,{cache:'no-store',signal:ctrl.signal});
+        if(!response.ok||response.type==='opaque')throw Error('HTTP '+response.status);
+        if(path==='index.html'){
+          const text=await response.clone().text();
+          if(!text.includes('name="petri-app-version" content="'+VERSION+'"'))
+            throw Error('Veröffentlichte Startseite hat nicht Version '+VERSION);
+        }
+        if(path==='version.json'){
+          const data=await response.clone().json();
+          if(data.version!==VERSION)throw Error('Veröffentlichte Versionsdatei ist nicht '+VERSION);
+        }
+        await cache.put(uri,response);
+        completed++;
+        if(completed===paths.length || completed%3===0)
+          await announceInstall('PETRI_INSTALL_PROGRESS',{done:completed,total:paths.length,file:path});
+        return;
+      }catch(e){last=e}finally{clearTimeout(timer)}
+    }
+    throw Error('Datei '+path+' konnte nicht offline gespeichert werden: '+(last?.message||last));
+  }
+  try{
+    for(const p of required)await load(p);
+    const remaining=paths.filter(p=>!required.includes(p));
+    let i=0, firstError=null;
+    async function consume(){
+      while(!firstError&&i<remaining.length){
+        const path=remaining[i++];
+        try{await load(path)}catch(e){firstError=e;break}
+      }
+    }
+    await Promise.all([consume(),consume(),consume()]);
+    if(firstError)throw firstError;
+    if(completed!==paths.length)throw Error('Offline-Paket unvollständig');
+    await announceInstall('PETRI_INSTALL_PROGRESS',{done:completed,total:paths.length,complete:true});
+    await self.skipWaiting();
+  }catch(e){
+    await announceInstall('PETRI_INSTALL_FAILURE',{error:String(e?.message||e)});
+    await caches.delete(CORE_CACHE);
+    throw e;
+  }
 })()));
 self.addEventListener('activate',evt=>evt.waitUntil((async()=>{
   await self.clients.claim();
