@@ -1,95 +1,33 @@
 {
-  "version": "2.0.12",
+  "version": "2.0.13",
   "images": [
     {
-      "id": "f59",
-      "name": "Groppe (Rheingebiet)",
-      "scientificName": "Cottus rhenanus",
-      "filename": "groppe-rheingebiet.webp",
-      "bytes": 120062,
-      "sha256": "4f9b6638a7aab6f4c5b99a92d8bc3684210d759e2151e647c670cb71ddaa5b79",
-      "type": "KI-Illustration, keine fachlich validierte Artenaufnahme"
+      "id": "f81",
+      "name": "Schrätzer",
+      "scientificName": "Gymnocephalus schraetser",
+      "filename": "schraetzer.webp",
+      "bytes": 139974,
+      "sha256": "71a0702e129940e613ebf677b7788b7a6c62cba57862ba954b6cffd8b50a2837",
+      "verification": "KI-Illustration – Artenmerkmale nicht wissenschaftlich verifiziert"
     },
     {
-      "id": "f66",
-      "name": "Hundsfisch",
-      "scientificName": "Umbra krameri",
-      "filename": "hundsfisch.webp",
-      "bytes": 104930,
-      "sha256": "b849e54068208d950a81291eeff38979ce28e11d19841f53285d147c1b8cf00d",
-      "type": "KI-Illustration, keine fachlich validierte Artenaufnahme"
+      "id": "f82",
+      "name": "Streber",
+      "scientificName": "Zingel streber",
+      "filename": "streber.webp",
+      "bytes": 97814,
+      "sha256": "49746ca1cb4a05f086ee50f98ee7685c87197f42fd74ca097b6c61eb08013551",
+      "verification": "KI-Illustration – Artenmerkmale nicht wissenschaftlich verifiziert"
     },
     {
-      "id": "f67",
-      "name": "Ostasiatischer Schlammpeitzger",
-      "scientificName": "Misgurnus anguillicaudatus",
-      "filename": "ostasiatischer-schlammpeitzger.webp",
-      "bytes": 69614,
-      "sha256": "7d7a3ade196d20a53a850785548bdbac3ace3d679ced2ca30f93f94c7c053a30",
-      "type": "KI-Illustration, keine fachlich validierte Artenaufnahme"
-    },
-    {
-      "id": "f74",
-      "name": "Schnäpel",
-      "scientificName": "Coregonus maraena",
-      "filename": "schnaepel.webp",
-      "bytes": 85510,
-      "sha256": "666f3431dff9ddc8504a8fc353b202fe331a8cc1023713feb50884da7d878e4d",
-      "type": "KI-Illustration, keine fachlich validierte Artenaufnahme"
-    },
-    {
-      "id": "f75",
-      "name": "Große Maräne",
-      "scientificName": "Coregonus lavaretus",
-      "filename": "grosse-maraene.webp",
-      "bytes": 102890,
-      "sha256": "00cb432f43a80f616e61b8d445561ac302c662989270d9ab5076c976749b933e",
-      "type": "KI-Illustration, keine fachlich validierte Artenaufnahme"
-    },
-    {
-      "id": "f76",
-      "name": "Kleine Maräne",
-      "scientificName": "Coregonus albula",
-      "filename": "kleine-maraene.webp",
-      "bytes": 98776,
-      "sha256": "e8c02a7e9e9a7a9ed45a64296ab56fa25fa14e79049779e7797b50202ceee578",
-      "type": "KI-Illustration, keine fachlich validierte Artenaufnahme"
-    },
-    {
-      "id": "f77",
-      "name": "Blaufelchen",
-      "scientificName": "Coregonus wartmanni",
-      "filename": "blaufelchen.webp",
-      "bytes": 88024,
-      "sha256": "a389ba0f43e16d661f06451e3a4a2c04235e37def3989922c40bff69bb3ec7ad",
-      "type": "KI-Illustration, keine fachlich validierte Artenaufnahme"
-    },
-    {
-      "id": "f78",
-      "name": "Gangfisch",
-      "scientificName": "Coregonus macrophthalmus",
-      "filename": "gangfisch.webp",
-      "bytes": 94838,
-      "sha256": "b9c81de11f60a741a24913aca6d21de82bb9a0dc459ea8a586416206f6d41e80",
-      "type": "KI-Illustration, keine fachlich validierte Artenaufnahme"
-    },
-    {
-      "id": "f79",
-      "name": "Kilch",
-      "scientificName": "Coregonus bavaricus",
-      "filename": "kilch.webp",
-      "bytes": 98936,
-      "sha256": "98b80834b864ba4706576bc22a09a5b1c040effcbe4bc6ab59ba9765a8214b72",
-      "type": "KI-Illustration, keine fachlich validierte Artenaufnahme"
-    },
-    {
-      "id": "f80",
-      "name": "Ammersee-Kaulbarsch",
-      "scientificName": "Gymnocephalus ambriaelacus",
-      "filename": "ammersee-kaulbarsch.webp",
-      "bytes": 137406,
-      "sha256": "fc5ad848ffab8deed90c37921b528fd6e3e7f88cca2cc9899fd4c10ec0160d7c",
-      "type": "KI-Illustration, keine fachlich validierte Artenaufnahme"
+      "id": "f83",
+      "name": "Zingel",
+      "scientificName": "Zingel zingel",
+      "filename": "zingel.webp",
+      "bytes": 101404,
+      "sha256": "623fcb6370f42898b23d30370c4290e9d295b4eacf235f2ea7566655bb3d17e0",
+      "verification": "KI-Illustration – Artenmerkmale nicht wissenschaftlich verifiziert"
     }
-  ]
+  ],
+  "excluded": "7 der zuletzt generierten Motive nicht neu zugeordnet, da Arten bereits bebildert oder nicht im Artenlexikon enthalten."
 }

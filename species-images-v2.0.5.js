@@ -1,9 +1,9 @@
-/* Petri Heil Pro 2.0.12: 75 local AI reference images and update-check repair.
+/* Petri Heil Pro 2.0.13: 78 local AI reference images and update-check repair.
    Original 70 embedded illustrations and local user data remain unchanged.
    Images are illustrative, NOT validated for species identification. */
 (()=>{
   'use strict';
-  const VERSION='2.0.12';
+  const VERSION='2.0.13';
   const SPECIES=[
     ['f32','Giebel','giebel'],
     ['f33','Goldfisch','goldfisch'],
@@ -79,7 +79,10 @@
     ['f77','Blaufelchen','blaufelchen'],
     ['f78','Gangfisch','gangfisch'],
     ['f79','Kilch','kilch'],
-    ['f80','Ammersee-Kaulbarsch','ammersee-kaulbarsch']
+    ['f80','Ammersee-Kaulbarsch','ammersee-kaulbarsch'],
+    ['f81','Schrätzer','schraetzer'],
+    ['f82','Streber','streber'],
+    ['f83','Zingel','zingel']
   ].map(([id,name,file])=>({id,name,url:new URL(file+'.webp',document.baseURI).href}));
   const norm=s=>String(s||'').replace(/\s+/g,' ').trim().toLocaleLowerCase('de-DE');
   const identify=s=>SPECIES.find(v=>norm(v.name)===norm(s));
@@ -146,15 +149,15 @@
       const item=titles.map(identify).find(Boolean);
       if(item)void apply(detail,item);
     }
-    // Dynamic app.js 2.0.4 is preserved; show 2.0.12 accurately in the visible UI.
+    // Dynamic app.js 2.0.4 is preserved; show 2.0.13 accurately in the visible UI.
     for (const el of document.querySelectorAll('.sidebar .tiny,#app-update-card')) {
       if(!el.dataset.petri211VersionChecked){
         el.dataset.petri211VersionChecked='yes';
-        if(el.classList.contains('tiny')) el.textContent=el.textContent.replace(/2\.0\.(?:[4-9]|10|11|12)\b/g,'2.0.12');
+        if(el.classList.contains('tiny')) el.textContent=el.textContent.replace(/2\.0\.(?:[4-9]|10|11|12)\b/g,'2.0.13');
         if(el.id==='app-update-card'){
           for(const node of el.querySelectorAll('h1,h2,h3,strong,span')){
             if(node.children.length===0 && /Version 2\.0\.(?:[4-9]|10|11|12)\b/.test(node.textContent))
-              node.textContent=node.textContent.replace(/2\.0\.(?:[4-9]|10|11|12)\b/g,'2.0.12');
+              node.textContent=node.textContent.replace(/2\.0\.(?:[4-9]|10|11|12)\b/g,'2.0.13');
           }
         }
       }
@@ -211,7 +214,7 @@
       const result=cmp(info.version,VERSION);
       if(result===null)throw new Error('ungültige Versionsangabe');
       if(result>0)showUpdateStatus(button,'Eine neuere Version '+info.version+' ist gemeldet. Vor der Installation die vollständigen Dateien prüfen.');
-      else if(result===0)showUpdateStatus(button,'Version '+VERSION+' ist aktuell. 70 integrierte und 75 zusätzliche lokale KI-Bilder.');
+      else if(result===0)showUpdateStatus(button,'Version '+VERSION+' ist aktuell. 70 integrierte und 78 zusätzliche lokale KI-Bilder.');
       else showUpdateStatus(button,'App '+VERSION+' installiert; Server meldet noch '+info.version+'. Veröffentlichung prüfen.');
     }catch(e){showUpdateStatus(button,'Update-Prüfung fehlgeschlagen ('+(e.name==='AbortError'?'Zeitüberschreitung':e.message)+'). HTTPS-Verbindung und version.json prüfen.');}
   }

@@ -1,12 +1,12 @@
 {
-  "version": "2.0.12",
+  "version": "2.0.13",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "10 weitere einzeln erzeugte KI-Artenbilder auf weißem Hintergrund: Groppe (Rheingebiet), Hundsfisch, Ostasiatischer Schlammpeitzger, Schnäpel, Große Maräne, Kleine Maräne, Blaufelchen, Gangfisch, Kilch und Ammersee-Kaulbarsch.",
-    "75 zusätzliche lokale Artenbilder in Artkarten und Detailansichten; die 70 älteren in app.js eingebetteten Illustrationen bleiben erhalten.",
-    "Offline-Cache und Update-Anzeige auf Version 2.0.12 angepasst.",
-    "Fangbuch und übrige Funktionen bleiben durch den Bildpatch unverändert."
+    "Drei neue KI-Illustrationen auf weißem Hintergrund für Schrätzer, Streber und Zingel.",
+    "78 zusätzliche Bildzuordnungen und 70 frühere eingebettete Illustrationen unverändert.",
+    "Offline-Service-Worker und Versionsprüfung auf 2.0.13 erweitert.",
+    "Andere zuletzt erzeugte Bilder nicht übernommen: vorhandene Artenbilder oder kein zugehöriger Lexikoneintrag."
   ],
-  "notes": "Alle Bilder sind KI-Illustrationen und keine fachlich geprüften Bestimmungsfotos. Besonders nahe verwandte Maränen und seltene Arten erfordern wissenschaftliche Vergleichsquellen."
+  "notes": "KI-Motive sind NICHT wissenschaftlich geprüft und können Artmerkmale falsch darstellen. Nicht zur sicheren Artbestimmung verwenden. Keine Nutzerdaten oder Fangbuchfunktionen verändert."
 }
