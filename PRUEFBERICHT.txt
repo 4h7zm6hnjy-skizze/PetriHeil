@@ -1,25 +1,18 @@
-Prüfbericht – Petri Heil Pro 2.2.0 (lokaler Stand)
+Petri Heil Pro 2.2.1 – Code-Prüfung für iPhone/Android
+- Basierend auf bereits auf GitHub hochgeladener App-Version 2.2.0.
+- PWA-Manifest bleibt mit display=standalone, gültigem Scope, 192/512-px-Icons und Startseite unverändert.
+- Neue Installationshilfe für Safari und Chrome; prompt() nur für tatsächlich erhaltenes Android-beforeinstallprompt-Ereignis.
+- Die iOS-Anleitung zeigt nur die manuellen Safari-Schritte; keine erfundene Ein-Klick-Installation.
+- Neue CSS-Regeln nur ergänzend; App-Navigation, Fangdaten, IndexedDB und localStorage unverändert.
+- Offline-Mediencache petri-media-2.2.0 bleibt erhalten und wird von 2.2.1 weiterverwendet.
+- Statische Paket-Prüfung und Syntaxprüfungen ausführen; reale iPhone-/Android-Tests sind weiterhin nötig.
+- Keine automatische Synchronisation zwischen Geräten. Externe Wetter- und Kartendienste sind offline nicht verfügbar.
 
-Geprüft anhand der tatsächlichen GitHub-Dateiliste und relevanter JS-Module:
-- 177 Fisch/Krebs-Einträge enthalten 172 eindeutige Bildzuordnungen; alle 172 Dateinamen sind vorhanden.
-- Im Repository sind 228 lokale PNG/WebP-Bilder (ca. 26,8 MB).
-- Vorheriger Service Worker 2.1.7 hatte 30 eindeutige lokale Kernressourcen; die Quell-Dateien existieren.
-- Alle 228 Medien sind im neuen Manifest aufgelistet, Wiederaufnahme und Verifikation vorgesehen.
-- Keine Änderungen an Fangbuch-Datenbank, Speicher-Keys oder Benutzerfotos.
-- Live-Wetter, externe Karten und externe amtliche Links sind NICHT ohne Internet aktualisierbar.
-
-WICHTIGE GRENZEN:
-- Der 4,5 MB große, minifizierte Altcode 'app.js' war mit dem GitHub-Textzugriff nicht vollständig auslesbar; End-to-End-Funktionstest daher nicht vollständig.
-- Keine echte Installation auf dem iPhone dieses Nutzers durchgeführt.
-- Ohne abgeschlossenen Mediencheck kann nicht zugesichert werden, dass alle Bilder offline verfügbar sind.
-- 100%% allgemeine Fehlerfreiheit ist aus diesen Prüfungen nicht ableitbar.
-
-Ergänzende automatisierte Tests:
-- 14 vorhandene JS-Erweiterungen aus GitHub syntaktisch überprüft: alle ohne Parsefehler.
-- Neuer Offline-Worker 2.2.0: 33 unterschiedliche Kernressourcen erfolgreich simuliert installiert.
-- Fehlende Kernressource: Fehlermeldung mit Dateiname, neue Teilinstallation entfernt, alte Caches beibehalten.
-- Falsche Server-/HTML-Version: Installation korrekt verweigert.
-- Offline-Bildvorbereitung: 228/228 simulierte Bilder gespeichert und nach Aktivierung des Offline-Modus ohne Netzwerk erneut überprüft.
-- Bei dieser Testserie gefundener und behobener Fehler: Medienliste akzeptierte keine Dateinamen mit Versionspunkten (v2.0.29); Regex korrigiert.
-- Browser-Chromium-Test in der Containerumgebung nach 15 s ohne nutzbares Ergebnis abgebrochen. Tests ersetzen keinen Safari-Gerätetest.
-- Zusatzprüfung: Offline-Check-Seite wird ohne Netzwerk vom neuen Service Worker aus dem Offline-Cache geladen.
+ERGÄNZENDE TESTERGEBNISSE:
+- Node.js Syntaxprüfungen bestanden: petri-platform-v2.2.1.js und petri-sw.js.
+- Simulierter Erstinstallationslauf: alle 36 Kernressourcen gespeichert, Offline-Startseite ohne Netz geladen.
+- Simuliertes Fehlen des neuen Plattform-CSS: klare HTTP-404-Meldung, unvollständiger neuer Cache entfernt.
+- Android-Prompt wird nur angeboten, wenn das entsprechende echte Browser-Ereignis eintrifft.
+- Die Installationsseite wurde in der Liste der 36 Kernressourcen aufgenommen.
+- Der bestehende Bildcache petri-media-2.2.0 wurde unverändert weiterverwendet.
+- Ein echtes iPhone und Android-Gerät wurden nicht fernbedient; vollständige Gerätetests stehen aus.

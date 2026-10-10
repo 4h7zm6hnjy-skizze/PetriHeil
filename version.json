@@ -1,8 +1,11 @@
 {
-  "version": "2.2.0",
+  "version": "2.2.1",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "changes": [
+    "Gemeinsame iPhone- und Android-Web-App: Plattformabhängige Installationshilfe und Android-Installationsschaltfläche, sofern Chrome diese anbietet.",
+    "Mobile Oberflächen für Safari und Chrome: Touch-Ziele, sichere Bildschirmränder und Eingabefelder verbessert.",
+    "Bestehendes 2.2.0-Offline-Bildarchiv wird weiterverwendet, damit bereits heruntergeladene Bilder nicht erneut geladen werden müssen.",
     "Lokale Offline-Prüfung und wiederaufnehmbare Vorbereitung aller 228 Bilder (Fischkunde, Ausrüstung, Logos und Grafiken).",
     "Offline-Anzeige trennt vollständige Medienvorbereitung vom grundlegenden App-Start; Erfolge nur nach Cache-Prüfung.",
     "Stabile Versionserkennung und Reparatur bleiben aktiv; keine Löschung von Benutzerdaten.",
@@ -16,7 +19,8 @@
     "Live-Wetter, externe Webseiten und Online-Karten können nicht vollständig offline aktualisiert werden; Internet ist hierfür erforderlich.",
     "Der vollständige Quellcode der sehr großen app.js (4,5 MB) konnte nicht mit den verfügbaren GitHub-Textwerkzeugen extrahiert und end-to-end getestet werden.",
     "Für den vollständigen Bildbestand muss die Vorbereitung auf dem iPhone bei Internetverbindung bis 228/228 abgeschlossen werden.",
-    "Echte iOS-Tests von Fangbuch, GPS, Kamerazugriff und Speicherberechtigungen bleiben erforderlich."
+    "Echte iOS-Tests von Fangbuch, GPS, Kamerazugriff und Speicherberechtigungen bleiben erforderlich.",
+    "iOS- und Android-Gerätetests stehen aus; Betriebssystem, Browser und verfügbare Speicherressourcen können Funktionen beeinflussen."
   ],
   "serviceWorker": "sw.js"
 }

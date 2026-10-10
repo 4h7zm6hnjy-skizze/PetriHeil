@@ -1,9 +1,9 @@
-/* Petri Heil Pro: stabiler Worker-Pfad, Version 2.2.0.
+/* Petri Heil Pro: stabiler Worker-Pfad, Version 2.2.1.
    Updated in place on future releases. Does not import legacy workers. */
 'use strict';
-const VERSION='2.2.0';
+const VERSION='2.2.1';
 const ROOT=new URL('./',self.location.href);
-const CORE_CACHE='petri-core-2.2.0';
+const CORE_CACHE='petri-core-2.2.1';
 const IMAGE_CACHE='petri-media-2.2.0';
 const CORE=[
  'index.html','update-rettung.html','version.json','manifest.webmanifest',
@@ -19,8 +19,9 @@ const CORE=[
  'petri-pro-suite-v2.0.42.js?v=2.0.42','petri-data-bridge-v2.0.33.js?v=2.0.42',
  'petri-report-v2.0.36.js?v=2.0.42','petri-next-v2.0.37.js?v=2.0.42',
  'petri-gesamt-v2.0.41.js?v=2.0.42','petri-unified-ui-v2.1.2.js?v=2.1.2',
- 'petri-species-regions-v2.1.3.js?v=2.1.3','petri-updater.js?v=2.2.0',
- 'petri-media-v2.2.0.json','petri-offline-v2.2.0.js?v=2.2.0','offline-check.html'
+ 'petri-species-regions-v2.1.3.js?v=2.1.3','petri-updater.js?v=2.2.1',
+ 'petri-media-v2.2.0.json','petri-offline-v2.2.0.js?v=2.2.0','offline-check.html',
+ 'petri-platform-v2.2.1.css?v=2.2.1','petri-platform-v2.2.1.js?v=2.2.1','installieren.html'
 ];
 const IMAGES=[
  'petri-fisch-v2.0.29.webp','petri-marke-v2.0.29.webp',

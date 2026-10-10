@@ -1,0 +1,24 @@
+/* Petri Heil Pro 2.2.1 – shared iOS/Android touch layouts; no changes to app data. */
+.petri221-device-card{box-sizing:border-box;max-width:100%;min-width:0;margin:14px 0;border:1px solid #afd5e8;border-radius:16px;padding:16px;background:#f8fcff;color:#153e57}
+.petri221-device-card h3{margin:0 0 8px;font-size:18px;color:#103d59}
+.petri221-device-card p{margin:6px 0 12px;line-height:1.5;color:#375f74;overflow-wrap:anywhere}
+.petri221-device-card .petri221-platform{font-weight:750}
+.petri221-device-card .petri221-note{font-size:12px;line-height:1.55;color:#516f80;margin:12px 0 0}
+.petri221-actions{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.petri221-actions > .button{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;min-height:44px;max-width:100%;padding:10px 13px;border-radius:10px;font-size:14px;line-height:1.3;font-weight:750;white-space:normal;text-align:center}
+.petri221-actions>[hidden]{display:none!important}
+.petri221-guide{background:#eff8fd;color:#08608e;border:1px solid #9ac5db}
+@media(max-width:850px){
+ html,body,.app-shell,.workspace,#main{max-width:100%;min-width:0}
+ .app-shell,.workspace{width:100%}
+ #main >*,#p31-overlay .p31-app{min-width:0;max-width:100%}
+ .bottom-nav{box-sizing:border-box;padding-bottom:max(5px,env(safe-area-inset-bottom,0px))}
+ #main input:not([type=checkbox]):not([type=radio]),#main select,#main textarea,
+ #p31-overlay input:not([type=checkbox]):not([type=radio]),#p31-overlay select,#p31-overlay textarea{font-size:16px!important;max-width:100%}
+ .petri221-actions>.button{flex:1 1 150px}
+ .petri221-device-card{padding:14px}
+ #p31-overlay .p31-app{max-height:100dvh}
+}
+@media(hover:none) and (pointer:coarse){
+ .petri221-actions>.button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+}

@@ -1,14 +1,12 @@
-Petri Heil Pro 2.2.0 – Offline-Gesamtprüfung und Vorbereitung
+Petri Heil Pro 2.2.1 – iPhone + Android
 
-1. Wenn möglich, in Petri Heil ein JSON-Backup der Fangdaten und Notizen speichern.
-2. Alle Dateien dieses ZIP-Pakets in das Hauptverzeichnis des bestehenden GitHub-Repositories PetriHeil laden. Bereits vorhandene gleichnamige Dateien ersetzen, sonst nichts löschen.
-3. Warten, bis GitHub Pages Version 2.2.0 veröffentlicht hat.
-4. Petri Heil (Home-Bildschirm-App) mit WLAN und Stromversorgung öffnen.
-5. Mehr > Backup & Einstellungen > Update-Reparatur und 2.2.0 installieren.
-6. Die Seite Offline-Check über den Footer öffnen, oder unter Mehr in der Bildsektion 'Offline-Paket' benutzen.
-7. 'Alle Bilder offline vorbereiten' drücken und warten, bis die Meldung '228/228 lokale Bilder offline' erscheint. Bei Fehlern später erneut starten – die bereits geladenen Bilder werden nicht neu geladen.
-8. Flugmodus aktivieren und App neu starten. Fischkunde, Angelschein, Fangbuch, Bilder, Statistik, Pro-Funktionen (ohne aktuelle Live-Daten) testen.
+1. In der bisherigen App möglichst zuerst eine Datensicherung durchführen.
+2. ALLE Dateien dieses ZIP im Hauptverzeichnis des bestehenden GitHub-Repositories PetriHeil hochladen; bestehende gleichnamige Dateien ersetzen, alle übrigen Dateien behalten.
+3. Warten, bis version.json online 2.2.1 meldet.
+4. Auf iPhone oder Android die bereits vorhandene App online starten. Unter Mehr → Backup & Einstellungen → Update-Reparatur 2.2.1 aktivieren (falls nötig).
+5. Die Installationshilfe in der App oder ./installieren.html nutzen. Für iPhone Safari und für Android Chrome verwenden.
+6. Auf jedem Gerät einzeln Offline prüfen → Alle Bilder offline vorbereiten und bis 228/228 warten. Danach Flugmodus-Test.
 
-WICHTIG: Kein Löschen der Home-Bildschirm-App, Website-Daten, LocalStorage, IndexedDB oder Browser-Caches.
-Live-Wetter, Karten aus dem Internet, amtliche Webseiten, GPS-Signale je nach iPhone-Einstellung und externe Foto-Abfragen benötigen entsprechende Dienste/Verbindung. Solche Live-Funktionen können technisch nicht 'aktuell offline' sein.
-Dies ist ein Update der geänderten Dateien, keine vollständige Neuinstallation und kein Komplett-Export aller Repository-Dateien.
+WICHTIG: Vorhandene Apps nicht deinstallieren; keine Browser- oder App-Daten löschen. Fangdaten liegen lokal je Gerät; für einen Wechsel ist Backup/Export nötig, eine automatische Synchronisation wurde NICHT ergänzt. Wetter und externe Karten bleiben online erforderlich.
+
+Die PWA wird über Browser installiert. Dieses ZIP ist keine iOS IPA und keine Android APK. Für die Stores wären separate Verpackung, Signierung und Veröffentlichung erforderlich.
