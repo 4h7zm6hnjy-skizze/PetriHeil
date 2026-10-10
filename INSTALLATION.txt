@@ -1,10 +1,13 @@
-PetriHeil Pro 2.0.43 – automatischer Standort
+PetriHeil Pro 2.0.42 – GPS-Fehlerbehebung auf iPhone / Safari
 
-1. Bitte vorab Gesamtsicherung in der Angelzentrale erstellen.
-2. Die sieben App-Dateien (index.html, sw.js, version.json, petri-pro-suite-v2.0.43.js, petri-gesamt-v2.0.43.js, petri-update-install-v2.0.28.js und petri-location-v2.0.43.js) im Root des GitHub-Repositories hochladen und vorhandene gleichnamige Dateien ersetzen.
-3. Commit changes. GitHub Pages abwarten, PetriHeil zweimal direkt in Safari öffnen.
-4. Die erste native iPhone-Standortfreigabe bestätigen. Das Wetter wird nach Freigabe automatisch geladen.
-5. Bei blockierter Berechtigung im Hinweis „Erneut freigeben“ verwenden und Website-Berechtigungen in Safari prüfen.
-6. „Ausschalten“ beendet die automatische Standortabfrage für spätere Starts.
+1. Bitte in PetriHeil unter Angelzentrale → Backup vorher eine Gesamtsicherung erstellen.
+2. ZIP entpacken. Die sechs App-Dateien direkt in das Hauptverzeichnis von 4h7zm6hnjy-skizze/PetriHeil hochladen:
+   index.html, petri-pro-suite-v2.0.42.js, petri-gps-v2.0.42.css, petri-update-install-v2.0.28.js, sw.js, version.json.
+3. „Commit changes“ bestätigen. Diese Anleitung muss nicht mit hochgeladen werden.
+4. Die Website https://4h7zm6hnjy-skizze.github.io/PetriHeil/ DIREKT in Safari öffnen.
+5. Im iPhone: Einstellungen → Datenschutz & Sicherheit → Ortungsdienste → Safari-Websites. Standort erlauben. Falls vorhanden: „Genauer Standort“ aktivieren.
+6. Safari nach der Aktualisierung einmal schließen und erneut öffnen. Unter Angelzentrale → Angelwetter „Mein aktueller GPS-Standort“ tippen, Berechtigungsdialog bestätigen. Die Statusanzeige zeigt die genaue Ursache bei Fehlern.
+7. Alternativ Angelzentrale → Gewässer → „Aktuellen GPS-Standort übernehmen“; erst danach Gewässer speichern.
 
-Hinweis: Es sind SIEBEN App-Dateien plus diese Anleitung. Daten werden nicht gelöscht. Internet für aktuelles Wetter nötig.
+GPS funktioniert nicht zuverlässig im integrierten Browser jeder App. In diesem Fall direkt Safari verwenden oder Koordinaten / Ort von Hand eintragen.
+Es werden keine Fangdaten gelöscht. Keine neuen Bezahl-APIs / API-Schlüssel. Automatische Wetterdaten benötigen weiterhin Internet.

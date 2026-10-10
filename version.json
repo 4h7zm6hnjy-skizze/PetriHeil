@@ -1,20 +1,19 @@
 {
-  "version": "2.0.43",
+  "version": "2.0.42",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Beim App-Start wird auf HTTPS automatisch die iPhone-Standortberechtigung angefragt; die Freigabe bleibt Entscheidung des Nutzers.",
-    "Nach erfolgreicher Standortfreigabe wird das Angelwetter einmalig pro Sitzung automatisch für den aktuellen Standort geladen.",
-    "Das gespeicherte GPS-Ergebnis kann für Gewässer und Wetter auf Knopfdruck übernommen werden, ohne eine zweite Berechtigungsabfrage.",
-    "Sichtbarer Standortstatus, erneut versuchen und Standortautomatik ausschalten; automatische Wiederholung nur nach erneuter App-Nutzung und ausreichendem Abstand.",
-    "Bei verweigerter Berechtigung, eingebettetem Browser oder fehlendem GPS bleiben manuelle Orts- und Koordinateneingaben nutzbar.",
-    "GPS-Positionen werden nur im Arbeitsspeicher vorgehalten; Wetterdienst erhält auf circa 100 m gerundete Koordinaten.",
-    "GPS-Diagnose aus Version 2.0.42, Update-Version und Offline-Cache auf 2.0.43 aktualisiert."
+    "GPS-Fehlerdiagnose für iPhone und Safari: unterscheidet Standort verweigert, Standort nicht verfügbar, Zeitüberschreitung und fehlende Browser-Unterstützung.",
+    "Pro-Angelwetter: Ermittlung des aktuellen GPS-Standorts mit Standortfreigabe und zweitem Versuch bei vorübergehendem Fehler.",
+    "Ermittelte Koordinaten erscheinen als Eingabewerte und werden direkt für die Wetterabfrage verwendet.",
+    "Gewässerverwaltung: aktuelle GPS-Koordinaten per Knopfdruck in das Gewässerformular übertragen; erst nach dem bewussten Speichern werden sie dauerhaft gesichert.",
+    "Dauerhaft sichtbare GPS-Statusanzeige und Hilfe zur Freigabe unter iOS; manuelle Orts- und Koordinateneingabe bleibt erhalten.",
+    "Offline-Cache, Updatefunktion und Versionsanzeige auf 2.0.42 aktualisiert. Bestehende lokale Daten werden nicht verändert."
   ],
   "limitations": [
-    "Eine Website kann iOS-Standortberechtigungen weder selbst erteilen noch eine native Freigabe erzwingen. Eingebettete Browser können automatische Anfragen blockieren; dann ist ein zusätzlicher Tipp oder Safari nötig.",
-    "GPS benötigt HTTPS und aktive Ortungsdienste. Ein Wetterabruf über Open-Meteo braucht eine Internetverbindung.",
-    "Der Standort wird nur bei Eröffnung/erneuter Aktivierung ermittelt, nicht dauerhaft im Hintergrund verfolgt.",
-    "Ein echter iPhone-Berechtigungstest muss nach dem Upload auf dem Gerät durchgeführt werden."
+    "In integrierten In-App-Browsern kann GPS durch die Plattform blockiert sein. Die App kann dies nicht umgehen; direkt in Safari öffnen und Standortfreigabe prüfen.",
+    "Aktuelle Wetterdaten brauchen Internet, der GPS-Empfänger dagegen keine Wetter-API.",
+    "Standortkoordinaten und Genauigkeit stammen aus der Browser-Geolocation-API; die App kann eine systemseitig verweigerte Standortfreigabe nicht erzwingen.",
+    "Echte iPhone-Bedienung und Live-GPS-Signal können in dieser Umgebung nicht vollständig getestet werden."
   ]
 }

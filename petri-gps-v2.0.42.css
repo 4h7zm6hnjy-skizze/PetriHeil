@@ -1,0 +1,9 @@
+/* PetriHeil Pro 2.0.42 GPS guidance - native iPhone Safari. */
+#p31-overlay .p42-gps-status{margin:10px 0 4px;padding:12px 13px;border:1px solid #a9cde0;background:#f0f8fd;border-radius:11px;color:#245776;font-size:13px;line-height:1.48;overflow-wrap:anywhere}
+#p31-overlay .p42-gps-status[data-state="pending"]{border-color:#d5bb72;background:#fff8e7;color:#7b5516}
+#p31-overlay .p42-gps-status[data-state="error"]{border-color:#e9ba9d;background:#fff4ed;color:#8b3c25}
+#p31-overlay .p42-gps-status[data-state="success"]{border-color:#a2d8bd;background:#ecfaf3;color:#175b43}
+#p31-overlay .p42-gps-help{margin:8px 0 14px;font-size:13px;line-height:1.5;border:1px solid #c5ddeb;border-radius:10px;background:#f6fbfe;color:#345e75;padding:11px 12px}
+#p31-overlay .p42-gps-help summary{cursor:pointer;font-weight:700}
+#p31-overlay .p42-gps-help p{margin:8px 0 2px}
+#p31-overlay [data-action="gpsWeather"][disabled],#p31-overlay [data-action="gpsPlace"][disabled]{opacity:.7;cursor:wait}

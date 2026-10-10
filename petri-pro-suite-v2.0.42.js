@@ -1,0 +1,412 @@
+/* PetriHeil Pro GPS-Fix 2.0.42 — additive. Does not alter original app.js or its records.
+   Browser-native modules: trips, sites, weather, tackle, legal references, backup and photo measuring.
+   Weather uses Open-Meteo (only by explicit action); maps open OSM (only by user action).
+*/
+(()=>{
+'use strict';
+const KEY='petri31-pro-data-v1', ACTIVE='petri31-active-session-v1', MANUAL='petri-heil-manual-sessions-v1';
+const IMGDB='petri31-media-v1';const PAGES=['Cockpit','Angelzeit','Gewässer','Angelwetter','Fangbuch','Ausrüstung','Prüfung','Recht & Dokumente','Touren','Foto-Messhilfe','Backup'];
+const NRW_QUESTIONS='https://www.fischereiverband-nrw.de/content/gesetze/fischerpruefung.php';
+const NRW_LAW='https://recht.nrw.de/lrgv/rechtsverordnung/03072026-landesfischereiverordnung-lfischvo/';
+const NRW_FISH='https://recht.nrw.de/lrgv/gesetz/01072026-landesfischereigesetz-bekanntmachung-der-neufassung/';
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const val=v=>String(v??'').trim();const pad=n=>String(n).padStart(2,'0');
+const localTime=(d=new Date())=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+const short=x=>x?new Date(x).toLocaleString('de-DE',{dateStyle:'short',timeStyle:'short'}):'–';
+const deNum=(n,dp=1)=>Number(n||0).toLocaleString('de-DE',{maximumFractionDigits:dp});
+function editDisplayDate(x,dateOnly=false){
+ const a=String(x??'');const m=a.match(/^(\d{4})-(\d\d)-(\d\d)(?:[T ](\d\d):(\d\d))?/);
+ return m?`${m[3]}.${m[2]}.${m[1]}${dateOnly?'':(m[4]?' '+m[4]+':'+m[5]:'')}`:a;
+}
+function normalizeDateInput(text,datetime=false){
+ const raw=String(text??'').trim();if(!raw)return '';
+ let m=raw.match(/^(\d{1,2})[./-](\d{1,2})[./-](\d{4})(?:[, ]+(\d{1,2})[:.](\d{2}))?$/);
+ let year,month,day,hour,min;
+ if(m){day=+m[1];month=+m[2];year=+m[3];hour=+(m[4]||0);min=+(m[5]||0);if(datetime&&!m[4])return null;}
+ else {m=raw.match(/^(\d{4})-(\d{1,2})-(\d{1,2})(?:[T ](\d{1,2}):(\d{2}))?$/);
+  if(!m)return null;year=+m[1];month=+m[2];day=+m[3];hour=+(m[4]||0);min=+(m[5]||0);if(datetime&&!m[4])return null;}
+ if(year<1900||year>2200||hour>23||min>59||new Date(year,month-1,day).getFullYear()!==year||new Date(year,month-1,day).getMonth()!==month-1||new Date(year,month-1,day).getDate()!==day)return null;
+ const iso=[year,String(month).padStart(2,'0'),String(day).padStart(2,'0')].join('-');
+ return datetime?iso+'T'+String(hour).padStart(2,'0')+':'+String(min).padStart(2,'0'):iso;
+}
+function decimalValue(v){const s=String(v??'').trim().replace(/\s/g,'');if(!s)return '';return s.replace(',','.');}
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,9);
+const read=(k,f)=>{try{return JSON.parse(localStorage.getItem(k))??f;}catch{return f;}};
+const clone=o=>JSON.parse(JSON.stringify(o));
+const seed=()=>({places:[],trips:[],catches:[],gear:[],rules:[],docs:[],checklist:[],settings:{}});
+function load(){const v=read(KEY,seed());const x=seed();for(const k of Object.keys(x))x[k]=k==='settings'&&v?.[k]&&typeof v[k]==='object'?v[k]:Array.isArray(x[k])&&Array.isArray(v?.[k])?v[k]:x[k];return x;}
+let db=load(), tab=0, manualEditId='', currentEdit='', weather=null, weatherLocation='', mapSpot='', search='', meas={img:null,points:[],len:10}, active=read(ACTIVE,null), toastTimer=0, clockTimer=0, displayed=false;
+let gpsBusy=false;const gpsStatus={weather:{text:'',kind:''},place:{text:'',kind:''}};
+function save(){try{localStorage.setItem(KEY,JSON.stringify(db));return true;}catch(e){notify('Speichern nicht möglich. Speicherplatz überprüfen.');return false;}}
+function notify(s){const x=document.getElementById('p31-msg');if(x){x.textContent=s;}else console.warn('PetriHeil: '+s);}
+function blobDownload(blob,name){const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;a.style.display='none';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),15000);}
+function m(id){return document.getElementById(id);}
+function coords(x){const lat=Number(x?.lat),lon=Number(x?.lon);return Number.isFinite(lat)&&Number.isFinite(lon)&&Math.abs(lat)<=90&&Math.abs(lon)<=180&&String(x?.lat??'')!==''&&String(x?.lon??'')!==''?{lat,lon}:null;}
+function placesOptions(selected=''){return '<option value="">– auswählen –</option>'+db.places.map(p=>`<option value="${esc(p.id)}" ${p.id===selected?'selected':''}>${esc(p.name)}</option>`).join('');}
+function field(label,id,value='',type='text',extras=''){
+ const dateType=type==='date'||type==='datetime-local';const numberType=type==='number';
+ const display=dateType?editDisplayDate(value,type==='date'):String(value??'');
+ const attr=dateType?'inputmode="text" autocomplete="off" placeholder="'+(type==='date'?'TT.MM.JJJJ':'TT.MM.JJJJ HH:MM')+'" data-p34-date="'+(type==='date'?'date':'datetime')+'"':numberType?'inputmode="decimal" placeholder="z. B. 45,5"':'';
+ const multiline=type==='text'&&['notes','note','text'].includes(id);
+ return `<label class="p31-field">${esc(label)}${multiline?`<textarea name="${esc(id)}" rows="3" maxlength="800" ${extras}>${esc(display)}</textarea>`:`<input name="${esc(id)}" type="${dateType||numberType?'text':type}" value="${esc(display)}" ${attr} ${extras}>`}</label>`;
+}
+function selectField(label,id,opts,value=''){
+ const list='p34-options-'+id;
+ return `<label class="p31-field">${esc(label)}<div class="p39-choose"><input name="${esc(id)}" type="text" list="${list}" value="${esc(value)}" placeholder="Eigene Angabe eintippen" autocomplete="off" aria-label="${esc(label)} frei eingeben"><select class="p39-picker" data-p39-choice="${esc(id)}" aria-label="${esc(label)} aus Vorschlägen auswählen"><option value="">Vorschlag auswählen …</option>${opts.map(o=>`<option value="${esc(o)}">${esc(o)}</option>`).join('')}</select></div><datalist id="${list}">${opts.map(o=>`<option value="${esc(o)}"></option>`).join('')}</datalist></label>`;
+}
+function formButton(text='Speichern'){return `<div class="p31-actions"><button class="p31-action p31-primary" type="submit">${esc(text)}</button><button class="p31-action" type="button" data-action="cancel">Abbrechen</button></div>`;}
+function dayDiff(s){if(!s)return Infinity;const d=new Date(s+'T12:00:00');return Math.ceil((d-new Date())/86400000);}
+function row(title,body,actions='',imageId=''){return `<article class="p31-item">${imageId?`<img alt="Eigenes Foto" class="p31-pic" data-photo="${esc(imageId)}">`:''}<strong>${esc(title)}</strong><div class="p31-muted">${body}</div><div class="p31-actions">${actions}</div></article>`;}
+const editButtons=(kind,id)=>`<button type="button" class="p31-action" data-action="edit" data-kind="${kind}" data-id="${esc(id)}">Bearbeiten</button><button type="button" class="p31-action p31-danger" data-action="del" data-kind="${kind}" data-id="${esc(id)}">Löschen</button>`;
+function whenLabel(x){const d=dayDiff(x);return !Number.isFinite(d)?'':d<0?`Abgelaufen seit ${-d} Tagen`:d===0?'Heute fällig':`in ${d} Tagen`;}
+function getSessions(){
+ const result=[];
+ for(const p of db.trips){
+  const a=Date.parse(p.start),b=Date.parse(p.end);
+  if(p.status==='Durchgeführt'&&Number.isFinite(a)&&Number.isFinite(b)&&b>a&&a<=Date.now())result.push({id:p.id,key:'pro:'+p.id,source:'Pro',start:a,end:Math.min(b,Date.now()),loc:p.placeText||db.places.find(s=>s.id===p.place)?.name||'',place:p.place||''});
+ }
+ for(const p of read(MANUAL,[])){
+  const a=Date.parse(p.start),b=Date.parse(p.end);
+  if(Number.isFinite(a)&&Number.isFinite(b)&&b>a&&a<=Date.now())result.push({id:p.id,key:'manual:'+p.id,source:'Manuell 2.0.30',start:a,end:Math.min(b,Date.now()),loc:p.location||'',place:''});
+ }
+ return result;
+}
+function uniqueIntervals(items){const sorted=items.filter(x=>Number.isFinite(x.start)&&Number.isFinite(x.end)&&x.end>x.start).sort((a,b)=>a.start-b.start);const result=[];for(const x of sorted){const prior=result[result.length-1];if(prior&&x.start<=prior.end){prior.end=Math.max(prior.end,x.end);}else result.push({start:x.start,end:x.end});}return result;}
+function hoursInIntervals(items){return uniqueIntervals(items).reduce((s,x)=>s+(x.end-x.start),0)/3600000;}
+function catchSession(c){
+ const t=Date.parse(c.time);if(!Number.isFinite(t))return null;
+ const items=getSessions();
+ // Explicitly linked records cannot silently switch to a different angling day.
+ if(c.sessionKey)return items.find(s=>s.key===c.sessionKey&&t>=s.start&&t<=s.end)||null;
+ const matches=items.filter(s=>t>=s.start&&t<=s.end);
+ // Unambiguous by time, not by arbitrary array order.
+ return matches.length===1?matches[0]:null;
+}
+function catchAnalysis(){
+ const sessions=getSessions(),hours=hoursInIntervals(sessions),linked=db.catches.filter(c=>!!catchSession(c));
+ const byMonth={};for(const c of db.catches){const key=String(c.time||'').slice(0,7);if(/^\d{4}-\d{2}$/.test(key))byMonth[key]=(byMonth[key]||0)+1;}
+ const best=Object.entries(byMonth).sort((a,b)=>b[1]-a[1]).slice(0,6);
+ return {hours,linked:linked.length,rate:hours>0?linked.length/hours:null,byMonth:best,unlinked:db.catches.length-linked.length};
+}
+
+function durationHours(){return hoursInIntervals(getSessions());}
+
+function summaryOf(arr,key){const map=new Map();for(const x of arr){let k=String(x[key]||'Unbekannt').trim();map.set(k,(map.get(k)||0)+1);}return [...map].sort((a,b)=>b[1]-a[1]);}
+function activeTime(){if(!active?.started)return '00:00:00';const n=Math.max(0,Math.floor((Date.now()-Date.parse(active.started))/1000));return [Math.floor(n/3600),Math.floor(n/60)%60,n%60].map(pad).join(':');}
+async function imageDb(){return new Promise((resolve,reject)=>{if(!('indexedDB' in window))return reject(Error('Keine IndexedDB-Unterstützung'));const r=indexedDB.open(IMGDB,1);r.onupgradeneeded=()=>{if(!r.result.objectStoreNames.contains('files'))r.result.createObjectStore('files');};r.onerror=()=>reject(r.error);r.onsuccess=()=>resolve(r.result);});}
+async function imagePut(k,blob){const d=await imageDb();return new Promise((resolve,reject)=>{const t=d.transaction('files','readwrite');t.objectStore('files').put(blob,k);t.oncomplete=()=>{d.close();resolve();};t.onerror=()=>{d.close();reject(t.error);};});}
+async function imageGet(k){const d=await imageDb();return new Promise((resolve,reject)=>{const t=d.transaction('files','readonly'),r=t.objectStore('files').get(k);r.onsuccess=()=>{d.close();resolve(r.result||null);};r.onerror=()=>{d.close();reject(r.error);};});}
+async function imageDelete(k){try{const d=await imageDb();return await new Promise((resolve,reject)=>{const t=d.transaction('files','readwrite');t.objectStore('files').delete(k);t.oncomplete=()=>{d.close();resolve();};t.onerror=()=>{d.close();reject(t.error);};});}catch{}}
+async function imagesAll(){const d=await imageDb();return new Promise((resolve,reject)=>{const t=d.transaction('files','readonly'),r=t.objectStore('files').getAllKeys();r.onsuccess=async()=>{const keys=r.result;d.close();try{const obj={};for(const k of keys){const f=await imageGet(k);if(f)obj[k]=await toDataURL(f);}resolve(obj);}catch(e){reject(e);}};r.onerror=()=>{d.close();reject(r.error);};});}
+const toDataURL=b=>new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=()=>reject(r.error);r.readAsDataURL(b);});
+const fromDataURL=async u=>(await fetch(u)).blob();
+async function compressImage(file){if(!file)return null;if(file.size>18*1024*1024)throw Error('Foto größer als 18 MB.');if(!/^image\//.test(file.type))throw Error('Bitte ein Bild wählen.');const bitmap=await createImageBitmap(file);const scale=Math.min(1,1100/Math.max(bitmap.width,bitmap.height)),canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(bitmap.width*scale));canvas.height=Math.max(1,Math.round(bitmap.height*scale));const ctx=canvas.getContext('2d');ctx.drawImage(bitmap,0,0,canvas.width,canvas.height);bitmap.close?.();return new Promise((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(Error('Foto nicht lesbar')),'image/jpeg',.76));}
+async function hydratePhotos(){const root=m('p31-overlay');if(!root)return;for(const img of root.querySelectorAll('img[data-photo]')){const k=img.dataset.photo;try{const file=await imageGet(k);if(!img.isConnected)continue;if(file){const url=URL.createObjectURL(file);img.onload=()=>URL.revokeObjectURL(url);img.src=url;}else img.remove();}catch{img.remove();}}}
+function show(nextTab=0){tab=nextTab;displayed=true;document.body.classList.add('p31-locked');if(!m('p31-overlay')){const o=document.createElement('div');o.id='p31-overlay';o.setAttribute('role','dialog');o.setAttribute('aria-modal','true');o.setAttribute('aria-label','PetriHeil Angelzentrale Pro');document.body.append(o);o.addEventListener('click',clicked);o.addEventListener('submit',submitted);o.addEventListener('change',changed);}render();setTimeout(()=>m('p31-close')?.focus(),20);}
+function close(){displayed=false;document.body.classList.remove('p31-locked');m('p31-overlay')?.remove();clearInterval(clockTimer);clockTimer=0;meas={img:null,points:[],len:10};}
+function view(i){tab=Number(i)||0;currentEdit='';render();m('p31-content')?.scrollTo({top:0});}
+function layout(){return `<div class="p31-app"><div class="p31-header"><img src="./petri-fisch-v2.0.29.webp" alt="Hecht PetriHeil"><div><h2>PetriHeil · Angelzentrale</h2><small>Pro-Funktionen · Version 2.0.42 · Daten bleiben lokal</small></div><button id="p31-close" data-action="close" type="button" class="p31-close">Schließen ×</button></div><div class="p31-tabs" role="tablist" aria-label="Module">${PAGES.map((p,i)=>`<button type="button" class="p31-tab" data-action="nav" data-tab="${i}" role="tab" aria-selected="${tab===i}">${esc(p)}</button>`).join('')}</div><div class="p31-scroll" id="p31-content"></div><div class="p31-toast" role="status" aria-live="polite" id="p31-msg">Keine Cloud-Synchronisierung – lokal gespeicherte Daten regelmäßig sichern.</div></div>`;}
+function render(){
+ const el=m('p31-overlay');if(!el)return;
+ const lastScroll=el.querySelector('.p31-tabs')?.scrollLeft||0;
+ el.innerHTML=layout();
+ const nav=el.querySelector('.p31-tabs');if(nav){nav.scrollLeft=lastScroll;
+   const selected=nav.querySelector('.p31-tab[aria-selected="true"]');
+   if(selected){const left=selected.offsetLeft, right=left+selected.offsetWidth;
+     if(left<nav.scrollLeft)nav.scrollLeft=left-10;
+     else if(right>nav.scrollLeft+nav.clientWidth)nav.scrollLeft=right-nav.clientWidth+10;}
+ }
+ m('p31-content').innerHTML=views[tab]();
+ if(tab===1)timerInit();if(tab===3&&weather)renderWeatherData();if(tab===9)setupMeasureCanvas();void hydratePhotos();
+}
+function launchers(){const nav=m('nav-desktop');if(nav&&!m('p31-side-open')){const b=document.createElement('button');b.type='button';b.id='p31-side-open';b.className='p31-open';b.innerHTML='<img src="./petri-fisch-v2.0.29.webp" alt=""> Angelzentrale Pro';b.addEventListener('click',()=>show());nav.append(b);}if(!m('p31-mobile-open')){const b=document.createElement('button');b.type='button';b.id='p31-mobile-open';b.className='p31-open';b.innerHTML='<img src="./petri-fisch-v2.0.29.webp" alt=""> Angelzentrale';b.addEventListener('click',()=>show());document.body.append(b);}const main=m('main');const title=val(m('page-title')?.textContent).toLowerCase();if(main&&/übersicht|startseite|mehr|einstellungen/.test(title)&&!main.querySelector('.p31-launch-card')){const box=document.createElement('section');box.className='p31-launch-card';box.innerHTML='<img alt="Hecht" src="./petri-fisch-v2.0.29.webp"><div><strong>Angelzentrale Pro</strong><p>Angeltage, Gewässer, Angelwetter, Ausrüstung und Fangstatistiken an einem Ort.</p></div><button class="p31-open" type="button">Öffnen</button>';box.querySelector('button').addEventListener('click',()=>show());main.prepend(box);}}
+function start(){let pending=false;function schedule(){if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;launchers();});}const n=m('nav-desktop'),main=m('main');if(n)new MutationObserver(schedule).observe(n,{childList:true});if(main)new MutationObserver(schedule).observe(main,{childList:true});const title=m('page-title');if(title)new MutationObserver(schedule).observe(title,{childList:true,subtree:true,characterData:true});launchers();document.addEventListener('keydown',e=>{if(e.key==='Escape'&&displayed){e.preventDefault();close();}});window.addEventListener('storage',e=>{if([KEY,MANUAL,ACTIVE].includes(e.key)){db=load();active=read(ACTIVE,null);if(displayed)render();}});}
+function quick(label,n){return `<button class="p31-action" type="button" data-action="nav" data-tab="${n}">${esc(label)}</button>`;}
+function dash(){const now=new Date(),upcoming=db.trips.filter(x=>x.status==='Geplant'&&Date.parse(x.start)>Date.now()).sort((a,b)=>Date.parse(a.start)-Date.parse(b.start));const due=[...db.gear.filter(x=>x.maintenance&&dayDiff(x.maintenance)<=30).map(x=>'Wartung: '+x.name+' ('+whenLabel(x.maintenance)+')'),...db.docs.filter(x=>x.expires&&dayDiff(x.expires)<=30).map(x=>'Dokument: '+x.name+' ('+whenLabel(x.expires)+')')];const species=summaryOf(db.catches,'species').slice(0,4),analysis=catchAnalysis();
+return `<div class="p31-section-title"><div><h3>Dein Angel-Cockpit</h3><p>Alle neuen Pro-Funktionen und die manuell erfassten Angelzeiten im Überblick.</p></div><span class="p31-badge">${esc(now.toLocaleDateString('de-DE'))}</span></div>
+<div class="p31-grid3"><div class="p31-card"><div class="p31-label">Angelzeit gesamt (ohne Überschneidungen)</div><div class="p31-stat">${deNum(durationHours())} h</div></div><div class="p31-card"><div class="p31-label">Fänge im Pro-Fangbuch</div><div class="p31-stat">${db.catches.length}</div><small>${analysis.linked} mit Angelzeit verknüpft</small></div><div class="p31-card"><div class="p31-label">Gespeicherte Gewässer</div><div class="p31-stat">${db.places.length}</div></div></div>
+<div class="p31-grid" style="margin-top:13px"><section class="p31-card"><h4>Dein Angeltag</h4><div class="p31-actions">${quick('Angelzeit starten',1)}${quick('Fang eintragen',4)}${quick('Angelwetter prüfen',3)}${quick('Angelstelle speichern',2)}</div><p>${active?`Eine Angelzeit läuft seit ${short(active.started)}.`:'Derzeit läuft keine Pro-Angelzeit.'}</p>${upcoming.length?`<p><strong>Nächste Tour:</strong> ${esc(upcoming[0].title||'Angeltag')} · ${short(upcoming[0].start)}</p>`:''}</section>
+<section class="p31-card"><h4>Persönliche Fangdaten</h4>${species.length?species.map(([k,n])=>`<div class="p31-label">${esc(k)} · ${n} Fang${n===1?'':'e'}</div><div class="p31-bar"><span style="width:${n/(species[0]?.[1]||1)*100}%"></span></div>`).join(''):'<p>Erfasse deine ersten Fänge im Pro-Fangbuch, um Statistiken zu sehen.</p>'}<div class="p31-note">Bisherige Einträge des originalen Fangbuchs werden nicht automatisch verändert oder mitgezählt.</div></section></div>
+${due.length?`<section class="p31-card" style="margin-top:13px"><h4>Fällige Fristen</h4>${due.map(s=>`<p>${esc(s)}</p>`).join('')}</section>`:''}
+<div class="p31-note">Neue Daten werden lokal auf diesem Gerät gespeichert. GPS wird nur auf Knopfdruck genutzt; Wetterdaten werden erst bei einer Wetterabfrage geladen. Für eine Sicherung öffne „Backup“.</div>`;}
+function manualForm(){
+ const v=read(MANUAL,[]).find(x=>x.id===manualEditId)||{};
+ const defaultEnd=localTime(),defaultStart=localTime(new Date(Date.now()-3600000));
+ return `<form data-form="manual"><input type="hidden" name="id" value="${esc(v.id||'')}"><div class="p31-grid">${field('Beginn','start',v.start||defaultStart,'datetime-local','required')}${field('Ende','end',v.end||defaultEnd,'datetime-local','required')}${field('Angelort','location',v.location||'','text','required maxlength="140"')}</div>${field('Notiz','note',v.note||'')}<div class="p31-actions"><button type="submit" class="p31-action p31-primary">${v.id?'Änderung speichern':'Angelzeit speichern'}</button>${v.id?'<button type="button" class="p31-action" data-action="cancelManual">Bearbeiten abbrechen</button>':''}</div></form>`;
+}
+function angletime(){
+ const records=getSessions().sort((a,b)=>b.start-a.start), calc=catchAnalysis();
+ return `<div class="p31-section-title"><div><h3>Angelzeiten & Angeltage</h3><p>Pro-Stoppuhr, nachgetragene Angelzeiten und verbundene Fangstatistik.</p></div></div>
+ <div class="p31-grid"><section class="p31-card"><h4>Pro-Stoppuhr</h4>
+ ${active?`<p class="p31-timer" id="p31-live-clock">${activeTime()}</p><p>Gestartet ${short(active.started)} · ${esc(active.placeText||'ohne Ortsangabe')}</p><div class="p31-actions"><button type="button" class="p31-action p31-primary" data-action="stopClock">Zeit stoppen und speichern</button><button type="button" class="p31-action p31-danger" data-action="cancelClock">Verwerfen</button></div>`:`<label class="p31-field">Gewässer / Angelort (frei eintippen)<input id="p31-clock-custom" type="text" list="p35-clock-sites" placeholder="z. B. Hertha-See, Hörstel" maxlength="120" autocomplete="off" required><datalist id="p35-clock-sites">${db.places.map(p=>`<option value="${esc(p.name)}"></option>`).join('')}</datalist></label><div class="p31-actions"><button class="p31-action p31-primary" type="button" data-action="startClock">Angelzeit starten</button><button class="p31-action" type="button" data-action="rememberClockSite">Ort in Gewässerliste speichern</button></div><p class="p31-muted">Du kannst jeden Ort direkt eintippen. Du musst vorher kein Gewässer anlegen und kein GPS freigeben.</p>`}
+ <p class="p31-note p31-warn">Bitte nicht gleichzeitig mehrere Stoppuhren starten. Überschneidende Zeiträume werden für die Gesamtdauer nur einmal gezählt.</p></section>
+ <section class="p31-card"><h4>Angelzeit manuell erfassen oder ändern</h4>${manualForm()}<p class="p31-note">Bearbeitungen erscheinen auch in der manuellen Liste des bisherigen Angelzeit-Bereichs (Version 2.0.30).</p></section></div>
+ <section class="p31-card" style="margin-top:13px"><h4>Gemeinsame Zeitstatistik</h4><div class="p31-grid3"><div><div class="p31-stat">${deNum(calc.hours,2)} h</div><span class="p31-label">ohne doppelte Zeiträume</span></div><div><div class="p31-stat">${calc.linked}</div><span class="p31-label">zugeordnete Pro-Fänge</span></div><div><div class="p31-stat">${calc.rate===null?'–':deNum(calc.rate*10,2)}</div><span class="p31-label">Fänge je 10 Angelstunden</span></div></div><p class="p31-muted">Erfasst: ${records.length} Zeiträume. Die Fangquote basiert nur auf dem Pro-Fangbuch und eindeutig zugeordneten Fängen.</p></section>
+ <section class="p31-card" style="margin-top:13px"><h4>Gespeicherte Angelzeiten</h4><div class="p31-items">${records.length?records.map(r=>row((r.loc||'Angelzeit')+' · '+r.source,`${short(r.start)} bis ${short(r.end)} · ${deNum((r.end-r.start)/3600000,2)} h`,r.source.startsWith('Manuell')?`<button type="button" class="p31-action" data-action="editManual" data-id="${esc(r.id)}">Bearbeiten</button><button type="button" class="p31-action p31-danger" data-action="deleteManual" data-id="${esc(r.id)}">Löschen</button>`:editButtons('trips',r.id))).join(''):'<p>Noch keine Angelzeiten gespeichert.</p>'}</div></section>`;
+}
+
+function tripForm(manual=false){const v=currentEdit.startsWith('trips:')?db.trips.find(x=>x.id===currentEdit.split(':')[1])||{}:{};return `<form data-form="trip"><input type="hidden" name="id" value="${esc(v.id||'')}"><div class="p31-grid">${field('Bezeichnung (optional)','title',v.title||'')}${selectField('Status','status',['Durchgeführt','Geplant'],v.status|| (manual?'Durchgeführt':'Geplant'))}${field('Beginn','start',v.start||localTime(new Date(Date.now()-3600000)),'datetime-local','required')}${field('Ende','end',v.end||localTime(),'datetime-local','required')}</div><label class="p31-field">Gespeichertes Gewässer<select name="place">${placesOptions(v.place)}</select></label>${field('Oder Angelort','placeText',v.placeText||'')}${field('Köder / Ausrüstung / Notizen','notes',v.notes||'')} ${formButton(v.id?'Änderung speichern':'Angeltag speichern')}</form>`;}
+function placeForm(){const v=currentEdit.startsWith('places:')?db.places.find(x=>x.id===currentEdit.split(':')[1])||{}:{};return `<form data-form="place"><input type="hidden" name="id" value="${esc(v.id||'')}"><div class="p31-grid">${field('Gewässer / Angelstelle','name',v.name||'','text','required maxlength="120"')}${selectField('Gewässerart','type',['See','Fluss','Bach','Kanal','Teich','Küste','Sonstiges'],v.type||'See')}${field('Breitengrad (optional)','lat',v.lat??'','number','step="any" min="-90" max="90"')}${field('Längengrad (optional)','lon',v.lon??'','number','step="any" min="-180" max="180"')}</div>${field('Hinweise / Uferzugang / Tiefe (eigene Angaben)','notes',v.notes||'')}<label class="p31-field">Ort in der Nähe (für GPS-Koordinaten, optional)<input id="p35-place-city" type="text" placeholder="z. B. Hörstel, Ibbenbüren" autocomplete="off"></label><div class="p31-actions"><button type="button" class="p31-action" data-action="gpsPlace">Aktuellen GPS-Standort übernehmen</button><button type="button" class="p31-action" data-action="geocodePlace">Koordinaten zum Ort suchen</button></div>${gpsPanel('place')}<p class="p31-muted">Gewässer kannst du auch ohne GPS speichern. Bei der Ortssuche werden nur Stadt-/Ortskoordinaten ermittelt, keine genauen Gewässergrenzen.</p>${formButton(v.id?'Angelstelle aktualisieren':'Angelstelle speichern')}</form>`;}
+function gewaesser(){return `<div class="p31-section-title"><div><h3>Meine Gewässer & Angelstellen</h3><p>Private Hotspots, Koordinaten, Gewässernotizen und Kartenansicht.</p></div></div><div class="p31-grid"><section class="p31-card"><h4>Angelstelle anlegen</h4>${placeForm()}</section><section class="p31-card"><h4>Meine Angelstellen (${db.places.length})</h4><div class="p31-items">${db.places.map(p=>row(p.name,`${esc(p.type||'')} · ${coords(p)?`${Number(p.lat).toFixed(5)}, ${Number(p.lon).toFixed(5)}`:'Keine GPS-Position'}<div>${esc(p.notes||'')}</div>`,`${coords(p)?`<button type="button" class="p31-action" data-action="inlineMap" data-id="${p.id}">Karte anzeigen</button><button type="button" class="p31-action" data-action="map" data-id="${p.id}">In OSM öffnen</button><button type="button" class="p31-action" data-action="weatherSite" data-id="${p.id}">Wetter</button>`:''}${editButtons('places',p.id)}`)).join('')||'<p>Noch keine Angelstellen angelegt.</p>'}</div><div id="p31-map-frame" style="margin-top:10px"></div></section></div><div class="p31-note">Kartendaten von OpenStreetMap werden erst beim Öffnen an den Kartendienst übertragen. Eine detaillierte, verlässliche Tiefenkarte erfordert einen separaten Datenanbieter; Tiefen sind hier nicht automatisch verfügbar.</div>`;}
+function wetter(){return `<div class="p31-section-title"><div><h3>Angelwetter & Tagesbedingungen</h3><p>Standort frei suchen oder gespeichertes Gewässer verwenden – auch ohne zuvor angelegte GPS-Daten.</p></div></div><div class="p31-grid"><section class="p31-card"><h4>Wo möchtest du das Wetter prüfen?</h4><label class="p31-field">Ort, Postleitzahl oder Gewässer eingeben<input id="p35-weather-city" type="text" placeholder="z. B. Biggesee, Attendorn, 57439" autocomplete="off" maxlength="120"></label><p class="p31-muted">Biggesee ist direkt hinterlegt und wird ohne zusätzliche Ortssuche erkannt. Bei anderen Seen bitte die nächste Stadt oder GPS-Koordinaten verwenden. Wetterwerte gelten für den gewählten Punkt, nicht für den gesamten See.</p><label class="p31-field">Gespeichertes Gewässer (optional)<select id="p31-weather-place">${placesOptions(weatherLocation)}</select></label><details class="p35-coords"><summary>Alternativ: GPS-Koordinaten manuell eingeben</summary><div class="p31-grid">${field('Breitengrad','weatherLat','','text','id="p35-weather-lat" inputmode="decimal" placeholder="z. B. 52,27"')}${field('Längengrad','weatherLon','','text','id="p35-weather-lon" inputmode="decimal" placeholder="z. B. 7,62"')}</div></details><div class="p31-actions"><button class="p31-action" data-action="weatherBiggesee" type="button">Biggesee direkt</button><button class="p31-action p31-primary" data-action="fetchWeather" type="button">Wetter abrufen</button><button class="p31-action" data-action="gpsWeather" type="button">Mein aktueller GPS-Standort</button></div>${gpsPanel('weather')}<p>Internetverbindung für aktuelle Wetterdaten nötig. Quelle: Open-Meteo (CC BY 4.0).</p></section><section class="p31-card" id="p31-weather-info">${weather?'<p>Wetterdaten werden angezeigt …</p>':'<p>Ort eintippen, gespeichertes Gewässer auswählen oder GPS verwenden. Dann „Wetter abrufen“ tippen.</p>'}</section></div><div class="p31-note p31-warn">Wetterbedingungen sind keine Fanggarantie. Bei Gewitter oder Unwetter die amtlichen Warnungen beachten.</div><div class="p31-links"><p><a href="https://www.dwd.de/DE/wetter/warnungen_gemeinden/warnWetter_node.html" rel="noopener noreferrer" target="_blank">Amtliche DWD-Warnungen</a> · <a href="https://www.pegelonline.wsv.de/" rel="noopener noreferrer" target="_blank">WSV-Wasserpegel</a></p></div>`;}
+function fangForm(){const v=currentEdit.startsWith('catches:')?db.catches.find(x=>x.id===currentEdit.split(':')[1])||{}:{};const ses=getSessions().sort((a,b)=>b.start-a.start).slice(0,300);return `<form data-form="catch"><input type="hidden" name="id" value="${esc(v.id||'')}"><div class="p31-grid">${field('Fischart','species',v.species||'','text','required maxlength="120"')}${field('Fangzeit','time',v.time||localTime(),'datetime-local','required')}${field('Gewässer / Angelort frei eingeben','placeText',v.placeText||v.legacyLocation||'','text','maxlength="140" placeholder="z. B. Hertha-See, Hörstel"')}<label class="p31-field">Oder gespeichertes Gewässer auswählen (optional)<select name="place">${placesOptions(v.place)}</select></label><label class="p31-field">Gespeicherte Angelzeit zuordnen (optional)<select name="sessionKey"><option value="">Automatisch nach Fangzeit (falls eindeutig)</option>${ses.map(s=>`<option value="${esc(s.key)}" ${v.sessionKey===s.key?'selected':''}>${esc(s.loc||'Angelzeit')} · ${esc(short(s.start))} (${esc(s.source)})</option>`).join('')}</select></label>${field('Köder','bait',v.bait||'','text','placeholder="Köder frei eingeben"')}${field('Länge (cm)','length',v.length??'','number','step="0.1" min="0" max="1000"')}${field('Gewicht (kg)','weight',v.weight??'','number','step="0.001" min="0" max="1000"')}</div>${selectField('Fangstatus','status',['Zurückgesetzt','Entnommen','Nicht angegeben'],v.status||'Nicht angegeben')}<label class="p31-field">Notizen<textarea name="notes" rows="4" maxlength="800" placeholder="Eigene Bemerkungen eingeben">${esc(v.notes||'')}</textarea></label><label class="p31-field">Fangfoto (optional, bleibt lokal)<input name="photo" type="file" accept="image/*"></label>${formButton(v.id?'Fang aktualisieren':'Fang eintragen')}</form>`;}
+function fangbuch(){const pairs=summaryOf(db.catches,'species'),lures=summaryOf(db.catches,'bait'),best=db.catches.filter(x=>+x.length>0).sort((a,b)=>+b.length-+a.length)[0];return `<div class="p31-section-title"><div><h3>Fangbuch Pro & Analyse</h3><p>Alle Fangdaten frei eintippen, auch ohne zuvor angelegte Gewässer oder Angelzeiten.</p></div></div><div class="p31-grid"><section class="p31-card"><h4>Fang erfassen oder ändern</h4><p>Alle Angaben lassen sich direkt mit der Tastatur eingeben. Datum/Uhrzeit: TT.MM.JJJJ HH:MM; Größen auch mit Komma. Gespeicherte Gewässer und Angelzeiten sind optional.</p>${fangForm()}</section><section class="p31-card"><h4>Fangstatistik</h4><div class="p31-stat">${db.catches.length} <small style="font-size:12px">Fänge</small></div><p>${pairs.length?`Häufigster Zielfisch: <strong>${esc(pairs[0][0])}</strong> (${pairs[0][1]})`:'Noch keine Fänge erfasst.'}</p>${best?`<p>Größter dokumentierter Fisch: ${esc(best.species)} · ${deNum(best.length)} cm</p>`:''}<h4>Erfolgreiche Köder</h4>${lures.filter(x=>x[0]!=='Unbekannt').slice(0,5).map(([k,n])=>`<div class="p31-label">${esc(k)} · ${n} Fang${n===1?'':'e'}</div><div class="p31-bar"><span style="width:${n/(lures[0]?.[1]||1)*100}%"></span></div>`).join('')||'<p>Nach den ersten dokumentierten Fängen verfügbar.</p>'}<div class="p31-note">Die Köderauswertung basiert nur auf eigenen dokumentierten Fängen. Wettereffekte und unbeobachtete Faktoren werden nicht als Ursache ausgegeben.</div><h4>Fangquote pro Angelzeit</h4>${(()=>{const x=catchAnalysis();return `<div class="p31-grid3"><div><div class="p31-stat">${deNum(x.hours,1)} h</div><span class="p31-label">Angelzeit</span></div><div><div class="p31-stat">${x.linked}</div><span class="p31-label">zeitlich zugeordnet</span></div><div><div class="p31-stat">${x.rate===null?'–':deNum(x.rate*10,2)}</div><span class="p31-label">Fänge je 10 h</span></div></div><p>${x.unlinked} Fang/Fänge ohne eindeutige Zeitzuordnung. Im Fangformular kannst du einen Angeltag gezielt auswählen.</p><h4>Erfolgreiche Fangmonate</h4>${x.byMonth.map(([k,n])=>`<p>${esc(k)} · ${n} Fang/Fänge</p>`).join('')||'<p>Keine Fangdaten vorhanden.</p>'}`;})()}</section></div>
+<section class="p31-card" style="margin-top:13px"><h4>Meine Pro-Fänge (${db.catches.length})</h4><div class="p31-items">${db.catches.slice().sort((a,b)=>String(b.time).localeCompare(String(a.time))).map(c=>row(`${c.species} · ${short(c.time)}`,`${c.length?deNum(c.length)+' cm · ':''}${c.weight?deNum(c.weight,3)+' kg · ':''}${esc(c.status)}<div>${esc(c.placeText||db.places.find(p=>p.id===c.place)?.name||c.legacyLocation||'')} · Köder: ${esc(c.bait||'–')}</div>${esc(c.notes||'')}`,editButtons('catches',c.id),c.photoKey)).join('')||'<p>Noch keine Fänge gespeichert.</p>'}</div></section><section class="p31-card" style="margin-top:13px"><h4>Altes Fangbuch sicher übernehmen</h4><p>Prüft die vorhandenen Einträge des ursprünglichen Fangbuchs und anderer lokaler Quellen. Du entscheidest selbst, welche Fänge kopiert werden. Originaldaten bleiben erhalten.</p><button type="button" class="p31-action p31-primary" data-bridge="scan">Alte Fänge suchen & Vorschau öffnen</button><p role="status" id="petri33-migration-status" class="p31-note">Noch keine Übernahme durchgeführt.</p><div id="petri33-migration-preview"></div></section><div class="p31-note">Die Statistik zählt Pro-Einträge und ausdrücklich dorthin kopierte alte Fänge. Originale werden nicht verändert, und die Datenübernahme prüft Dubletten.</div>`;}
+function gearForm(){const v=currentEdit.startsWith('gear:')?db.gear.find(x=>x.id===currentEdit.split(':')[1])||{}:{};return `<form data-form="gear"><input name="id" type="hidden" value="${esc(v.id||'')}"><div class="p31-grid">${field('Bezeichnung','name',v.name||'','text','required maxlength="120"')}${selectField('Kategorie','category',['Rute','Rolle','Schnur','Köder','Kescher','Werkzeug','Bekleidung','Sonstiges'],v.category||'Rute')}${field('Hersteller / Modell','brand',v.brand||'')}${field('Kaufpreis (€)','price',v.price??'','number','min="0" max="999999" step="0.01"')}${field('Kaufdatum','bought',v.bought||'','date')}${field('Nächste Wartung','maintenance',v.maintenance||'','date')}</div>${field('Notizen / Garantie / Schnurstärke','notes',v.notes||'')}<label class="p31-field">Eigenes Produktfoto<input type="file" name="photo" accept="image/*" capture="environment"></label>${formButton(v.id?'Produkt aktualisieren':'Ausrüstung speichern')}</form>`;}
+function ausruestung(){const total=db.gear.reduce((n,g)=>n+(Number(g.price)||0),0);return `<div class="p31-section-title"><div><h3>Mein Ausrüstungsmanager</h3><p>Eigene Ruten, Rollen, Köder, Anschaffungskosten, Fotos und Wartungsfristen.</p></div><span class="p31-badge">${db.gear.length} Teile · ${deNum(total,2)} €</span></div><div class="p31-grid"><section class="p31-card"><h4>Ausrüstung erfassen</h4>${gearForm()}</section><section class="p31-card"><h4>Inventar</h4><div class="p31-items">${db.gear.map(g=>row(g.name,`${esc(g.category)} · ${esc(g.brand||'')}${g.price?' · '+deNum(g.price,2)+' €':''}<div>${g.maintenance?'Wartung: '+esc(g.maintenance)+' ('+whenLabel(g.maintenance)+')':''}</div>${esc(g.notes||'')}`,editButtons('gear',g.id),g.photoKey)).join('')||'<p>Dein digitales Angelinventar ist noch leer.</p>'}</div></section></div>`;}
+function pruefung(){const test=['Fischarten sicher bestimmen','Fischfanggeräte zusammenstellen','Gesetzeskunde aktuell lernen','Schonzeiten und Mindestmaße prüfen','Praktische Fischbestimmung üben','Prüfungsfragen aus allen sechs Fachgebieten lernen'];const done=new Set(db.checklist||[]);return `<div class="p31-section-title"><div><h3>Fischerprüfung NRW</h3><p>Offizielle Prüfungsunterlagen und persönlicher Lernfortschritt.</p></div></div><div class="p31-grid"><section class="p31-card"><h4>Amtliche Prüfungsunterlagen</h4><p>Den aktuellen Fragenkatalog (Anlage 1) und die Anlagen zur Fischartenerkennung und Gerätezusammenstellung erhältst du beim Fischereiverband NRW.</p><div class="p31-actions"><a class="p31-action p31-primary" href="${NRW_QUESTIONS}" target="_blank" rel="noopener noreferrer">Offizielle Anlagen öffnen</a><button class="p31-action" type="button" data-action="original" data-find="Angelschein">Zum vorhandenen Prüfungstrainer</button><button class="p31-action" type="button" data-action="original" data-find="Fischkunde">Zur Fischkunde</button></div><div class="p31-note p31-warn">Seit 1. Juli 2026 sind die Gesetzeskunde-Fragen 4, 13, 44, 47 und 52 ersatzlos gestrichen. Achtung: Importierte Fragen sind nicht automatisch amtlich geprüft. Beim praktischen Teil sind gemäß § 6 Fischerprüfungsordnung mindestens 25/28 Punkte beim Gerät und 4/6 Arten richtig zu erreichen.</div></section><section class="p31-card"><h4>Dein Lernplan · ${done.size} von ${test.length}</h4>${test.map((t,i)=>`<label class="p31-check"><input type="checkbox" data-action="study" data-id="${i}" ${done.has(String(i))?'checked':''}>${esc(t)}</label>`).join('')}<div class="p31-bar"><span style="width:${Math.round(done.size/test.length*100)}%"></span></div></section></div><div class="p31-note">Eine amtliche Prüfung und praktische Fischbestimmung können nur mit dem aktuellen Fragen- und Bildmaterial rechtskonform simuliert werden. Der offizielle Fragenkatalog wird über die Quelle bereitgestellt. Ein vollständiger interaktiver Original-Fragenkatalog ist weiterhin nicht enthalten.</div>`;}
+function docForm(){const v=currentEdit.startsWith('docs:')?db.docs.find(x=>x.id===currentEdit.split(':')[1])||{}:{};return `<form data-form="docs"><input type="hidden" name="id" value="${esc(v.id||'')}"><div class="p31-grid">${field('Name der Erlaubnis / des Dokuments','name',v.name||'','text','required')}${selectField('Dokumentart','type',['Fischereischein','Erlaubnisschein','Gastkarte','Pachtvertrag','Sonstiges'],v.type||'Erlaubnisschein')}${field('Gültig bis (optional)','expires',v.expires||'','date')}</div><label class="p31-field">Foto oder PDF lokal speichern<input type="file" name="file" accept="image/*,.pdf,application/pdf"></label>${formButton(v.id?'Dokument ändern':'Dokument speichern')}</form>`;}
+function ruleForm(){const v=currentEdit.startsWith('rules:')?db.rules.find(x=>x.id===currentEdit.split(':')[1])||{}:{};return `<form data-form="rule"><input name="id" type="hidden" value="${esc(v.id||'')}">${field('Gewässer / Geltungsbereich','name',v.name||'','text','required')}${field('Eigene Regel / Erlaubnishinweis','text',v.text||'','text','required')}${field('Quelle / Stand','source',v.source||'')}${formButton(v.id?'Regel speichern':'Hinweis speichern')}</form>`;}
+function recht(){return `<div class="p31-section-title"><div><h3>Recht, Erlaubnisse & Dokumente</h3><p>Amtliche Vorschriften und lokal gespeicherte Gewässerregeln.</p></div></div><div class="p31-grid"><section class="p31-card"><h4>Offizielle NRW-Quellen</h4><div class="p31-links"><p><a href="${NRW_LAW}" target="_blank" rel="noopener noreferrer">Landesfischereiverordnung NRW (aktuelle amtliche Fassung)</a></p><p><a href="${NRW_FISH}" target="_blank" rel="noopener noreferrer">Landesfischereigesetz NRW</a></p><p><a href="${NRW_QUESTIONS}" target="_blank" rel="noopener noreferrer">Fischerprüfung NRW</a></p></div><div class="p31-note p31-warn">Schonzeiten, Mindestmaße und Angelverbote können je Gewässer, Erlaubnisschein und Bundesland abweichen. Es erfolgt keine automatische amtliche Rechtsprüfung.</div><h4>Eigene Gewässerbestimmungen</h4>${ruleForm()}<div class="p31-items">${db.rules.map(r=>row(r.name,`${esc(r.text)}<div>Quelle: ${esc(r.source||'eigene Angabe')}</div>`,editButtons('rules',r.id))).join('')}</div></section><section class="p31-card"><h4>Erlaubnisse & Fischereischeine</h4>${docForm()}<div class="p31-items">${db.docs.map(d=>row(d.name,`${esc(d.type)} · ${d.expires?`Gültig bis ${esc(d.expires)} (${esc(whenLabel(d.expires))})`:'Ohne Enddatum'}<div>${d.fileName?`Anhang: ${esc(d.fileName)}`:'Kein Anhang'}</div>`,`${d.fileName?`<button class="p31-action" type="button" data-action="openDoc" data-id="${d.id}">Dokument öffnen</button>`:''}${editButtons('docs',d.id)}`)).join('')||'<p>Noch keine Dokumente gespeichert.</p>'}</div></section></div><div class="p31-note">Dokumente verbleiben im lokalen Browserspeicher. Beachte beim Gerätetausch den Datenexport.</div>`;}
+function touren(){const upcoming=db.trips.filter(x=>x.status==='Geplant'),done=db.trips.filter(x=>x.status!=='Geplant');const checklist=['Angelkarte / Fischereischein','Rute, Rolle & Kescher','Passende Köder & Zubehör','Hakenlöser und Maßband','Wetterschutz & passende Kleidung','Getränke, Proviant, Müllbeutel','Ladekabel / Powerbank','Erste-Hilfe-Set'];const packed=new Set(db.settings.packed||[]);
+return `<div class="p31-section-title"><div><h3>Angeltrip-Planer</h3><p>Angeltage planen, Packliste abhaken und vergangene Touren nachvollziehen.</p></div></div><div class="p31-grid"><section class="p31-card"><h4>Angeltag planen</h4>${tripForm()}</section><section class="p31-card"><h4>Packliste (${packed.size}/${checklist.length})</h4>${checklist.map((t,i)=>`<label class="p31-check"><input type="checkbox" data-action="pack" data-id="${i}" ${packed.has(String(i))?'checked':''}>${esc(t)}</label>`).join('')}<div class="p31-actions"><button class="p31-action" type="button" data-action="clearPack">Packliste zurücksetzen</button></div></section></div><div class="p31-grid" style="margin-top:13px"><section class="p31-card"><h4>Geplant (${upcoming.length})</h4><div class="p31-items">${upcoming.map(t=>row(t.title||'Angeltour',`${short(t.start)} – ${short(t.end)}<div>${esc(t.placeText||db.places.find(p=>p.id===t.place)?.name||'')}</div>${esc(t.notes||'')}`,editButtons('trips',t.id))).join('')||'<p>Keine geplanten Touren.</p>'}</div></section><section class="p31-card"><h4>Abgeschlossen (${done.length})</h4><div class="p31-items">${done.map(t=>row(t.title||'Angeltag',`${short(t.start)} – ${short(t.end)}<div>${esc(t.placeText||db.places.find(p=>p.id===t.place)?.name||'')}</div>`,editButtons('trips',t.id))).join('')||'<p>Keine abgeschlossenen Touren.</p>'}</div></section></div>`;}
+function foto(){return `<div class="p31-section-title"><div><h3>Foto-Messhilfe & Fischbestimmung</h3><p>Fischlänge anhand eines bekannten Maßstabs im selben Foto schätzen.</p></div></div><div class="p31-grid"><section class="p31-card"><h4>Länge aus einem Foto bestimmen</h4><label class="p31-field">Foto mit Fisch und Lineal/Referenz hochladen<input id="p31-measure-file" type="file" accept="image/*"></label>${field('Länge der Referenz in cm','lengthReference',meas.len,'number','min="0.1" max="1000" step="0.1"')}<div class="p31-note">Markiere nacheinander genau vier Punkte: (1) Anfang der Referenz, (2) Ende der Referenz, (3) Fischspitze, (4) Ende der Schwanzflosse.</div><canvas id="p31-measure-canvas" class="p31-canvas" width="800" height="470" aria-label="Foto-Messfläche"></canvas><div id="p31-measure-result" class="p31-note">Bitte zuerst ein Foto wählen.</div><div class="p31-actions"><button type="button" class="p31-action" data-action="resetMeasure">Messpunkte zurücksetzen</button></div><p>Eine Schätzung, keine amtliche Längenmessung. Fisch und Referenz müssen in derselben Ebene liegen; Perspektive führt zu Fehlern.</p></section><section class="p31-card"><h4>Fisch erkennen – ohne vorgetäuschte KI</h4><p>Vergleiche auffällige Merkmale mit dem Fischlexikon der App. Eine automatische Foto-KI benötigt ein geprüftes Fischartenmodell und ist hier noch nicht enthalten.</p>${selectField('Auffälliges Merkmal','speciesFeature',['Langer Körper / Raubfisch','Barteln am Maul','Gestreifte Körperseiten','Silbrig, hochrückig','Schuppenlos','Forellenartig / Fettflosse'],'Langer Körper / Raubfisch')}<div class="p31-actions"><button class="p31-action" type="button" data-action="features">Mögliche Arten anzeigen</button><button class="p31-action p31-primary" type="button" data-action="original" data-find="Fischkunde">Fischkunde öffnen</button></div><div id="p31-feature-result" class="p31-note">Die Bestimmung muss anhand mehrerer Merkmale überprüft werden.</div></section></div>`;}
+function backup(){return `<div class="p31-section-title"><div><h3>Datensicherung & Gerätewechsel</h3><p>Pro-Daten sichern, Fotos und Belege exportieren und Backups wieder einlesen.</p></div></div><div class="p31-grid"><section class="p31-card"><h4>Datensicherung erstellen</h4><p>Die Sicherung umfasst die App-Speicherwerte, Pro-Fotos und Dokumente, das vorhandene Prüfungs-PDF und nach Möglichkeit auch andere lokale IndexedDB-Datenbanken des ursprünglichen Fangbuchs. Sollte eine Datenbank nicht lesbar sein, wird vor einem unvollständigen Export gewarnt. Bestimmte geheime Speicherwerte werden aus Datenschutzgründen ausgelassen.</p><button class="p31-action p31-primary" type="button" data-action="backup">JSON-Backup herunterladen</button><p class="p31-note p31-warn">Ein Backup kann persönliche Daten und Angelstellen enthalten. Datei vertraulich aufbewahren. Keine automatische Cloud-Sicherung.</p></section><section class="p31-card"><h4>Sicherung wiederherstellen</h4><label class="p31-field">PetriHeil-Pro-Backup-Datei auswählen<input type="file" id="p31-backup-file" accept=".json,application/json"></label><button class="p31-action" type="button" data-action="restore">Backup prüfen und importieren</button><label class="p31-check"><input id="p33-restore-legacy" type="checkbox"> Auch frühere Datenbanken zurückspielen (optional – vorhandene Datensätze mit denselben Schlüsseln können überschrieben werden)</label><p>Die Wiederherstellung kann gespeicherte lokale Daten überschreiben. Zuerst eine aktuelle Sicherung erstellen. Ältere Datenbanken werden nur nach ausdrücklicher Auswahl angefasst.</p><h4>CSV-Export</h4><button class="p31-action" type="button" data-action="csv">Pro-Fangbuch als CSV exportieren</button><div class="p31-note">Beim Löschen der Browserdaten oder der Home-Bildschirm-App können lokal gespeicherte Einträge verloren gehen.</div></section></div>`;}
+const views=[dash,angletime,gewaesser,wetter,fangbuch,ausruestung,pruefung,recht,touren,foto,backup];
+function getFormData(form){
+ const o=Object.fromEntries(new FormData(form).entries());for(const k of Object.keys(o))if(typeof o[k]==='string')o[k]=o[k].trim();
+ for(const input of form.querySelectorAll('input[data-p34-date]')){
+  const key=input.name,raw=String(o[key]||'').trim();const parsed=normalizeDateInput(raw,input.dataset.p34Date==='datetime');
+  if(raw&&!parsed)throw Error('Bei „'+(input.closest('label')?.firstChild?.textContent||key).trim()+'“ bitte '+(input.dataset.p34Date==='datetime'?'TT.MM.JJJJ HH:MM':'TT.MM.JJJJ')+' eingeben.');
+  o[key]=parsed;
+ }
+ for(const key of ['length','weight','price','lat','lon'])if(typeof o[key]==='string')o[key]=decimalValue(o[key]);
+ return o;
+}
+function cleanInput(o,fields){const result={};for(const k of fields)result[k]=o[k]??'';return result;}
+async function submitted(e){const form=e.target.closest('form[data-form]');if(!form)return;e.preventDefault();const type=form.dataset.form;let o,id,item,kind;
+try{o=getFormData(form);id=o.id||uid();
+ switch(type){
+ case 'manual':{
+  const start=Date.parse(o.start),end=Date.parse(o.end);
+  if(!Number.isFinite(start)||!Number.isFinite(end)||end<=start||end-start>14*86400000)throw Error('Ende muss nach Beginn liegen (max. 14 Tage).');
+  if(end>Date.now()+60000)throw Error('Abgeschlossene Angelzeit kann nicht in der Zukunft enden.');
+  if(!o.location)throw Error('Angelort fehlt.');
+  const records=read(MANUAL,[]);if(!Array.isArray(records))throw Error('Bestehende Angelzeiten nicht lesbar.');
+  const sid=o.id||uid(),rec={id:sid,start:o.start,end:o.end,location:o.location.slice(0,140),note:(o.note||'').slice(0,800),minutes:Math.round((end-start)/60000)};
+  const idx=records.findIndex(x=>x.id===sid);if(idx<0)records.unshift(rec);else records[idx]=rec;
+  localStorage.setItem(MANUAL,JSON.stringify(records));manualEditId='';render();notify('Manuelle Angelzeit gespeichert.');return;
+ }
+ case 'place':{
+  if(!o.name)throw Error('Bitte einen Gewässernamen eingeben.');let gps=null;if(o.lat||o.lon){gps=coords(o);if(!gps)throw Error('Ungültige GPS-Koordinaten.');}
+  item={id,name:o.name.slice(0,120),type:o.type,notes:o.notes.slice(0,800),lat:gps?gps.lat:'',lon:gps?gps.lon:''};kind='places';break;}
+ case 'trip':{
+  const start=Date.parse(o.start),end=Date.parse(o.end);if(!Number.isFinite(start)||!Number.isFinite(end)||end<=start||end-start>14*86400000)throw Error('Ende muss nach Beginn liegen (maximal 14 Tage).');if(!o.place&&!o.placeText)throw Error('Bitte einen Angelort angeben oder auswählen.');
+  item={id,title:o.title.slice(0,100),status:o.status,place:o.place,placeText:o.placeText.slice(0,140),start:o.start,end:o.end,notes:o.notes.slice(0,800)};kind='trips';break;}
+ case 'catch':{
+  if(!o.species)throw Error('Bitte die Fischart angeben.');if(!Number.isFinite(Date.parse(o.time)))throw Error('Ungültige Fangzeit.');if(o.sessionKey&&!getSessions().some(s=>s.key===o.sessionKey&&Date.parse(o.time)>=s.start&&Date.parse(o.time)<=s.end))throw Error('Gewählter Angeltag passt nicht zur Fangzeit. Bitte Uhrzeit oder Angelzeit wählen.');
+  const length=o.length?Number(o.length):null,weight=o.weight?Number(o.weight):null;if((length!==null&&(!(length>0)||length>1000))||(weight!==null&&(!(weight>0)||weight>1000)))throw Error('Bitte gültige Länge und Gewicht eingeben.');
+  const old=db.catches.find(x=>x.id===id);item={id,species:o.species.slice(0,120),time:o.time,place:o.place||'',placeText:(o.placeText||'').slice(0,140),bait:(o.bait||'').slice(0,140),length,weight,status:(o.status||'Nicht angegeben').slice(0,90),notes:(o.notes||'').slice(0,800),sessionKey:(o.sessionKey||'').slice(0,90),photoKey:old?.photoKey||'',legacySource:old?.legacySource||'',legacyFingerprint:old?.legacyFingerprint||'',legacyLocation:old?.legacyLocation||''};kind='catches';
+  const f=form.querySelector('input[name="photo"]')?.files?.[0];if(f){const b=await compressImage(f);item.photoKey='catch-'+id;await imagePut(item.photoKey,b);}break;}
+ case 'gear':{
+  if(!o.name)throw Error('Bitte den Produktnamen angeben.');const price=o.price?Number(o.price):null;if(price!==null&&(!Number.isFinite(price)||price<0||price>999999))throw Error('Ungültiger Preis.');
+  const old=db.gear.find(x=>x.id===id);item={id,name:o.name.slice(0,120),category:o.category,brand:o.brand.slice(0,140),price,bought:o.bought||'',maintenance:o.maintenance||'',notes:o.notes.slice(0,800),photoKey:old?.photoKey||''};kind='gear';
+  const f=form.querySelector('input[name="photo"]')?.files?.[0];if(f){const b=await compressImage(f);item.photoKey='gear-'+id;await imagePut(item.photoKey,b);}break;}
+ case 'docs':{
+  if(!o.name)throw Error('Bitte eine Dokumentenbezeichnung eingeben.');const old=db.docs.find(x=>x.id===id);item={id,name:o.name.slice(0,120),type:o.type,expires:o.expires||'',fileName:old?.fileName||''};kind='docs';
+  const f=form.querySelector('input[name="file"]')?.files?.[0];if(f){if(f.size>15*1024*1024)throw Error('Dokument zu groß (maximal 15 MB).');if(f.type!=='application/pdf'&&!f.type.startsWith('image/')&&!/\.pdf$/i.test(f.name))throw Error('Nur Fotos oder PDF-Dateien erlaubt.');await imagePut('doc-'+id,f);item.fileName=f.name.slice(0,150);}break;}
+ case 'rule':{
+  if(!o.name||!o.text)throw Error('Bitte Gewässer und Regelhinweis ausfüllen.');item={id,name:o.name.slice(0,120),text:o.text.slice(0,500),source:o.source.slice(0,250)};kind='rules';break;}
+ default:return;
+ }
+ const index=db[kind].findIndex(x=>x.id===id);if(index<0)db[kind].unshift(item);else db[kind][index]=item;
+ if(!save())return;currentEdit='';render();notify('Gespeichert.');
+ }catch(err){notify('Fehler: '+err.message);}
+}
+function changed(e){const t=e.target;if(!t)return;
+ if(t.dataset.p39Choice){
+   const zone=t.closest('form')||m('p31-content');
+   const name=t.dataset.p39Choice;
+   const input=Array.from(zone?.querySelectorAll('input[name]')||[]).find(x=>x.name===name);
+   if(input&&t.value){input.value=t.value;input.dispatchEvent(new Event('input',{bubbles:true}));input.dispatchEvent(new Event('change',{bubbles:true}));}
+   return;
+ }
+ if(t.dataset.action==='study'){const set=new Set(db.checklist);t.checked?set.add(t.dataset.id):set.delete(t.dataset.id);db.checklist=[...set];save();return;}
+if(t.dataset.action==='pack'){const set=new Set(db.settings.packed||[]);t.checked?set.add(t.dataset.id):set.delete(t.dataset.id);db.settings.packed=[...set];save();return;}
+if(t.id==='p31-measure-file'&&t.files?.[0]){void loadMeasure(t.files[0]);}}
+function edit(kind,id){const i={places:2,trips:8,catches:4,gear:5,docs:7,rules:7}[kind];if(i===undefined)return;tab=i;currentEdit=kind+':'+id;render();m('p31-content')?.scrollTo({top:0,behavior:'smooth'});}
+function deleteItem(kind,id){if(!['places','trips','catches','gear','rules','docs'].includes(kind))return;const obj=db[kind].find(x=>x.id===id);if(!obj)return;if(!confirm('„'+(obj.name||obj.title||obj.species||'Eintrag')+'“ wirklich löschen?'))return;db[kind]=db[kind].filter(x=>x.id!==id);save();if(obj.photoKey)void imageDelete(obj.photoKey);if(kind==='docs')void imageDelete('doc-'+id);render();notify('Eintrag gelöscht.');}
+/* GPS: only requested after user tap, with explicit browser-level diagnostics.
+   Browser permission denial cannot be fixed or circumvented by the web app. */
+function gpsHelp(){return `<details class="p42-gps-help"><summary>GPS am iPhone aktivieren / Fehler beheben</summary><p>PetriHeil direkt in Safari öffnen (nicht in ChatGPTs eingebautem Browser). Auf dem iPhone Ortungsdienste einschalten und Safari-Websites Standortzugriff erlauben. In Safari bei Bedarf in den Website-Einstellungen den Standort erlauben und „Genauer Standort“ aktivieren.</p><p>Funktioniert GPS weiterhin nicht, kannst du eine Stadt eingeben oder Koordinaten von Hand hinzufügen. Der Standort wird nur nach Antippen abgefragt. Für den Wetterabruf werden die Koordinaten an Open-Meteo gesendet.</p></details>`;}
+function gpsPanel(where){return `<div id="p42-gps-${where}-status" class="p42-gps-status" data-state="${esc(gpsStatus[where].kind)}" role="status" aria-live="polite">${esc(gpsStatus[where].text||'GPS wird erst nach Antippen angefragt.')}</div>${gpsHelp()}`;}
+function setGPSStatus(where,message,kind=''){gpsStatus[where]={text:message,kind};const node=m('p42-gps-'+where+'-status');if(node){node.textContent=message;node.dataset.state=kind;}notify(message);}
+function explainGPS(err){
+ const code=Number(err?.code);
+ if(code===1)return 'Standortzugriff verweigert. Öffne PetriHeil direkt in Safari. Aktiviere in den iPhone-Einstellungen die Ortungsdienste für Safari-Websites und erlaube den Standort für diese Website.';
+ if(code===2)return 'Standort vorübergehend nicht bestimmbar. Prüfe Ortungsdienste, WLAN/Mobilfunk und versuche es im Freien erneut.';
+ if(code===3||err?.name==='TimeoutError')return 'GPS-Zeitüberschreitung. Bitte erneut versuchen oder den Angelort manuell eingeben.';
+ return 'Standortzugriff fehlgeschlagen: '+String(err?.message||'Browser kann keinen Standort liefern.');
+}
+function gpsOnce(options){return new Promise((resolve,reject)=>{
+ try{navigator.geolocation.getCurrentPosition(resolve,reject,options);}catch(e){reject(e);}
+});}
+async function gps(where,callback){
+ if(gpsBusy){setGPSStatus(where,'Eine GPS-Abfrage läuft bereits. Bitte warten.','pending');return false;}
+ if(window.isSecureContext===false){setGPSStatus(where,'GPS benötigt HTTPS. Bitte PetriHeil über seine GitHub-Pages-Adresse in Safari öffnen.','error');return false;}
+ if(!navigator.geolocation){setGPSStatus(where,'Dieser Browser stellt keine GPS-Ortung bereit. PetriHeil bitte direkt in Safari öffnen oder Koordinaten manuell eingeben.','error');return false;}
+ gpsBusy=true;
+ const buttons=[...document.querySelectorAll('#p31-overlay [data-action="gpsWeather"],#p31-overlay [data-action="gpsPlace"]')];
+ for(const b of buttons){b.disabled=true;b.setAttribute('aria-busy','true');}
+ try{
+   setGPSStatus(where,'Standort wird angefragt … Bitte die iPhone-Freigabe bestätigen. Das kann bis zu 30 Sekunden dauern.','pending');
+   let pos;
+   try{pos=await gpsOnce({enableHighAccuracy:true,maximumAge:0,timeout:19000});}
+   catch(error){
+     if(error?.code===1)throw error; // Never re-prompt when permission was denied.
+     setGPSStatus(where,'Erster GPS-Versuch nicht erfolgreich. Zweiter Versuch mit energiesparender Ortung …','pending');
+     pos=await gpsOnce({enableHighAccuracy:false,maximumAge:300000,timeout:13000});
+   }
+   const lat=Number(pos?.coords?.latitude),lon=Number(pos?.coords?.longitude);
+   if(!Number.isFinite(lat)||!Number.isFinite(lon)||Math.abs(lat)>90||Math.abs(lon)>180)throw Error('Der Browser lieferte ungültige Koordinaten.');
+   setGPSStatus(where,'Position ermittelt: '+lat.toFixed(5)+', '+lon.toFixed(5)+' (Genauigkeit ungefähr '+Math.round(Number(pos.coords.accuracy)||0)+' m).','success');
+   await callback(lat,lon,pos.coords);
+   return true;
+ }catch(err){setGPSStatus(where,explainGPS(err),'error');return false;}
+ finally{gpsBusy=false;for(const b of buttons){if(b.isConnected){b.disabled=false;b.removeAttribute('aria-busy');}}}
+}
+function clockLocation(){const name=val(m('p31-clock-custom')?.value);if(!name)return null;const hit=db.places.find(p=>p.name.trim().toLocaleLowerCase('de')===name.toLocaleLowerCase('de'));return {place:hit?.id||'',placeText:hit?.name||name.slice(0,120)};}
+function rememberClockSite(){const loc=clockLocation();if(!loc){m('p31-clock-custom')?.focus();notify('Bitte erst den Gewässernamen eintippen.');return;}if(loc.place){notify('Dieses Gewässer ist bereits gespeichert.');return;}const record={id:uid(),name:loc.placeText,type:'See',notes:'Über Pro-Stoppuhr angelegt',lat:'',lon:''};db.places.unshift(record);if(!save()){db.places.shift();return;}notify('Gewässer „'+loc.placeText+'“ gespeichert. Die Stoppuhr kann jetzt gestartet werden.');}
+function startClock(){if(active){notify('Eine Pro-Angelzeit läuft bereits.');return;}const location=clockLocation();if(!location){m('p31-clock-custom')?.focus();notify('Bitte Gewässer / Angelort eintippen.');return;}const next={started:new Date().toISOString(),place:location.place,placeText:location.placeText};try{localStorage.setItem(ACTIVE,JSON.stringify(next));active=next;render();notify('Stoppuhr gestartet: '+location.placeText);}catch{notify('Stoppuhr konnte nicht gespeichert werden.');}}
+function stopClock(){if(!active)return;const end=new Date(),start=new Date(active.started);if(end-start<60000&&!confirm('Die Angelzeit dauert weniger als eine Minute. Trotzdem speichern?'))return;const trip={id:uid(),title:'Angelzeit',status:'Durchgeführt',place:active.place||'',placeText:active.placeText||'',start:localTime(start),end:localTime(end),notes:'Aufzeichnung mit der Pro-Stoppuhr'};db.trips.unshift(trip);if(!save())return;active=null;localStorage.removeItem(ACTIVE);render();notify('Angelzeit gespeichert: '+deNum((end-start)/3600000,2)+' Stunden.');}
+function timerInit(){if(clockTimer)clearInterval(clockTimer);if(!active)return;clockTimer=setInterval(()=>{const x=m('p31-live-clock');if(x)x.textContent=activeTime();else{clearInterval(clockTimer);clockTimer=0;}},1000);}
+function mapOpen(id){const p=db.places.find(x=>x.id===id),c=coords(p);if(!c){notify('Für diese Angelstelle sind keine GPS-Koordinaten gespeichert.');return;}const u='https://www.openstreetmap.org/?mlat='+encodeURIComponent(c.lat)+'&mlon='+encodeURIComponent(c.lon)+'#map=15/'+encodeURIComponent(c.lat)+'/'+encodeURIComponent(c.lon);window.open(u,'_blank','noopener,noreferrer');}
+// Lokal geprüfter Wetter-Standort: Biggesee/Biggetalsperre, Nordbereich am Staudamm.
+// Koordinaten: 51°06′37″ N, 7°53′45″ E (Biggetalsperre).
+// Diese kleine lokale Zuordnung benötigt keine zusätzliche Geocoding-API.
+// Für abweichende Uferabschnitte den aktuellen GPS-Standort oder manuelle Koordinaten verwenden.
+const PETRI41_WATERS=Object.freeze([
+ {label:'Biggesee / Biggetalsperre (Nordbereich, Attendorn)',lat:51.1102778,lon:7.8958333,keys:['biggesee','biggetalsperre','bigge-talsperre','bigge see','biggesee attendorn']}
+]);
+function petri41Water(name){
+ const key=String(name||'').normalize('NFKD').toLowerCase().replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]/g,'');
+ const result=PETRI41_WATERS.find(p=>p.keys.some(k=>k.normalize('NFKD').toLowerCase().replace(/[^a-z0-9]/g,'')===key));
+ return result?{lat:result.lat,lon:result.lon,label:result.label,source:'local-water'}:null;
+}
+async function geocodeCity(name){
+ if(!navigator.onLine)throw Error('Für die Ortssuche ist eine Internetverbindung nötig.');
+ const query=val(name);if(query.length<2)throw Error('Bitte eine Stadt oder einen Ort mit mindestens zwei Zeichen eingeben.');
+ const knownWater=petri41Water(query);if(knownWater)return knownWater; // Auch bei exaktem Seenamen ohne Stadt-Geocoding.
+
+ const url=new URL('https://geocoding-api.open-meteo.com/v1/search');url.search=new URLSearchParams({name:query,count:'5',language:'de',format:'json'}).toString();
+ const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),12000);
+ let res;try{res=await fetch(url,{signal:controller.signal,cache:'no-store'});}finally{clearTimeout(timer);}
+ if(!res.ok)throw Error('Ortssuche HTTP '+res.status);
+ const obj=await res.json(),list=Array.isArray(obj.results)?obj.results:[];
+ const first=list.find(r=>coords({lat:r.latitude,lon:r.longitude}));
+ if(!first)throw Error('Ort nicht gefunden. Bitte die nächste größere Stadt oder GPS-Koordinaten angeben.');
+ return {lat:first.latitude,lon:first.longitude,label:[first.name,first.admin1,first.country].filter(Boolean).join(', ')};
+}
+function weatherError(message){notify(message);const host=m('p31-weather-info');if(host)host.innerHTML='<p class="p31-note p31-warn">'+esc(message)+'</p>';}
+async function fetchWeather(c,label){const target=m('p31-weather-info');if(target)target.innerHTML='<p>Wetterdaten werden abgerufen …</p>';if(!navigator.onLine){weatherError('Offline: Bitte Internet aktivieren. Gespeicherte Angel- und Gewässerdaten bleiben offline verfügbar.');return;}try{const params=new URLSearchParams({latitude:String(c.lat),longitude:String(c.lon),current:'temperature_2m,relative_humidity_2m,precipitation,pressure_msl,wind_speed_10m,wind_direction_10m',hourly:'precipitation_probability,pressure_msl,wind_speed_10m',daily:'sunrise,sunset,temperature_2m_max,temperature_2m_min',timezone:'auto',forecast_days:'2'});
+const ctrl=new AbortController(),t=setTimeout(()=>ctrl.abort(),13000);let res;try{res=await fetch('https://api.open-meteo.com/v1/forecast?'+params,{signal:ctrl.signal,cache:'no-store'});}finally{clearTimeout(t);}if(!res.ok)throw Error('Wetterdienst HTTP '+res.status);const d=await res.json();if(!d.current)throw Error('Wetterdaten unvollständig.');weather={...d,label,loaded:Date.now()};renderWeatherData();notify('Aktuelle Wetterdaten geladen.');}catch(e){weatherError('Wetterabruf fehlgeschlagen: '+(e.name==='AbortError'?'Zeitüberschreitung, bitte erneut versuchen.':e.message));}}
+async function requestWeatherForSelection(){
+ const query=val(m('p35-weather-city')?.value), latText=val(m('p35-weather-lat')?.value),lonText=val(m('p35-weather-lon')?.value);
+ const savedId=val(m('p31-weather-place')?.value),saved=db.places.find(p=>p.id===savedId);
+ let c,label;
+ try{
+  if(latText||lonText){c=coords({lat:decimalValue(latText),lon:decimalValue(lonText)});if(!c)throw Error('Bitte gültigen Breitengrad (−90 bis 90) und Längengrad (−180 bis 180) eingeben.');label='Eigene GPS-Koordinaten';}
+  else if(query){weatherError('Suche Ort „'+query+'“ …');const r=await geocodeCity(query);c={lat:r.lat,lon:r.lon};label=r.label;}
+  else if(saved){const direct=coords(saved);if(direct){c=direct;label=saved.name;}
+   else{weatherError('Für „'+saved.name+'“ fehlen Koordinaten. Suche nach diesem Ort …');const r=await geocodeCity(saved.name);c={lat:r.lat,lon:r.lon};label=r.label;}}
+  else{throw Error('Bitte Stadt/Ort eintippen, gespeichertes Gewässer auswählen oder GPS verwenden.');}
+  weatherLocation=savedId;await fetchWeather(c,label);
+ }catch(err){weatherError('Standort nicht ermittelbar: '+(err.name==='AbortError'?'Ortssuche hat zu lange gedauert.':err.message));}
+}
+async function geocodePlace(){const field=m('p35-place-city'),form=m('p31-content')?.querySelector('form[data-form="place"]');if(!form)return;const query=val(field?.value);if(!query){field?.focus();notify('Bitte bei „Ort in der Nähe“ eine Stadt eingeben.');return;}notify('Suche Koordinaten für '+query+' …');try{const result=await geocodeCity(query);form.elements.lat.value=Number(result.lat).toFixed(6);form.elements.lon.value=Number(result.lon).toFixed(6);notify('Koordinaten übernommen: '+result.label+' ('+ (result.source==='local-water'?'Gewässerpunkt':'Stadtmittelpunkt')+'). Bitte vor dem Speichern prüfen.');}catch(e){notify('Koordinatensuche fehlgeschlagen: '+e.message);}}
+function renderWeatherData(){const host=m('p31-weather-info');if(!host||!weather)return;const d=weather,cur=d.current||{},today=d.daily||{},hour=d.hourly||{};const nowHour=String(cur.time||'').slice(0,13),index=hour.time?.findIndex(t=>String(t).startsWith(nowHour))??-1;const rain=index>=0?hour.precipitation_probability?.[index]:null;const p=Number(cur.pressure_msl),w=Number(cur.wind_speed_10m),temp=Number(cur.temperature_2m);host.innerHTML=`<h4>Wetter · ${esc(d.label||'Standort')}</h4><p>Abgerufen ${short(d.loaded)} · Wettermodell</p><div class="p31-grid3"><div><div class="p31-stat">${Number.isFinite(temp)?deNum(temp)+' °C':'–'}</div><span class="p31-label">Temperatur</span></div><div><div class="p31-stat">${Number.isFinite(p)?deNum(p,0):'–'}</div><span class="p31-label">Luftdruck (hPa)</span></div><div><div class="p31-stat">${Number.isFinite(w)?deNum(w,0):'–'}</div><span class="p31-label">Wind (km/h)</span></div></div><p><strong>Niederschlag:</strong> ${deNum(cur.precipitation)} mm · <strong>Regenrisiko:</strong> ${rain==null?'–':rain+' %'}</p><p><strong>Sonnenaufgang:</strong> ${esc((today.sunrise?.[0]||'').slice(11)||'–')} · <strong>Sonnenuntergang:</strong> ${esc((today.sunset?.[0]||'').slice(11)||'–')}</p><p><strong>Windrichtung:</strong> ${deNum(cur.wind_direction_10m,0)}° · <strong>Luftfeuchte:</strong> ${deNum(cur.relative_humidity_2m,0)} %</p><p class="p31-muted">Quelle: Open-Meteo (CC BY 4.0). Keine Vorhersage von Fischfängen.</p>`;}
+function openOriginal(label){const all=[...document.querySelectorAll('#nav-desktop button,#nav-desktop a,#nav-bottom button,#nav-bottom a')].filter(e=>!e.classList.contains('p31-open'));const norm=s=>String(s).toLowerCase();let btn=all.find(x=>norm(x.textContent).includes(norm(label)));if(!btn){notify('Bitte den Bereich „'+label+'“ über die normale App-Navigation öffnen.');return;}close();btn.click();}
+async function examPdfRead(){return new Promise(resolve=>{try{const req=indexedDB.open('petri-heil-local-exam-attachments-v1',1);req.onerror=()=>resolve(null);req.onupgradeneeded=()=>{req.result.createObjectStore('docs');};req.onsuccess=()=>{const database=req.result;const tx=database.transaction('docs','readonly'),r=tx.objectStore('docs').get('nrw');r.onsuccess=()=>{database.close();resolve(r.result||null);};r.onerror=()=>{database.close();resolve(null);};};}catch{resolve(null);}});}
+async function examPdfWrite(record){if(!record?.data||!/^data:application\/pdf;base64,/.test(record.data))return;const blob=await fromDataURL(record.data);if(blob.size>25*1024*1024)throw Error('Prüfungs-PDF im Backup zu groß.');return new Promise((resolve,reject)=>{const req=indexedDB.open('petri-heil-local-exam-attachments-v1',1);req.onerror=()=>reject(req.error);req.onupgradeneeded=()=>{req.result.createObjectStore('docs');};req.onsuccess=()=>{const database=req.result,tx=database.transaction('docs','readwrite');tx.objectStore('docs').put({name:String(record.name||'Fischerpruefung.pdf').slice(0,150),blob,type:'application/pdf',updated:Date.now()},'nrw');tx.oncomplete=()=>{database.close();resolve();};tx.onerror=()=>{database.close();reject(tx.error);};};});}
+async function doBackup(){try{
+ notify('Sicherung wird vorbereitet …');const local={};for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&!/(?:password|secret|credential|auth.?token|api.?key)/i.test(k))local[k]=localStorage.getItem(k);}
+ let files;try{files=await imagesAll();}catch(err){throw Error('Fotos oder Dokumente konnten nicht vollständig gelesen werden: '+err.message);}
+ let examPdf=null;const doc=await examPdfRead();if(doc?.blob){examPdf={name:doc.name||'Fischerpruefung.pdf',data:await toDataURL(doc.blob)};}
+ let legacyDatabases=null,legacyDbWarning='';
+ try{if(!window.PetriDataBridge33)throw Error('Datenbank-Erweiterung nicht geladen.');legacyDatabases=await window.PetriDataBridge33.exportLegacyDatabases();}
+ catch(err){legacyDbWarning=String(err.message||err);if(!confirm('Mindestens eine ältere Datenbank konnte nicht vollständig gesichert werden: '+legacyDbWarning+'\n\nTrotzdem unvollständige Sicherung herunterladen?'))return;}
+ const backup={kind:'petriheilsuite-backup',schema:3,created:new Date().toISOString(),version:'2.0.41',storage:local,files,examPdf,legacyDatabases,legacyDbWarning,notes:'Sicherung der lokalen App-Speicherwerte, Pro-Anhänge, Prüfungs-PDF und soweit auflistbar der älteren IndexedDB-Datenbanken. Geheime Zugangsdaten sind ausgeschlossen.'};
+ blobDownload(new Blob([JSON.stringify(backup)],{type:'application/json'}),'PetriHeil_Gesamtbackup_'+localTime().slice(0,10)+'.json');notify(legacyDbWarning?'Teilweise Sicherung erstellt; ältere Datenbanken fehlen möglicherweise.':'Sicherung erstellt: App-Daten und auflistbare ältere Datenbanken eingeschlossen.');
+ }catch(err){notify('Backup fehlgeschlagen: '+err.message);}}
+async function restoreBackup(){
+ const f=m('p31-backup-file')?.files?.[0];if(!f){notify('Bitte eine JSON-Backup-Datei auswählen.');return;}if(f.size>180*1024*1024){notify('Backup größer als 180 MB, Import abgebrochen.');return;}
+ try{
+  const obj=JSON.parse(await f.text());if(obj.kind!=='petriheilsuite-backup'||![1,2,3].includes(obj.schema)||!obj.storage||Array.isArray(obj.storage)||typeof obj.storage!=='object'||!obj.files||Array.isArray(obj.files)||typeof obj.files!=='object')throw Error('Keine gültige PetriHeil-Pro-Sicherung.');
+  for(const [k,v] of Object.entries(obj.storage))if(typeof v!=='string'||k.length>200||!k)throw Error('Ungültiger Speicherwert im Backup.');
+  for(const [k,v] of Object.entries(obj.files))if(k.length>200||typeof v!=='string'||!/^data:(?:image\/|application\/pdf)/.test(v))throw Error('Ungültiger Dateianhang im Backup.');
+  if(!confirm('Backup vom '+new Date(obj.created).toLocaleString('de-DE')+' wiederherstellen? Aktuelle App-Daten können überschrieben werden. Vorher unbedingt eigene Sicherung erstellen.'))return;
+  for(const [k,v] of Object.entries(obj.storage)){if(!/(?:password|secret|credential|auth.?token|api.?key)/i.test(k))localStorage.setItem(k,v);}
+  for(const [k,v] of Object.entries(obj.files))await imagePut(k,await fromDataURL(v));
+  if(obj.schema>=2&&obj.examPdf)await examPdfWrite(obj.examPdf);
+  let oldResult=null;
+  if(obj.schema===3&&obj.legacyDatabases&&m('p33-restore-legacy')?.checked){
+   if(!window.PetriDataBridge33)throw Error('Datenbank-Wiederherstellung nicht verfügbar.');
+   oldResult=await window.PetriDataBridge33.restoreLegacyDatabases(obj.legacyDatabases);
+  }
+  db=load();active=read(ACTIVE,null);manualEditId='';render();notify('Backup eingelesen. '+(oldResult?'Ältere Daten: '+oldResult.records+' Datensätze geschrieben, '+oldResult.warnings.length+' Hinweise. ':'')+'App neu öffnen.');
+ }catch(err){notify('Wiederherstellung fehlgeschlagen: '+err.message);}
+}
+function csvExport(){const lines=[['Fangzeit','Fischart','Länge (cm)','Gewicht (kg)','Köder','Gewässer','Angeltag','Status','Notiz'],...db.catches.map(c=>[c.time,c.species,c.length??'',c.weight??'',c.bait,c.placeText||db.places.find(p=>p.id===c.place)?.name||c.legacyLocation||'',catchSession(c)?.loc||'',c.status,c.notes])];const csv='\ufeff'+lines.map(row=>row.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(';')).join('\r\n');blobDownload(new Blob([csv],{type:'text/csv;charset=utf-8'}),'PetriHeil_Pro_Fangbuch.csv');notify('CSV exportiert.');}
+async function loadMeasure(file){try{if(file.size>18*1024*1024)throw Error('Bild größer als 18 MB.');const bitmap=await createImageBitmap(file);meas.img?.close?.();meas.img=bitmap;meas.points=[];setupMeasureCanvas();notify('Foto bereit. Beginne mit dem Anfang der Referenz.');}catch(e){notify('Foto nicht lesbar: '+e.message);}}
+function setupMeasureCanvas(){const canvas=m('p31-measure-canvas');if(!canvas)return;if(!meas.img){const ctx=canvas.getContext('2d');ctx.fillStyle='#e6f3fa';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.fillStyle='#527d95';ctx.textAlign='center';ctx.font='18px system-ui';ctx.fillText('Foto auswählen, dann vier Messpunkte tippen',canvas.width/2,canvas.height/2);return;}
+const b=meas.img,ratio=Math.min(900/b.width,650/b.height,1);canvas.width=Math.max(1,Math.round(b.width*ratio));canvas.height=Math.max(1,Math.round(b.height*ratio));canvas.addEventListener('click',e=>{if(meas.points.length>=4)return;const rect=canvas.getBoundingClientRect(),x=(e.clientX-rect.left)/rect.width*canvas.width,y=(e.clientY-rect.top)/rect.height*canvas.height;meas.points.push([x,y]);redrawMeasure();});redrawMeasure();}
+function redrawMeasure(){const c=m('p31-measure-canvas');if(!c||!meas.img)return;const ctx=c.getContext('2d');ctx.drawImage(meas.img,0,0,c.width,c.height);ctx.lineWidth=Math.max(2,c.width/300);ctx.font='bold '+Math.max(14,c.width/38)+'px system-ui';for(let i=0;i<meas.points.length;i++){const p=meas.points[i];ctx.fillStyle=i<2?'#05eaff':'#ffe269';ctx.beginPath();ctx.arc(p[0],p[1],Math.max(5,c.width/110),0,Math.PI*2);ctx.fill();ctx.fillStyle='#113b54';ctx.fillText(String(i+1),p[0]+10,p[1]-10);}for(let i=0;i<3;i+=2){if(meas.points[i]&&meas.points[i+1]){ctx.strokeStyle=i===0?'#00e8ff':'#ffe15b';ctx.beginPath();ctx.moveTo(...meas.points[i]);ctx.lineTo(...meas.points[i+1]);ctx.stroke();}}
+const r=m('p31-measure-result');if(!r)return;const p=meas.points;if(p.length<4){r.textContent=`Punkt ${p.length}/4 gesetzt. ${['Referenzanfang markieren.','Referenzende markieren.','Fischspitze markieren.','Schwanzende markieren.'][p.length]}`;return;}const d=(a,b)=>Math.hypot(a[0]-b[0],a[1]-b[1]);const ref=d(p[0],p[1]),fish=d(p[2],p[3]),len=Number(String(m('p31-content')?.querySelector('[name="lengthReference"]')?.value||meas.len).replace(',','.'));r.textContent=ref>=4&&len>0&&len<=1000?`Geschätzte Fischlänge: ${deNum(fish/ref*len,1)} cm. Nur näherungsweise; perspektivische Verzerrungen möglich.`:'Ungültige Referenz. Punkte zurücksetzen und Länge prüfen.';}
+async function openDocument(id){try{const v=db.docs.find(x=>x.id===id),file=await imageGet('doc-'+id);if(!file||!v)throw Error('Datei wurde nicht gefunden.');blobDownload(file,v.fileName||'Angel-Dokument');notify('Dokument geöffnet bzw. zum Herunterladen bereitgestellt.');}catch(e){notify('Dokument nicht abrufbar: '+e.message);}}
+function features(){const s=m('p31-content')?.querySelector('[name="speciesFeature"]')?.value||'',map={'Langer Körper / Raubfisch':'Hecht, Zander, Aal','Barteln am Maul':'Wels, Barbe, Karpfen','Gestreifte Körperseiten':'Flussbarsch, Zander','Silbrig, hochrückig':'Brasse, Güster, Rotauge','Schuppenlos':'Wels, Aal','Forellenartig / Fettflosse':'Bachforelle, Regenbogenforelle, Bachsaibling'};const e=m('p31-feature-result');if(e)e.textContent='Mögliche Arten zum Vergleichen: '+(map[s]||'Bitte mehrere Merkmale prüfen')+'. Diese Merkmalliste ist keine automatische Foto- oder KI-Bestimmung.';}
+async function clicked(e){const b=e.target.closest('[data-action]');if(!b)return;const action=b.dataset.action;if(action!=='nav')e.preventDefault();switch(action){
+case 'close':close();break;
+case 'nav':view(b.dataset.tab);break;
+case 'cancel':currentEdit='';render();break;
+case 'cancelManual':manualEditId='';render();break;
+case 'editManual':manualEditId=b.dataset.id;tab=1;render();m('p31-content')?.scrollTo({top:0});break;
+case 'deleteManual':{
+  const items=read(MANUAL,[]);const selected=items.find(x=>x.id===b.dataset.id);if(!selected)return;
+  if(!confirm('Angelzeit „'+(selected.location||'Eintrag')+'“ löschen?'))return;
+  localStorage.setItem(MANUAL,JSON.stringify(items.filter(x=>x.id!==b.dataset.id)));manualEditId='';render();notify('Manuelle Angelzeit gelöscht.');break;}
+
+case 'edit':edit(b.dataset.kind,b.dataset.id);break;
+case 'del':deleteItem(b.dataset.kind,b.dataset.id);break;
+case 'gpsPlace':await gps('place',(lat,lon)=>{const form=m('p31-content')?.querySelector('form[data-form="place"]');if(!form)throw Error('Gewässerformular ist nicht mehr geöffnet.');form.elements.lat.value=lat.toFixed(6);form.elements.lon.value=lon.toFixed(6);setGPSStatus('place','GPS übernommen: '+lat.toFixed(6)+', '+lon.toFixed(6)+'. Zum Speichern „Angelstelle speichern“ tippen.','success');});break;
+case 'gpsWeather':await gps('weather',async(lat,lon)=>{const x=m('p35-weather-lat'),y=m('p35-weather-lon');if(x&&y){x.value=lat.toFixed(6);y.value=lon.toFixed(6);}await fetchWeather({lat,lon},'Mein aktueller Standort');});break;
+case 'weatherBiggesee':{const f=m('p35-weather-city');if(f)f.value='Biggesee';for(const id of ['p35-weather-lat','p35-weather-lon']){const x=m(id);if(x)x.value='';}await requestWeatherForSelection();break;}
+case 'fetchWeather':await requestWeatherForSelection();break;
+case 'geocodePlace':await geocodePlace();break;
+case 'rememberClockSite':rememberClockSite();break;
+case 'weatherSite':{const p=db.places.find(x=>x.id===b.dataset.id),c=coords(p);if(c){tab=3;weatherLocation=p.id;render();await fetchWeather(c,p.name);}break;}
+case 'map':mapOpen(b.dataset.id);break;
+case 'inlineMap':{const p=db.places.find(x=>x.id===b.dataset.id),c=coords(p),holder=m('p31-map-frame');if(!c||!holder){notify('GPS-Koordinaten fehlen.');break;}const span=.012,bbox=[c.lon-span,c.lat-span,c.lon+span,c.lat+span].join(','),src='https://www.openstreetmap.org/export/embed.html?bbox='+encodeURIComponent(bbox)+'&layer=mapnik&marker='+encodeURIComponent(c.lat+','+c.lon);holder.replaceChildren();const iframe=document.createElement('iframe');iframe.src=src;iframe.title='Karte für '+p.name;iframe.loading='lazy';iframe.referrerPolicy='no-referrer';iframe.style.cssText='width:100%;height:260px;border:1px solid #b3d5e8;border-radius:10px';holder.append(iframe);notify('Online-Karte geöffnet (OpenStreetMap).');break;}
+case 'startClock':startClock();break;
+case 'stopClock':stopClock();break;
+case 'cancelClock':if(confirm('Laufende Angelzeit wirklich verwerfen?')){active=null;localStorage.removeItem(ACTIVE);render();}break;
+case 'openDoc':await openDocument(b.dataset.id);break;
+case 'clearPack':db.settings.packed=[];save();render();break;
+case 'original':openOriginal(b.dataset.find);break;
+case 'features':features();break;
+case 'resetMeasure':meas.points=[];redrawMeasure();break;
+case 'backup':await doBackup();break;
+case 'restore':await restoreBackup();break;
+case 'csv':csvExport();break;
+}}
+
+// Read-only preview and user-confirmed import bridge, without modifying the original app store.
+window.PetriHeilProBridge={
+ importLegacyCatches(records){
+  if(!Array.isArray(records)||records.length>10000)return null;
+  const original=db.catches.slice();let added=0,duplicates=0,invalid=0;
+  const finger=v=>window.PetriDataBridge33?.fingerprint?.(v)||'';
+  const match=new Set(original.map(c=>c.legacyFingerprint||finger({species:c.species||'',time:c.time||'',length:c.length||null,weight:c.weight||null,location:c.legacyLocation||'',bait:c.bait||''})));
+  for(const record of records){
+   if(!record||typeof record.species!=='string'||record.species.length>120||!Number.isFinite(Date.parse(record.time))){invalid++;continue;}
+   const fp=record.legacyFingerprint||finger(record);
+   if(match.has(fp)){duplicates++;continue;}
+   const location=String(record.location||'').slice(0,140),notes=String(record.notes||'').slice(0,500);
+   db.catches.unshift({id:uid(),species:record.species.slice(0,120),time:record.time,place:'',placeText:location,bait:String(record.bait||'').slice(0,140),length:record.length||null,weight:record.weight||null,status:'Nicht angegeben',notes:location?('Angelort: '+location+'. '+notes).slice(0,800):notes,legacyLocation:location,legacyFingerprint:fp,legacySource:String(record.legacySource||'altes Fangbuch').slice(0,160),photoKey:'',sessionKey:''});
+   match.add(fp);added++;
+  }
+  if(!save()){db.catches=original;return null;}render();return {added,duplicates,invalid};
+ }
+};
+
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
+})();
