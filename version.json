@@ -1,13 +1,13 @@
 {
-  "version": "2.0.25",
+  "version": "2.0.27",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Neues App-Icon mit Hecht-Motiv und gut lesbarer Beschriftung „Petri Heil“ sowie „by Marcel Hentschel“.",
-    "Home-Bildschirm-Symbol auf iPhone aktualisiert: icon-192.png und icon-512.png ersetzt.",
-    "In-App-Logo petri-logo.webp auf das neue Hecht-Logo aktualisiert.",
-    "Offline-Cache auf Version 2.0.25 erhöht, damit die neue Logo-Version zuverlässig geladen wird.",
-    "Helles Design und Menü-Fix bleiben erhalten."
+    "19 KI-Ausrüstungsbilder und neues Hecht-Fischkunde-Icon als komprimierte, lokale WebP-Dateien integriert.",
+    "Nur eindeutig zuordenbare Ausrüstungsartikel erhalten neue Bilder; falsche Fremdfotos bei diesen Artikeln werden ersetzt.",
+    "Das neue Bildskript wird beim Start direkt aus index.html geladen und funktioniert daher auch ohne nachträgliche Service-Worker-Injektion.",
+    "Offline-Cache erweitert und Version auf 2.0.27 aktualisiert.",
+    "Vorhandene Fangdaten, Fischkunde und Design bleiben unverändert."
   ],
-  "notes": "Zum Übernehmen der Aktualisierung die bereits installierte App zweimal online starten. Vor Entfernen einer vorhandenen Home-Bildschirm-App Daten aus der App sichern, da App-Speicher getrennt sein kann. Eine automatische Übernahme auf jeder iOS-Version ist nicht garantiert."
+  "notes": "Ausrüstung ohne passende KI-Datei bleibt unverändert; Abhakmatte, Maßband & Waage sowie Hakenlöser & Zange sind in diesem Paket noch nicht neu bebildert. Nur identifizierte Ausrüstungstitel werden ersetzt."
 }

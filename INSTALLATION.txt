@@ -1,15 +1,17 @@
-PetriHeil Logo-Update 2.0.25
+PETRI HEIL PRO – BILDERFIX 2.0.27
 
-Enthalten:
-- neues Home-Bildschirm-Icon (icon-192.png, icon-512.png)
-- neues In-App-Logo (petri-logo.webp)
-- aktualisierte Dateien: index.html, species-images-v2.0.5.js, sw.js, version.json
+WICHTIG: Bitte die ZIP-Datei entpacken! NICHT nur die ZIP-Datei auf GitHub laden.
 
-Installation:
-1. ZIP-Datei entpacken.
-2. Alle Dateien aus diesem Ordner in das Hauptverzeichnis des PetriHeil-GitHub-Repositories hochladen und vorhandene Dateien ersetzen.
-3. Änderungen speichern/committen.
-4. Die App zweimal online öffnen, dann die Home-Bildschirm-App vollständig schließen und erneut starten.
+SO GEHT ES:
+1. ZIP auf dem iPhone unter „Dateien“ entpacken.
+2. GitHub öffnen: https://github.com/4h7zm6hnjy-skizze/PetriHeil
+3. ALLE Dateien dieses entpackten Ordners über „Add file“ -> „Upload files“ ins HAUPTVERZEICHNIS hochladen. Dabei bestehende Dateien ersetzen.
+4. Unten „Commit changes“ bestätigen und GitHub Pages kurz Zeit zum Veröffentlichen geben.
+5. https://4h7zm6hnjy-skizze.github.io/PetriHeil/ zweimal online öffnen, um den Offline-Cache zu aktualisieren.
+6. Unter „Mehr“ prüfen: Version 2.0.27.
 
-Hinweis:
-Wenn das alte Symbol auf dem Home-Bildschirm noch angezeigt wird, kurz warten oder die Verknüpfung neu zum Home-Bildschirm hinzufügen.
+Dieses Paket enthält 19 kompakte WebP-KI-Bilder, das Hecht-Fischkunde-Symbol, den neuen Ausrüstungs-Bildloader und die aktualisierten Versions-/Start-/Cache-Dateien.
+
+NICHT Teil dieses Bildpakets: eigene KI-Bilder für Abhakmatte, Maßband & Waage sowie Hakenlöser & Zange. Dafür sind aktuell noch keine passenden Einzelmotive generiert. Diese Bilder werden nicht durch unpassende Fotos ersetzt.
+
+Die bestehenden Fangdaten werden nicht verändert. Die Home-Bildschirm-App nicht löschen, bevor die Daten exportiert wurden.
