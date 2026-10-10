@@ -1,23 +1,20 @@
 {
-  "version": "2.1.4",
-  "releaseDate": "2026-10-10",
+  "version": "2.1.5",
+  "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "changes": [
-    "Hecht-Logo im großen Startkartenbereich deutlich vergrößert und näher an die markierte Wunschgröße angepasst.",
-    "177 Fisch- und Krebsarten um geografische Verbreitungsregionen und regionale Kurzangaben in der Fischkunde ergänzt.",
-    "Detailkarten zeigen Vorkommen, Gewässertyp, soweit artspezifisch gepflegt Lebensraum, NRW-Einordnung und Links zu amtlichen Quellen.",
-    "Nur das lila Fisch-Platzhaltersymbol wird durch das Hecht-Bild ersetzt; Uhr, Waage und weitere normale Symbole bleiben unverändert.",
-    "Hecht-Bildsymbole auf Übersicht, leeren Fangkarten und Schnellaktionen wiederhergestellt.",
-    "Menüsymbole, Markenbilder und Ausrüstungsfotos werden aus einem gemeinsamen UI-Modul gesteuert.",
-    "Bilder für Boilie, Mais & Teig, Würmer & Maden, bissfestes Vorfach, Pilker/Paternoster und Rettungsweste bleiben offline eingebunden.",
-    "Vereinheitlichte Kontrast-, Foto- und iPhone-Layoutregeln, ohne Änderungen an den gespeicherten Daten.",
-    "Versionsanzeige und Offline-Worker melden gemeinsam 2.1.2; neuer PWA-Kerncache mit aktuellen Dateien.",
-    "Die bestehenden Prüfungs-, Angelzeit-, Fangbuch- und Pro-Daten bleiben getrennt und rückwärtskompatibel lesbar; keine riskante automatische Migration."
+    "Update-System neu aufgebaut: stabiler Worker-Pfad und dynamische Server-Versionsprüfung.",
+    "Reparaturseite update-rettung.html für iPhone und ältere zwischengespeicherte App-Versionen.",
+    "Versionswechsel wird erst nach Aktivierung des neuen Offline-Workers als erfolgreich gemeldet.",
+    "Offline-Startseiten und alle App-Kernressourcen im neuen Cache; bestehende Fischbilder bleiben im bisherigen Cache zugänglich.",
+    "Abwärtskompatible Weiterleitung für ältere Update-Skripte und sw.js-Registrierungen.",
+    "Bisherige Funktionen, Fischarten-Verbreitung und großes Hechtlogo bleiben erhalten."
   ],
   "limitations": [
     "Verbreitungsangaben sind zusammenfassende regionale Einordnungen; es erfolgte keine vollständige artbezogene Prüfung jeder Verbreitungsangabe anhand aktueller Gewässernachweise.",
     "Für Live-Wetter und externe Nachschlageinformationen kann Internet erforderlich sein.",
     "Die iPhone-Systembedienung und alle Datenbankszenarien benötigen zusätzliche Tests auf realen Geräten.",
     "Dieses ZIP ist ein vollständiges Update-Paket der geänderten Dateien, kein Komplett-Export aller unveränderten Repository-Dateien."
-  ]
+  ],
+  "serviceWorker": "sw.js"
 }

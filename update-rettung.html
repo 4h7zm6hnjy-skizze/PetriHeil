@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="de"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#e8f4fc">
+<title>Petri Heil – Update-Reparatur</title>
+<style>
+:root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:#163b52;background:#eaf5fc;color-scheme:light}
+*{box-sizing:border-box}body{margin:0;padding:24px 16px;min-height:100dvh;display:grid;place-items:center}
+main{width:min(520px,100%);background:white;border:1px solid #b9d5e4;border-radius:18px;padding:26px 22px;box-shadow:0 10px 30px #113c5812}
+h1{font-size:26px;margin:0 0 15px}p{line-height:1.55}button{font:inherit;font-weight:750;color:white;background:#087ebc;border:0;padding:14px 16px;min-height:50px;border-radius:10px;width:100%;margin:6px 0}button.secondary{background:#eaf5fb;border:1px solid #8bb9d0;color:#075580}button:disabled{opacity:.55}
+#petri-repair-status{background:#edf7fc;border:1px solid #c3e0ec;border-radius:9px;padding:12px;min-height:54px;overflow-wrap:anywhere}
+small{color:#527185}a{color:#087ebc}
+</style>
+<script src="./petri-updater.js?v=2.1.5" defer></script>
+</head><body><main>
+<h1>Petri Heil – Update reparieren</h1>
+<p>Diese Seite installiert den aktuellen Offline-Worker unabhängig von der alten App-Version. Gespeicherte Fänge, Bilder, Angelzeiten und Einstellungen werden nicht gelöscht.</p>
+<p>Serverversion: <strong id="petri-repair-server">wird geprüft</strong></p>
+<p id="petri-repair-status" role="status" aria-live="polite">Prüfe den Versionsstand …</p>
+<button id="petri-repair-install" type="button">Aktuelle Version installieren &amp; App öffnen</button>
+<button id="petri-repair-check" class="secondary" type="button">Erneut prüfen</button>
+<p><small>Voraussetzung: Diese Seite muss online und über dieselbe Website wie Petri Heil geöffnet sein. Keine Browserdaten löschen und die App nicht deinstallieren.</small></p>
+<a href="./index.html">Zurück zur App</a>
+</main></body></html>

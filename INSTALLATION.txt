@@ -1,5 +1,59 @@
-Petri Heil Pro 2.1.4
+PETRI HEIL PRO – UPDATE 2.1.5 / UPDATE-REPARATUR
+================================================
 
-Dieses Update vergrößert den Hecht im großen Startbereich auf der Übersichtsseite.
+Was wurde behoben?
+- Die alte Version 2.1.2 hat bei "Update installieren" weiterhin den alten Worker 2.1.2 installiert.
+- Der neue Updater liest die tatsächlich veröffentlichte Version aus version.json.
+- Der stabile Offline-Worker liegt künftig unter sw.js (lädt petri-sw.js).
+- Keine tägliche/ständige Wiederinstallation alter Worker beim App-Start.
+- Die Installation wird erst bestätigt, wenn der neue Worker aktiv ist.
+- Fehlende Dateien verhindern eine falsche Erfolgsmeldung.
+- Bestehende Fischbilder werden aus älteren Caches weiter gelesen.
 
-Dateien aus dieser ZIP in das Hauptverzeichnis des GitHub-Repositories hochladen und vorhandene Dateien ersetzen. Danach in der App Version prüfen, Update installieren und die App neu öffnen.
+HOCHLADEN
+1. Vorher in der App eine Datensicherung erstellen, soweit möglich.
+2. ZIP entpacken.
+3. ALLE enthaltenen HTML-, JS- und JSON-Dateien in das Hauptverzeichnis
+   deines bestehenden GitHub-Repositories PetriHeil hochladen.
+4. Vorhandene Dateien mit gleichem Namen ersetzen (insbesondere index.html,
+   version.json, sw.js und petri-update-v2.1.2.js).
+5. Nicht den gesamten Repository-Ordner löschen oder ersetzen. Bestehende
+   app.js, data.js, Fischbilder, Dateien und Einstellungen müssen bleiben.
+6. Warten, bis GitHub Pages die geänderten Dateien veröffentlicht hat.
+
+AUF DEM IPHONE
+1. Petri Heil mit Internetverbindung öffnen.
+2. Unter "Backup & Einstellungen" sollte jetzt "Update-Reparatur öffnen"
+   erscheinen. Diese Reparaturseite möglichst DIREKT IN DER INSTALLIERTEN
+   APP öffnen, weil eine Home-Bildschirm-App andere Browserdaten verwenden kann
+   als Safari.
+3. Die Reparaturseite "update-rettung.html" zeigt die Serverversion.
+4. "Aktuelle Version installieren & App öffnen" antippen und bestätigen.
+5. Erst nach erfolgreicher Aktivierung wird index.html neu geladen.
+6. Unter "Backup & Einstellungen" müssen Version 2.1.5 und Offline-Version
+   2.1.5 angezeigt werden.
+7. Falls der Reparatur-Link in der App fehlt: Dieselbe Website in Safari öffnen,
+   in der Adresszeile das letzte "index.html" durch "update-rettung.html"
+   ersetzen bzw. an das Webverzeichnis "update-rettung.html" anhängen.
+   ACHTUNG: Eine Reparatur in Safari repariert nicht zwangsläufig den separaten
+   Speicherbereich einer bereits zum Home-Bildschirm hinzugefügten PWA.
+
+WICHTIG: App nicht deinstallieren, Safari-Website-Daten nicht löschen,
+kein neues PWA-Symbol anlegen, solange noch eigene Daten in der alten App sind.
+Keine Fangdaten, Bilder oder Einstellungen werden von diesem Update gelöscht.
+
+Falls "Installation fehlgeschlagen" angezeigt wird: Screenshot vom angezeigten
+Fehler senden. Die Reparaturseite zeigt die genaue Fehlermeldung.
+
+GEÄNDERTE / NEUE DATEIEN
+index.html
+version.json
+sw.js
+petri-sw.js
+petri-updater.js
+update-rettung.html
+petri-update-v2.1.0.js (Kompatibilität)
+petri-update-v2.1.1.js (Kompatibilität)
+petri-update-v2.1.2.js (Kompatibilität)
+petri-update-v2.1.4.js (Kompatibilität)
+petri-hero-logo-v2.1.4.css (bestehendes Design unverändert, vorsorgliche Mitlieferung)
