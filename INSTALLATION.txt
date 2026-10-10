@@ -1,8 +1,9 @@
-PetriHeil Pro Update 2.0.32
+PetriHeil 2.0.33 – Datenübernahme + Backup
 
-1. Vorher ein Backup aller Fangdaten sichern.
-2. ZIP entpacken. Die 6 App-Dateien (index.html, sw.js, version.json, petri-update-install-v2.0.28.js, petri-pro-suite-v2.0.32.js und petri-pro-suite-v2.0.32.css) in das Hauptverzeichnis des GitHub-Repositories PetriHeil hochladen.
-3. Bereits existierende Dateien ersetzen. Änderungen committen.
-4. App zweimal mit Internetverbindung starten. Version 2.0.32 prüfen.
+1. Vor dem Update Fangbuch-Backup anfertigen.
+2. ZIP entpacken. Die 7 App-Dateien (ohne INSTALLATION.txt) in das Hauptverzeichnis von https://github.com/4h7zm6hnjy-skizze/PetriHeil hochladen, vorhandene gleichnamige Dateien ersetzen.
+3. Commit changes. Die App zweimal online neu starten.
+4. Unter Angelzentrale Pro > Fangbuch Pro: "Alte Fänge suchen" anklicken, Vorschau prüfen, gewünschte Quellen auswählen und Kopie bestätigen. Originale bleiben erhalten.
+5. Unter Backup: erweiterten Export anlegen. Beim Wiederherstellen alter Datenbanken ausdrücklich das Kontrollkästchen wählen (optional).
 
-Hinweis: Dieses Paket baut auf v2.0.31 auf, nur wenn alle Dateien von v2.0.31 bereits auf GitHub liegen. Die ursprünglichen Fangdaten bleiben erhalten; alte und neue Fangbücher bleiben getrennt.
+Wichtig: Alte Fangfotos sind nicht automatisch mit den Pro-Fängen verknüpft; je nach Browser und Speicherstruktur kann die Erkennung weitere alte Einträge nicht erfassen. Die App verändert app.js nicht, und importiert keine Datensätze ohne Nutzerfreigabe. Keine automatische Cloud-Synchronisierung.

@@ -1,20 +1,20 @@
 {
-  "version": "2.0.32",
+  "version": "2.0.33",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Manuelle Angelzeiten aus Version 2.0.30 direkt in der Angelzentrale Pro anlegen, bearbeiten und löschen, ohne die gespeicherten Daten zu duplizieren.",
-    "Gemeinsame Zeitstatistik aus Pro-Stoppuhr, Pro-Angeltagen und manuell nachgetragenen Zeiten; überlappende Zeiträume werden nur einmal gezählt.",
-    "Pro-Fänge anhand der Fangzeit automatisch eindeutig einem Angeltag zuordnen oder im Fangformular manuell einer gespeicherten Angelzeit zuweisen.",
-    "Fangquote pro zehn Angelstunden, Monatsauswertung und zugeordnete bzw. nicht zugeordnete Fänge.",
-    "Pro-Backup sichert nun zusätzlich das gespeicherte NRW-Prüfungs-PDF aus Version 2.0.30, sofern vorhanden, und stellt es beim Import wieder her; ältere Pro-Backups bleiben lesbar.",
-    "Präzisierte amtliche Prüfungsbedingungen NRW 2026 mit Verlinkung zu den offiziellen Prüfungsanlagen.",
-    "Neues Offline-Caching und Versionsanzeige für 2.0.32."
+    "Alte Fangbucheinträge aus lokalen Browserdatenquellen suchen, prüfen und nach ausdrücklicher Auswahl in Fangbuch Pro kopieren; keine Änderung der Originaleinträge.",
+    "Dublettenprüfung für kopierte Fänge und zusätzliche Herkunftsangabe, damit nachträgliche Kopierversuche nicht mehrfach zählen.",
+    "Erweiterter JSON-Backup-Export einschließlich aller vom Browser auflistbaren und lesbaren zusätzlichen IndexedDB-Datenbanken; Warnung bei nicht möglicher vollständiger Sicherung.",
+    "Optionale Wiederherstellung alter Datenbanken mit eigener Zustimmung. Ältere Backups der Versionen 2.0.31 und 2.0.32 bleiben lesbar.",
+    "Anzeigefehler ${DATA.fish.length} auf der Startseite korrigiert, ohne ursprüngliches app.js zu verändern.",
+    "Offline-Cache und Versionsprüfung auf 2.0.33 aktualisiert."
   ],
   "limitations": [
-    "Das ursprüngliche ältere Fangbuch ist weiterhin getrennt; dessen IndexedDB wird nicht automatisch zusammengeführt oder garantiert gesichert.",
-    "Nur eindeutig zeitlich zugeordnete Pro-Fänge fließen in die Fangquote ein; die Quote stellt keine Fangprognose dar.",
-    "Für Originalprüfungsfragen braucht die interaktive Simulation weiterhin einen aktuellen, korrekt vorbereiteten Fragenimport; PDF kann als Dokument gespeichert werden.",
-    "Online-Wetter und Karten benötigen Internet; keine geprüfte KI-Fischbestimmung oder vollständige Tiefenkarten."
+    "Keine automatische Übernahme unbekannter Speicherformate; Benutzer muss gefundene Fänge prüfen und Quellen einzeln auswählen.",
+    "Fangfotos aus alten Datenbanken werden im Backup nach Möglichkeit mitgesichert, aber nicht automatisch den kopierten Pro-Fängen zugeordnet.",
+    "Die Sicherung kann bei fehlender Browserunterstützung, großen Medien oder nicht lesbaren IndexedDB-Datenbanken unvollständig sein. In diesem Fall erscheint vor dem Export eine Warnung.",
+    "Backup-Wiederherstellung früherer Datenbanken ist optional und kann vorhandene Datensätze mit gleichem Schlüssel überschreiben. Vorher eigenes Backup exportieren.",
+    "Nicht implementiert: vollautomatische Zusammenführung aller möglichen Fangbuchstrukturen, amtlicher Prüfungsfragen-Import oder KI-Fischbestimmung."
   ]
 }
