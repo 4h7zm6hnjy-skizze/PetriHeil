@@ -3,7 +3,7 @@
    Images are illustrative, NOT validated for species identification. */
 (()=>{
   'use strict';
-  const VERSION='2.0.27';
+  const VERSION='2.0.28';
   // Apply the brand palette independent of ServiceWorker-injected HTML.
   // In particular, iOS Safari may keep an older navigation response cached.
   (function installOceanTheme(){
@@ -279,11 +279,11 @@
     for (const el of document.querySelectorAll('.sidebar .tiny,#app-update-card')) {
       if(!el.dataset.petri214VersionChecked){
         el.dataset.petri214VersionChecked='yes';
-        if(el.classList.contains('tiny')) el.textContent=el.textContent.replace(/2\.0\.(?:[4-9]|1[0-9]|20)\b/g,'2.0.27');
+        if(el.classList.contains('tiny')) el.textContent=el.textContent.replace(/2\.0\.(?:[4-9]|1[0-9]|20)\b/g,'2.0.28');
         if(el.id==='app-update-card'){
           for(const node of el.querySelectorAll('h1,h2,h3,strong,span')){
             if(node.children.length===0 && /Version 2\.0\.(?:[4-9]|1[0-9]|20)\b/.test(node.textContent))
-              node.textContent=node.textContent.replace(/2\.0\.(?:[4-9]|1[0-9]|20)\b/g,'2.0.27');
+              node.textContent=node.textContent.replace(/2\.0\.(?:[4-9]|1[0-9]|20)\b/g,'2.0.28');
           }
         }
       }

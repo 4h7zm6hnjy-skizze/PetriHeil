@@ -1,17 +1,22 @@
-PETRI HEIL PRO – BILDERFIX 2.0.27
+Petri Heil Pro – Version 2.0.28
 
-WICHTIG: Bitte die ZIP-Datei entpacken! NICHT nur die ZIP-Datei auf GitHub laden.
+Drei neue weiße KI-Ausrüstungsbilder + Funktion »Update installieren«.
 
-SO GEHT ES:
-1. ZIP auf dem iPhone unter „Dateien“ entpacken.
-2. GitHub öffnen: https://github.com/4h7zm6hnjy-skizze/PetriHeil
-3. ALLE Dateien dieses entpackten Ordners über „Add file“ -> „Upload files“ ins HAUPTVERZEICHNIS hochladen. Dabei bestehende Dateien ersetzen.
-4. Unten „Commit changes“ bestätigen und GitHub Pages kurz Zeit zum Veröffentlichen geben.
-5. https://4h7zm6hnjy-skizze.github.io/PetriHeil/ zweimal online öffnen, um den Offline-Cache zu aktualisieren.
-6. Unter „Mehr“ prüfen: Version 2.0.27.
+WICHTIG: Alle Dateien direkt in das Hauptverzeichnis des GitHub-Repositories PetriHeil hochladen, nicht nur die ZIP-Datei und nicht in einen neuen Unterordner. Vorhandene Dateien ersetzen.
 
-Dieses Paket enthält 19 kompakte WebP-KI-Bilder, das Hecht-Fischkunde-Symbol, den neuen Ausrüstungs-Bildloader und die aktualisierten Versions-/Start-/Cache-Dateien.
+Dateien:
+- gear-abhakmatte.webp (NEU)
+- gear-massband-waage.webp (NEU)
+- gear-hakenloeser-zange.webp (NEU)
+- petri-gear-media-v2.0.28.js (NEU; ersetzt die Script-Einbindung v2.0.27 in index.html)
+- petri-update-install-v2.0.28.js (NEU)
+- index.html (ERSETZEN)
+- sw.js (ERSETZEN)
+- species-images-v2.0.5.js (ERSETZEN)
+- version.json (ERSETZEN)
 
-NICHT Teil dieses Bildpakets: eigene KI-Bilder für Abhakmatte, Maßband & Waage sowie Hakenlöser & Zange. Dafür sind aktuell noch keine passenden Einzelmotive generiert. Diese Bilder werden nicht durch unpassende Fotos ersetzt.
+Die bisherigen gear-*.webp Bilder und das vorhandene icon-fischkunde-hecht.webp müssen im GitHub-Hauptverzeichnis bleiben.
 
-Die bestehenden Fangdaten werden nicht verändert. Die Home-Bildschirm-App nicht löschen, bevor die Daten exportiert wurden.
+Nach dem Commit zweimal online laden. Danach in Mehr > Update suchen / Update installieren testen.
+
+Update installieren ist KEINE GitHub-Datei-Upload-Funktion: Der Button lädt später veröffentlichte PWA-Versionen per Service Worker und startet die App neu. Vorherige lokale Eingaben bitte speichern. Beim Update werden lokal gespeicherte Fangdaten nicht gelöscht.
