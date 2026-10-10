@@ -1,30 +1,17 @@
 {
-  "version": "2.0.19",
+  "version": "2.0.20",
   "images": [
     {
-      "id": "c7",
-      "name": "Marmorkrebs",
-      "scientificName": "Procambarus virginalis",
-      "filename": "marmorkrebs-ki-weiss.webp",
+      "id": "c14",
+      "name": "Galizischer Sumpfkrebs",
+      "scientificName": "Pontastacus leptodactylus",
+      "filename": "galizischer-sumpfkrebs-ki-weiss.webp",
       "size": [
         1254,
         1254
       ],
-      "bytes": 240636,
-      "sha256": "c2d0f36d064e444c0e2933c3a4a179c4e2749303688e1694d290031107a1dd89",
-      "type": "KI-Illustration auf weißem Hintergrund – keine geprüfte Bestimmungsaufnahme"
-    },
-    {
-      "id": "c8",
-      "name": "Kaisergranat",
-      "scientificName": "Nephrops norvegicus",
-      "filename": "kaisergranat-ki-weiss.webp",
-      "size": [
-        1254,
-        1254
-      ],
-      "bytes": 188640,
-      "sha256": "2c0c2ab519c9ef58d337f7dae2896d28394868d22ec7d6daa14edc9210ce9597",
+      "bytes": 216580,
+      "sha256": "5d27dd17cf21d8e7ba3c4808540593549b9693679a0b2258ea3fac827182c322",
       "type": "KI-Illustration auf weißem Hintergrund – keine geprüfte Bestimmungsaufnahme"
     }
   ]

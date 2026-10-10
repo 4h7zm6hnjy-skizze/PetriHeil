@@ -1,15 +1,15 @@
-PetriHeil Bilderupdate 2.0.19
+PetriHeil Bilderupdate 2.0.20
 
 Enthalten:
-- 2 neue WebP-Bilder: Marmorkrebs und Kaisergranat
+- 1 neues WebP-Bild: Galizischer Sumpfkrebs
 - aktualisierte Dateien: species-images-v2.0.5.js, sw.js, version.json
 
 Installation:
 1. Diese ZIP-Datei entpacken.
-2. Die beiden .webp-Dateien in das Hauptverzeichnis des PetriHeil-GitHub-Repositories hochladen.
+2. Die .webp-Datei in das Hauptverzeichnis des PetriHeil-GitHub-Repositories hochladen.
 3. species-images-v2.0.5.js, sw.js und version.json im Hauptverzeichnis ersetzen.
 4. Änderungen speichern/veröffentlichen.
 5. Die App zweimal online öffnen, damit der Service Worker und der Offline-Cache aktualisiert werden.
 
 Hinweis:
-Die KI-Bilder sind illustrative Darstellungen und keine wissenschaftlich validierten Bestimmungsfotos.
+Das KI-Bild ist eine illustrative Darstellung und kein wissenschaftlich validiertes Bestimmungsfoto.

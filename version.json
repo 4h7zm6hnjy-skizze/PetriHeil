@@ -1,12 +1,12 @@
 {
-  "version": "2.0.19",
+  "version": "2.0.20",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "2 neue KI-Artenbilder auf weißem Hintergrund: Marmorkrebs und Kaisergranat.",
-    "Bildloader von 125 auf 127 eindeutige Artzuordnungen erweitert; 124 unterschiedliche lokale WebP-Artenbilder.",
-    "Vorhandene Artbilder bleiben als Originaldateien erhalten; die neuen KI-Beispielbilder tragen das Suffix -ki-weiss.",
-    "Offline-Cache, Versionsanzeige und Update-Erkennung auf Version 2.0.19 aktualisiert.",
+    "1 neues KI-Artenbild auf weißem Hintergrund: Galizischer Sumpfkrebs.",
+    "Bildloader von 127 auf 128 eindeutige Artzuordnungen erweitert; 125 unterschiedliche lokale WebP-Artenbilder.",
+    "Vorhandene Artbilder bleiben als Originaldateien erhalten; das neue KI-Beispielbild trägt das Suffix -ki-weiss.",
+    "Offline-Cache, Versionsanzeige und Update-Erkennung auf Version 2.0.20 aktualisiert.",
     "Bestehende Fangdaten und übrige App-Funktionen werden nicht verändert."
   ],
   "notes": "Alle KI-Bilder sind illustrative Darstellungen, keine wissenschaftlich validierten Bestimmungsfotos. Besonders bei Krebstieren können Proportionen und Details der Scheren ungenau sein. Kein Einsatz zur sicheren Artbestimmung, rechtlichen Entnahmeentscheidung oder Schutzstatusprüfung."
