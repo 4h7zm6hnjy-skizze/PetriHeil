@@ -1,28 +1,20 @@
-PetriHeil Menue-Reparatur 2.0.23
-===============================
+PetriHeil Pro 2.0.24 – iPhone-Home-Bildschirm-Fix
 
-FEHLER
-Das obere Menue kann am iPhone wegen Scrollen oder der Statusleisten-Position
-verschwinden bzw. schwer bedienbar sein.
+Problem: In Safari ist das neue Design hell, die installierte Home-Bildschirm-App startet noch mit dem alten dunklen Design.
+Ursache: Das helle CSS und der Bildloader wurden bislang nur durch den Service Worker nachträglich in das HTML eingefügt; das ursprüngliche index.html und das PWA-Manifest waren weiterhin dunkel.
 
-UPDATE
-Die Kopfzeile bleibt bei Scrollen sichtbar (sticky), die Schaltflaechen
-werden iPhone-gerecht angepasst und der Abstand zur Statusleiste beruecksichtigt.
-Die bestehende App-Anordnung und Fangdaten bleiben unveraendert.
-
-GITHUB UPLOAD
 1. ZIP entpacken.
-2. Im Hauptverzeichnis von 4h7zm6hnjy-skizze/PetriHeil folgende Dateien hochladen/ersetzen:
-   - species-images-v2.0.5.js
-   - petri-ocean-theme.css
-   - sw.js
-   - version.json
-3. Commit changes ausfuehren.
-4. App zweimal mit Internetverbindung oeffnen / neu laden.
-5. Version 2.0.23 unter Mehr > Update suchen kontrollieren.
-6. iPhone-Test: Seite weit herunterscrollen. Kopfzeile bleibt oben sichtbar.
-   Hamburger-Symbol oeffnet das seitliche Menue. Fang erfassen bleibt erreichbar.
+2. Diese SECHS Dateien im Hauptverzeichnis des bestehenden GitHub-Projekts hochladen bzw. ersetzen:
+   index.html
+   manifest.webmanifest
+   petri-ocean-theme.css
+   species-images-v2.0.5.js
+   sw.js
+   version.json
+3. Commit speichern und Veröffentlichung auf GitHub Pages abwarten.
+4. Bereits installierte Home-Bildschirm-App MIT INTERNET öffnen und zweimal vollständig schließen und neu starten. In der App unter Mehr > Update suchen Version 2.0.24 prüfen.
+5. Erst wenn die App online aktualisiert ist, den Offline-Betrieb ausprobieren.
 
-WICHTIG
-Website-/App-Daten NICHT ungesichert loeschen, da dort lokale Fangdaten liegen koennen.
-Eine Verifikation auf deinem iPhone ist erst nach dem Upload moeglich.
+ACHTUNG: Die Home-Bildschirm-App NICHT einfach löschen. Dadurch könnten lokal gespeicherte Fangdaten verloren gehen. Falls ein Neuinstallieren irgendwann nötig ist, vorher in der App ein Backup exportieren.
+
+Dieses Paket ändert weder app.js noch data.js und löscht keine Nutzerdaten. Die alten eingebetteten Icons im index.html wurden durch Links auf die bereits vorhandenen Dateien icon-192.png und petri-logo.webp ersetzt.

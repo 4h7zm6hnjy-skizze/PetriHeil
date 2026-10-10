@@ -1,16 +1,37 @@
-/* Petri Heil Pro 2.0.23: compatible update for the existing 2.0.4 app.
+/* Petri Heil Pro 2.0.24: compatible update for the existing 2.0.4 app.
    This worker precaches 175 image and icon files, including 172 mapped species WebPs.
    It injects the photo loader during HTML navigation without changing user data.
 */
-const CACHE='petri-heil-pro-v2-0-23';
+const CACHE='petri-heil-pro-v2-0-24';
 const PHOTO_CACHE='petri-heil-real-photos-v1';
 const CORE=[
   './index.html','./style.css?v=2.0.4','./app.js?v=2.0.4','./data.js?v=2.0.4',
-  './species-images-v2.0.5.js?v=2.0.23','./petri-ocean-theme.css?v=2.0.23','./manifest.webmanifest','./version.json'
+  './species-images-v2.0.5.js?v=2.0.24','./petri-ocean-theme.css?v=2.0.24','./manifest.webmanifest','./version.json'
 ];
 const IMAGES=["./aal.webp", "./lachs.webp", "./mairenke.webp", "./ziege.webp", "./icon-192.png", "./icon-512.png", "./petri-logo.webp", "./giebel.webp", "./goldfisch.webp", "./dreistachliger-stichling.webp", "./schwarzmundgrundel.webp", "./stint.webp", "./sterlet.webp", "./bachneunauge.webp", "./petermaennchen.webp", "./europaeischer-hummer.webp", "./chinesische-wollhandkrabbe.webp", "./neunstachliger-stichling.webp", "./kesslergrundel.webp", "./flussgrundel.webp", "./nackthalsgrundel.webp", "./amurgrundel.webp", "./flussneunauge.webp", "./meerneunauge.webp", "./gemeine-strandkrabbe.webp", "./nordseegarnele.webp", "./taschenkrebs.webp", "./meerforelle-neu.webp", "./atlantischer-stoer-neu.webp", "./europaeischer-stoer.webp", "./donau-neunauge.webp", "./stintdorsch.webp", "./kleines-petermaennchen.webp", "./lippfisch-goldmaid.webp", "./gefleckter-lippfisch.webp", "./meeraesche-dicklippige.webp", "./meeraesche-duennlippige.webp", "./seehase.webp", "./seewolf-gestreifter.webp", "./kuckuckslippfisch.webp", "./grosser-scheibenbauch.webp", "./europaeischer-butterfisch.webp", "./aalmutter.webp", "./seestichling.webp", "./grasnadel.webp", "./grosse-seenadel.webp", "./seepferdchen-langschnauziges.webp", "./kleine-seenadel.webp", "./schlangennadel.webp", "./seepferdchen-kurzschnauziges.webp", "./schwarzgrundel.webp", "./sandgrundel.webp", "./strandgrundel.webp", "./fleckengrundel.webp", "./goldstrieme.webp", "./meerbrasse.webp", "./hai-kleingefleckter-katzenhai.webp", "./dornhai.webp", "./heringshai.webp", "./nagelrochen.webp", "./sternrochen.webp", "./glattrochen.webp", "./zope.webp", "./zobel.webp", "./zaehrte.webp", "./frauennerfling.webp", "./stroemer.webp", "./perlfisch.webp", "./stromgruendling.webp", "./donau-steinbeisser.webp", "./schwarzer-zwergwels.webp", "./schwarzbarsch.webp", "./groppe-rheingebiet.webp", "./hundsfisch.webp", "./ostasiatischer-schlammpeitzger.webp", "./schnaepel.webp", "./grosse-maraene.webp", "./kleine-maraene.webp", "./blaufelchen.webp", "./gangfisch.webp", "./kilch.webp", "./ammersee-kaulbarsch.webp", "./schraetzer.webp", "./streber.webp", "./zingel.webp", "./wittling.webp", "./schellfisch.webp", "./seelachs-koehler.webp", "./pollack.webp", "./seehecht.webp", "./leng.webp", "./franzosendorsch.webp", "./zwergdorsch.webp", "./europaeische-sardelle.webp", "./stoecker.webp", "./seezunge.webp", "./glattbutt.webp", "./rotzunge.webp", "./heilbutt.webp", "./doggerscharbe.webp", "./zwergzunge.webp", "./seeskorpion.webp", "./langstacheliger-seeskorpion.webp", "./knurrhahn-rot.webp", "./grauer-knurrhahn.webp", "./lumb.webp", "./roter-knurrhahn.webp", "./hundshai.webp", "./kuckucksrochen.webp", "./dohlenkrebs.webp", "./steinkrebs.webp", "./edelkrebs-ki-weiss.webp", "./signalkrebs-ki-weiss.webp", "./kamberkrebs-ki-weiss.webp", "./roter-amerikanischer-sumpfkrebs.webp", "./scholle-ki-weiss.webp", "./flunder-ki-weiss.webp", "./kliesche-ki-weiss.webp", "./steinbutt-ki-weiss.webp", "./hering-ki-weiss.webp", "./sprotte-ki-weiss.webp", "./sardine-ki-weiss.webp", "./makrele-ki-weiss.webp", "./hornhecht-ki-weiss.webp", "./wolfsbarsch-ki-weiss.webp", "./marmorkrebs-ki-weiss.webp", "./kaisergranat-ki-weiss.webp", "./galizischer-sumpfkrebs-ki-weiss.webp", "./hecht.webp", "./zander.webp", "./flussbarsch.webp", "./kaulbarsch.webp", "./wels.webp", "./quappe.webp", "./karpfen.webp", "./graskarpfen.webp", "./silberkarpfen.webp", "./marmorkarpfen.webp", "./schleie.webp", "./brasse.webp", "./guester.webp", "./rotauge.webp", "./rotfeder.webp", "./aland.webp", "./doebel.webp", "./rapfen.webp", "./barbe.webp", "./nase.webp", "./aesche.webp", "./bachforelle.webp", "./seeforelle.webp", "./regenbogenforelle.webp", "./bachsaibling.webp", "./seesaibling.webp", "./huchen.webp", "./karausche.webp", "./gruendling.webp", "./hasel.webp", "./laube.webp", "./elritze.webp", "./moderlieschen.webp", "./bitterling.webp", "./schneider.webp", "./bachschmerle.webp", "./steinbeisser.webp", "./schlammpeitzger.webp", "./koppe.webp", "./zwergwels.webp", "./sonnenbarsch.webp", "./marmorierte-grundel.webp", "./maifisch.webp", "./finte.webp", "./dorsch.webp", "./goldbrasse.webp", "./seeteufel.webp"];
 const PHOTO_HOSTS=['static.inaturalist.org','inaturalist-open-data.s3.amazonaws.com','upload.wikimedia.org'];
-self.addEventListener('message',e=>{if(e.data&&e.data.type==='SKIP_WAITING')self.skipWaiting()});
+let imagePrefetchTask=null;
+function scheduleOfflineImagePrefetch(){
+  if(imagePrefetchTask)return imagePrefetchTask;
+  imagePrefetchTask=(async()=>{
+    const cache=await caches.open(CACHE);
+    await prefetchImages(cache);
+    // Old caches remain as fallback until every mapped image is in the new cache.
+    let complete=true;
+    for(const path of IMAGES){if(!(await cache.match(path))){complete=false;break;}}
+    if(complete){
+      for(const key of await caches.keys()){
+        if(key.startsWith('petri-heil-pro-')&&key!==CACHE)await caches.delete(key);
+      }
+    }
+  })().finally(()=>{imagePrefetchTask=null});
+  return imagePrefetchTask;
+}
+self.addEventListener('message',e=>{
+  if(!e.data)return;
+  if(e.data.type==='SKIP_WAITING'){e.waitUntil(self.skipWaiting());return;}
+  if(e.data.type==='PREFETCH_IMAGES')e.waitUntil(scheduleOfflineImagePrefetch());
+});
 async function prefetchImages(cache){
   let n=0;
   async function work(){
@@ -27,15 +48,13 @@ async function prefetchImages(cache){
 }
 self.addEventListener('install',e=>e.waitUntil((async()=>{
   const cache=await caches.open(CACHE);
+  // Install the new HTML, CSS and code first. 175 large species images must not
+  // keep an iPhone Home Screen app pinned to an older service worker.
   await cache.addAll(CORE);
-  await prefetchImages(cache);
   await self.skipWaiting();
 })()));
 self.addEventListener('activate',e=>e.waitUntil((async()=>{
-  const keys=await caches.keys();
-  for(const k of keys){
-    if(k.startsWith('petri-heil-pro-')&&k!==CACHE)await caches.delete(k);
-  }
+  // Keep old image caches until replacement image precache is complete.
   await self.clients.claim();
 })()));
 async function networkFirst(req,key){
@@ -53,8 +72,8 @@ async function networkFirst(req,key){
 async function withPhotoLoader(result){
   if(!result||!result.ok)return result;
   const html=await result.text();
-  const loader='<script src="./species-images-v2.0.5.js?v=2.0.23" defer></script>';
-  const theme='<link rel="stylesheet" href="./petri-ocean-theme.css?v=2.0.23">';
+  const loader='<script src="./species-images-v2.0.5.js?v=2.0.24" defer></script>';
+  const theme='<link rel="stylesheet" href="./petri-ocean-theme.css?v=2.0.24">';
   if(!html.includes('</body>'))return new Response(html,{status:result.status,statusText:result.statusText,headers:result.headers});
   let patched=html.includes('species-images-v2.0.5.js')?html:html.replace('</body>',loader+'\n</body>');
   if(!patched.includes('petri-ocean-theme.css'))patched=patched.replace('</head>',theme+'\n</head>');

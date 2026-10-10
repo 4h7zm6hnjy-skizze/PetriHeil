@@ -1,25 +1,25 @@
 {
   "name": "Petri Heil Pro – By Marcel Hentschel",
   "short_name": "Petri Heil",
-  "description": "Offlinefähige Angel-Web-App mit 70 integrierten KI-Bildern, Fangbuch, Angelschein-Übungen, Angelzeit und Datensicherung.",
+  "description": "Offlinefähige Angel-Web-App mit Fischkunde, Fangbuch, Angelschein-Übungen, Angelzeit und Datensicherung.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#081b1d",
-  "theme_color": "#081b1d",
+  "background_color": "#e8f4fc",
+  "theme_color": "#e8f4fc",
   "lang": "de",
   "icons": [
     {
-      "src": "assets/icon-192.png",
+      "src": "./icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "assets/icon-512.png",
+      "src": "./icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ]
 }

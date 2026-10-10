@@ -134,7 +134,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,
 }
 
 
-/* PetriHeil 2.0.23 - iPhone: obere Navigation immer erreichbar.
+/* PetriHeil 2.0.24 - iPhone: obere Navigation immer erreichbar.
    Viewport-fit=cover wird durch iOS safe area Insets beruecksichtigt.
    Desktop-Layout und untere Navigation unveraendert. */
 @media screen and (max-width: 850px) {
