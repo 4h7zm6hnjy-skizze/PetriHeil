@@ -1,39 +1,8 @@
-PETRI HEIL PRO – ERWEITERUNG 2.0.31
-====================================
+PetriHeil Pro Update 2.0.32
 
-INHALT
-- 8 App-Dateien, direkt ins GitHub-Repository (Stammverzeichnis) hochladen.
-- Die INSTALLATION.txt ist nur eine Anleitung, nicht Teil der App.
+1. Vorher ein Backup aller Fangdaten sichern.
+2. ZIP entpacken. Die 6 App-Dateien (index.html, sw.js, version.json, petri-update-install-v2.0.28.js, petri-pro-suite-v2.0.32.js und petri-pro-suite-v2.0.32.css) in das Hauptverzeichnis des GitHub-Repositories PetriHeil hochladen.
+3. Bereits existierende Dateien ersetzen. Änderungen committen.
+4. App zweimal mit Internetverbindung starten. Version 2.0.32 prüfen.
 
-SO INSTALLIERST DU DAS UPDATE
-1. ZIP auf dem iPhone in der App „Dateien“ entpacken.
-2. Im Repository https://github.com/4h7zm6hnjy-skizze/PetriHeil die 8 App-Dateien hochladen.
-3. Vorhandene Dateien mit gleichem Namen ersetzen und „Commit changes“ wählen.
-4. Auf GitHub Pages auf die Veröffentlichung warten. Die PetriHeil-PWA online zweimal öffnen.
-5. Die neue Schaltfläche „Angelzentrale Pro“ benutzen (Startseite, Seitenmenü oder rechts über dem unteren Menü).
-
-WICHTIG
-- Die bisherige PetriHeil-App bleibt bestehen: Original-Fangbuch, Original-Uhr, 177 Fischarten und Design werden nicht ersetzt.
-- Zusätzliche Angelzentrale speichert lokal; Standortfreigabe wird nur nach Klick angefordert.
-- Manuelle Angelzeiten aus Version 2.0.30 gehen in die Pro-Zeitauswertung ein. Das neue Fangbuch zählt keine alten Fangdaten des Original-Fangbuchs.
-- Wetter nutzt Open-Meteo nur bei Internetverbindung, Karte nutzt OpenStreetMap erst bei aktiver Benutzeranfrage.
-- Offline gespeichert sind Programm und selbst eingegebene Daten; Kartenkacheln und Wetter-Vorhersagen werden nicht vollständig offline bereitgestellt.
-- Datensicherungen können personenbezogene Daten enthalten. Nur privat/sicher aufbewahren.
-- Amtliche Fragen, Bild-KI zur Arterkennung und lizenzierte Tiefenkarten sind NICHT vollständig integriert.
-- Fänge/Fotos/Dokumente zunächst auf dem iPhone testen, bevor weitere Daten erfasst werden.
-- Die Version und die Update-Funktion zeigen erst nach Hochladen auf GitHub 2.0.31 an.
-
-FUNKTIONEN
-Angelzentrale (11 Tabs); Angelzeit und Touren; eigene Gewässer & Karte; Wetterabfrage; Pro-Fangbuch
-mit Foto; Inventar mit Foto; persönlicher Lernplan und Links zu NRW-Unterlagen; Dokumentenablage
-und Fristerinnerungen beim Öffnen; Packliste; Foto-Messhilfe; JSON-Sicherung und CSV-Export.
-
-DATEIEN DIE HOCHGELADEN WERDEN MÜSSEN
-index.html
-sw.js
-version.json
-petri-pro-suite-v2.0.31.js
-petri-pro-suite-v2.0.31.css
-species-images-v2.0.5.js
-petri-anglerclock-pruefung-v2.0.30.js
-petri-update-install-v2.0.28.js
+Hinweis: Dieses Paket baut auf v2.0.31 auf, nur wenn alle Dateien von v2.0.31 bereits auf GitHub liegen. Die ursprünglichen Fangdaten bleiben erhalten; alte und neue Fangbücher bleiben getrennt.

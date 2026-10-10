@@ -1,25 +1,20 @@
 {
-  "version": "2.0.31",
+  "version": "2.0.32",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Neue Angelzentrale Pro mit 11 übersichtlichen Bereichen, ohne die ursprüngliche App zu überschreiben.",
-    "Gewässer und private Angelstellen mit GPS-Koordinaten sowie manuellem OpenStreetMap-Kartenaufruf.",
-    "Angelzeit-Stoppuhr mit Angelort, nachträgliche Zeiträume und zusammengeführte Zeitstatistik ohne Überschneidungen (Pro und manuelle Zeiten aus 2.0.30).",
-    "Zusätzliches Fangbuch mit Fangfoto, persönlichen Auswertungen und CSV-Export; vorhandenes Fangbuch bleibt unberührt.",
-    "Eigener Ausrüstungsmanager mit Fotos, Anschaffungskosten und Wartungsfristen.",
-    "Wetterabfrage für gespeicherte Angelstellen oder GPS über Open-Meteo, mit Luftdruck, Wind, Niederschlag und Sonnenauf-/untergang.",
-    "Angeltrip-Planer mit Packliste sowie gespeicherten Dokumenten (Bilder/PDF) und eigenen Gewässerregeln.",
-    "Offizielle Quellen für Fischerprüfung und Fischereirecht NRW; Lernplan für den Prüfungstrainer.",
-    "Foto-Messhilfe mit vier manuellen Referenzpunkten; keine KI-Fischbestimmung und keine Genauigkeitsgarantie.",
-    "Lokale JSON-Datensicherung für localStorage und Pro-Medien, Wiederherstellung und Fangbuch-CSV.",
-    "Neuer Offline-Service-Worker v2.0.31 sowie angepasste Update-Installation."
+    "Manuelle Angelzeiten aus Version 2.0.30 direkt in der Angelzentrale Pro anlegen, bearbeiten und löschen, ohne die gespeicherten Daten zu duplizieren.",
+    "Gemeinsame Zeitstatistik aus Pro-Stoppuhr, Pro-Angeltagen und manuell nachgetragenen Zeiten; überlappende Zeiträume werden nur einmal gezählt.",
+    "Pro-Fänge anhand der Fangzeit automatisch eindeutig einem Angeltag zuordnen oder im Fangformular manuell einer gespeicherten Angelzeit zuweisen.",
+    "Fangquote pro zehn Angelstunden, Monatsauswertung und zugeordnete bzw. nicht zugeordnete Fänge.",
+    "Pro-Backup sichert nun zusätzlich das gespeicherte NRW-Prüfungs-PDF aus Version 2.0.30, sofern vorhanden, und stellt es beim Import wieder her; ältere Pro-Backups bleiben lesbar.",
+    "Präzisierte amtliche Prüfungsbedingungen NRW 2026 mit Verlinkung zu den offiziellen Prüfungsanlagen.",
+    "Neues Offline-Caching und Versionsanzeige für 2.0.32."
   ],
   "limitations": [
-    "Weder vollständige amtliche Prüfungsfragen noch automatische Fischfoto-KI oder Gewässertiefenkarten sind in diesem Update enthalten.",
-    "Bestehendes originales Fangbuch wird nicht automatisch in das neue Pro-Fangbuch importiert oder von dessen Statistik mitgezählt.",
-    "Lokale Pro-Backup-Funktion sichert fremde/ältere IndexedDB-Datenbanken der ursprünglichen App nicht automatisch.",
-    "Echte Wetterdaten und Online-Karten benötigen Internet, GPS setzt ausdrückliche Standortfreigabe voraus.",
-    "Fischereirechtsangaben und örtliche Erlaubnisscheine müssen individuell geprüft werden."
+    "Das ursprüngliche ältere Fangbuch ist weiterhin getrennt; dessen IndexedDB wird nicht automatisch zusammengeführt oder garantiert gesichert.",
+    "Nur eindeutig zeitlich zugeordnete Pro-Fänge fließen in die Fangquote ein; die Quote stellt keine Fangprognose dar.",
+    "Für Originalprüfungsfragen braucht die interaktive Simulation weiterhin einen aktuellen, korrekt vorbereiteten Fragenimport; PDF kann als Dokument gespeichert werden.",
+    "Online-Wetter und Karten benötigen Internet; keine geprüfte KI-Fischbestimmung oder vollständige Tiefenkarten."
   ]
 }
