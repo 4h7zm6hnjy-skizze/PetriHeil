@@ -1,30 +1,37 @@
-PETRIHEIL DESIGN & BILDFIX v2.0.21
+PETRIHEIL OZEAN DESIGN-FIX 2.0.22
 ================================
 
-DESIGN
-- Helleres, freundliches Ozean-Farbschema passend zum bisherigen Fisch-Logo
-- Wasserblau, Weiß, Dunkelblau; warme Akzente
-- Keine Menü- oder Funktionsverschiebungen
+PROBLEM
+Version 2.0.21 wird angezeigt, aber das helle Logo-Farbschema bleibt
+auf iPhone/Safari teilweise unsichtbar: Die CSS-Verknuepfung ueber die
+Navigation des Service Workers kann aus dem Browsercache kommen.
 
-FISCHKUNDE
-- 49 zuvor nicht im Zusatz-Bildloader verknüpfte Arten erhalten Zuordnungen zu bereits vorhandenen lokalen WebPs
-- Insgesamt 177 Artzuordnungen, 172 unterschiedliche WebP-Dateien
-- Das modale Detailfenster (#modal-root) wird nun überwacht
-- Das erste Bild im Detailfenster wird auf dieselbe lokale Bilddatei wie die Übersicht gesetzt
-- Existing photos used elsewhere (z. B. eigene Fangfotos) bleiben erhalten
+REPARATUR
+Die Datei species-images-v2.0.5.js enthaelt das gesamte Farbdesign
+jetzt zusaetzlich selbst und aktiviert es unabhaengig vom Service Worker.
 
 INSTALLATION AUF GITHUB
-1. Die vier Dateien DIREKT in das Stammverzeichnis hochladen:
-   petri-ocean-theme.css (NEU)
-   species-images-v2.0.5.js (ERSETZEN)
-   sw.js (ERSETZEN)
-   version.json (ERSETZEN)
-2. Keine Unterordner erzeugen und die restlichen Dateien nicht löschen.
-3. Änderungen speichern und GitHub Pages-Veröffentlichung abwarten.
-4. App mit Internet öffnen, erneut öffnen; unter Mehr -> Update suchen Version 2.0.21 kontrollieren.
-5. Fischkunde: Goldfisch, Huchen und weitere Einträge öffnen, Übersicht/erstes Detailbild vergleichen.
+1. ZIP entpacken.
+2. Die folgenden Dateien im Hauptordner von PetriHeil hochladen/ersetzen:
+   - species-images-v2.0.5.js (ersetzen; wichtigster Fix)
+   - sw.js (ersetzen)
+   - version.json (ersetzen)
+   - petri-ocean-theme.css (vorhandene Datei ersetzen, falls sie aelter ist)
+3. Commit changes waehlen; auf GitHub Pages warten.
+4. App im Browser online aufrufen und die Seite frisch laden.
+5. Falls noch dunkel: Safari-Site-Daten fuer die GitHub-Pages-Seite
+   loeschen oder die App im privaten Browserfenster oeffnen. Bei einer
+   installierten Web-App diese ggf. entfernen und neu hinzufuegen,
+   nachdem die normalen Website-Daten gesichert sind. Das kann lokal
+   gespeicherte Fangdaten loeschen; also VORHER sichern!
 
-HINWEISE
-- Bilder sind illustrative KI-Darstellungen, keine sichere Artbestimmung.
-- Alle Bilddateien wurden auf GitHub per Name und Arteintrag abgeglichen, aber nicht einzeln visuell/wissenschaftlich überprüft.
-- Änderungen sind erst aktiv, nachdem die ZIP-Dateien auf GitHub hochgeladen wurden.
+ERWARTET
+- Haupt-Hintergrund hellblau statt fast schwarz
+- Karten weiss mit blauen Rahmen
+- Navigation dunkelblau, aktive Eintraege kraeftig blau
+- Gleiche Seitenanordnung und 177 Bildzuordnungen wie bisher
+
+TECHNIK / HINWEISE
+Datei petri-ocean-theme.css bleibt als eigenstaendige Designquelle
+vorhanden, ist aber fuer die Darstellung nicht mehr zwingend erforderlich.
+Keine Versprechen zur biologischen Korrektheit generierter Bilder.

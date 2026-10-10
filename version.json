@@ -1,13 +1,12 @@
 {
-  "version": "2.0.21",
+  "version": "2.0.22",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Frisches, deutlich freundlicheres Ozean-Design in den Logofarben: Wasserblau, Weiß und Dunkelblau mit dezentem Oliv-/Goldakzent.",
-    "Anordnung der Navigation und sämtliche bisherigen Funktionen bleiben unverändert.",
-    "Erstes Fischkunde-Detailbild verwendet jetzt dieselbe zur Art-ID gehörende lokale WebP-Datei wie die Übersicht; externe Bildverwechslungen werden ersetzt.",
-    "Alle 177 Fisch- und Krebsarten besitzen eine Bildzuordnung (172 unterschiedliche lokale WebP-Dateien).",
-    "Offline-Cache mit zusätzlichem Design-Stylesheet und allen lokalen Bilddateien auf Version 2.0.21 aktualisiert."
+    "Design-Fix: Ozean-Farbschema wird jetzt direkt durch den aktiven Bildloader angewendet – auch wenn iOS/Safari die CSS-Datei nicht über den Service Worker einbindet.",
+    "Helleres Wasserblau und Weiß passend zum PetriHeil-Logo, dunkelblaue Navigation, kontraststarke Bedienelemente; bestehende Anordnung und Funktionen unverändert.",
+    "Service-Worker-Cache und Bildloader auf Version 2.0.22 aktualisiert.",
+    "Fischkunde-Bildzuordnungen für alle 177 Arten bleiben erhalten, einschließlich Übereinstimmung von Übersichts- und erstem Detailbild."
   ],
-  "notes": "Eine Zuordnung zur richtigen Bilddatei bestätigt nicht die wissenschaftliche Genauigkeit der KI-Darstellung. Bereits gespeicherte Fotos/Fangdaten werden nicht gelöscht. Die Anzeige wurde anhand der Bildlogik geprüft; ein vollständiger Gerätetest auf iPhone ist noch nötig."
+  "notes": "Bestehende Fangdaten werden nicht verändert. Das Aussehen muss auf dem iPhone nach dem Upload geprüft werden. KI-Bilder sind keine wissenschaftlich validierten Bestimmungsfotos."
 }
