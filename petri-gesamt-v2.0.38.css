@@ -1,0 +1,51 @@
+/* PetriHeil private combined update 2.0.38 */
+#p31-overlay .p38-launch{flex:none;border:1px solid #2983af;border-radius:10px;background:#e8f7fd;color:#075b85;padding:9px 12px;font-size:13px;font-weight:800;cursor:pointer;margin-left:auto}
+#p38-overlay{position:fixed;inset:0;z-index:100200;display:flex;align-items:stretch;justify-content:center;background:#082b3cb8;color:#133d54;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+#p38-overlay *{box-sizing:border-box}
+#p38-overlay .p38-window{width:min(100%,1020px);display:flex;flex-direction:column;max-height:100dvh;background:#edf7fc;overflow:hidden}
+#p38-overlay .p38-head{display:flex;align-items:center;justify-content:space-between;gap:9px;padding:13px 16px;background:#fff;border-bottom:1px solid #b7d9e8}
+#p38-overlay h2{font-size:20px;color:#0a587d;margin:0}#p38-overlay .p38-head small{display:block;font-size:12px;color:#53758a;margin-top:4px}
+#p38-overlay .p38-head button{flex:none;background:#e7f4fa;color:#1d5874;border:1px solid #b6d5e4;border-radius:10px;padding:10px 12px;font-weight:750}
+#p38-overlay .p38-tabs{display:flex;gap:5px;padding:10px 13px;overflow-x:auto;background:#f9fdff;border-bottom:1px solid #cfe4ef;flex:none}
+#p38-overlay button{cursor:pointer;font-family:inherit}
+#p38-overlay .p38-tabs button{flex:none;background:#fff;color:#266079;border:1px solid #c5deeb;border-radius:9px;padding:9px 12px;font-size:12px;font-weight:750}
+#p38-overlay .p38-tabs button[aria-current=page]{background:#087bb4;color:white;border-color:#087bb4}
+#p38-overlay .p38-main{padding:16px;overflow-y:auto;overflow-x:hidden;flex:1;-webkit-overflow-scrolling:touch}
+#p38-overlay h3{font-size:21px;color:#154962;margin:3px 0 10px}#p38-overlay h4{font-size:16px;color:#134e6c;margin:12px 0 10px}
+#p38-overlay p{font-size:14px;line-height:1.55;color:#42677b;margin:7px 0 12px}
+#p38-overlay .p38-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+#p38-overlay .p38-card{border:1px solid #bfdae8;border-radius:14px;padding:16px;background:#fff;display:flex;flex-direction:column;gap:8px;text-align:left;min-height:112px;color:#12435c}
+#p38-overlay .p38-card strong{font-size:16px}#p38-overlay .p38-card span{font-size:13px;line-height:1.5;color:#52758a}
+#p38-overlay .p38-note{border-left:3px solid #2188b8;background:#e5f5fc;color:#245c79;border-radius:7px;padding:11px 13px;margin:15px 0;font-size:13px;line-height:1.6}
+#p38-overlay .p38-danger{border-left:4px solid #b24739;background:#fff0ed;color:#842c23;border-radius:8px;padding:11px 12px;margin:14px 0;line-height:1.55}
+#p38-overlay .p38-danger p{color:#80352d}
+#p38-overlay .p38-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:12px 0}
+#p38-overlay label{font-size:13px;display:block;color:#1b526d;font-weight:650}
+#p38-overlay input,#p38-overlay select,#p38-overlay textarea{display:block;width:100%;min-width:0;padding:11px 12px;border-radius:9px;border:1px solid #b1d2e3;background:#fff;color:#123e58;font-family:inherit;font-size:16px;margin-top:6px;-webkit-user-select:text;user-select:text}
+#p38-overlay textarea{min-height:100px;resize:vertical}
+#p38-overlay .p38-btn{display:inline-flex;justify-content:center;align-items:center;border:1px solid #b9d3e0;border-radius:10px;padding:10px 13px;background:#e7f4fc;color:#155878;font-size:13px;font-weight:760;margin:2px}
+#p38-overlay .p38-btn.p38-primary{background:#0879b4;color:#fff;border-color:#0879b4}
+#p38-overlay .p38-actions{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}
+#p38-overlay .p38-result,#p38-overlay .p38-list{margin:10px 0}
+#p38-overlay .p38-fishlist{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px}
+#p38-overlay .p38-item{border:1px solid #c9e1eb;background:white;border-radius:10px;padding:12px;min-width:0;margin-bottom:8px;overflow-wrap:anywhere}
+#p38-overlay .p38-item strong{display:block;font-size:14px;color:#1b4c65}
+#p38-overlay .p38-item small{display:block;font-size:12px;color:#6b8999;margin:6px 0}
+#p38-overlay .p38-item span{font-size:12px;color:#416780}
+#p38-overlay .p38-previewimg{display:block;max-height:330px;max-width:100%;border-radius:12px;object-fit:contain;margin:9px 0;background:white}
+#p38-overlay .p38-bars{display:grid;gap:14px;padding:10px 0}
+#p38-overlay .p38-bars>div{border:1px solid #cce4ed;border-radius:11px;padding:11px;background:#fff}
+#p38-overlay .p38-bars strong{font-size:14px}#p38-overlay .p38-bars small{font-size:12px;color:#477188}
+#p38-overlay .p38-bar{height:13px;border-radius:7px;background:#e3eff5;overflow:hidden;margin:7px 0}
+#p38-overlay .p38-bar i{display:block;height:100%;background:#167bb3;border-radius:7px}
+#p38-overlay .p38-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+#p38-overlay .p38-kpis>div{text-align:center;border:1px solid #c7e3ee;background:white;border-radius:12px;padding:13px 5px}
+#p38-overlay .p38-kpis strong{display:block;font-size:26px;color:#09689b}#p38-overlay .p38-kpis small{font-size:12px;color:#4b7388}
+#p38-overlay .p38-quiz{padding:14px;border:1px solid #c0dfec;background:#fff;border-radius:12px}
+#p38-overlay .p38-choice{display:flex;align-items:flex-start;gap:10px;padding:11px;margin:8px 0;border:1px solid #cfdfeb;border-radius:9px;cursor:pointer}
+#p38-overlay .p38-choice input{width:19px;height:19px;min-height:19px;margin:0;flex:none;accent-color:#097eb7}
+#p38-overlay .p38-choice span{flex:1;font-size:14px;color:#214a61}
+#p38-overlay .p38-status{font-size:12px;color:#1a5f7c;background:#e2f4fd;padding:9px 15px;min-height:34px}
+#p38-overlay a{color:#006eae;text-decoration:underline;overflow-wrap:anywhere}
+#p38-overlay button:focus-visible,#p38-overlay input:focus-visible,#p38-overlay select:focus-visible,#p38-overlay textarea:focus-visible{outline:3px solid #168bca;outline-offset:2px}
+@media(max-width:700px){#p31-overlay .p38-launch{padding:8px;font-size:12px}#p38-overlay .p38-main{padding:12px}#p38-overlay .p38-cards,#p38-overlay .p38-grid{grid-template-columns:1fr}#p38-overlay .p38-head{padding:9px 11px}#p38-overlay h2{font-size:16px}#p38-overlay .p38-kpis strong{font-size:20px}}

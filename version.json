@@ -1,19 +1,23 @@
 {
-  "version": "2.0.37",
+  "version": "2.0.38",
   "releaseDate": "2026-10-10",
-  "name": "Petri Heil Pro",
+  "name": "PetriHeil Pro Privat – Gesamtupdate",
   "changes": [
-    "Neue interaktive 60-Fragen-Übungsprüfung mit 60 Minuten, zehn Fragen pro Fachgebiet, Bewertung 45/60 und mindestens 6/10 pro Fachgebiet. Die 110 eingebauten Übungsfragen werden genutzt; dies sind keine bestätigten amtlichen Originalfragen.",
-    "JSON-Import für einen extern vorbereiteten, vom Nutzer zu prüfenden Fragenkatalog (alle sechs Fachgebiete, mindestens zehn pro Gebiet), ohne irreführende amtliche Kennzeichnung.",
-    "Manuelle Zuordnung vorhandener Bilder zu einzelnen Pro-Fängen, wahlweise aus iPhone-Fotomediathek oder nach optionaler, begrenzter Suche in alten lokalen IndexedDB-Datenbanken.",
-    "Gewässerkarte Pro für lokal gespeicherte GPS-Angelstellen, Online-Karte von OpenStreetMap nur auf Knopfdruck, Ortsübersicht und externer Kartenlink.",
-    "Alte Fangdatenbanken werden bei der Fotoprüfung ausschließlich gelesen, nie verändert. Daten bleiben lokal; Bilder werden nur nach expliziter Fangwahl verknüpft.",
-    "Versionsanzeige, Offline-Cache und Updateinstallation auf 2.0.37 aktualisiert."
+    "Neue Erweiterungszentrale mit sieben Bereichen direkt über Angelzentrale Pro → Erweiterungen.",
+    "Fischbestimmung als lokale Merkmals- und Artenvergleichshilfe mit eigenem Vergleichsfoto (keine KI-Erkennung und keine automatische Bildanalyse).",
+    "Persönliche Köderauswertung aus Pro-Fängen, filterbar nach Zielfisch und Monat; keine unhaltbaren Fangwahrscheinlichkeiten.",
+    "NRW-Fischereirecht nach §§ 1–3 LFischVO, geltende Fassung 03.07.2026: Schonzeiten, 12 Mindestmaße und ganzjährig geschonte Arten sowie Rhein-Aal-Sonderregel, mit offizieller Quelle.",
+    "Neues 10-Fragen-Lerntraining, Fehlerwiederholung, lokale Lernstatistik und Export; bestehende 60-Fragen-Simulation bleibt erhalten.",
+    "Private Gewässernotizen und OpenStreetMap-Kartenaufruf nur nach ausdrücklicher Koordinatenfreigabe.",
+    "Offline-Cache-Prüfer, Quellennachweise, Datenschutzhinweise, Versionsanzeige und Aktualisierungssystem auf 2.0.38 angepasst.",
+    "Keine kostenpflichtigen APIs und kein Abonnement erforderlich. Original-App und Pro-Fangbuch bleiben unberührt."
   ],
   "limitations": [
-    "Der neue Übungstrainer basiert standardmäßig auf 110 selbst erstellten PetriHeil-Fragen, nicht auf dem vollständigen amtlichen Fragenkatalog. PDFs werden nicht in interaktive Fragen umgewandelt.",
-    "Alte Fotos lassen sich nur finden, wenn der Browser Zugriff auf die ursprünglichen lokalen Datenbanken gewährt und deren Bildfelder lesbar sind. Eine verlässliche automatische Zuordnung ist nicht implementiert.",
-    "OpenStreetMap benötigt eine Internetverbindung und enthält keine garantierten Tiefenkarten. Gespeicherte private GPS-Punkte werden nur beim aktiven Kartenaufruf an OpenStreetMap übergeben.",
-    "Fangbuch-Originaleinträge bleiben unverändert. Ein vollständiger Test auf dem iPhone steht noch aus."
+    "Keine automatische KI-Fischerkennung aus einem Foto. Dies würde ein überprüftes kompatibles lokales Modell oder einen externen Dienst erfordern.",
+    "Keine vollständige amtliche Prüfungsfragen-Datenbank; die 110 eingebauten Fragen sind eigene Übungsfragen. Der amtliche Katalog ist verlinkt.",
+    "NRW-Angaben sind allgemeine Landeswerte (Stand 03.07.2026); besondere Gewässerbestimmungen, neue Änderungen und weitere Bundesländer werden nicht automatisch abgedeckt.",
+    "Gewässertiefenkarten sind nur verfügbar, wenn ein entsprechender legaler Datensatz vorliegt; dieses Update enthält keine pauschalen Tiefendaten.",
+    "OpenStreetMap erfordert Attribution/ODbL; Open-Meteo ist in der bestehenden App nach deren Bedingungen nichtkommerziell nutzbar. Kostenlos bedeutet nicht gemeinfrei.",
+    "Neues Zusatzmodul ist lokal getestet, nicht auf einem echten iPhone. Für sichere Datenübernahme vor Hochladen Backup erzeugen."
   ]
 }
