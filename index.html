@@ -9,13 +9,15 @@
 <meta name="apple-mobile-web-app-title" content="Petri Heil Pro">
 <meta name="description" content="Offlinefähiger Angler-Begleiter: Angelschein, Fischkunde, Fangbuch, Angelzeit und Statistiken.">
 <link rel="manifest" href="./manifest.webmanifest">
-<link rel="apple-touch-icon" href="./icon-192.png?v=2.0.30">
-<link rel="icon" href="./icon-192.png?v=2.0.30" type="image/png">
+<link rel="apple-touch-icon" href="./icon-192.png?v=2.0.31">
+<link rel="icon" href="./icon-192.png?v=2.0.31" type="image/png">
 <link rel="stylesheet" href="./style.css?v=2.0.4">
 <!-- Startfarben vor den App-Skripten laden: funktioniert in Safari UND als Home-Bildschirm-App -->
-<link rel="stylesheet" href="./petri-ocean-theme.css?v=2.0.30">
-<link rel="stylesheet" href="./petri-logos-v2.0.29.css?v=2.0.30">
+<link rel="stylesheet" href="./petri-ocean-theme.css?v=2.0.31">
+<link rel="stylesheet" href="./petri-logos-v2.0.29.css?v=2.0.31">
+
 <title>Petri Heil Pro · By Marcel Hentschel</title>
+<link rel="stylesheet" href="./petri-pro-suite-v2.0.31.css?v=2.0.31">
 </head>
 <body>
 <div class="app-shell">
@@ -25,7 +27,7 @@
   <p class="side-heading">DEIN COCKPIT</p>
   <nav class="nav" id="nav-desktop" aria-label="Hauptnavigation"></nav>
   <div class="side-bottom"><img src="./petri-fisch-v2.0.29.webp" class="petri-fisch29-promo" alt="Petri Heil – Hecht ohne Schrift"><p>FANG DEN MOMENT.</p><small>Deine Angelerlebnisse. Deine Daten.</small><button class="side-cta" data-action="openCatch">+ Fang eintragen</button></div>
-  <div class="tiny">Version 2.0.30 · Offline-PWA</div>
+  <div class="tiny">Version 2.0.31 · Offline-PWA</div>
 </aside>
 <div class="mobile-shade" id="mobile-shade"></div>
 <div class="workspace">
@@ -39,7 +41,7 @@
 <script src="./data.js?v=2.0.4"></script>
 <script src="./app.js?v=2.0.4"></script>
 <!-- Funktioniert ohne Service-Worker und auch bei der ersten PWA-Navigation -->
-<script src="./species-images-v2.0.5.js?v=2.0.30"></script>
+<script src="./species-images-v2.0.5.js?v=2.0.31"></script>
 <script>
   // Precache the many local species images after the new PWA shell is ready.
   // This must not hold back the home-screen update itself.
@@ -50,9 +52,11 @@
     }).catch(()=>{});
   });
 </script>
-<script src="./petri-gear-media-v2.0.28.js?v=2.0.30" defer></script>
-<script src="./petri-update-install-v2.0.28.js?v=2.0.30" defer></script>
-<script src="./petri-logos-v2.0.29.js?v=2.0.30" defer></script>
-<script src="./petri-anglerclock-pruefung-v2.0.30.js?v=2.0.30" defer></script>
+<script src="./petri-gear-media-v2.0.28.js?v=2.0.31" defer></script>
+<script src="./petri-update-install-v2.0.28.js?v=2.0.31" defer></script>
+<script src="./petri-logos-v2.0.29.js?v=2.0.31" defer></script>
+<script src="./petri-anglerclock-pruefung-v2.0.30.js?v=2.0.31" defer></script>
+
+<script src="./petri-pro-suite-v2.0.31.js?v=2.0.31" defer></script>
 </body>
 </html>

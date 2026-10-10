@@ -1,13 +1,25 @@
 {
-  "version": "2.0.30",
+  "version": "2.0.31",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Angelzeit-Uhr: manuelle Erfassung von Anfang, Ende, Ort und Notiz, mit Bearbeiten/Löschen, Statistik und CSV/JSON-Export.",
-    "Angelschein: Link zu den amtlichen NRW-Unterlagen, lokales Ablegen von Prüfungs-PDFs und Import strukturierter JSON-Fragen.",
-    "60-Fragen-Prüfungssimulation mit sechs Fachgebieten, 60-Minuten-Timer und NRW-Bestehensgrenzen bei ausreichend importierten Fragen.",
-    "Update-Funktion auf Version 2.0.30 aktualisiert.",
-    "Vorhandene Stoppuhrdaten, Fangdaten und Logo-/Fischkunde-Dateien bleiben unverändert."
+    "Neue Angelzentrale Pro mit 11 übersichtlichen Bereichen, ohne die ursprüngliche App zu überschreiben.",
+    "Gewässer und private Angelstellen mit GPS-Koordinaten sowie manuellem OpenStreetMap-Kartenaufruf.",
+    "Angelzeit-Stoppuhr mit Angelort, nachträgliche Zeiträume und zusammengeführte Zeitstatistik ohne Überschneidungen (Pro und manuelle Zeiten aus 2.0.30).",
+    "Zusätzliches Fangbuch mit Fangfoto, persönlichen Auswertungen und CSV-Export; vorhandenes Fangbuch bleibt unberührt.",
+    "Eigener Ausrüstungsmanager mit Fotos, Anschaffungskosten und Wartungsfristen.",
+    "Wetterabfrage für gespeicherte Angelstellen oder GPS über Open-Meteo, mit Luftdruck, Wind, Niederschlag und Sonnenauf-/untergang.",
+    "Angeltrip-Planer mit Packliste sowie gespeicherten Dokumenten (Bilder/PDF) und eigenen Gewässerregeln.",
+    "Offizielle Quellen für Fischerprüfung und Fischereirecht NRW; Lernplan für den Prüfungstrainer.",
+    "Foto-Messhilfe mit vier manuellen Referenzpunkten; keine KI-Fischbestimmung und keine Genauigkeitsgarantie.",
+    "Lokale JSON-Datensicherung für localStorage und Pro-Medien, Wiederherstellung und Fangbuch-CSV.",
+    "Neuer Offline-Service-Worker v2.0.31 sowie angepasste Update-Installation."
   ],
-  "notes": "Amtlicher Fragenkatalog ist nicht im Paket enthalten. PDF-Dateien werden nur lokal gespeichert und nicht automatisch in Fragen konvertiert. Fragenimporte sind nicht amtlich verifiziert. Manuelle Angelzeiten werden zunächst separat von den bestehenden Uhrstatistiken gespeichert."
+  "limitations": [
+    "Weder vollständige amtliche Prüfungsfragen noch automatische Fischfoto-KI oder Gewässertiefenkarten sind in diesem Update enthalten.",
+    "Bestehendes originales Fangbuch wird nicht automatisch in das neue Pro-Fangbuch importiert oder von dessen Statistik mitgezählt.",
+    "Lokale Pro-Backup-Funktion sichert fremde/ältere IndexedDB-Datenbanken der ursprünglichen App nicht automatisch.",
+    "Echte Wetterdaten und Online-Karten benötigen Internet, GPS setzt ausdrückliche Standortfreigabe voraus.",
+    "Fischereirechtsangaben und örtliche Erlaubnisscheine müssen individuell geprüft werden."
+  ]
 }
