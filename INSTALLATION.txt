@@ -1,10 +1,11 @@
-PetriHeil Pro 2.0.35 – Wetter, Stoppuhr und Gewässer repariert
+PetriHeil Pro Update v2.0.36 – Jahresbericht und Fangfotos
 
-1. VORHER unter Angelzentrale → Backup eine Datensicherung exportieren.
-2. ZIP entpacken.
-3. Alle 6 App-Dateien (ohne INSTALLATION.txt) im HAUPTVERZEICHNIS des GitHub-Repositories hochladen, vorhandene ersetzen.
-4. Commit changes ausführen.
-5. Die App zweimal mit Internet öffnen, bis die neue Version aktiv ist.
+1. Bitte in PetriHeil Pro unter Backup vorab eine Datensicherung erstellen.
+2. Die ZIP auf dem iPhone entpacken.
+3. Nur die 8 APP-Dateien im Archiv (ohne diese Anleitung) direkt in das Hauptverzeichnis auf GitHub hochladen; vorhandene Dateien ersetzen.
+4. Commit changes speichern; GitHub Pages abwarten.
+5. PetriHeil-App online zweimal öffnen.
+6. In Angelzentrale > Fangbuch Pro, Cockpit oder Backup auf „Jahresbericht öffnen“ tippen.
+7. Jahr und Datenschutz wählen. PDF oder CSV speichern.
 
-Die ursprüngliche App sowie Nutzerfangdaten und bestehende IndexedDB werden nicht gelöscht.
-Wetter/Ortssuche benötigt Internet; Open-Meteo kennt nicht jeden See als Ortsnamen.
+Wichtig: Originalfangbuch bleibt unverändert. Keine Cloud-Synchronisierung. PDFs enthalten keine Fotos.

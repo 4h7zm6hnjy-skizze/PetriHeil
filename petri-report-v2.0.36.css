@@ -1,0 +1,37 @@
+/* PetriHeil 2.0.36: Isolierte Jahresbericht-Ansicht. */
+.p36-launch{margin:14px 0;padding:14px 17px;border:1px solid #b9d6e7;background:#f0f9ff;border-radius:16px;color:#183c55}
+.p36-launch strong{font-size:17px}.p36-launch p{font-size:13px;margin:5px 0 11px}
+.p36-primary,.p36-buttons button,.p36-top button{cursor:pointer;border:1px solid #80abc6;border-radius:10px;padding:12px 15px;background:#f6fbff;color:#194c6d;font-weight:750;font-size:14px}
+.p36-primary{background:#1177b2!important;color:white!important;border-color:#1177b2!important}
+#p36-overlay{position:fixed!important;inset:0!important;z-index:2147483200!important;background:#eaf5fb!important;color:#1d405a!important;display:block!important;padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)!important;overflow:hidden!important;font-family:system-ui,-apple-system,Arial,sans-serif!important}
+#p36-overlay *{box-sizing:border-box}
+#p36-overlay .p36-window{height:100%;max-width:1300px;margin:0 auto;display:flex;flex-direction:column;background:#f6fbff}
+#p36-overlay .p36-top{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;border-bottom:1px solid #cadeea;padding:16px 20px;flex:none}
+#p36-overlay h2{font-size:20px;line-height:1.3;margin:0;color:#164061}
+#p36-overlay .p36-top small{font-size:12px;color:#51758b}
+#p36-overlay .p36-scroll{overflow-y:auto;flex:1;padding:18px;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+#p36-overlay .p36-card{background:white;border:1px solid #cedfea;border-radius:17px;padding:20px;margin-bottom:16px}
+#p36-overlay h3{margin:17px 0 12px;font-size:18px;color:#114d70}
+#p36-overlay h4{margin:8px 0 10px;font-size:15px}
+#p36-overlay .p36-filters{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:15px}
+#p36-overlay label{display:flex;align-items:center;gap:10px;font-weight:650}
+#p36-overlay select{padding:9px 15px;background:#fff;color:#1d405a;border:1px solid #a9c5d7;border-radius:9px;min-width:100px}
+#p36-overlay input{width:19px;height:19px;accent-color:#1474ae}
+#p36-overlay .p36-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+#p36-overlay .p36-grid>div{background:#eaf6ff;border:1px solid #d2e6f2;border-radius:10px;padding:13px;min-width:0}
+#p36-overlay .p36-grid b{display:block;font-size:27px;color:#0e649a;overflow-wrap:anywhere}
+#p36-overlay .p36-grid small{font-size:12px;color:#47718b}
+#p36-overlay .p36-months{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:5px;align-items:end;min-height:120px}
+#p36-overlay .p36-month{min-width:0;display:flex;flex-direction:column;align-items:center;gap:5px;font-size:11px;color:#385971}
+#p36-overlay .p36-month i{display:block;width:min(80%,32px);background:#2b8bc0;border-radius:4px 4px 0 0;min-height:3px}
+#p36-overlay .p36-month strong{font-size:12px}
+#p36-overlay .p36-lists{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+#p36-overlay .p36-lists p{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid #e2eaf0;margin:0;padding:8px 0}
+#p36-overlay .p36-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:17px}
+#p36-overlay .p36-note{font-size:12px;line-height:1.55;color:#486b7e}
+#p36-overlay .p36-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px}
+#p36-overlay .p36-photo{background:#f1f7fc;border:1px solid #d0e4f2;border-radius:11px;overflow:hidden}
+#p36-overlay .p36-photo img{width:100%;aspect-ratio:4/3;display:block;object-fit:contain;background:white}
+#p36-overlay .p36-photo div{font-size:12px;padding:8px;color:#2b5471}
+#p36-overlay .p36-status{flex:none;border-top:1px solid #d8e8f1;background:#e2f1fa;padding:11px 18px;color:#2b607c;font-size:12px}
+@media(max-width:720px){#p36-overlay .p36-scroll{padding:10px}#p36-overlay .p36-card{padding:13px}#p36-overlay .p36-top{padding:12px}#p36-overlay h2{font-size:17px}#p36-overlay .p36-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#p36-overlay .p36-lists{grid-template-columns:1fr}#p36-overlay .p36-buttons button{width:100%}#p36-overlay .p36-filters{align-items:flex-start;flex-direction:column;gap:12px}}

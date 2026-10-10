@@ -1,17 +1,19 @@
 {
-  "version": "2.0.35",
+  "version": "2.0.36",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Pro-Stoppuhr: Gewässer direkt per Tastatur eingeben (kein vorher gespeichertes Gewässer nötig), bestehende Orte als Vorschläge und Angelort optional speichern.",
-    "Angelwetter: Stadt-/Ortssuche, gespeicherte Gewässer, manuelle GPS-Koordinaten und iPhone-GPS als alternative Wege; verständliche Fehlermeldungen.",
-    "Gewässer: Ort ohne GPS speichern und bei Bedarf Koordinaten anhand einer benachbarten Stadt suchen.",
-    "Wetterabfragen nutzen weiterhin Open-Meteo und erfordern eine Online-Verbindung; private Angelplätze werden nicht hochgeladen.",
-    "Versionsanzeige, Service-Worker und Offline-App-Dateien auf 2.0.35 aktualisiert."
+    "Neuer offline erzeugter PDF-Jahresbericht im Pro-Fangbuch, Cockpit und Backup: Jahresfilter, Monatsfangzahlen, Angelstunden, Fischarten, Köder, Rekorde und Fangliste.",
+    "Angelstunden aus abgeschlossenen Pro-Angeltagen und manuellen Zeiten werden je Jahr und Monat ohne doppelte Überschneidungen berechnet.",
+    "Datenschutz-Schalter blendet Gewässernamen im PDF und CSV standardmäßig aus.",
+    "CSV-Export der dokumentierten Pro-Fänge mit deutschem Semikolonformat und Excel-Formelschutz.",
+    "Fotogalerie zeigt vorhandene, lokal gespeicherte Fangfotos aus Fangbuch Pro (bis zu 80 neueste Bilder).",
+    "Offline-Cache und Versionsanzeige auf 2.0.36 aktualisiert; ältere Fangbucheinträge werden nicht verändert."
   ],
   "limitations": [
-    "Open-Meteo-Ortssuche findet Städte und Orte, nicht verlässlich jeden See oder private Angelstellen; Koordinaten oder GPS sind dafür präziser.",
-    "Bei Online-Wetterabfragen werden Koordinaten an Open-Meteo gesendet. Das Wetter lässt sich offline nicht neu abrufen.",
-    "Der Praxistest auf dem iPhone ist nach dem Hochladen erforderlich."
+    "Der Bericht enthält Pro-Fänge und bereits ausdrücklich dorthin kopierte alte Fänge; noch getrennte Originalfangbuchdaten werden nicht automatisch erfasst.",
+    "Bisherige Fangfotos werden in der Galerie gezeigt, aber nicht in das PDF eingebettet. Aus dem alten Fangbuch werden Bilder nicht automatisch zugeordnet.",
+    "Externe Wetterdaten, amtliche Prüfungsfragen und Tiefenkarten sind nicht Teil dieses Updates.",
+    "Die App-Funktion muss nach der GitHub-Veröffentlichung auf dem iPhone getestet werden."
   ]
 }
