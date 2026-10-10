@@ -1,9 +1,9 @@
-/* Petri Heil Pro 2.0.18: 122 distinct local WebP references, 125 species mappings and update-check repair.
+/* Petri Heil Pro 2.0.19: 124 distinct local WebP references, 127 species mappings and update-check repair.
    Original 70 embedded illustrations and local user data remain unchanged.
    Images are illustrative, NOT validated for species identification. */
 (()=>{
   'use strict';
-  const VERSION='2.0.18';
+  const VERSION='2.0.19';
   const SPECIES=[
     ['f32','Giebel','giebel'],
     ['f33','Goldfisch','goldfisch'],
@@ -130,6 +130,8 @@
     ['s5','Makrele','makrele-ki-weiss'],
     ['s7','Hornhecht','hornhecht-ki-weiss'],
     ['s8','Wolfsbarsch','wolfsbarsch-ki-weiss'],
+    ['c7','Marmorkrebs','marmorkrebs-ki-weiss'],
+    ['c8','Kaisergranat','kaisergranat-ki-weiss'],
   ].map(([id,name,file])=>({id,name,url:new URL(file+'.webp',document.baseURI).href}));
   const norm=s=>String(s||'').replace(/\s+/g,' ').trim().toLocaleLowerCase('de-DE');
   const identify=s=>SPECIES.find(v=>norm(v.name)===norm(s));
@@ -261,7 +263,7 @@
       const result=cmp(info.version,VERSION);
       if(result===null)throw new Error('ungültige Versionsangabe');
       if(result>0)showUpdateStatus(button,'Eine neuere Version '+info.version+' ist gemeldet. Vor der Installation die vollständigen Dateien prüfen.');
-      else if(result===0)showUpdateStatus(button,'Version '+VERSION+' ist aktuell. 70 eingebettete Bilder, 102 unterschiedliche lokale WebP-Bilder und 105 Artzuordnungen.');
+      else if(result===0)showUpdateStatus(button,'Version '+VERSION+' ist aktuell. 70 eingebettete Bilder, 124 unterschiedliche lokale WebP-Bilder und 127 Artzuordnungen.');
       else showUpdateStatus(button,'App '+VERSION+' installiert; Server meldet noch '+info.version+'. Veröffentlichung prüfen.');
     }catch(e){showUpdateStatus(button,'Update-Prüfung fehlgeschlagen ('+(e.name==='AbortError'?'Zeitüberschreitung':e.message)+'). HTTPS-Verbindung und version.json prüfen.');}
   }

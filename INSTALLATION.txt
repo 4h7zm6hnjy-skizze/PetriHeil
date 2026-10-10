@@ -1,30 +1,15 @@
-PetriHeil – Bilderupdate 2.0.18
-==================================
-Aktualisierung der App Version 2.0.17 (GitHub Pages).
+PetriHeil Bilderupdate 2.0.19
 
-INSTALLATION AUF GITHUB
-1. Dieses ZIP vollständig entpacken.
-2. Alle 10 neuen .webp-Dateien in den HAUPTORDNER des GitHub-Repositories
-   4h7zm6hnjy-skizze/PetriHeil hochladen (nicht in einen Unterordner).
-3. Diese drei Dateien im Hauptordner durch die neuen ersetzen:
-   - species-images-v2.0.5.js
-   - sw.js
-   - version.json
-4. Auf GitHub Commit changes speichern.
-5. GitHub Pages die Veröffentlichung abschließen lassen.
-6. PetriHeil online öffnen und ggf. ein zweites Mal neu starten.
-7. Unter Mehr -> Update suchen die Version 2.0.18 prüfen.
-8. Zur Offline-Prüfung die App einmal mit Internetverbindung laden,
-   dann Flugmodus aktivieren und die Fischkunde öffnen.
+Enthalten:
+- 2 neue WebP-Bilder: Marmorkrebs und Kaisergranat
+- aktualisierte Dateien: species-images-v2.0.5.js, sw.js, version.json
 
-BILDER
-Neue KI-Illustrationen auf weißem Hintergrund, alle 1254 x 1254 Pixel.
-Die originalen bestehenden Bilder werden nicht überschrieben.
-Die Artzuordnungen beziehen sich auf die interne data.js (177 Arten).
-Insgesamt 125 Bildloader-Zuordnungen, davon 122 verschiedene WebP-Dateien.
-Weitere eingebettete Illustrationen in app.js bleiben unverändert.
-Die neuen Bilder sind KEINE wissenschaftlich geprüften Bestimmungsfotos.
-Insbesondere Hering, Sardine und Sprotte nur mit zuverlässigen Quellen bestimmen.
+Installation:
+1. Diese ZIP-Datei entpacken.
+2. Die beiden .webp-Dateien in das Hauptverzeichnis des PetriHeil-GitHub-Repositories hochladen.
+3. species-images-v2.0.5.js, sw.js und version.json im Hauptverzeichnis ersetzen.
+4. Änderungen speichern/veröffentlichen.
+5. Die App zweimal online öffnen, damit der Service Worker und der Offline-Cache aktualisiert werden.
 
-Hinweis: Das ZIP aktualisiert GitHub NICHT automatisch. Der Upload muss
-manuell erfolgen, wenn keine GitHub-Schreibberechtigung bereitsteht.
+Hinweis:
+Die KI-Bilder sind illustrative Darstellungen und keine wissenschaftlich validierten Bestimmungsfotos.
