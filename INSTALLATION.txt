@@ -1,20 +1,16 @@
-PETRI HEIL PRO – BILDERUPDATE 2.0.15
+Petri Heil Pro – BILDERUPDATE Version 2.0.16
 
-Installation: ZIP entpacken. ALLE 13 Dateien aus diesem Paket in den Hauptordner
-https://github.com/4h7zm6hnjy-skizze/PetriHeil hochladen bzw. bestehende gleichnamige Dateien ersetzen:
-- 10 *.webp Artenbilder
-- species-images-v2.0.5.js (dieser Dateiname bleibt bewusst unverändert)
-- sw.js
-- version.json
+Installation auf GitHub:
+1. Archiv entpacken.
+2. Die zehn .webp-Bilder in den HAUPTORDNER des Repositories 4h7zm6hnjy-skizze/PetriHeil hochladen.
+3. Folgende drei Dateien im HAUPTORDNER ERSETZEN (nicht umbenennen):
+   - sw.js
+   - species-images-v2.0.5.js
+   - version.json
+4. Änderungen auf GitHub speichern, GitHub Pages-Veröffentlichung abwarten.
+5. Webapp online neu laden, dann ein weiteres Mal neu laden; in Mehr > Update suchen Version 2.0.16 prüfen.
+6. Für Offline-Anzeige die neue App-Version mit bestehender Internetverbindung öffnen, damit der Cache die Bilder laden kann.
 
-ARTENZUORDNUNG.json, BILDVORSCHAU.html und INSTALLATION.txt sind Zusatzinformationen und
-muessen NICHT in das Repository hochgeladen werden.
-
-GitHub: Änderungen per Commit speichern. Die PWA anschließend zweimal mit Internetverbindung öffnen,
-unter Mehr -> Update suchen die Version 2.0.15 kontrollieren. Die Offlinebilder werden beim Laden
-in den Cache übernommen. Bei längerem Verbleib auf einer alten Version App neu laden; Fangbuchdaten nicht löschen.
-
-Es werden keine existierenden Nutzerdaten geändert. Bisherige 85 Artzuordnungen bleiben erhalten;
-10 neue Zuordnungen ergeben 95. 92 unterschiedliche referenzierte WebP-Bilder + 70 eingebettete Illustrationen.
-
-WICHTIG: KI-generierte Beispielbilder, keine validierten Fotos für eine sichere Artbestimmung.
+WICHTIG: Kein vollständiger Neuinstallationssatz, sondern ein inkrementelles Update ab Version 2.0.15.
+Keine Anwendungs- oder Benutzerdaten löschen.
+Alle Artenbilder sind KI-Illustrationen und nicht für wissenschaftliche Bestimmung validiert.

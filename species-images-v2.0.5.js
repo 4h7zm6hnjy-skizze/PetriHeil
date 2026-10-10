@@ -1,9 +1,9 @@
-/* Petri Heil Pro 2.0.15: 92 distinct local WebP references, 95 species mappings and update-check repair.
+/* Petri Heil Pro 2.0.16: 102 distinct local WebP references, 105 species mappings and update-check repair.
    Original 70 embedded illustrations and local user data remain unchanged.
    Images are illustrative, NOT validated for species identification. */
 (()=>{
   'use strict';
-  const VERSION='2.0.15';
+  const VERSION='2.0.16';
   const SPECIES=[
     ['f32','Giebel','giebel'],
     ['f33','Goldfisch','goldfisch'],
@@ -100,6 +100,16 @@
     ['s18','Zwergdorsch','zwergdorsch'],
     ['s4','Europäische Sardelle','europaeische-sardelle'],
     ['s6','Stöcker','stoecker'],
+    ['s23','Seezunge','seezunge'],
+    ['s25','Glattbutt','glattbutt'],
+    ['s27','Rotzunge','rotzunge'],
+    ['s26','Heilbutt','heilbutt'],
+    ['s28','Doggerscharbe','doggerscharbe'],
+    ['s29','Zwergzunge','zwergzunge'],
+    ['s30','Seeskorpion','seeskorpion'],
+    ['s31','Langstacheliger Seeskorpion','langstacheliger-seeskorpion'],
+    ['s32','Knurrhahn rot','knurrhahn-rot'],
+    ['s33','Grauer Knurrhahn','grauer-knurrhahn'],
   ].map(([id,name,file])=>({id,name,url:new URL(file+'.webp',document.baseURI).href}));
   const norm=s=>String(s||'').replace(/\s+/g,' ').trim().toLocaleLowerCase('de-DE');
   const identify=s=>SPECIES.find(v=>norm(v.name)===norm(s));
@@ -166,15 +176,15 @@
       const item=titles.map(identify).find(Boolean);
       if(item)void apply(detail,item);
     }
-    // Dynamic app.js 2.0.4 is preserved; show 2.0.15 accurately in the visible UI.
+    // Dynamic app.js 2.0.4 is preserved; show 2.0.16 accurately in the visible UI.
     for (const el of document.querySelectorAll('.sidebar .tiny,#app-update-card')) {
       if(!el.dataset.petri214VersionChecked){
         el.dataset.petri214VersionChecked='yes';
-        if(el.classList.contains('tiny')) el.textContent=el.textContent.replace(/2\.0\.(?:[4-9]|1[0-4])\b/g,'2.0.15');
+        if(el.classList.contains('tiny')) el.textContent=el.textContent.replace(/2\.0\.(?:[4-9]|1[0-4])\b/g,'2.0.16');
         if(el.id==='app-update-card'){
           for(const node of el.querySelectorAll('h1,h2,h3,strong,span')){
             if(node.children.length===0 && /Version 2\.0\.(?:[4-9]|1[0-4])\b/.test(node.textContent))
-              node.textContent=node.textContent.replace(/2\.0\.(?:[4-9]|1[0-4])\b/g,'2.0.15');
+              node.textContent=node.textContent.replace(/2\.0\.(?:[4-9]|1[0-4])\b/g,'2.0.16');
           }
         }
       }
@@ -231,7 +241,7 @@
       const result=cmp(info.version,VERSION);
       if(result===null)throw new Error('ungültige Versionsangabe');
       if(result>0)showUpdateStatus(button,'Eine neuere Version '+info.version+' ist gemeldet. Vor der Installation die vollständigen Dateien prüfen.');
-      else if(result===0)showUpdateStatus(button,'Version '+VERSION+' ist aktuell. 70 eingebettete Bilder, 92 unterschiedliche lokale WebP-Bilder und 95 Artzuordnungen.');
+      else if(result===0)showUpdateStatus(button,'Version '+VERSION+' ist aktuell. 70 eingebettete Bilder, 102 unterschiedliche lokale WebP-Bilder und 105 Artzuordnungen.');
       else showUpdateStatus(button,'App '+VERSION+' installiert; Server meldet noch '+info.version+'. Veröffentlichung prüfen.');
     }catch(e){showUpdateStatus(button,'Update-Prüfung fehlgeschlagen ('+(e.name==='AbortError'?'Zeitüberschreitung':e.message)+'). HTTPS-Verbindung und version.json prüfen.');}
   }

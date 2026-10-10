@@ -1,12 +1,12 @@
 {
-  "version": "2.0.15",
+  "version": "2.0.16",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Zehn weitere KI-Artenbilder auf weißem Hintergrund: Wittling, Schellfisch, Seelachs/Köhler, Pollack, Seehecht, Leng, Franzosendorsch, Zwergdorsch, Europäische Sardelle und Stöcker.",
-    "Bildloader erweitert auf 95 Artzuordnungen und 92 unterschiedliche zugeordnete WebP-Bilddateien; 70 frühere eingebettete Illustrationen bleiben unverändert.",
-    "Offline-Cache und Update-Anzeige an Version 2.0.15 angepasst.",
-    "Bestehende Fangbuchdaten, App-Layout und übrige Funktionen bleiben unverändert."
+    "Zehn neue einzelne KI-Artenbilder auf weißem Hintergrund für Seezunge, Glattbutt, Rotzunge, Heilbutt, Doggerscharbe, Zwergzunge, Seeskorpion, Langstacheligen Seeskorpion, Knurrhahn rot und Grauen Knurrhahn.",
+    "Bildloader auf 105 Artzuordnungen mit 102 unterschiedlichen lokalen WebP-Bildern erweitert; 70 ältere eingebettete Illustrationen bleiben erhalten.",
+    "Offline-Cache und Versionsprüfung auf Version 2.0.16 aktualisiert.",
+    "Bestehende Daten, Fangbuch, App-Layout und alle übrigen Funktionen bleiben unverändert."
   ],
-  "notes": "KI-Illustrationen sind nicht wissenschaftlich geprüfte Fischbestimmungsfotos. Einige Merkmale können anatomisch ungenau sein. Schutzvorschriften und Artbestimmung anhand zuverlässiger Quellen prüfen."
+  "notes": "KI-Abbildungen sind illustrative Darstellungen und nicht wissenschaftlich validiert. Die Fischarten nur anhand verlässlicher Bestimmungsquellen erkennen. Besonders bei Plattfischen und Knurrhähnen können KI-Abbildungen abweichende Merkmale zeigen."
 }
