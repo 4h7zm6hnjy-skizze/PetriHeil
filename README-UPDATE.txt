@@ -1,41 +1,35 @@
-PETRIHEIL PRO 2.0.7 – Update von der vorhandenen GitHub-Version 2.0.6
-10 neue Fischbilder • jetzt 30 ergänzende KI-Bilder • bisherige 70 eingebettete Bilder bleiben erhalten
+PetriHeil Pro – Zusatzbilder-Update auf Version 2.0.8
 
-WICHTIG: Dieses Paket ergänzt das GitHub-Projekt; es ist NICHT das vollständige App-Projekt.
-Eine ZIP im GitHub-Hauptordner entpackt sich NICHT automatisch. Dateien einzeln hochladen.
+INHALT:
+- 10 neu generierte Artenbilder (WebP), einzeln mit weißem Hintergrund
+- species-images-v2.0.5.js (Bestandsdatei, auf 40 zusätzliche Arten erweitert)
+- sw.js (Cache-Generation 2.0.8: offline-Pufferung aller 40 zusätzlichen Artenbilder)
+- version.json (Version 2.0.8)
+- ARTENZUORDNUNG.json (Kontrolldatei; kann mit hochgeladen werden)
+- BILDVORSCHAU.html (lokale Galerie zur Bildprüfung; optional)
 
-VERÖFFENTLICHUNG
-1. ZIP lokal entpacken.
-2. Auf https://github.com/4h7zm6hnjy-skizze/PetriHeil im Branch main
-   die zehn neuen .webp-Dateien in den HAUPTORDNER hochladen.
-3. Ebenso die drei Dateien species-images-v2.0.5.js, sw.js und version.json
-   hochladen und die bestehenden Dateien ersetzen (GitHub: Änderungen committen).
-4. ARTENZUORDNUNG.json ist nur zu Kontrollzwecken und muss nicht auf GitHub.
-5. App https://4h7zm6hnjy-skizze.github.io/PetriHeil/ online mehrfach neu laden,
-   anschließend Fischkunde und die Version unter Mehr prüfen.
-6. Nachdem das Laden abgeschlossen ist, im Flugmodus die Bildanzeige testen.
+UPLOAD IN DAS BESTEHENDE GITHUB-REPOSITORY
+1. ZIP entpacken. Nicht die ZIP allein auf GitHub ablegen – sie wird dort nicht automatisch entpackt.
+2. Die 10 .webp-Dateien in den GitHub-Hauptordner hochladen.
+3. Die drei bestehenden Dateien sw.js, species-images-v2.0.5.js, version.json mit den Versionen hier ersetzen.
+4. 'Commit changes' in GitHub bestätigen. Bestehende index.html, app.js, data.js, style.css und Bilder NICHT löschen.
+5. Über HTTPS starten: https://4h7zm6hnjy-skizze.github.io/PetriHeil/
+6. App online neu laden; ggf. nach Aktivierung des neuen Service Workers ein weiteres Mal öffnen.
+7. Fischkunde der 10 neuen Arten prüfen. Danach Flugmodus einschalten und Offline-Bilder testen.
 
-Bestehende app.js, data.js, index.html, style.css, Bilder und Fangdaten nicht löschen.
-Bitte NICHT den Safari-Websitespeicher löschen: Er enthält möglicherweise persönliche Daten.
-Die neue Service-Worker-Datei injiziert das aktualisierte Bildskript in die bestehende
-index.html, die weiterhin aus der Basisversion stammt. Beim ersten Laden ist deshalb
-unter Umständen noch eine alte Versionsnummer sichtbar, bis der neue Worker aktiv ist.
+FISCHBILDER (APP-ID -> DATEI):
+- s37 Seehase -> seehase.webp
+- s38 Seewolf (Gestreifter) -> seewolf-gestreifter.webp
+- s40 Kuckuckslippfisch -> kuckuckslippfisch.webp
+- s42 Großer Scheibenbauch -> grosser-scheibenbauch.webp
+- s43 Europäischer Butterfisch -> europaeischer-butterfisch.webp
+- s44 Aalmutter -> aalmutter.webp
+- s45 Seestichling -> seestichling.webp
+- s46 Grasnadel -> grasnadel.webp
+- s47 Große Seenadel -> grosse-seenadel.webp
+- s50 Seepferdchen (Langschnäuziges) -> seepferdchen-langschnauziges.webp
 
-HINWEIS ZUR SACHLICHEN KORREKTHEIT
-KI-generierte Darstellungen können anatomische Merkmale falsch abbilden. Daher
-keine sichere Fischbestimmung oder Fang-/Entnahmeentscheidung allein damit treffen.
-Die bestehende Appdatenbank verwendet bei zwei Störarten wissenschaftliche und
-umgangssprachliche Namen in möglicherweise widersprüchlicher Kombination;
-diese Arten sollten vor Einsatz als Bestimmungsreferenz fachlich geprüft werden.
-
-NEUE ARTENBILDER:
-  - Meerforelle [f25]: meerforelle-neu.webp
-  - Atlantischer Stör [f71]: atlantischer-stoer-neu.webp
-  - Europäischer Stör [f72]: europaeischer-stoer.webp
-  - Donau-Neunauge [f89]: donau-neunauge.webp
-  - Stintdorsch [s19]: stintdorsch.webp
-  - Kleines Petermännchen [s36]: kleines-petermaennchen.webp
-  - Lippfisch (Goldmaid) [s39]: lippfisch-goldmaid.webp
-  - Gefleckter Lippfisch [s41]: gefleckter-lippfisch.webp
-  - Meeräsche (Dicklippige) [s56]: meeraesche-dicklippige.webp
-  - Meeräsche (Dünnlippige) [s57]: meeraesche-duennlippige.webp
+WICHTIG
+Diese ZIP ist ein Ergänzungspaket, NICHT die vollständige Web-App. Es kann nicht automatisch in das GitHub-Repository eingespielt werden, wenn die GitHub-Schreibberechtigung der Integration blockiert ist.
+Die persönliche Fangdatenbank liegt im Browser-Speicher; den Website-Speicher nicht löschen.
+KI-generierte Abbildungen sind nicht verlässlich genug für eindeutige Artbestimmung oder Entscheidungen über Fang/Entnahme. Besonders Seestichling, Seenadeln und Scheibenbauch sollten fachlich überprüft werden.

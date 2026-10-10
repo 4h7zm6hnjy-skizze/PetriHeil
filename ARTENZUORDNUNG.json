@@ -1,0 +1,72 @@
+[
+  {
+    "id": "s37",
+    "name": "Seehase",
+    "filename": "seehase.webp",
+    "bytes": 187842,
+    "sha256": "0444d88a2ad997997064c5f39dd33663e64cec90fd0f009a6ad3ed567f9c026e"
+  },
+  {
+    "id": "s38",
+    "name": "Seewolf (Gestreifter)",
+    "filename": "seewolf-gestreifter.webp",
+    "bytes": 134822,
+    "sha256": "d3f23dc2d8947e9ccf054c74a5d4c2e430c4cc244d412f3149707c1158c245c5"
+  },
+  {
+    "id": "s40",
+    "name": "Kuckuckslippfisch",
+    "filename": "kuckuckslippfisch.webp",
+    "bytes": 128498,
+    "sha256": "f5d432cb5e41a9077f5f9031f62cb6c1a16b8d1160a61c632262a09532c25c89"
+  },
+  {
+    "id": "s42",
+    "name": "Großer Scheibenbauch",
+    "filename": "grosser-scheibenbauch.webp",
+    "bytes": 86686,
+    "sha256": "7060264c00a3e5062ebf302d9d82a8de6ba8b5cd707165fdeb9d930aa7746c1d"
+  },
+  {
+    "id": "s43",
+    "name": "Europäischer Butterfisch",
+    "filename": "europaeischer-butterfisch.webp",
+    "bytes": 94798,
+    "sha256": "f46d77dcda57fc3b4515f235ffcdd35ae571f001cf23f0f29b6100845a1a84a9"
+  },
+  {
+    "id": "s44",
+    "name": "Aalmutter",
+    "filename": "aalmutter.webp",
+    "bytes": 102918,
+    "sha256": "a88b838f5a61f85aa34307ffcfef45c429aba373e3ed378ee0307ede820a9e49"
+  },
+  {
+    "id": "s45",
+    "name": "Seestichling",
+    "filename": "seestichling.webp",
+    "bytes": 83206,
+    "sha256": "12dee8782ab2981420c5a2655266ddfad7406b172bf24afd52959714fb197004"
+  },
+  {
+    "id": "s46",
+    "name": "Grasnadel",
+    "filename": "grasnadel.webp",
+    "bytes": 30750,
+    "sha256": "052ecb9e025ebcf5ba3a337318df54c21b24df7baf9553f0ca2ce43d74ee0f10"
+  },
+  {
+    "id": "s47",
+    "name": "Große Seenadel",
+    "filename": "grosse-seenadel.webp",
+    "bytes": 38224,
+    "sha256": "f4dcbd514518238ffdf70b52d6a83e64a6b31068e324486998b59a89c2c5ae63"
+  },
+  {
+    "id": "s50",
+    "name": "Seepferdchen (Langschnäuziges)",
+    "filename": "seepferdchen-langschnauziges.webp",
+    "bytes": 118160,
+    "sha256": "ad0144390bf7c9cc1de13d986ce20562c698ea79aef1c6583724698117b37fcc"
+  }
+]

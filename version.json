@@ -1,13 +1,12 @@
 {
-  "version": "2.0.7",
+  "version": "2.0.8",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "10 neue KI-Bilder für Fischarten, darunter Meerforelle, Störarten, Neunauge, Stintdorsch, Lippfische und Meeräschen.",
-    "Nun 30 zusätzliche lokal gespeicherte Artenbilder neben den bisherigen 70 eingebetteten Abbildungen.",
-    "Zuordnung zu den vorhandenen Artkarten und Detailansichten mit weißen Hintergründen.",
-    "Offline-Vorabladen aller 30 zusätzlichen WebP-Bilder und Cache-Version 2.0.7.",
-    "Korrigierte Update-Prüfung über version.json; Fangdaten werden nicht verändert."
+    "10 weitere einzeln generierte KI-Bilder auf weißem Hintergrund für Seehase, Seewolf, Kuckuckslippfisch, Scheibenbauch, Butterfisch, Aalmutter, Seestichling, zwei Seenadeln und Seepferdchen.",
+    "40 zusätzliche lokale Artenbilder in Artkarten und Detailansichten zugeordnet; vorhandene 70 eingebettete KI-Abbildungen bleiben erhalten.",
+    "Alle 40 zusätzlichen WebP-Dateien können im Service-Worker-Offline-Cache gespeichert werden.",
+    "Update-Anzeige und Versionsvergleich auf 2.0.8 angepasst."
   ],
-  "notes": "KI-Bilder sind illustrative Beispiele, keine fachlich geprüften Bestimmungsfotos. Wissenschaftliche Namen der Störarten in den bisherigen Appdaten bitte unabhängig prüfen."
+  "notes": "KI-Bilder sind illustrative Beispiele, keine fachlich validierten Bestimmungsfotos; bei Schutz, Fischbestimmung oder Entnahme auf geprüfte Quellen zurückgreifen."
 }
