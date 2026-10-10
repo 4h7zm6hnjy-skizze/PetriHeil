@@ -1,0 +1,893 @@
+{
+  "version": "2.0.21",
+  "totalArten": 177,
+  "unterschiedlicheLokaleDateien": 172,
+  "hinweis": "Dateizuordnung, keine Prüfung der biologischen Bildmerkmale",
+  "arten": [
+    {
+      "id": "f32",
+      "name": "Giebel",
+      "bilddatei": "giebel.webp"
+    },
+    {
+      "id": "f33",
+      "name": "Goldfisch",
+      "bilddatei": "goldfisch.webp"
+    },
+    {
+      "id": "f53",
+      "name": "Dreistachliger Stichling",
+      "bilddatei": "dreistachliger-stichling.webp"
+    },
+    {
+      "id": "f61",
+      "name": "Schwarzmundgrundel",
+      "bilddatei": "schwarzmundgrundel.webp"
+    },
+    {
+      "id": "f68",
+      "name": "Stint",
+      "bilddatei": "stint.webp"
+    },
+    {
+      "id": "f73",
+      "name": "Sterlet",
+      "bilddatei": "sterlet.webp"
+    },
+    {
+      "id": "f86",
+      "name": "Bachneunauge",
+      "bilddatei": "bachneunauge.webp"
+    },
+    {
+      "id": "s35",
+      "name": "Petermännchen",
+      "bilddatei": "petermaennchen.webp"
+    },
+    {
+      "id": "c12",
+      "name": "Europäischer Hummer",
+      "bilddatei": "europaeischer-hummer.webp"
+    },
+    {
+      "id": "c9",
+      "name": "Chinesische Wollhandkrabbe",
+      "bilddatei": "chinesische-wollhandkrabbe.webp"
+    },
+    {
+      "id": "f54",
+      "name": "Neunstachliger Stichling",
+      "bilddatei": "neunstachliger-stichling.webp"
+    },
+    {
+      "id": "f62",
+      "name": "Kesslergrundel",
+      "bilddatei": "kesslergrundel.webp"
+    },
+    {
+      "id": "f63",
+      "name": "Flussgrundel",
+      "bilddatei": "flussgrundel.webp"
+    },
+    {
+      "id": "f64",
+      "name": "Nackthalsgrundel",
+      "bilddatei": "nackthalsgrundel.webp"
+    },
+    {
+      "id": "f65",
+      "name": "Amurgrundel",
+      "bilddatei": "amurgrundel.webp"
+    },
+    {
+      "id": "f87",
+      "name": "Flussneunauge",
+      "bilddatei": "flussneunauge.webp"
+    },
+    {
+      "id": "f88",
+      "name": "Meerneunauge",
+      "bilddatei": "meerneunauge.webp"
+    },
+    {
+      "id": "c10",
+      "name": "Gemeine Strandkrabbe",
+      "bilddatei": "gemeine-strandkrabbe.webp"
+    },
+    {
+      "id": "c11",
+      "name": "Nordseegarnele",
+      "bilddatei": "nordseegarnele.webp"
+    },
+    {
+      "id": "c13",
+      "name": "Taschenkrebs",
+      "bilddatei": "taschenkrebs.webp"
+    },
+    {
+      "id": "f25",
+      "name": "Meerforelle",
+      "bilddatei": "meerforelle-neu.webp"
+    },
+    {
+      "id": "f71",
+      "name": "Atlantischer Stör",
+      "bilddatei": "atlantischer-stoer-neu.webp"
+    },
+    {
+      "id": "f72",
+      "name": "Europäischer Stör",
+      "bilddatei": "europaeischer-stoer.webp"
+    },
+    {
+      "id": "f89",
+      "name": "Donau-Neunauge",
+      "bilddatei": "donau-neunauge.webp"
+    },
+    {
+      "id": "s19",
+      "name": "Stintdorsch",
+      "bilddatei": "stintdorsch.webp"
+    },
+    {
+      "id": "s36",
+      "name": "Kleines Petermännchen",
+      "bilddatei": "kleines-petermaennchen.webp"
+    },
+    {
+      "id": "s39",
+      "name": "Lippfisch (Goldmaid)",
+      "bilddatei": "lippfisch-goldmaid.webp"
+    },
+    {
+      "id": "s41",
+      "name": "Gefleckter Lippfisch",
+      "bilddatei": "gefleckter-lippfisch.webp"
+    },
+    {
+      "id": "s56",
+      "name": "Meeräsche (Dicklippige)",
+      "bilddatei": "meeraesche-dicklippige.webp"
+    },
+    {
+      "id": "s57",
+      "name": "Meeräsche (Dünnlippige)",
+      "bilddatei": "meeraesche-duennlippige.webp"
+    },
+    {
+      "id": "s37",
+      "name": "Seehase",
+      "bilddatei": "seehase.webp"
+    },
+    {
+      "id": "s38",
+      "name": "Seewolf (Gestreifter)",
+      "bilddatei": "seewolf-gestreifter.webp"
+    },
+    {
+      "id": "s40",
+      "name": "Kuckuckslippfisch",
+      "bilddatei": "kuckuckslippfisch.webp"
+    },
+    {
+      "id": "s42",
+      "name": "Großer Scheibenbauch",
+      "bilddatei": "grosser-scheibenbauch.webp"
+    },
+    {
+      "id": "s43",
+      "name": "Europäischer Butterfisch",
+      "bilddatei": "europaeischer-butterfisch.webp"
+    },
+    {
+      "id": "s44",
+      "name": "Aalmutter",
+      "bilddatei": "aalmutter.webp"
+    },
+    {
+      "id": "s45",
+      "name": "Seestichling",
+      "bilddatei": "seestichling.webp"
+    },
+    {
+      "id": "s46",
+      "name": "Grasnadel",
+      "bilddatei": "grasnadel.webp"
+    },
+    {
+      "id": "s47",
+      "name": "Große Seenadel",
+      "bilddatei": "grosse-seenadel.webp"
+    },
+    {
+      "id": "s50",
+      "name": "Seepferdchen (Langschnäuziges)",
+      "bilddatei": "seepferdchen-langschnauziges.webp"
+    },
+    {
+      "id": "s48",
+      "name": "Kleine Seenadel",
+      "bilddatei": "kleine-seenadel.webp"
+    },
+    {
+      "id": "s49",
+      "name": "Schlangennadel",
+      "bilddatei": "schlangennadel.webp"
+    },
+    {
+      "id": "s51",
+      "name": "Seepferdchen (Kurzschnäuziges)",
+      "bilddatei": "seepferdchen-kurzschnauziges.webp"
+    },
+    {
+      "id": "s52",
+      "name": "Schwarzgrundel",
+      "bilddatei": "schwarzgrundel.webp"
+    },
+    {
+      "id": "s53",
+      "name": "Sandgrundel",
+      "bilddatei": "sandgrundel.webp"
+    },
+    {
+      "id": "s54",
+      "name": "Strandgrundel",
+      "bilddatei": "strandgrundel.webp"
+    },
+    {
+      "id": "s55",
+      "name": "Fleckengrundel",
+      "bilddatei": "fleckengrundel.webp"
+    },
+    {
+      "id": "s58",
+      "name": "Goldstrieme",
+      "bilddatei": "goldstrieme.webp"
+    },
+    {
+      "id": "s59",
+      "name": "Meerbrasse",
+      "bilddatei": "meerbrasse.webp"
+    },
+    {
+      "id": "s61",
+      "name": "Hai (Kleingefleckter Katzenhai)",
+      "bilddatei": "hai-kleingefleckter-katzenhai.webp"
+    },
+    {
+      "id": "s62",
+      "name": "Dornhai",
+      "bilddatei": "dornhai.webp"
+    },
+    {
+      "id": "s64",
+      "name": "Heringshai",
+      "bilddatei": "heringshai.webp"
+    },
+    {
+      "id": "s65",
+      "name": "Nagelrochen",
+      "bilddatei": "nagelrochen.webp"
+    },
+    {
+      "id": "s66",
+      "name": "Sternrochen",
+      "bilddatei": "sternrochen.webp"
+    },
+    {
+      "id": "s67",
+      "name": "Glattrochen",
+      "bilddatei": "glattrochen.webp"
+    },
+    {
+      "id": "f41",
+      "name": "Zope",
+      "bilddatei": "zope.webp"
+    },
+    {
+      "id": "f42",
+      "name": "Zobel",
+      "bilddatei": "zobel.webp"
+    },
+    {
+      "id": "f43",
+      "name": "Zährte",
+      "bilddatei": "zaehrte.webp"
+    },
+    {
+      "id": "f44",
+      "name": "Frauennerfling",
+      "bilddatei": "frauennerfling.webp"
+    },
+    {
+      "id": "f45",
+      "name": "Strömer",
+      "bilddatei": "stroemer.webp"
+    },
+    {
+      "id": "f46",
+      "name": "Perlfisch",
+      "bilddatei": "perlfisch.webp"
+    },
+    {
+      "id": "f47",
+      "name": "Stromgründling",
+      "bilddatei": "stromgruendling.webp"
+    },
+    {
+      "id": "f50",
+      "name": "Donau-Steinbeißer",
+      "bilddatei": "donau-steinbeisser.webp"
+    },
+    {
+      "id": "f56",
+      "name": "Schwarzer Zwergwels",
+      "bilddatei": "schwarzer-zwergwels.webp"
+    },
+    {
+      "id": "f58",
+      "name": "Schwarzbarsch",
+      "bilddatei": "schwarzbarsch.webp"
+    },
+    {
+      "id": "f59",
+      "name": "Groppe (Rheingebiet)",
+      "bilddatei": "groppe-rheingebiet.webp"
+    },
+    {
+      "id": "f66",
+      "name": "Hundsfisch",
+      "bilddatei": "hundsfisch.webp"
+    },
+    {
+      "id": "f67",
+      "name": "Ostasiatischer Schlammpeitzger",
+      "bilddatei": "ostasiatischer-schlammpeitzger.webp"
+    },
+    {
+      "id": "f74",
+      "name": "Schnäpel",
+      "bilddatei": "schnaepel.webp"
+    },
+    {
+      "id": "f75",
+      "name": "Große Maräne",
+      "bilddatei": "grosse-maraene.webp"
+    },
+    {
+      "id": "f76",
+      "name": "Kleine Maräne",
+      "bilddatei": "kleine-maraene.webp"
+    },
+    {
+      "id": "f77",
+      "name": "Blaufelchen",
+      "bilddatei": "blaufelchen.webp"
+    },
+    {
+      "id": "f78",
+      "name": "Gangfisch",
+      "bilddatei": "gangfisch.webp"
+    },
+    {
+      "id": "f79",
+      "name": "Kilch",
+      "bilddatei": "kilch.webp"
+    },
+    {
+      "id": "f80",
+      "name": "Ammersee-Kaulbarsch",
+      "bilddatei": "ammersee-kaulbarsch.webp"
+    },
+    {
+      "id": "f81",
+      "name": "Schrätzer",
+      "bilddatei": "schraetzer.webp"
+    },
+    {
+      "id": "f82",
+      "name": "Streber",
+      "bilddatei": "streber.webp"
+    },
+    {
+      "id": "f83",
+      "name": "Zingel",
+      "bilddatei": "zingel.webp"
+    },
+    {
+      "id": "f84",
+      "name": "Ziege",
+      "bilddatei": "ziege.webp"
+    },
+    {
+      "id": "f85",
+      "name": "Mairenke",
+      "bilddatei": "mairenke.webp"
+    },
+    {
+      "id": "s69",
+      "name": "Meerforelle (Küste)",
+      "bilddatei": "meerforelle-neu.webp"
+    },
+    {
+      "id": "s70",
+      "name": "Atlantischer Lachs (Küste)",
+      "bilddatei": "lachs.webp"
+    },
+    {
+      "id": "s71",
+      "name": "Aal (Küste)",
+      "bilddatei": "aal.webp"
+    },
+    {
+      "id": "s72",
+      "name": "Flussneunauge (Küste)",
+      "bilddatei": "flussneunauge.webp"
+    },
+    {
+      "id": "s73",
+      "name": "Meerneunauge (Küste)",
+      "bilddatei": "meerneunauge.webp"
+    },
+    {
+      "id": "s10",
+      "name": "Wittling",
+      "bilddatei": "wittling.webp"
+    },
+    {
+      "id": "s11",
+      "name": "Schellfisch",
+      "bilddatei": "schellfisch.webp"
+    },
+    {
+      "id": "s12",
+      "name": "Seelachs / Köhler",
+      "bilddatei": "seelachs-koehler.webp"
+    },
+    {
+      "id": "s13",
+      "name": "Pollack",
+      "bilddatei": "pollack.webp"
+    },
+    {
+      "id": "s14",
+      "name": "Seehecht",
+      "bilddatei": "seehecht.webp"
+    },
+    {
+      "id": "s15",
+      "name": "Leng",
+      "bilddatei": "leng.webp"
+    },
+    {
+      "id": "s17",
+      "name": "Franzosendorsch",
+      "bilddatei": "franzosendorsch.webp"
+    },
+    {
+      "id": "s18",
+      "name": "Zwergdorsch",
+      "bilddatei": "zwergdorsch.webp"
+    },
+    {
+      "id": "s4",
+      "name": "Europäische Sardelle",
+      "bilddatei": "europaeische-sardelle.webp"
+    },
+    {
+      "id": "s6",
+      "name": "Stöcker",
+      "bilddatei": "stoecker.webp"
+    },
+    {
+      "id": "s23",
+      "name": "Seezunge",
+      "bilddatei": "seezunge.webp"
+    },
+    {
+      "id": "s25",
+      "name": "Glattbutt",
+      "bilddatei": "glattbutt.webp"
+    },
+    {
+      "id": "s27",
+      "name": "Rotzunge",
+      "bilddatei": "rotzunge.webp"
+    },
+    {
+      "id": "s26",
+      "name": "Heilbutt",
+      "bilddatei": "heilbutt.webp"
+    },
+    {
+      "id": "s28",
+      "name": "Doggerscharbe",
+      "bilddatei": "doggerscharbe.webp"
+    },
+    {
+      "id": "s29",
+      "name": "Zwergzunge",
+      "bilddatei": "zwergzunge.webp"
+    },
+    {
+      "id": "s30",
+      "name": "Seeskorpion",
+      "bilddatei": "seeskorpion.webp"
+    },
+    {
+      "id": "s31",
+      "name": "Langstacheliger Seeskorpion",
+      "bilddatei": "langstacheliger-seeskorpion.webp"
+    },
+    {
+      "id": "s32",
+      "name": "Knurrhahn rot",
+      "bilddatei": "knurrhahn-rot.webp"
+    },
+    {
+      "id": "s33",
+      "name": "Grauer Knurrhahn",
+      "bilddatei": "grauer-knurrhahn.webp"
+    },
+    {
+      "id": "s16",
+      "name": "Lumb",
+      "bilddatei": "lumb.webp"
+    },
+    {
+      "id": "s34",
+      "name": "Roter Knurrhahn",
+      "bilddatei": "roter-knurrhahn.webp"
+    },
+    {
+      "id": "s63",
+      "name": "Hundshai",
+      "bilddatei": "hundshai.webp"
+    },
+    {
+      "id": "s68",
+      "name": "Kuckucksrochen",
+      "bilddatei": "kuckucksrochen.webp"
+    },
+    {
+      "id": "c3",
+      "name": "Dohlenkrebs",
+      "bilddatei": "dohlenkrebs.webp"
+    },
+    {
+      "id": "c2",
+      "name": "Steinkrebs",
+      "bilddatei": "steinkrebs.webp"
+    },
+    {
+      "id": "c1",
+      "name": "Edelkrebs",
+      "bilddatei": "edelkrebs-ki-weiss.webp"
+    },
+    {
+      "id": "c5",
+      "name": "Signalkrebs",
+      "bilddatei": "signalkrebs-ki-weiss.webp"
+    },
+    {
+      "id": "c4",
+      "name": "Kamberkrebs",
+      "bilddatei": "kamberkrebs-ki-weiss.webp"
+    },
+    {
+      "id": "c6",
+      "name": "Roter Amerikanischer Sumpfkrebs",
+      "bilddatei": "roter-amerikanischer-sumpfkrebs.webp"
+    },
+    {
+      "id": "s20",
+      "name": "Plattfisch Scholle",
+      "bilddatei": "scholle-ki-weiss.webp"
+    },
+    {
+      "id": "s21",
+      "name": "Flunder",
+      "bilddatei": "flunder-ki-weiss.webp"
+    },
+    {
+      "id": "s22",
+      "name": "Kliesche",
+      "bilddatei": "kliesche-ki-weiss.webp"
+    },
+    {
+      "id": "s24",
+      "name": "Steinbutt",
+      "bilddatei": "steinbutt-ki-weiss.webp"
+    },
+    {
+      "id": "s1",
+      "name": "Atlantischer Hering",
+      "bilddatei": "hering-ki-weiss.webp"
+    },
+    {
+      "id": "s2",
+      "name": "Sprotte",
+      "bilddatei": "sprotte-ki-weiss.webp"
+    },
+    {
+      "id": "s3",
+      "name": "Europäische Sardine",
+      "bilddatei": "sardine-ki-weiss.webp"
+    },
+    {
+      "id": "s5",
+      "name": "Makrele",
+      "bilddatei": "makrele-ki-weiss.webp"
+    },
+    {
+      "id": "s7",
+      "name": "Hornhecht",
+      "bilddatei": "hornhecht-ki-weiss.webp"
+    },
+    {
+      "id": "s8",
+      "name": "Wolfsbarsch",
+      "bilddatei": "wolfsbarsch-ki-weiss.webp"
+    },
+    {
+      "id": "c7",
+      "name": "Marmorkrebs",
+      "bilddatei": "marmorkrebs-ki-weiss.webp"
+    },
+    {
+      "id": "c8",
+      "name": "Kaisergranat",
+      "bilddatei": "kaisergranat-ki-weiss.webp"
+    },
+    {
+      "id": "c14",
+      "name": "Galizischer Sumpfkrebs",
+      "bilddatei": "galizischer-sumpfkrebs-ki-weiss.webp"
+    },
+    {
+      "id": "f1",
+      "name": "Hecht",
+      "bilddatei": "hecht.webp"
+    },
+    {
+      "id": "f2",
+      "name": "Zander",
+      "bilddatei": "zander.webp"
+    },
+    {
+      "id": "f3",
+      "name": "Flussbarsch",
+      "bilddatei": "flussbarsch.webp"
+    },
+    {
+      "id": "f4",
+      "name": "Kaulbarsch",
+      "bilddatei": "kaulbarsch.webp"
+    },
+    {
+      "id": "f5",
+      "name": "Wels",
+      "bilddatei": "wels.webp"
+    },
+    {
+      "id": "f6",
+      "name": "Europäischer Aal",
+      "bilddatei": "aal.webp"
+    },
+    {
+      "id": "f7",
+      "name": "Quappe",
+      "bilddatei": "quappe.webp"
+    },
+    {
+      "id": "f8",
+      "name": "Karpfen",
+      "bilddatei": "karpfen.webp"
+    },
+    {
+      "id": "f9",
+      "name": "Graskarpfen",
+      "bilddatei": "graskarpfen.webp"
+    },
+    {
+      "id": "f10",
+      "name": "Silberkarpfen",
+      "bilddatei": "silberkarpfen.webp"
+    },
+    {
+      "id": "f11",
+      "name": "Marmorkarpfen",
+      "bilddatei": "marmorkarpfen.webp"
+    },
+    {
+      "id": "f12",
+      "name": "Schleie",
+      "bilddatei": "schleie.webp"
+    },
+    {
+      "id": "f13",
+      "name": "Brasse",
+      "bilddatei": "brasse.webp"
+    },
+    {
+      "id": "f14",
+      "name": "Güster",
+      "bilddatei": "guester.webp"
+    },
+    {
+      "id": "f15",
+      "name": "Rotauge",
+      "bilddatei": "rotauge.webp"
+    },
+    {
+      "id": "f16",
+      "name": "Rotfeder",
+      "bilddatei": "rotfeder.webp"
+    },
+    {
+      "id": "f17",
+      "name": "Aland",
+      "bilddatei": "aland.webp"
+    },
+    {
+      "id": "f18",
+      "name": "Döbel",
+      "bilddatei": "doebel.webp"
+    },
+    {
+      "id": "f19",
+      "name": "Rapfen",
+      "bilddatei": "rapfen.webp"
+    },
+    {
+      "id": "f20",
+      "name": "Barbe",
+      "bilddatei": "barbe.webp"
+    },
+    {
+      "id": "f21",
+      "name": "Nase",
+      "bilddatei": "nase.webp"
+    },
+    {
+      "id": "f22",
+      "name": "Äsche",
+      "bilddatei": "aesche.webp"
+    },
+    {
+      "id": "f23",
+      "name": "Bachforelle",
+      "bilddatei": "bachforelle.webp"
+    },
+    {
+      "id": "f24",
+      "name": "Seeforelle",
+      "bilddatei": "seeforelle.webp"
+    },
+    {
+      "id": "f26",
+      "name": "Regenbogenforelle",
+      "bilddatei": "regenbogenforelle.webp"
+    },
+    {
+      "id": "f27",
+      "name": "Bachsaibling",
+      "bilddatei": "bachsaibling.webp"
+    },
+    {
+      "id": "f28",
+      "name": "Seesaibling",
+      "bilddatei": "seesaibling.webp"
+    },
+    {
+      "id": "f29",
+      "name": "Huchen",
+      "bilddatei": "huchen.webp"
+    },
+    {
+      "id": "f30",
+      "name": "Atlantischer Lachs",
+      "bilddatei": "lachs.webp"
+    },
+    {
+      "id": "f31",
+      "name": "Karausche",
+      "bilddatei": "karausche.webp"
+    },
+    {
+      "id": "f34",
+      "name": "Gründling",
+      "bilddatei": "gruendling.webp"
+    },
+    {
+      "id": "f35",
+      "name": "Hasel",
+      "bilddatei": "hasel.webp"
+    },
+    {
+      "id": "f36",
+      "name": "Laube",
+      "bilddatei": "laube.webp"
+    },
+    {
+      "id": "f37",
+      "name": "Elritze",
+      "bilddatei": "elritze.webp"
+    },
+    {
+      "id": "f38",
+      "name": "Moderlieschen",
+      "bilddatei": "moderlieschen.webp"
+    },
+    {
+      "id": "f39",
+      "name": "Bitterling",
+      "bilddatei": "bitterling.webp"
+    },
+    {
+      "id": "f40",
+      "name": "Schneider",
+      "bilddatei": "schneider.webp"
+    },
+    {
+      "id": "f48",
+      "name": "Bachschmerle",
+      "bilddatei": "bachschmerle.webp"
+    },
+    {
+      "id": "f49",
+      "name": "Steinbeißer",
+      "bilddatei": "steinbeisser.webp"
+    },
+    {
+      "id": "f51",
+      "name": "Schlammpeitzger",
+      "bilddatei": "schlammpeitzger.webp"
+    },
+    {
+      "id": "f52",
+      "name": "Koppe / Groppe",
+      "bilddatei": "koppe.webp"
+    },
+    {
+      "id": "f55",
+      "name": "Zwergwels",
+      "bilddatei": "zwergwels.webp"
+    },
+    {
+      "id": "f57",
+      "name": "Sonnenbarsch",
+      "bilddatei": "sonnenbarsch.webp"
+    },
+    {
+      "id": "f60",
+      "name": "Marmorierte Grundel",
+      "bilddatei": "marmorierte-grundel.webp"
+    },
+    {
+      "id": "f69",
+      "name": "Maifisch",
+      "bilddatei": "maifisch.webp"
+    },
+    {
+      "id": "f70",
+      "name": "Finte",
+      "bilddatei": "finte.webp"
+    },
+    {
+      "id": "s9",
+      "name": "Dorsch / Kabeljau",
+      "bilddatei": "dorsch.webp"
+    },
+    {
+      "id": "s60",
+      "name": "Goldbrasse",
+      "bilddatei": "goldbrasse.webp"
+    },
+    {
+      "id": "s74",
+      "name": "Europäischer Seeteufel",
+      "bilddatei": "seeteufel.webp"
+    }
+  ]
+}

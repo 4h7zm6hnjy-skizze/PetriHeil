@@ -1,15 +1,30 @@
-PetriHeil Bilderupdate 2.0.20
+PETRIHEIL DESIGN & BILDFIX v2.0.21
+================================
 
-Enthalten:
-- 1 neues WebP-Bild: Galizischer Sumpfkrebs
-- aktualisierte Dateien: species-images-v2.0.5.js, sw.js, version.json
+DESIGN
+- Helleres, freundliches Ozean-Farbschema passend zum bisherigen Fisch-Logo
+- Wasserblau, Weiß, Dunkelblau; warme Akzente
+- Keine Menü- oder Funktionsverschiebungen
 
-Installation:
-1. Diese ZIP-Datei entpacken.
-2. Die .webp-Datei in das Hauptverzeichnis des PetriHeil-GitHub-Repositories hochladen.
-3. species-images-v2.0.5.js, sw.js und version.json im Hauptverzeichnis ersetzen.
-4. Änderungen speichern/veröffentlichen.
-5. Die App zweimal online öffnen, damit der Service Worker und der Offline-Cache aktualisiert werden.
+FISCHKUNDE
+- 49 zuvor nicht im Zusatz-Bildloader verknüpfte Arten erhalten Zuordnungen zu bereits vorhandenen lokalen WebPs
+- Insgesamt 177 Artzuordnungen, 172 unterschiedliche WebP-Dateien
+- Das modale Detailfenster (#modal-root) wird nun überwacht
+- Das erste Bild im Detailfenster wird auf dieselbe lokale Bilddatei wie die Übersicht gesetzt
+- Existing photos used elsewhere (z. B. eigene Fangfotos) bleiben erhalten
 
-Hinweis:
-Das KI-Bild ist eine illustrative Darstellung und kein wissenschaftlich validiertes Bestimmungsfoto.
+INSTALLATION AUF GITHUB
+1. Die vier Dateien DIREKT in das Stammverzeichnis hochladen:
+   petri-ocean-theme.css (NEU)
+   species-images-v2.0.5.js (ERSETZEN)
+   sw.js (ERSETZEN)
+   version.json (ERSETZEN)
+2. Keine Unterordner erzeugen und die restlichen Dateien nicht löschen.
+3. Änderungen speichern und GitHub Pages-Veröffentlichung abwarten.
+4. App mit Internet öffnen, erneut öffnen; unter Mehr -> Update suchen Version 2.0.21 kontrollieren.
+5. Fischkunde: Goldfisch, Huchen und weitere Einträge öffnen, Übersicht/erstes Detailbild vergleichen.
+
+HINWEISE
+- Bilder sind illustrative KI-Darstellungen, keine sichere Artbestimmung.
+- Alle Bilddateien wurden auf GitHub per Name und Arteintrag abgeglichen, aber nicht einzeln visuell/wissenschaftlich überprüft.
+- Änderungen sind erst aktiv, nachdem die ZIP-Dateien auf GitHub hochgeladen wurden.

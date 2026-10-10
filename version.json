@@ -1,13 +1,13 @@
 {
-  "version": "2.0.20",
+  "version": "2.0.21",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "1 neues KI-Artenbild auf weißem Hintergrund: Galizischer Sumpfkrebs.",
-    "Bildloader von 127 auf 128 eindeutige Artzuordnungen erweitert; 125 unterschiedliche lokale WebP-Artenbilder.",
-    "Vorhandene Artbilder bleiben als Originaldateien erhalten; das neue KI-Beispielbild trägt das Suffix -ki-weiss.",
-    "Offline-Cache, Versionsanzeige und Update-Erkennung auf Version 2.0.20 aktualisiert.",
-    "Bestehende Fangdaten und übrige App-Funktionen werden nicht verändert."
+    "Frisches, deutlich freundlicheres Ozean-Design in den Logofarben: Wasserblau, Weiß und Dunkelblau mit dezentem Oliv-/Goldakzent.",
+    "Anordnung der Navigation und sämtliche bisherigen Funktionen bleiben unverändert.",
+    "Erstes Fischkunde-Detailbild verwendet jetzt dieselbe zur Art-ID gehörende lokale WebP-Datei wie die Übersicht; externe Bildverwechslungen werden ersetzt.",
+    "Alle 177 Fisch- und Krebsarten besitzen eine Bildzuordnung (172 unterschiedliche lokale WebP-Dateien).",
+    "Offline-Cache mit zusätzlichem Design-Stylesheet und allen lokalen Bilddateien auf Version 2.0.21 aktualisiert."
   ],
-  "notes": "Alle KI-Bilder sind illustrative Darstellungen, keine wissenschaftlich validierten Bestimmungsfotos. Besonders bei Krebstieren können Proportionen und Details der Scheren ungenau sein. Kein Einsatz zur sicheren Artbestimmung, rechtlichen Entnahmeentscheidung oder Schutzstatusprüfung."
+  "notes": "Eine Zuordnung zur richtigen Bilddatei bestätigt nicht die wissenschaftliche Genauigkeit der KI-Darstellung. Bereits gespeicherte Fotos/Fangdaten werden nicht gelöscht. Die Anzeige wurde anhand der Bildlogik geprüft; ein vollständiger Gerätetest auf iPhone ist noch nötig."
 }

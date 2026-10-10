@@ -1,9 +1,9 @@
-/* Petri Heil Pro 2.0.20: 125 distinct local WebP references, 128 species mappings and update-check repair.
+/* Petri Heil Pro 2.0.21: 172 distinct local WebP references, 177 species mappings, modal image and logo-themed design repair.
    Original 70 embedded illustrations and local user data remain unchanged.
    Images are illustrative, NOT validated for species identification. */
 (()=>{
   'use strict';
-  const VERSION='2.0.20';
+  const VERSION='2.0.21';
   const SPECIES=[
     ['f32','Giebel','giebel'],
     ['f33','Goldfisch','goldfisch'],
@@ -133,6 +133,55 @@
     ['c7','Marmorkrebs','marmorkrebs-ki-weiss'],
     ['c8','Kaisergranat','kaisergranat-ki-weiss'],
     ['c14','Galizischer Sumpfkrebs','galizischer-sumpfkrebs-ki-weiss'],
+    ['f1','Hecht','hecht'],
+    ['f2','Zander','zander'],
+    ['f3','Flussbarsch','flussbarsch'],
+    ['f4','Kaulbarsch','kaulbarsch'],
+    ['f5','Wels','wels'],
+    ['f6','Europäischer Aal','aal'],
+    ['f7','Quappe','quappe'],
+    ['f8','Karpfen','karpfen'],
+    ['f9','Graskarpfen','graskarpfen'],
+    ['f10','Silberkarpfen','silberkarpfen'],
+    ['f11','Marmorkarpfen','marmorkarpfen'],
+    ['f12','Schleie','schleie'],
+    ['f13','Brasse','brasse'],
+    ['f14','Güster','guester'],
+    ['f15','Rotauge','rotauge'],
+    ['f16','Rotfeder','rotfeder'],
+    ['f17','Aland','aland'],
+    ['f18','Döbel','doebel'],
+    ['f19','Rapfen','rapfen'],
+    ['f20','Barbe','barbe'],
+    ['f21','Nase','nase'],
+    ['f22','Äsche','aesche'],
+    ['f23','Bachforelle','bachforelle'],
+    ['f24','Seeforelle','seeforelle'],
+    ['f26','Regenbogenforelle','regenbogenforelle'],
+    ['f27','Bachsaibling','bachsaibling'],
+    ['f28','Seesaibling','seesaibling'],
+    ['f29','Huchen','huchen'],
+    ['f30','Atlantischer Lachs','lachs'],
+    ['f31','Karausche','karausche'],
+    ['f34','Gründling','gruendling'],
+    ['f35','Hasel','hasel'],
+    ['f36','Laube','laube'],
+    ['f37','Elritze','elritze'],
+    ['f38','Moderlieschen','moderlieschen'],
+    ['f39','Bitterling','bitterling'],
+    ['f40','Schneider','schneider'],
+    ['f48','Bachschmerle','bachschmerle'],
+    ['f49','Steinbeißer','steinbeisser'],
+    ['f51','Schlammpeitzger','schlammpeitzger'],
+    ['f52','Koppe / Groppe','koppe'],
+    ['f55','Zwergwels','zwergwels'],
+    ['f57','Sonnenbarsch','sonnenbarsch'],
+    ['f60','Marmorierte Grundel','marmorierte-grundel'],
+    ['f69','Maifisch','maifisch'],
+    ['f70','Finte','finte'],
+    ['s9','Dorsch / Kabeljau','dorsch'],
+    ['s60','Goldbrasse','goldbrasse'],
+    ['s74','Europäischer Seeteufel','seeteufel'],
   ].map(([id,name,file])=>({id,name,url:new URL(file+'.webp',document.baseURI).href}));
   const norm=s=>String(s||'').replace(/\s+/g,' ').trim().toLocaleLowerCase('de-DE');
   const identify=s=>SPECIES.find(v=>norm(v.name)===norm(s));
@@ -158,7 +207,15 @@
     const available=await imageOk(item);
     if(!available||!place.isConnected)return;
     let host=place.querySelector('.photo-host');
-    if(!host){host=makeHost();if(place.classList.contains('fish-card'))place.prepend(host);else place.append(host);}
+    if(!host){
+      host=makeHost();
+      if(place.classList.contains('fish-card'))place.prepend(host);
+      else place.replaceChildren(host);
+    }
+    if(place.classList.contains('species-detail-image')){
+      // No old external photograph may precede the species-specific local image.
+      for(const n of Array.from(place.children))if(n!==host)n.remove();
+    }
     let body=host.querySelector('.photo-content');
     if(!body){body=document.createElement('div');body.className='photo-content';host.prepend(body);}
     let image=body.querySelector('img');
@@ -193,21 +250,28 @@
       const item=identify(label?.textContent);
       if(item)void apply(card,item);
     }
-    const detail=main.querySelector('.species-detail-image');
-    if(detail){
-      const titles=Array.from(main.querySelectorAll('h1,h2,h3')).map(x=>x.textContent);
-      const item=titles.map(identify).find(Boolean);
-      if(item)void apply(detail,item);
+    // Species detail overlays live under #modal-root, NOT inside #main.
+    // Resolve the exact scientific species card title from the active modal,
+    // then use the same local WebP path as the overview card.
+    const modalRoot=document.getElementById('modal-root');
+    if(modalRoot){
+      for(const modal of modalRoot.querySelectorAll('.modal')){
+        const detail=modal.querySelector('.species-detail-image');
+        if(!detail)continue;
+        const heading=modal.querySelector('.modal-head h2') || modal.querySelector('h2');
+        const item=identify(heading?.textContent);
+        if(item)void apply(detail,item);
+      }
     }
-    // Dynamic app.js 2.0.4 is preserved; show 2.0.17 accurately in the visible UI.
+    // Dynamic app.js 2.0.4 is preserved; show 2.0.21 accurately in the visible UI.
     for (const el of document.querySelectorAll('.sidebar .tiny,#app-update-card')) {
       if(!el.dataset.petri214VersionChecked){
         el.dataset.petri214VersionChecked='yes';
-        if(el.classList.contains('tiny')) el.textContent=el.textContent.replace(/2\.0\.(?:[4-9]|1[0-4])\b/g,'2.0.17');
+        if(el.classList.contains('tiny')) el.textContent=el.textContent.replace(/2\.0\.(?:[4-9]|1[0-9]|20)\b/g,'2.0.21');
         if(el.id==='app-update-card'){
           for(const node of el.querySelectorAll('h1,h2,h3,strong,span')){
-            if(node.children.length===0 && /Version 2\.0\.(?:[4-9]|1[0-4])\b/.test(node.textContent))
-              node.textContent=node.textContent.replace(/2\.0\.(?:[4-9]|1[0-4])\b/g,'2.0.17');
+            if(node.children.length===0 && /Version 2\.0\.(?:[4-9]|1[0-9]|20)\b/.test(node.textContent))
+              node.textContent=node.textContent.replace(/2\.0\.(?:[4-9]|1[0-9]|20)\b/g,'2.0.21');
           }
         }
       }
@@ -217,8 +281,8 @@
     const box=main.querySelector('#real-photo-settings');
     if(box && !box.querySelector('.petri-additional-images-notice')){
       const note=document.createElement('p');note.className='petri-additional-images-notice';
-      note.textContent='Zusätzlich zu den 70 eingebetteten Bildern stehen 92 unterschiedliche lokale WebP-Bilder bereit. Insgesamt sind 95 Arteinträge über den Bildloader zugeordnet (5 Küstenvarianten verwenden vorhandene Bilder). Nach dem ersten vollständigen Laden stehen sie offline bereit.';
-      note.style.cssText='font-size:13px;line-height:1.55;color:#bbef69';
+      note.textContent='Zusätzlich zu den 70 eingebetteten Bildern sind 172 unterschiedliche lokale WebP-Bilder verfügbar. Alle 177 Arteinträge besitzen eine eigene Bildzuordnung (Küstenvarianten verwenden teilweise dieselbe Artdatei). Nach dem ersten vollständigen Laden stehen sie offline bereit.';
+      note.style.cssText='font-size:13px;line-height:1.55;color:var(--accent)';
       box.append(note);
     }
   }
@@ -232,7 +296,7 @@
     if(!card)return;
     let own=card.querySelector('#petri214-update-status');
     if(!own){own=document.createElement('p');own.id='petri214-update-status';own.setAttribute('role','status');
-      own.style.cssText='margin:10px 0;color:#bbef69;font-size:13px;line-height:1.5;white-space:normal';
+      own.style.cssText='margin:10px 0;color:var(--accent);font-size:13px;line-height:1.5;white-space:normal';
       button.insertAdjacentElement('afterend',own);
     }
     own.textContent=message;
@@ -264,7 +328,7 @@
       const result=cmp(info.version,VERSION);
       if(result===null)throw new Error('ungültige Versionsangabe');
       if(result>0)showUpdateStatus(button,'Eine neuere Version '+info.version+' ist gemeldet. Vor der Installation die vollständigen Dateien prüfen.');
-      else if(result===0)showUpdateStatus(button,'Version '+VERSION+' ist aktuell. 70 eingebettete Bilder, 125 unterschiedliche lokale WebP-Bilder und 128 Artzuordnungen.');
+      else if(result===0)showUpdateStatus(button,'Version '+VERSION+' ist aktuell. 70 eingebettete Bilder, 172 unterschiedliche lokale WebP-Bilder und 177 Artzuordnungen.');
       else showUpdateStatus(button,'App '+VERSION+' installiert; Server meldet noch '+info.version+'. Veröffentlichung prüfen.');
     }catch(e){showUpdateStatus(button,'Update-Prüfung fehlgeschlagen ('+(e.name==='AbortError'?'Zeitüberschreitung':e.message)+'). HTTPS-Verbindung und version.json prüfen.');}
   }
@@ -278,7 +342,10 @@
   },true);
   function start(){
     const main=document.getElementById('main');if(!main)return;
-    new MutationObserver(schedule).observe(main,{childList:true,subtree:true,attributes:true,attributeFilter:['src']});
+    const observer=new MutationObserver(schedule);
+    observer.observe(main,{childList:true,subtree:true,attributes:true,attributeFilter:['src']});
+    const modalRoot=document.getElementById('modal-root');
+    if(modalRoot)observer.observe(modalRoot,{childList:true,subtree:true,attributes:true,attributeFilter:['src']});
     schedule();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();

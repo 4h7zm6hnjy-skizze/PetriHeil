@@ -1,0 +1,134 @@
+/* PetriHeil Pro 2.0.21 — helles Ozean-Design passend zum Petri-Heil-Logo.
+   Nur Farben, Oberflaechen und Kontraste; keine Positions- oder Funktionsaenderungen. */
+:root {
+  --bg:#e8f4fc;
+  --nav:#093760;
+  --panel:#ffffff;
+  --panel2:#f0f8fd;
+  --edge:#cadfec;
+  --sub:#56748a;
+  --white:#16344e;
+  --muted:#5c7487;
+  --accent:#087fbe;
+  --a2:#0573b0;
+  --gold:#b67e18;
+  --silver:#4f7489;
+  --bronze:#a56b3e;
+  --red:#b94947;
+  --card:#ffffff;
+  --shadow:0 10px 30px rgba(5,47,83,.10);
+  color-scheme:light;
+}
+html { background:#e8f4fc; }
+body { background:linear-gradient(155deg,#e9f7ff 0%,#f7fbff 54%,#e8f3fb 100%); color:#173850; }
+::selection { background:#b8e6fb;color:#09385d; }
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #128ccd;outline-offset:2px}
+/* Existing navigation structure retained */
+.sidebar { background:linear-gradient(180deg,#063254 0%,#0a4673 100%);color:#edf9ff;border-right:1px solid #1d6592; }
+.brand strong,.brand strong span {color:#f9fdff}
+.brand small {color:#b9e3f8}
+.brand-mark {background:#f6fcff;color:#006ba9;box-shadow:0 3px 13px #003e6b33}
+.sidebar-meta {background:#0c537f;border:1px solid #397baa;color:#d6f4ff}
+.status-dot {background:#7bd6ff;box-shadow:0 0 9px #52d1ff}
+.side-heading,.tiny {color:#b9d9ec}
+.nav button {color:#d7ecf9}
+.nav button:hover {background:#206391;color:#fff}
+.nav button.active {color:#fff;background:#147db6;border-left:3px solid #f4c954}
+.side-bottom {border-color:#2b6b96;background:#f7fbff;color:#15344b}
+.side-bottom p {color:#123c5b}
+.side-bottom small {color:#54738a}
+.side-bottom img {background:#fff}
+.side-cta {border:1px solid #69b9e7;color:#eefaff;background:#07578c}
+.topbar {background:rgba(255,255,255,.78);border-bottom:1px solid #d1e4ef}
+.topbar h1,h1,h2,h3,h4 {color:#173951}
+.eyebrow {color:#0679bd}
+.network-tag {background:#e5f8ee;border:1px solid #b6dec7;color:#176449}
+.foot-note {border-top:1px solid #c9dce9;color:#627f90}
+/* Bright, recognizable brand surfaces */
+.hero {background:linear-gradient(115deg,#d9f2ff 0%,#eefaff 54%,#f3f9ff 100%);border:1px solid #add5ec;box-shadow:0 8px 24px #0b5e9320}
+.hero:before {border-color:#1690d31e}
+.hero h2 {color:#0d3554}
+.hero p {color:#46687c}
+.hero .hero-label,.hero strong {color:#0076b5}
+.hero img {background:#fff;border:5px solid #fff;box-shadow:0 10px 35px #1365992e}
+.card,.metric,.rank,.trophy,.gear-card,.fish-card {background:#ffffff;color:#193b53;border-color:#c9dfea;box-shadow:0 4px 16px #125b7b0c}
+.card:hover,.fish-card:hover,.trophy:hover {border-color:#70b7da}
+.metric .label,.metric .sub,.mini-label,.muted,.small,.soft,.rank .place,.rank .foot,.section-head p {color:#56738a!important}
+.metric.highlight {background:linear-gradient(145deg,#dcf4ff,#b8e5f8);color:#123c59;border-color:#8bc8e8}
+.metric.highlight .label,.metric.highlight .sub,.metric.highlight .value em {color:#285b73}
+.notice {background:#e4f5fc;border:1px solid #b6dcec;color:#244d67}
+.warning {background:#fff7e3;border:1px solid #e0c58c;color:#6d4a1a}
+.danger-notice {background:#fff0ec;border-color:#e4a9a1;color:#913f37}
+.pill {background:#e7f3fa;border:1px solid #b5d6e9;color:#285a75}
+.pill-lime {background:#e9f5dd;border-color:#b9d5a4;color:#446421}
+.pill-gold {background:#fff3d8;border-color:#e8d08d;color:#7d560f}
+.pill-red {background:#fff0eb;border-color:#e8c1b4;color:#9a4840}
+/* Buttons remain where they are, but get consistent bright-blue affordances */
+.button {border-color:#b1cfdf;box-shadow:0 2px 5px #074b790a}
+.button-primary {background:linear-gradient(135deg,#0688c9,#04699e);color:white;border-color:#0675b2}
+.button-primary:hover {filter:brightness(1.07)}
+.button-outline {background:#f3faff;color:#056da8;border-color:#83b9d5}
+.button-ghost,.icon-button {background:#ecf6fc;color:#195378;border-color:#bdd7e7}
+.button-danger {background:#fff0ee;color:#a9423d;border-color:#dcaaa4}
+.text-button,.accent {color:#0576b7}
+/* Forms, filters, tables */
+.field label {color:#31566d}
+.control,.searchbar {background:#fff;color:#16374f;border:1px solid #bfd8e7}
+.control::placeholder {color:#7792a4}
+.control:focus,.searchbar:focus-within {border-color:#128dcc;box-shadow:0 0 0 3px #64bfea26}
+.control[type=date],.control[type=datetime-local] {color-scheme:light}
+.searchbar span {color:#52788d}
+.filter-pills button {background:#ecf6fb;color:#45687e;border:1px solid #c2dcea}
+.filter-pills button.active {background:#067db9;color:white;border-color:#067db9}
+.table th {background:#e7f4fb;color:#3b6178}
+.table td {border-bottom:1px solid #dae8f1;color:#23475e}
+.divider {background:#cce0ec}
+/* Fish knowledge overview & gallery */
+.fish-card {background:#fff;color:#16344d;border:1px solid #bbd8e8}
+.fish-card h3,.fish-card-top h3 {color:#173a53}
+.fish-card em,.fish-card-top em {color:#56758a}
+.fish-icon {background:linear-gradient(145deg,#e9f8ff,#d5effc);border-color:#b2d9ec;color:#0b7ebd}
+.fish-card-footer {background:#f0f8fd;border-top:1px solid #d0e6f1;color:#537184}
+.fish-card-footer strong {color:#006da9}
+.photo-host {background:#fff;border-color:#d0e2ed}
+.photo-content,.photo-content img,.fish-card .photo-content img,.species-detail-image .photo-content img,.gear-card .photo-content img {background:#fff!important}
+.photo-placeholder {color:#577a8e;background:#f4faff}
+.photo-camera {color:#77a9c9}
+.photo-info {background:#f6fbff;color:#547185;border-top:1px solid #e2edf4}
+.photo-credit {color:#4f7188}
+.photo-source {color:#0875b2}
+.fish-art {background:#fff}
+.species-detail-image img {background:#fff;border-color:#c4deec}
+.species-detail-image figcaption {color:#537285}
+/* Detail modal: light, spacious surfaces, preserved sizes and positioning */
+.modal-overlay {background:rgba(6,41,68,.56);backdrop-filter:blur(6px)}
+.modal {background:#fff;color:#173a52;border:1px solid #b4d5e5;box-shadow:0 20px 80px #03304b48}
+.modal-head {background:linear-gradient(110deg,#e4f6ff,#f8fcff);border-bottom:1px solid #c8e2ef}
+.modal-head h2 {color:#113d5d}
+.modal-body {color:#264c64}
+.modal-actions {background:#f8fcff}
+.modal .card,.modal .notice {box-shadow:none}
+/* Trophy, statistics and secondary surfaces */
+.trophy {background:#fff;color:#1a3a51}
+.trophy-cover {background:#e7f4fc}
+.trophy .numbers {color:#0672b0}
+.rank {background:linear-gradient(135deg,#ffffff,#eff8fd)}
+.rank.gold {border-color:#dfc582}
+.rank.silver {border-color:#b6d1dc}
+.rank.bronze {border-color:#d4b49a}
+.clock-circle {background:radial-gradient(circle,#e1f7ff 0%,#f5fbff 65%);border-color:#68b8dd;box-shadow:0 0 60px #8ad6ff30}
+.time-clock {color:#123c5b}
+/* Phone bottom menu: recognizable logo blue, strong active contrast */
+.bottom-nav {background:linear-gradient(110deg,#08365c,#0b517c);border-top:1px solid #2b729b;box-shadow:0 -4px 18px #0b3a5428}
+.bottom-nav button {color:#d1e5f3}
+.bottom-nav button.active {color:#fff;background:#116da4}
+.bottom-nav button .ico {color:inherit}
+/* Misc controls */
+.versions-detail summary {color:#086fa9}
+#toast {background:#0a79b9;color:#fff}
+#app-update-card .petri-additional-images-notice,#petri214-update-status {color:#096ea7!important}
+@media (max-width:850px) {
+  .mobile-shade.open {background:#0a2b4d99}
+  .sidebar {background:linear-gradient(180deg,#093459,#0c537c)}
+  .bottom-nav button.active {background:#0e70a9;color:#fff}
+}
