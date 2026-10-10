@@ -1,0 +1,46 @@
+/* Petri Heil Pro · iPhone layout & navigation hotfix 2.0.44.
+   Only presentation: no changes to App-Daten, routes, fish cards or menus. */
+html, body {width:100%;max-width:100%;overflow-x:hidden}
+html { -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+body { margin:0; overscroll-behavior-x:none; }
+.app-shell {width:100%;max-width:100%;min-width:0;}
+.workspace, #main {width:100%;max-width:100%;min-width:0;}
+#main > *, #main .grid, #main .grid > *, #main .gear-card,
+#main .card, #main .photo-host {min-width:0;max-width:100%;}
+#main h1, #main h2, #main h3, #main p,
+#main .gear-card, #main .gear-card .button {overflow-wrap:anywhere;}
+#main .gear-card .button {white-space:normal;}
+#main .gear-card p {color:#42667c!important;}
+/* Uniform line icons in the existing sidebar and fixed bottom navigation. */
+#nav-desktop button .ico.petri44-line-icon {
+  display:inline-flex; align-items:center; justify-content:center;
+  flex:0 0 28px; width:28px; height:30px; min-width:28px;
+  color:#d8edfa; line-height:1;
+}
+#nav-desktop button.active .ico.petri44-line-icon {color:#fff;}
+#nav-bottom button .ico.petri44-line-icon {
+  display:inline-flex;align-items:center;justify-content:center;
+  width:26px;height:26px;min-width:26px;color:inherit;
+}
+.petri44-line-icon svg {display:block;width:23px;height:23px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;}
+#nav-bottom .petri44-line-icon svg{width:21px;height:21px;}
+/* Do not change the fish illustration or Angelzentrale brand icon. */
+.sidebar, .bottom-nav, #nav-desktop button, #nav-bottom button,
+.topbar button, .gear-card button {touch-action:manipulation;}
+@media(max-width:850px) {
+  /* Prevent page-wide expansion: overflow belongs only to purpose-built inner lists/tables. */
+  #main {overflow-x:clip;}
+  .sidebar {width:min(86vw,320px);max-width:calc(100vw - 24px);}
+  .workspace > .topbar {max-width:100%;}
+  .bottom-nav {max-width:100%;width:100%;}
+  .bottom-nav button {flex:1 1 0;min-width:0;padding-left:3px;padding-right:3px;}
+  /* iOS otherwise zooms the ENTIRE page when a <16px input is focused. */
+  input:not([type=checkbox]):not([type=radio]), select, textarea {
+    font-size:16px!important;
+  }
+  input,select,textarea {max-width:100%;}
+}
+@media(max-width:380px) {
+  #nav-desktop button {gap:10px;}
+  .bottom-nav button {font-size:10px;letter-spacing:0;}
+}

@@ -1,31 +1,30 @@
-Petri Heil Pro – Ergänzende KI-Ausrüstungsbilder (Hotfix für Version 2.0.42)
+PETRI HEIL PRO – Navigation und iPhone-Breite (Darstellungs-Hotfix 2.0.44)
 
-Dieses Paket ergänzt genau sechs Bildkarten:
-- Bissfestes Vorfach → gear-bissfestes-vorfach.webp
-- Boilie → gear-boilie.webp
-- Mais & Teig → gear-mais-teig.webp
-- Würmer & Maden → gear-wuermer-maden.webp
-- Pilker & Paternoster → gear-pilker-paternoster.webp
-- Rettungsweste → gear-rettungsweste.webp
+Enthalten sind die folgenden drei vollständigen Dateien:
+- index.html (auf Basis der bereits aktuellen Datei mit beiden vorherigen Hotfixes)
+- petri-mobile-v2.0.44.css (feste iPhone-Seitenbreite, iOS Eingabefelder, einheitliche Symbole)
+- petri-menu-icons-v2.0.44.js (passende Menü-Icons; Navigation unverändert)
 
 INSTALLATION
-1. Die ZIP-Datei entpacken.
-2. Auf GitHub im Repository 4h7zm6hnjy-skizze/PetriHeil den Hauptordner öffnen.
-3. Alle 8 App-Dateien aus diesem ZIP (index.html, die .js-Datei und sechs .webp-Dateien)
-   auf die gleiche oberste Ebene des Repositorys hochladen.
-4. index.html dabei ersetzen, nicht mit der alten Datei vermischen. Andere Dateien NICHT löschen.
-5. Änderung in GitHub bestätigen (Commit changes).
-6. App mit Internetverbindung in Safari öffnen, neu laden und "Ausrüstung & Köder" prüfen.
-   Die neue Ergänzung bleibt weiterhin kompatibel mit dem vorhandenen Service Worker.
+1. ZIP entpacken.
+2. GitHub öffnen: https://github.com/4h7zm6hnjy-skizze/PetriHeil
+3. Im Hauptordner des Repositorys auf „Add file / Upload files“ gehen.
+4. Die drei Dateien hochladen. „index.html“ dabei ersetzen.
+5. „Commit changes“ bestätigen. Alle anderen Dateien unverändert lassen.
+6. Die App in Safari mit Internetverbindung neu laden, am besten einmal schließen
+   und erneut öffnen. Eventuell alte Offline-Seite aktualisieren.
 
-Es wird absichtlich KEINE Datei sw.js / version.json überschrieben.
-Daher wird kein vollständiger Versionswechsel auf 2.0.43 behauptet; es ist ein
-Bild-Hotfix für die bestehende Version 2.0.42. Die Versionsanzeige bleibt deshalb 2.0.42.
-Die neuen sechs Bilder werden beim ersten Aufrufen online vorgeladen und durch die
-bestehende App-Offline-Logik gespeichert, soweit Browser-Speicher/Service-Worker verfügbar.
-
-Die bisherigen Bilddateien, der Fragenkatalog, die bisherigen Funktionen sowie lokal
-auf deinem iPhone gespeicherte Fänge und persönliche Daten werden nicht verändert.
-Die KI-Bilder sind illustrative Produktbeispiele, keine Herstellerfotos.
-Der Kontrast-Fix (petri-contrast-fix.css) bleibt erhalten; diese Datei muss bereits
-im Repository liegen.
+WICHTIG
+- Die vorhandenen sechs KI-Bilder (Hotfix 2.0.43) und der frühere Kontrast-Fix
+  werden im index.html beibehalten.
+- Die Versionsanzeige im Update-Menü bleibt 2.0.42. Dieses Paket ist ein Hotfix;
+  es führt keinen vollständigen Versionswechsel durch.
+- Die Breite ist responsiv an das iPhone-Display gebunden, ohne horizontales
+  Seiten-Zoomen. Der Viewport fordert beim Browser die Sperre des manuellen
+  Vergrößerns an; manche iOS-/Safari-Versionen können dies aus
+  Barrierefreiheitsgründen ignorieren.
+- Eingabefelder werden auf mindestens 16px gestellt, um automatisches
+  iOS-Zoomen beim Antippen zu vermeiden.
+- Es wurden keine Benutzer- oder Fangdaten verändert.
+- Ohne Installation auf einem realen iPhone lässt sich das Ergebnis nicht
+  vollständig bestätigen.
