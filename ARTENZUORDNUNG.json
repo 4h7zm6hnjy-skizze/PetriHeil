@@ -1,71 +1,122 @@
-{
-  "accepted": [
-    {
-      "id": "s62",
-      "name": "Dornhai",
-      "scientificName": "Squalus acanthias",
-      "filename": "dornhai.webp",
-      "bytes": 34470,
-      "sha256": "b0e762fb389eeebbb37292268dd5f831866eb35c8330e700e34d3589b8d62d36",
-      "type": "KI-Illustration, keine geprüfte Artbestimmung"
-    },
-    {
-      "id": "s64",
-      "name": "Heringshai",
-      "scientificName": "Lamna nasus",
-      "filename": "heringshai.webp",
-      "bytes": 55512,
-      "sha256": "f9104d8412bb4483cd4f03e5c3266ecb0efa1abc485103447f862170a7687e7b",
-      "type": "KI-Illustration, keine geprüfte Artbestimmung"
-    },
-    {
-      "id": "s65",
-      "name": "Nagelrochen",
-      "scientificName": "Raja clavata",
-      "filename": "nagelrochen.webp",
-      "bytes": 135030,
-      "sha256": "9a34316f23beefe821b7b049057713afd12b8740d41f027c64bda75a7b026f15",
-      "type": "KI-Illustration, keine geprüfte Artbestimmung"
-    },
-    {
-      "id": "s66",
-      "name": "Sternrochen",
-      "scientificName": "Amblyraja radiata",
-      "filename": "sternrochen.webp",
-      "bytes": 163412,
-      "sha256": "389437c8233827d150bcff8c29d7e3641b8338f99ac8ebbdcd8f3b2fea3a6206",
-      "type": "KI-Illustration, keine geprüfte Artbestimmung"
-    },
-    {
-      "id": "s67",
-      "name": "Glattrochen",
-      "scientificName": "Dipturus batis",
-      "filename": "glattrochen.webp",
-      "bytes": 126974,
-      "sha256": "96456a861f713a0873df3f78294e624e8ce7185b83bbbcb82594a78060fdecce",
-      "type": "KI-Illustration, keine geprüfte Artbestimmung"
-    }
-  ],
-  "excluded": [
-    {
-      "file": "blauer_hai_im_seitenprofil.png",
-      "reason": "Blauhai – nicht Hundshai (Galeorhinus galeus)"
-    },
-    {
-      "file": "fuchshai_mit_langem_peitschenschwanz.png",
-      "reason": "Fuchshai – kein solcher Arteintrag im Lexikon"
-    },
-    {
-      "file": "marmorierter_engelhai_auf_weissem_hintergrund.png",
-      "reason": "Engelhai – kein solcher Arteintrag im Lexikon"
-    },
-    {
-      "file": "symmetrischer_adlerrochen_auf_weissem_hintergrund.png",
-      "reason": "Adlerrochen – nicht Kuckucksrochen (Leucoraja naevus)"
-    },
-    {
-      "file": "gefleckter_katzenhai_im_seitenprofil.png",
-      "reason": "Kleingefleckter Katzenhai – Arteintrag s61 besitzt bereits ein eigenes Bild"
-    }
-  ]
-}
+[
+  {
+    "id": "f41",
+    "name": "Zope",
+    "file": "zope.webp",
+    "size": [
+      1254,
+      1254
+    ],
+    "bytes": 145556,
+    "sha256": "d6dcb30f1c39515132ce170089d194d952edb70f89852288b0e37d154188bb2e",
+    "type": "KI-Illustration, nicht wissenschaftlich verifiziert"
+  },
+  {
+    "id": "f42",
+    "name": "Zobel",
+    "file": "zobel.webp",
+    "size": [
+      1254,
+      1254
+    ],
+    "bytes": 149982,
+    "sha256": "57929d62443865061ee52fad0c54c4e31eab7fe921161e9c04939196f901ea54",
+    "type": "KI-Illustration, nicht wissenschaftlich verifiziert"
+  },
+  {
+    "id": "f43",
+    "name": "Zährte",
+    "file": "zaehrte.webp",
+    "size": [
+      1254,
+      1254
+    ],
+    "bytes": 170968,
+    "sha256": "b49749caed4ad90af4e17495120ff6c7f847c3b17d48a188de59dd9543be8b1c",
+    "type": "KI-Illustration, nicht wissenschaftlich verifiziert"
+  },
+  {
+    "id": "f44",
+    "name": "Frauennerfling",
+    "file": "frauennerfling.webp",
+    "size": [
+      1254,
+      1254
+    ],
+    "bytes": 170914,
+    "sha256": "b2a23b3abf0d059cdfe5f0988f3a02cdce81884c55d71ce0a04db542f130c49e",
+    "type": "KI-Illustration, nicht wissenschaftlich verifiziert"
+  },
+  {
+    "id": "f45",
+    "name": "Strömer",
+    "file": "stroemer.webp",
+    "size": [
+      1254,
+      1254
+    ],
+    "bytes": 123774,
+    "sha256": "25ad4395b3417e08b1ee09cbe530f91c8f6e417a82eab355b524b18e912ad3ea",
+    "type": "KI-Illustration, nicht wissenschaftlich verifiziert"
+  },
+  {
+    "id": "f46",
+    "name": "Perlfisch",
+    "file": "perlfisch.webp",
+    "size": [
+      1254,
+      1254
+    ],
+    "bytes": 148454,
+    "sha256": "d944403c76008b20d448f442697808f26e2f7f2b1b97033e229e5228ef578bed",
+    "type": "KI-Illustration, nicht wissenschaftlich verifiziert"
+  },
+  {
+    "id": "f47",
+    "name": "Stromgründling",
+    "file": "stromgruendling.webp",
+    "size": [
+      1254,
+      1254
+    ],
+    "bytes": 119806,
+    "sha256": "18d0428e1312792b92a47e32410544ea531298ab44cf7f75a31ba1b358b75241",
+    "type": "KI-Illustration, nicht wissenschaftlich verifiziert"
+  },
+  {
+    "id": "f50",
+    "name": "Donau-Steinbeißer",
+    "file": "donau-steinbeisser.webp",
+    "size": [
+      1254,
+      1254
+    ],
+    "bytes": 99968,
+    "sha256": "219615422b1e9ed61082924fca8f7fdbbb86faeced31bff6f7e273a53f149290",
+    "type": "KI-Illustration, nicht wissenschaftlich verifiziert"
+  },
+  {
+    "id": "f56",
+    "name": "Schwarzer Zwergwels",
+    "file": "schwarzer-zwergwels.webp",
+    "size": [
+      1254,
+      1254
+    ],
+    "bytes": 122434,
+    "sha256": "17b81d9ae6e44cff76547c63b225aab38be6f677a7edc29bf05ea1ce8d3107b0",
+    "type": "KI-Illustration, nicht wissenschaftlich verifiziert"
+  },
+  {
+    "id": "f58",
+    "name": "Schwarzbarsch",
+    "file": "schwarzbarsch.webp",
+    "size": [
+      1254,
+      1254
+    ],
+    "bytes": 193134,
+    "sha256": "a3699f8d897b66804e9a5b1cfa0be9882901060e453c2a0e57a7d2cb14fefb82",
+    "type": "KI-Illustration, nicht wissenschaftlich verifiziert"
+  }
+]
