@@ -1,18 +1,7 @@
-PETRI HEIL PRO – Logo-Update 2.0.29
+Petri Heil Pro – Update 2.0.30
 
-ZIEL:
-- OBEN IM SEITENMENÜ: Petri Heil Pro + by Marcel Hentschel als freigestelltes Logo.
-- STARTSEITE, SEITENMENÜ UNTEN UND FISCHKUNDE-ICONS: freigestellter Hecht ohne Text, ohne weiße Kachel.
+Die sechs App-Dateien index.html, sw.js, version.json, species-images-v2.0.5.js, petri-update-install-v2.0.28.js und petri-anglerclock-pruefung-v2.0.30.js im Hauptverzeichnis auf GitHub hochladen und bestehende ersetzen.
+Die Datei INSTALLATION.txt ist nur zur Hilfe.
+App zweimal mit Internet öffnen, dann Angelzeit-Uhr und Angelschein testen.
 
-INSTALLATION:
-1. ZIP-Datei auf iPhone im Ordner Dateien entpacken.
-2. Alle 10 App-Dateien aus dem entpackten Ordner ins HAUPTVERZEICHNIS
-   des GitHub-Repositories 4h7zm6hnjy-skizze/PetriHeil hochladen.
-3. Vorhandene Dateien ersetzen und Commit changes auswählen.
-4. Die App zunächst online in Safari öffnen und neu laden.
-5. Danach die Home-Bildschirm-App vollständig schließen und erneut öffnen.
-6. Über Mehr → Update suchen die Version 2.0.29 prüfen.
-
-Die INSTALLATION.txt dient nur als Hilfe und muss nicht hochgeladen werden.
-Fangdaten, Einstellungen und bestehende Bildkataloge bleiben unangetastet.
-Die App nicht vom Home-Bildschirm löschen, bevor lokale Fangdaten gesichert sind.
+Wichtig: Vorhandene Stoppuhr-Daten und manuelle Zeiten werden getrennt gespeichert. PDF-Import ist Ablage, keine Texterkennung. Interaktive Frageimporte benötigen JSON-Dateien. Aktuelle NRW-Regeln prüfen.

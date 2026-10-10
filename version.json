@@ -1,13 +1,13 @@
 {
-  "version": "2.0.29",
+  "version": "2.0.30",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Oben im Seitenmenü neues freistehendes Petri-Heil-Pro-Logo mit lesbarem Schriftzug und by Marcel Hentschel.",
-    "Auf der Startseite und im unteren Menü freistehender Hecht mit Köder ohne quadratischen oder kreisförmigen Hintergrund.",
-    "Alte lila Fischkunde-Zeichen in Navigation und Startseiten-Aktionen durch das freistehende Hecht-Motiv ersetzt.",
-    "Transparente WebP-Assets offline eingebunden, Service-Worker-Cache aktualisiert.",
-    "Fischkunde, Ausrüstung, Datenhaltung, Backup und Update-installieren-Funktion beibehalten."
+    "Angelzeit-Uhr: manuelle Erfassung von Anfang, Ende, Ort und Notiz, mit Bearbeiten/Löschen, Statistik und CSV/JSON-Export.",
+    "Angelschein: Link zu den amtlichen NRW-Unterlagen, lokales Ablegen von Prüfungs-PDFs und Import strukturierter JSON-Fragen.",
+    "60-Fragen-Prüfungssimulation mit sechs Fachgebieten, 60-Minuten-Timer und NRW-Bestehensgrenzen bei ausreichend importierten Fragen.",
+    "Update-Funktion auf Version 2.0.30 aktualisiert.",
+    "Vorhandene Stoppuhrdaten, Fangdaten und Logo-/Fischkunde-Dateien bleiben unverändert."
   ],
-  "notes": "Hochladen nach GitHub erforderlich. Neue Logos erscheinen nach Aktualisierung der bereits installierten PWA. Keine Neuinstallation oder Löschung lokaler Website-Daten nötig."
+  "notes": "Amtlicher Fragenkatalog ist nicht im Paket enthalten. PDF-Dateien werden nur lokal gespeichert und nicht automatisch in Fragen konvertiert. Fragenimporte sind nicht amtlich verifiziert. Manuelle Angelzeiten werden zunächst separat von den bestehenden Uhrstatistiken gespeichert."
 }

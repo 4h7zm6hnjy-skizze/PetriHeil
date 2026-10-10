@@ -3,7 +3,7 @@
    Images are illustrative, NOT validated for species identification. */
 (()=>{
   'use strict';
-  const VERSION='2.0.29';
+  const VERSION='2.0.30';
   // Apply the brand palette independent of ServiceWorker-injected HTML.
   // In particular, iOS Safari may keep an older navigation response cached.
   (function installOceanTheme(){
