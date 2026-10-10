@@ -1,12 +1,12 @@
 {
-  "version": "2.0.11",
+  "version": "2.0.12",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "10 neue KI-Artenbilder auf weißem Hintergrund für Zope, Zobel, Zährte, Frauennerfling, Strömer, Perlfisch, Stromgründling, Donau-Steinbeißer, Schwarzen Zwergwels und Schwarzbarsch.",
-    "65 zusätzliche lokal gespeicherte Artenbilder sind Artkarten und Detailansichten zugeordnet; 70 ältere in app.js eingebettete Illustrationen bleiben unverändert.",
-    "Offline-Cache und Bildloader auf Version 2.0.11 angepasst.",
-    "Fangbuch, Nutzerdaten und übrige Funktionen nicht verändert."
+    "10 weitere einzeln erzeugte KI-Artenbilder auf weißem Hintergrund: Groppe (Rheingebiet), Hundsfisch, Ostasiatischer Schlammpeitzger, Schnäpel, Große Maräne, Kleine Maräne, Blaufelchen, Gangfisch, Kilch und Ammersee-Kaulbarsch.",
+    "75 zusätzliche lokale Artenbilder in Artkarten und Detailansichten; die 70 älteren in app.js eingebetteten Illustrationen bleiben erhalten.",
+    "Offline-Cache und Update-Anzeige auf Version 2.0.12 angepasst.",
+    "Fangbuch und übrige Funktionen bleiben durch den Bildpatch unverändert."
   ],
-  "notes": "KI-Illustrationen, nicht fachlich validierte Bestimmungsfotos. Artbestimmung und Schonvorschriften anhand zuverlässiger Quellen prüfen."
+  "notes": "Alle Bilder sind KI-Illustrationen und keine fachlich geprüften Bestimmungsfotos. Besonders nahe verwandte Maränen und seltene Arten erfordern wissenschaftliche Vergleichsquellen."
 }

@@ -1,122 +1,95 @@
-[
-  {
-    "id": "f41",
-    "name": "Zope",
-    "file": "zope.webp",
-    "size": [
-      1254,
-      1254
-    ],
-    "bytes": 145556,
-    "sha256": "d6dcb30f1c39515132ce170089d194d952edb70f89852288b0e37d154188bb2e",
-    "type": "KI-Illustration, nicht wissenschaftlich verifiziert"
-  },
-  {
-    "id": "f42",
-    "name": "Zobel",
-    "file": "zobel.webp",
-    "size": [
-      1254,
-      1254
-    ],
-    "bytes": 149982,
-    "sha256": "57929d62443865061ee52fad0c54c4e31eab7fe921161e9c04939196f901ea54",
-    "type": "KI-Illustration, nicht wissenschaftlich verifiziert"
-  },
-  {
-    "id": "f43",
-    "name": "Zährte",
-    "file": "zaehrte.webp",
-    "size": [
-      1254,
-      1254
-    ],
-    "bytes": 170968,
-    "sha256": "b49749caed4ad90af4e17495120ff6c7f847c3b17d48a188de59dd9543be8b1c",
-    "type": "KI-Illustration, nicht wissenschaftlich verifiziert"
-  },
-  {
-    "id": "f44",
-    "name": "Frauennerfling",
-    "file": "frauennerfling.webp",
-    "size": [
-      1254,
-      1254
-    ],
-    "bytes": 170914,
-    "sha256": "b2a23b3abf0d059cdfe5f0988f3a02cdce81884c55d71ce0a04db542f130c49e",
-    "type": "KI-Illustration, nicht wissenschaftlich verifiziert"
-  },
-  {
-    "id": "f45",
-    "name": "Strömer",
-    "file": "stroemer.webp",
-    "size": [
-      1254,
-      1254
-    ],
-    "bytes": 123774,
-    "sha256": "25ad4395b3417e08b1ee09cbe530f91c8f6e417a82eab355b524b18e912ad3ea",
-    "type": "KI-Illustration, nicht wissenschaftlich verifiziert"
-  },
-  {
-    "id": "f46",
-    "name": "Perlfisch",
-    "file": "perlfisch.webp",
-    "size": [
-      1254,
-      1254
-    ],
-    "bytes": 148454,
-    "sha256": "d944403c76008b20d448f442697808f26e2f7f2b1b97033e229e5228ef578bed",
-    "type": "KI-Illustration, nicht wissenschaftlich verifiziert"
-  },
-  {
-    "id": "f47",
-    "name": "Stromgründling",
-    "file": "stromgruendling.webp",
-    "size": [
-      1254,
-      1254
-    ],
-    "bytes": 119806,
-    "sha256": "18d0428e1312792b92a47e32410544ea531298ab44cf7f75a31ba1b358b75241",
-    "type": "KI-Illustration, nicht wissenschaftlich verifiziert"
-  },
-  {
-    "id": "f50",
-    "name": "Donau-Steinbeißer",
-    "file": "donau-steinbeisser.webp",
-    "size": [
-      1254,
-      1254
-    ],
-    "bytes": 99968,
-    "sha256": "219615422b1e9ed61082924fca8f7fdbbb86faeced31bff6f7e273a53f149290",
-    "type": "KI-Illustration, nicht wissenschaftlich verifiziert"
-  },
-  {
-    "id": "f56",
-    "name": "Schwarzer Zwergwels",
-    "file": "schwarzer-zwergwels.webp",
-    "size": [
-      1254,
-      1254
-    ],
-    "bytes": 122434,
-    "sha256": "17b81d9ae6e44cff76547c63b225aab38be6f677a7edc29bf05ea1ce8d3107b0",
-    "type": "KI-Illustration, nicht wissenschaftlich verifiziert"
-  },
-  {
-    "id": "f58",
-    "name": "Schwarzbarsch",
-    "file": "schwarzbarsch.webp",
-    "size": [
-      1254,
-      1254
-    ],
-    "bytes": 193134,
-    "sha256": "a3699f8d897b66804e9a5b1cfa0be9882901060e453c2a0e57a7d2cb14fefb82",
-    "type": "KI-Illustration, nicht wissenschaftlich verifiziert"
-  }
-]
+{
+  "version": "2.0.12",
+  "images": [
+    {
+      "id": "f59",
+      "name": "Groppe (Rheingebiet)",
+      "scientificName": "Cottus rhenanus",
+      "filename": "groppe-rheingebiet.webp",
+      "bytes": 120062,
+      "sha256": "4f9b6638a7aab6f4c5b99a92d8bc3684210d759e2151e647c670cb71ddaa5b79",
+      "type": "KI-Illustration, keine fachlich validierte Artenaufnahme"
+    },
+    {
+      "id": "f66",
+      "name": "Hundsfisch",
+      "scientificName": "Umbra krameri",
+      "filename": "hundsfisch.webp",
+      "bytes": 104930,
+      "sha256": "b849e54068208d950a81291eeff38979ce28e11d19841f53285d147c1b8cf00d",
+      "type": "KI-Illustration, keine fachlich validierte Artenaufnahme"
+    },
+    {
+      "id": "f67",
+      "name": "Ostasiatischer Schlammpeitzger",
+      "scientificName": "Misgurnus anguillicaudatus",
+      "filename": "ostasiatischer-schlammpeitzger.webp",
+      "bytes": 69614,
+      "sha256": "7d7a3ade196d20a53a850785548bdbac3ace3d679ced2ca30f93f94c7c053a30",
+      "type": "KI-Illustration, keine fachlich validierte Artenaufnahme"
+    },
+    {
+      "id": "f74",
+      "name": "Schnäpel",
+      "scientificName": "Coregonus maraena",
+      "filename": "schnaepel.webp",
+      "bytes": 85510,
+      "sha256": "666f3431dff9ddc8504a8fc353b202fe331a8cc1023713feb50884da7d878e4d",
+      "type": "KI-Illustration, keine fachlich validierte Artenaufnahme"
+    },
+    {
+      "id": "f75",
+      "name": "Große Maräne",
+      "scientificName": "Coregonus lavaretus",
+      "filename": "grosse-maraene.webp",
+      "bytes": 102890,
+      "sha256": "00cb432f43a80f616e61b8d445561ac302c662989270d9ab5076c976749b933e",
+      "type": "KI-Illustration, keine fachlich validierte Artenaufnahme"
+    },
+    {
+      "id": "f76",
+      "name": "Kleine Maräne",
+      "scientificName": "Coregonus albula",
+      "filename": "kleine-maraene.webp",
+      "bytes": 98776,
+      "sha256": "e8c02a7e9e9a7a9ed45a64296ab56fa25fa14e79049779e7797b50202ceee578",
+      "type": "KI-Illustration, keine fachlich validierte Artenaufnahme"
+    },
+    {
+      "id": "f77",
+      "name": "Blaufelchen",
+      "scientificName": "Coregonus wartmanni",
+      "filename": "blaufelchen.webp",
+      "bytes": 88024,
+      "sha256": "a389ba0f43e16d661f06451e3a4a2c04235e37def3989922c40bff69bb3ec7ad",
+      "type": "KI-Illustration, keine fachlich validierte Artenaufnahme"
+    },
+    {
+      "id": "f78",
+      "name": "Gangfisch",
+      "scientificName": "Coregonus macrophthalmus",
+      "filename": "gangfisch.webp",
+      "bytes": 94838,
+      "sha256": "b9c81de11f60a741a24913aca6d21de82bb9a0dc459ea8a586416206f6d41e80",
+      "type": "KI-Illustration, keine fachlich validierte Artenaufnahme"
+    },
+    {
+      "id": "f79",
+      "name": "Kilch",
+      "scientificName": "Coregonus bavaricus",
+      "filename": "kilch.webp",
+      "bytes": 98936,
+      "sha256": "98b80834b864ba4706576bc22a09a5b1c040effcbe4bc6ab59ba9765a8214b72",
+      "type": "KI-Illustration, keine fachlich validierte Artenaufnahme"
+    },
+    {
+      "id": "f80",
+      "name": "Ammersee-Kaulbarsch",
+      "scientificName": "Gymnocephalus ambriaelacus",
+      "filename": "ammersee-kaulbarsch.webp",
+      "bytes": 137406,
+      "sha256": "fc5ad848ffab8deed90c37921b528fd6e3e7f88cca2cc9899fd4c10ec0160d7c",
+      "type": "KI-Illustration, keine fachlich validierte Artenaufnahme"
+    }
+  ]
+}
