@@ -1,0 +1,21 @@
+Petri Heil Pro – Bilderpaket für v2.0.5
+
+Enthält 10 neue fotorealistische, KI-generierte Artenabbildungen auf weißem Hintergrund als WebP-Dateien (768 × 768 Pixel).
+
+Die GitHub-Version 2.0.5 ist mit einem Bild-Lader vorbereitet. Nach dem Upload dieser zehn Bilddateien an die angegebenen Pfade werden sie in den entsprechenden Fisch- und Krebsarten angezeigt.
+
+WICHTIG: Das ZIP wird von GitHub nicht automatisch entpackt. Öffne das ZIP und lade die zehn .webp-Dateien in den Ordner assets/ki-bilder/ des Repositories 4h7zm6hnjy-skizze/PetriHeil hoch. Lege den Ordner gegebenenfalls an. Bestehende Dateien nicht löschen.
+
+Die Abbildungen sind KI-generiert und NICHT als alleinige Grundlage zur Artbestimmung, Entnahmeentscheidung oder sicheren Handhabung geeignet.
+
+Zuordnung:
+- Giebel (f32): assets/ki-bilder/giebel.webp
+- Goldfisch (f33): assets/ki-bilder/goldfisch.webp
+- Dreistachliger Stichling (f53): assets/ki-bilder/dreistachliger-stichling.webp
+- Schwarzmundgrundel (f61): assets/ki-bilder/schwarzmundgrundel.webp
+- Stint (f68): assets/ki-bilder/stint.webp
+- Sterlet (f73): assets/ki-bilder/sterlet.webp
+- Bachneunauge (f86): assets/ki-bilder/bachneunauge.webp
+- Petermännchen (s35): assets/ki-bilder/petermaennchen.webp
+- Europäischer Hummer (c12): assets/ki-bilder/europaeischer-hummer.webp
+- Chinesische Wollhandkrabbe (c9): assets/ki-bilder/chinesische-wollhandkrabbe.webp

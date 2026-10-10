@@ -1,0 +1,62 @@
+[
+  {
+    "id": "f32",
+    "name": "Giebel",
+    "file": "assets/ki-bilder/giebel.webp",
+    "bytes": 41684
+  },
+  {
+    "id": "f33",
+    "name": "Goldfisch",
+    "file": "assets/ki-bilder/goldfisch.webp",
+    "bytes": 30966
+  },
+  {
+    "id": "f53",
+    "name": "Dreistachliger Stichling",
+    "file": "assets/ki-bilder/dreistachliger-stichling.webp",
+    "bytes": 31594
+  },
+  {
+    "id": "f61",
+    "name": "Schwarzmundgrundel",
+    "file": "assets/ki-bilder/schwarzmundgrundel.webp",
+    "bytes": 36844
+  },
+  {
+    "id": "f68",
+    "name": "Stint",
+    "file": "assets/ki-bilder/stint.webp",
+    "bytes": 20412
+  },
+  {
+    "id": "f73",
+    "name": "Sterlet",
+    "file": "assets/ki-bilder/sterlet.webp",
+    "bytes": 15996
+  },
+  {
+    "id": "f86",
+    "name": "Bachneunauge",
+    "file": "assets/ki-bilder/bachneunauge.webp",
+    "bytes": 16174
+  },
+  {
+    "id": "s35",
+    "name": "Petermännchen",
+    "file": "assets/ki-bilder/petermaennchen.webp",
+    "bytes": 26132
+  },
+  {
+    "id": "c12",
+    "name": "Europäischer Hummer",
+    "file": "assets/ki-bilder/europaeischer-hummer.webp",
+    "bytes": 75084
+  },
+  {
+    "id": "c9",
+    "name": "Chinesische Wollhandkrabbe",
+    "file": "assets/ki-bilder/chinesische-wollhandkrabbe.webp",
+    "bytes": 57654
+  }
+]
