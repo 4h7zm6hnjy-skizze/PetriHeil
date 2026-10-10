@@ -1,0 +1,29 @@
+PetriHeil Pro 2.0.5 – 10 weitere KI-Artenbilder / Offline / Update-Anzeige
+
+WICHTIG: Die direkte Änderung des GitHub-Repositories war mit 403 gesperrt.
+Bis du die geänderten Dateien veröffentlichst, ist GitHub weiterhin auf 2.0.4.
+Dieses Paket allein ist NICHT die vollständige App.
+
+EINFACHER WEG AM PC/MAC (ohne Python):
+1. Die gesamte bisherige Webapp auf GitHub (Code → Download ZIP) herunterladen.
+2. Dieses Update-Paket entpacken, Update-Assistent.html zusammen mit
+   jszip.min.js im Browser öffnen und die GitHub-ZIP auswählen.
+3. 'Fertige Update-ZIP erstellen' anklicken.
+4. Die generierte PetriHeil_VOLLSTAENDIG_v2.0.5.zip entpacken.
+5. ALLE darin enthaltenen Projekt-Dateien auf GitHub/Webhost veröffentlichen.
+   Eine hochgeladene ZIP entpackt sich auf GitHub NICHT von allein.
+
+ALTERNATIV mit Python 3:
+    python3 aktualisieren.py /Pfad/zum/entpackten/PetriHeil-Ordner
+Danach den aktualisierten Projektordner veröffentlichen.
+
+AUF DEM IPHONE:
+Der Update-Assistent ist als HTML-Datei enthalten. Ob das direkte Öffnen
+lokaler HTML-Dateien in der Dateien-App und der Browser-Download funktionieren,
+hängt von der iOS-Browser-/Dateien-Umgebung ab. Bei Problemen Original-GitHub-ZIP
+hier im Chat hochladen: Dann kann ich die vollständige App-ZIP hier erzeugen.
+
+ENTHALTEN: 10 Bilder, lokale Bildzuordnung, korrigierte Update-Prüfung,
+Cache-Version und Update-Metadaten 2.0.5. Die 70 eingebetteten Bestandsbilder
+und persönliche Fangdaten im iPhone-Speicher bleiben unberührt.
+KI-Bilder sind nicht als verlässliche Artbestimmungsnachweise geeignet.
