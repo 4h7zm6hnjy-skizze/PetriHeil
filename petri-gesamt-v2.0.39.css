@@ -1,0 +1,50 @@
+/* PetriHeil private all-in-one modules — accessible mobile layouts. */
+#p31-overlay .p38-panel{margin:16px 0 0;border:1px solid #a9cfdf;background:#f7fbfe;color:#183b50;line-height:1.5}
+#p31-overlay .p38-panel h4{color:#123e56;font-size:18px;margin:0 0 10px}
+#p31-overlay .p38-panel p{line-height:1.52}
+#p31-overlay .p38-panel label{display:grid;gap:6px;font-size:13px;font-weight:650}
+#p31-overlay .p38-panel input,#p31-overlay .p38-panel select{width:100%;min-width:0;min-height:42px;padding:9px;background:white;color:#163b54;border:1px solid #99bfcf;border-radius:9px;font-size:16px}
+#p31-overlay .p38-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:12px 0}
+#p31-overlay .p38-muted{font-size:12px;color:#4d6877}
+#p31-overlay .p38-table{overflow-x:auto;border:1px solid #d3e3eb;border-radius:11px}
+#p31-overlay .p38-thead,#p31-overlay .p38-tr{display:grid;grid-template-columns:1fr .72fr 1.5fr;gap:10px;padding:10px;min-width:420px;align-items:start;border-bottom:1px solid #e1eaf0;font-size:13px}
+#p31-overlay .p38-thead{background:#d8eef8;font-weight:800}
+#p31-overlay .p38-tr:nth-child(odd){background:#edf6fa}
+#p31-overlay .p38-tr small{display:block;font-size:11px;line-height:1.4;color:#536c7b}
+#p31-overlay .p38-tr .p38-alert,#p31-overlay .p38-alert{color:#a63622;font-weight:750}
+#p31-overlay .p38-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:12px 0}
+#p31-overlay .p38-stats>div{padding:13px 8px;text-align:center;background:#e4f4fa;border-radius:12px;min-width:0}
+#p31-overlay .p38-stats strong{display:block;font-size:22px;line-height:1.25;color:#154e68;overflow-wrap:anywhere}
+#p31-overlay .p38-stats small{display:block;font-size:11px;color:#526d7f}
+#p31-overlay .p38-bars{display:grid;gap:10px;margin:15px 0}
+#p31-overlay .p38-bars>div{display:grid;gap:4px;font-size:12px}
+#p31-overlay .p38-bars meter{width:100%;height:16px}
+#p31-overlay .p38-review{padding:12px;border-radius:11px;border:1px solid #b5d4e2;background:white;margin:12px 0}
+#p31-overlay .p38-review li{padding:2px}
+#p31-overlay .p38-traits{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:8px;margin:15px 0}
+#p31-overlay .p38-traits label{display:flex;gap:8px;align-items:center;padding:9px;border:1px solid #d1e7ed;background:#fff;border-radius:9px;cursor:pointer}
+#p31-overlay .p38-traits input{min-height:18px;width:18px;accent-color:#126b8a}
+#p31-overlay .p38-candidates{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:9px;margin-top:10px}
+#p31-overlay .p38-candidates article{background:#fff;border:1px solid #c6dfea;border-radius:10px;padding:10px}
+#p31-overlay .p38-candidates small{display:block;color:#4b6978;font-size:11px}
+#p31-overlay .p38-candidates p{font-size:12px;margin:4px 0}
+#p31-overlay .p38-bait-row{margin:10px 0}
+#p31-overlay .p38-bait-row>div:first-child{display:flex;justify-content:space-between;gap:8px;font-size:13px}
+#p31-overlay .p38-meter{background:#d8e9f1;border-radius:9px;overflow:hidden;height:10px;margin-top:3px}
+#p31-overlay .p38-meter span{display:block;background:#167b9e;height:100%;border-radius:9px}
+#p31-overlay .p38-geo-points{display:grid;gap:4px;max-height:280px;overflow:auto}
+#p31-overlay .p38-geo-points p{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px;background:#edf5fa;padding:7px 9px;border-radius:6px;font-size:12px;margin:0}
+#p31-overlay .p38-panel details{margin:14px 0}
+#p31-overlay .p38-panel summary{cursor:pointer;font-weight:750}
+#p31-overlay .p38-error{color:#ad281e}
+@media(max-width:560px){#p31-overlay .p38-two{grid-template-columns:1fr}#p31-overlay .p38-panel{padding:13px}#p31-overlay .p38-stats strong{font-size:16px}#p31-overlay .p38-traits{grid-template-columns:repeat(2,minmax(0,1fr))}#p31-overlay .p38-traits label{font-size:12px}}
+#p31-overlay #p38-overview-button{font-size:12px;white-space:nowrap;background:#d9f1fa;border:1px solid #94c6d8;border-radius:10px;color:#145274;padding:8px 10px;font-weight:800}
+#p31-overlay .p38-overview{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:18px 0}
+#p31-overlay .p38-overview-link{text-align:left;padding:16px;background:#fff;border:1px solid #b1d2e3;border-radius:14px;color:#174661;display:grid;gap:5px;cursor:pointer}
+#p31-overlay .p38-overview-link b{font-size:15px}
+#p31-overlay .p38-overview-link small{font-size:12px;line-height:1.45;color:#536d7a}
+#p31-overlay .p38-drill-answers{display:grid;gap:9px;margin:12px 0}
+#p31-overlay .p38-drill-answers label{display:flex;align-items:center;gap:9px;border-radius:9px;background:#edf7fb;border:1px solid #cae4ed;padding:10px}
+#p31-overlay .p38-drill-answers input{height:18px;width:18px;min-height:18px;accent-color:#08779a}
+#p31-overlay .p38-study-box{padding:13px;margin:14px 0;background:#edf8ff;border-radius:11px}
+@media(max-width:700px){#p31-overlay .p31-header{flex-wrap:wrap;gap:6px}#p31-overlay .p31-header #p38-overview-button{order:1}#p31-overlay .p31-header .p31-close{order:0}#p31-overlay .p38-overview{grid-template-columns:1fr}}

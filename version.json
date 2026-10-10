@@ -1,23 +1,20 @@
 {
-  "version": "2.0.38",
+  "version": "2.0.39",
   "releaseDate": "2026-10-10",
-  "name": "PetriHeil Pro Privat – Gesamtupdate",
+  "name": "Petri Heil Pro",
   "changes": [
-    "Neue Erweiterungszentrale mit sieben Bereichen direkt über Angelzentrale Pro → Erweiterungen.",
-    "Fischbestimmung als lokale Merkmals- und Artenvergleichshilfe mit eigenem Vergleichsfoto (keine KI-Erkennung und keine automatische Bildanalyse).",
-    "Persönliche Köderauswertung aus Pro-Fängen, filterbar nach Zielfisch und Monat; keine unhaltbaren Fangwahrscheinlichkeiten.",
-    "NRW-Fischereirecht nach §§ 1–3 LFischVO, geltende Fassung 03.07.2026: Schonzeiten, 12 Mindestmaße und ganzjährig geschonte Arten sowie Rhein-Aal-Sonderregel, mit offizieller Quelle.",
-    "Neues 10-Fragen-Lerntraining, Fehlerwiederholung, lokale Lernstatistik und Export; bestehende 60-Fragen-Simulation bleibt erhalten.",
-    "Private Gewässernotizen und OpenStreetMap-Kartenaufruf nur nach ausdrücklicher Koordinatenfreigabe.",
-    "Offline-Cache-Prüfer, Quellennachweise, Datenschutzhinweise, Versionsanzeige und Aktualisierungssystem auf 2.0.38 angepasst.",
-    "Keine kostenpflichtigen APIs und kein Abonnement erforderlich. Original-App und Pro-Fangbuch bleiben unberührt."
+    "Alle elf Angelzentrale-Bereiche: Formularfelder, Schaltflächen und Navigation anhand des echten Javascript-Quellcodes und isolierter HTML-Formular-Tests geprüft.",
+    "Bewahrt die horizontale Position der Reiterleiste beim Wechsel und macht den gewählten Bereich automatisch sichtbar.",
+    "Mehrzeilige Eingaben für Notizen, Beschreibungen und persönliche Regeln; bisherige Datensätze bleiben kompatibel.",
+    "Native Dropdown-Auswahllisten mit sichtbarem Picker und größeren Touchflächen für Safari / iPhone.",
+    "Deutsches Dezimalkomma für die Referenzlänge der Foto-Messhilfe repariert.",
+    "Robusterer Service-Worker-Abruf für JavaScript/CSS-Dateien; Offline-Cache und Updateanzeige auf 2.0.39.",
+    "Erweiterungen und Pro-Suite zeigen konsistente Versionsangaben."
   ],
   "limitations": [
-    "Keine automatische KI-Fischerkennung aus einem Foto. Dies würde ein überprüftes kompatibles lokales Modell oder einen externen Dienst erfordern.",
-    "Keine vollständige amtliche Prüfungsfragen-Datenbank; die 110 eingebauten Fragen sind eigene Übungsfragen. Der amtliche Katalog ist verlinkt.",
-    "NRW-Angaben sind allgemeine Landeswerte (Stand 03.07.2026); besondere Gewässerbestimmungen, neue Änderungen und weitere Bundesländer werden nicht automatisch abgedeckt.",
-    "Gewässertiefenkarten sind nur verfügbar, wenn ein entsprechender legaler Datensatz vorliegt; dieses Update enthält keine pauschalen Tiefendaten.",
-    "OpenStreetMap erfordert Attribution/ODbL; Open-Meteo ist in der bestehenden App nach deren Bedingungen nichtkommerziell nutzbar. Kostenlos bedeutet nicht gemeinfrei.",
-    "Neues Zusatzmodul ist lokal getestet, nicht auf einem echten iPhone. Für sichere Datenübernahme vor Hochladen Backup erzeugen."
+    "Die isolierten Formtests und statischen Integritätsprüfungen ersetzen keine manuelle Bedienprüfung auf einem echten iPhone.",
+    "Wetterdaten, OpenStreetMap-Karten und Online-Ortssuche benötigen Internet; kein Live-Test in der blockierten Testumgebung.",
+    "Die ursprünglich in app.js implementierten Bereiche wurden hinsichtlich Datei-/Ressourcenbezügen geprüft, aber nicht vollständig im Browser getestet.",
+    "Die neuen Module verändern keine gespeicherten Fangdaten; vor jedem Update wird trotzdem ein Backup empfohlen."
   ]
 }

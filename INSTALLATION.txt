@@ -1,21 +1,10 @@
-PETRIHEIL PRO – PRIVATES GESAMTUPDATE 2.0.38
+PetriHeil Pro 2.0.39 – Bedien- und Auswahlfix (private Nutzung)
 
-WICHTIG: Vor Installation unter Angelzentrale > Backup eine Sicherung erstellen und außerhalb der App speichern.
+1. App öffnen und Angelzentrale Pro > Backup > JSON-Backup herunterladen.
+2. ZIP entpacken, die ACHT App-Dateien (alles außer INSTALLATION.txt) direkt im Hauptverzeichnis des GitHub-Repositories 4h7zm6hnjy-skizze/PetriHeil hochladen.
+3. Alle gleichnamigen Dateien ersetzen, dann "Commit changes".
+4. Website https://4h7zm6hnjy-skizze.github.io/PetriHeil/ zweimal ONLINE öffnen.
+5. Angelzentrale Pro nacheinander öffnen: Angelzeit, Gewässer, Angelwetter, Fangbuch, Ausrüstung, Prüfung, Recht & Dokumente, Touren, Foto-Messhilfe, Backup, Erweiterungen.
+6. Auswahlfelder und alle Speichern/Abbrechen/Bearbeiten/Löschen-Funktionen prüfen. Berichte, Karten und Online-Wetter gesondert testen.
 
-INSTALLATION
-1) Diese ZIP-Datei entpacken.
-2) NUR die 6 App-Dateien (index.html, sw.js, version.json, petri-update-install-v2.0.28.js, petri-gesamt-v2.0.38.js und .css) in das HAUPTVERZEICHNIS des GitHub-Repositories hochladen (nicht in einen neuen Unterordner).
-3) Gleichnamige Dateien ersetzen und mit Commit changes bestätigen.
-4) https://4h7zm6hnjy-skizze.github.io/PetriHeil/ zweimal online öffnen.
-5) Angelzentrale Pro öffnen und im Kopfbereich auf „Erweiterungen“ tippen.
-
-ENTHALTEN: Geführte Fischbestimmung ohne KI, persönliche Köderstatistik, NRW-Recht, Lerntraining mit Fehlerfragen, private Gewässernotizen, Kartenlinks, Offline-Prüfung.
-
-EINSCHRÄNKUNGEN:
-- Kein kostenpflichtiger Dienst, kein API-Schlüssel, keine Werbung durch das neue Modul.
-- Externe Karte (OpenStreetMap) nur online, bei ausdrücklichem Klick. © OpenStreetMap-Mitwirkende, ODbL. https://www.openstreetmap.org/copyright
-- Open-Meteo wird nur von bereits vorhandener App für privates nichtkommerzielles Wetter verwendet. Nutzungsbedingungen beachten.
-- Keine automatische KI-Fotoerkennung oder Tiefenkarten ohne Datenquelle; keine vollständigen amtlichen Originalprüfungsfragen.
-- Allgemeine NRW-Schonzeiten/Mindestmaße: Landesfischereiverordnung Fassung 03.07.2026. Lokale Sonderregeln selbst prüfen. https://recht.nrw.de/lrgv/rechtsverordnung/03072026-landesfischereiverordnung-lfischvo/
-- Alle gespeicherten alten Fang- und Prüfungsdaten werden unangetastet gelassen.
-- Die ZIP allein kann kein GitHub-Update veröffentlichen; die 6 Dateien müssen vorher auf GitHub hochgeladen werden.
+Hinweis: Kein neues Konto, keine Bezahl-API und keine Datenmigration. Die Version 2.0.39 ist erst NACH Upload auf GitHub installiert. Die Browser-Daten bleiben lokal; niemals die Home-Bildschirm-App vor dem Backup löschen.
