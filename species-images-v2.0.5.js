@@ -1,9 +1,9 @@
-/* Petri Heil Pro 2.0.16: 102 distinct local WebP references, 105 species mappings and update-check repair.
+/* Petri Heil Pro 2.0.17: 112 distinct local WebP references, 115 species mappings and update-check repair.
    Original 70 embedded illustrations and local user data remain unchanged.
    Images are illustrative, NOT validated for species identification. */
 (()=>{
   'use strict';
-  const VERSION='2.0.16';
+  const VERSION='2.0.17';
   const SPECIES=[
     ['f32','Giebel','giebel'],
     ['f33','Goldfisch','goldfisch'],
@@ -110,6 +110,16 @@
     ['s31','Langstacheliger Seeskorpion','langstacheliger-seeskorpion'],
     ['s32','Knurrhahn rot','knurrhahn-rot'],
     ['s33','Grauer Knurrhahn','grauer-knurrhahn'],
+    ['s16','Lumb','lumb'],
+    ['s34','Roter Knurrhahn','roter-knurrhahn'],
+    ['s63','Hundshai','hundshai'],
+    ['s68','Kuckucksrochen','kuckucksrochen'],
+    ['c3','Dohlenkrebs','dohlenkrebs'],
+    ['c2','Steinkrebs','steinkrebs'],
+    ['c1','Edelkrebs','edelkrebs-ki-weiss'],
+    ['c5','Signalkrebs','signalkrebs-ki-weiss'],
+    ['c4','Kamberkrebs','kamberkrebs-ki-weiss'],
+    ['c6','Roter Amerikanischer Sumpfkrebs','roter-amerikanischer-sumpfkrebs'],
   ].map(([id,name,file])=>({id,name,url:new URL(file+'.webp',document.baseURI).href}));
   const norm=s=>String(s||'').replace(/\s+/g,' ').trim().toLocaleLowerCase('de-DE');
   const identify=s=>SPECIES.find(v=>norm(v.name)===norm(s));
@@ -176,15 +186,15 @@
       const item=titles.map(identify).find(Boolean);
       if(item)void apply(detail,item);
     }
-    // Dynamic app.js 2.0.4 is preserved; show 2.0.16 accurately in the visible UI.
+    // Dynamic app.js 2.0.4 is preserved; show 2.0.17 accurately in the visible UI.
     for (const el of document.querySelectorAll('.sidebar .tiny,#app-update-card')) {
       if(!el.dataset.petri214VersionChecked){
         el.dataset.petri214VersionChecked='yes';
-        if(el.classList.contains('tiny')) el.textContent=el.textContent.replace(/2\.0\.(?:[4-9]|1[0-4])\b/g,'2.0.16');
+        if(el.classList.contains('tiny')) el.textContent=el.textContent.replace(/2\.0\.(?:[4-9]|1[0-4])\b/g,'2.0.17');
         if(el.id==='app-update-card'){
           for(const node of el.querySelectorAll('h1,h2,h3,strong,span')){
             if(node.children.length===0 && /Version 2\.0\.(?:[4-9]|1[0-4])\b/.test(node.textContent))
-              node.textContent=node.textContent.replace(/2\.0\.(?:[4-9]|1[0-4])\b/g,'2.0.16');
+              node.textContent=node.textContent.replace(/2\.0\.(?:[4-9]|1[0-4])\b/g,'2.0.17');
           }
         }
       }

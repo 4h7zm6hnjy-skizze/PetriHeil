@@ -1,12 +1,13 @@
 {
-  "version": "2.0.16",
+  "version": "2.0.17",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Zehn neue einzelne KI-Artenbilder auf weißem Hintergrund für Seezunge, Glattbutt, Rotzunge, Heilbutt, Doggerscharbe, Zwergzunge, Seeskorpion, Langstacheligen Seeskorpion, Knurrhahn rot und Grauen Knurrhahn.",
-    "Bildloader auf 105 Artzuordnungen mit 102 unterschiedlichen lokalen WebP-Bildern erweitert; 70 ältere eingebettete Illustrationen bleiben erhalten.",
-    "Offline-Cache und Versionsprüfung auf Version 2.0.16 aktualisiert.",
-    "Bestehende Daten, Fangbuch, App-Layout und alle übrigen Funktionen bleiben unverändert."
+    "10 weitere KI-Beispielbilder auf weißem Hintergrund: Lumb, Roter Knurrhahn, Hundshai, Kuckucksrochen, Dohlenkrebs, Steinkrebs, Edelkrebs, Signalkrebs, Kamberkrebs, Roter Amerikanischer Sumpfkrebs.",
+    "Bildloader auf 115 Artzuordnungen und 112 unterschiedliche lokale WebP-Artenbilder erweitert; 70 ältere eingebettete Illustrationen bleiben unverändert.",
+    "Für die bereits vorhandenen Dateien edelkrebs.webp, signalkrebs.webp und kamberkrebs.webp wurden die neuen Motive unter separaten -ki-weiss.webp-Dateinamen ergänzt, ohne sie zu überschreiben.",
+    "Offline-Bildcache, Service-Worker und Versionsprüfung auf 2.0.17 aktualisiert.",
+    "Fangbuchdaten, App-Layout und übrige Funktionen nicht verändert."
   ],
-  "notes": "KI-Abbildungen sind illustrative Darstellungen und nicht wissenschaftlich validiert. Die Fischarten nur anhand verlässlicher Bestimmungsquellen erkennen. Besonders bei Plattfischen und Knurrhähnen können KI-Abbildungen abweichende Merkmale zeigen."
+  "notes": "KI-Beispielbilder sind nicht wissenschaftlich validiert. Insbesondere Krustentier-Merkmale können fehlerhaft dargestellt sein. Nicht zur sicheren Artbestimmung verwenden."
 }

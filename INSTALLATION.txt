@@ -1,16 +1,15 @@
-Petri Heil Pro – BILDERUPDATE Version 2.0.16
+PetriHeil Bilderupdate v2.0.17
 
-Installation auf GitHub:
-1. Archiv entpacken.
-2. Die zehn .webp-Bilder in den HAUPTORDNER des Repositories 4h7zm6hnjy-skizze/PetriHeil hochladen.
-3. Folgende drei Dateien im HAUPTORDNER ERSETZEN (nicht umbenennen):
-   - sw.js
-   - species-images-v2.0.5.js
-   - version.json
-4. Änderungen auf GitHub speichern, GitHub Pages-Veröffentlichung abwarten.
-5. Webapp online neu laden, dann ein weiteres Mal neu laden; in Mehr > Update suchen Version 2.0.16 prüfen.
-6. Für Offline-Anzeige die neue App-Version mit bestehender Internetverbindung öffnen, damit der Cache die Bilder laden kann.
+INSTALLATION IN GITHUB (Repository 4h7zm6hnjy-skizze/PetriHeil):
+1. Diese ZIP entpacken.
+2. Im GitHub-Repository alle 10 WebP-Dateien aus diesem Paket in den HAUPTORDNER hochladen.
+3. sw.js, species-images-v2.0.5.js und version.json im HAUPTORDNER ersetzen.
+4. In GitHub die Änderungen bestätigen (Commit changes).
+5. https://4h7zm6hnjy-skizze.github.io/PetriHeil/ zweimal ONLINE öffnen, damit der aktualisierte Service Worker übernimmt.
+6. Unter Mehr -> Update suchen die Version 2.0.17 kontrollieren und die 10 Artenkarten testen.
+7. Erst nach erfolgreichem Online-Laden den Offline-Modus testen.
 
-WICHTIG: Kein vollständiger Neuinstallationssatz, sondern ein inkrementelles Update ab Version 2.0.15.
-Keine Anwendungs- oder Benutzerdaten löschen.
-Alle Artenbilder sind KI-Illustrationen und nicht für wissenschaftliche Bestimmung validiert.
+WICHTIG: Keine vorhandenen Bilder löschen. edelkrebs-ki-weiss.webp, signalkrebs-ki-weiss.webp und
+kamberkrebs-ki-weiss.webp sind NEUE Dateien; ihre älteren Namensvettern bleiben erhalten.
+Die ZIP ist ein UPDATE, keine vollständige Neuinstallation. Daten und Fangbuch werden nicht geändert.
+Die Bilder sind KI-Illustrationen auf weißem Hintergrund, keine sichere taxonomische Referenz.
