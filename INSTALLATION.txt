@@ -1,26 +1,5 @@
-Petri Heil Pro 2.1.2 – gezielte Symbolkorrektur
-====================================================
+Petri Heil Pro 2.1.4
 
-Im hochgeladenen 2.1.1 wurde ein Fehler gefunden: Das Skript konnte
-auch andere Karten-Symbole (z. B. Waage/Uhr) durch das Fischbild ersetzen.
-Dieser Patch behebt die Auswahl: Nur das violette Pisces-Platzhaltersymbol
-wird zum Hechtbild.
+Dieses Update vergrößert den Hecht im großen Startbereich auf der Übersichtsseite.
 
-INSTALLATION
-1. Vorher Daten/Backup in der App sichern.
-2. Alle sechs Dateien aus diesem ZIP in das Hauptverzeichnis von
-   https://github.com/4h7zm6hnjy-skizze/PetriHeil hochladen.
-3. Die vorhandene index.html und version.json dabei ersetzen.
-4. Keine bisherigen Daten, Fischbilder oder anderen Dateien löschen.
-5. App in Safari neu öffnen, über Backup & Einstellungen > Version prüfen
-   und Update installieren auf 2.1.2 aktualisieren.
-
-Technik:
-- Die übrigen App-Funktionen werden nicht geändert.
-- Der neue Offline-Worker sw-v2.1.2.js wird über
-  petri-update-v2.1.2.js registriert.
-- Es werden ausschließlich Darstellungs-Symbole geändert; keine lokalen
-  Fang-/Fisch-/Prüfungsdaten gelesen, verändert oder gelöscht.
-
-Grenze: Die JavaScript-Syntax und Zuordnungen wurden lokal geprüft;
-kein praktischer iPhone-Test durchgeführt.
+Dateien aus dieser ZIP in das Hauptverzeichnis des GitHub-Repositories hochladen und vorhandene Dateien ersetzen. Danach in der App Version prüfen, Update installieren und die App neu öffnen.

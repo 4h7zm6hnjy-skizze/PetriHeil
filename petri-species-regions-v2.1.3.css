@@ -1,0 +1,13 @@
+/* Petri Heil Pro 2.1.3 – Regionen in Fischkarten und Artendetails */
+.fish-card .petri-region-brief {display:block;padding:4px 14px 9px;color:#345f78;font-size:12px;font-weight:650;line-height:1.4;overflow-wrap:anywhere;}
+.petri-region-panel{margin:12px 0 16px;padding:17px;border:1px solid #b3d8e9;border-radius:15px;background:#eff8fe;color:#193b53;text-align:left;min-width:0;}
+.petri-region-panel .petri-region-title{font-size:19px;font-weight:800;color:#104569;line-height:1.3;margin:0 0 13px;}
+.petri-region-facts{margin:0;display:grid;gap:10px;}
+.petri-region-facts>div{padding-bottom:9px;border-bottom:1px solid #d3e6f0;}
+.petri-region-facts>div:last-child{border-bottom:0;}
+.petri-region-facts dt{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;color:#4a6b7f;margin-bottom:3px;}
+.petri-region-facts dd{font-size:15px;line-height:1.5;font-weight:550;margin:0;color:#173e59;overflow-wrap:anywhere;}
+.petri-region-disclaimer{font-size:12px;line-height:1.45;margin:12px 0!important;color:#4b6575!important;}
+.petri-region-links{display:flex;gap:10px;flex-wrap:wrap;}
+.petri-region-links a{font-size:13px;font-weight:750;color:#0878af;overflow-wrap:anywhere;}
+@media(max-width:600px){.petri-region-panel{padding:13px;margin:10px 0;}.petri-region-facts dd{font-size:14px;}}
