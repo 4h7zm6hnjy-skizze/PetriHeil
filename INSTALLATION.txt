@@ -1,37 +1,28 @@
-PETRIHEIL OZEAN DESIGN-FIX 2.0.22
-================================
+PetriHeil Menue-Reparatur 2.0.23
+===============================
 
-PROBLEM
-Version 2.0.21 wird angezeigt, aber das helle Logo-Farbschema bleibt
-auf iPhone/Safari teilweise unsichtbar: Die CSS-Verknuepfung ueber die
-Navigation des Service Workers kann aus dem Browsercache kommen.
+FEHLER
+Das obere Menue kann am iPhone wegen Scrollen oder der Statusleisten-Position
+verschwinden bzw. schwer bedienbar sein.
 
-REPARATUR
-Die Datei species-images-v2.0.5.js enthaelt das gesamte Farbdesign
-jetzt zusaetzlich selbst und aktiviert es unabhaengig vom Service Worker.
+UPDATE
+Die Kopfzeile bleibt bei Scrollen sichtbar (sticky), die Schaltflaechen
+werden iPhone-gerecht angepasst und der Abstand zur Statusleiste beruecksichtigt.
+Die bestehende App-Anordnung und Fangdaten bleiben unveraendert.
 
-INSTALLATION AUF GITHUB
+GITHUB UPLOAD
 1. ZIP entpacken.
-2. Die folgenden Dateien im Hauptordner von PetriHeil hochladen/ersetzen:
-   - species-images-v2.0.5.js (ersetzen; wichtigster Fix)
-   - sw.js (ersetzen)
-   - version.json (ersetzen)
-   - petri-ocean-theme.css (vorhandene Datei ersetzen, falls sie aelter ist)
-3. Commit changes waehlen; auf GitHub Pages warten.
-4. App im Browser online aufrufen und die Seite frisch laden.
-5. Falls noch dunkel: Safari-Site-Daten fuer die GitHub-Pages-Seite
-   loeschen oder die App im privaten Browserfenster oeffnen. Bei einer
-   installierten Web-App diese ggf. entfernen und neu hinzufuegen,
-   nachdem die normalen Website-Daten gesichert sind. Das kann lokal
-   gespeicherte Fangdaten loeschen; also VORHER sichern!
+2. Im Hauptverzeichnis von 4h7zm6hnjy-skizze/PetriHeil folgende Dateien hochladen/ersetzen:
+   - species-images-v2.0.5.js
+   - petri-ocean-theme.css
+   - sw.js
+   - version.json
+3. Commit changes ausfuehren.
+4. App zweimal mit Internetverbindung oeffnen / neu laden.
+5. Version 2.0.23 unter Mehr > Update suchen kontrollieren.
+6. iPhone-Test: Seite weit herunterscrollen. Kopfzeile bleibt oben sichtbar.
+   Hamburger-Symbol oeffnet das seitliche Menue. Fang erfassen bleibt erreichbar.
 
-ERWARTET
-- Haupt-Hintergrund hellblau statt fast schwarz
-- Karten weiss mit blauen Rahmen
-- Navigation dunkelblau, aktive Eintraege kraeftig blau
-- Gleiche Seitenanordnung und 177 Bildzuordnungen wie bisher
-
-TECHNIK / HINWEISE
-Datei petri-ocean-theme.css bleibt als eigenstaendige Designquelle
-vorhanden, ist aber fuer die Darstellung nicht mehr zwingend erforderlich.
-Keine Versprechen zur biologischen Korrektheit generierter Bilder.
+WICHTIG
+Website-/App-Daten NICHT ungesichert loeschen, da dort lokale Fangdaten liegen koennen.
+Eine Verifikation auf deinem iPhone ist erst nach dem Upload moeglich.

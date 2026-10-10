@@ -1,12 +1,13 @@
 {
-  "version": "2.0.22",
+  "version": "2.0.23",
   "releaseDate": "2026-10-10",
   "name": "Petri Heil Pro",
   "changes": [
-    "Design-Fix: Ozean-Farbschema wird jetzt direkt durch den aktiven Bildloader angewendet – auch wenn iOS/Safari die CSS-Datei nicht über den Service Worker einbindet.",
-    "Helleres Wasserblau und Weiß passend zum PetriHeil-Logo, dunkelblaue Navigation, kontraststarke Bedienelemente; bestehende Anordnung und Funktionen unverändert.",
-    "Service-Worker-Cache und Bildloader auf Version 2.0.22 aktualisiert.",
-    "Fischkunde-Bildzuordnungen für alle 177 Arten bleiben erhalten, einschließlich Übereinstimmung von Übersichts- und erstem Detailbild."
+    "iPhone-Menueleiste auf mobilen Bildschirmen dauerhaft sichtbar (sticky); sie verschwindet beim Scrollen nicht mehr.",
+    "Abstand zur iPhone-Statusleiste mit safe-area-inset-top beruecksichtigt und Hamburger-Menueschalter auf mindestens 48×48 Pixel vergroessert.",
+    "Kopfzeile auf engen Displays angepasst: Seitentitel und Fang-erfassen-Schaltflaeche bleiben bedienbar.",
+    "Bestehende Ozean-Farben, Fischkunde-Bildzuordnungen fuer alle 177 Arten und untere Navigation bleiben erhalten.",
+    "Offline-Cache und Versionspruefung auf 2.0.23 aktualisiert."
   ],
-  "notes": "Bestehende Fangdaten werden nicht verändert. Das Aussehen muss auf dem iPhone nach dem Upload geprüft werden. KI-Bilder sind keine wissenschaftlich validierten Bestimmungsfotos."
+  "notes": "Keine Veraenderung an gespeicherten Fangdaten. Das Menue muss nach dem Upload auf dem iPhone kontrolliert werden."
 }
