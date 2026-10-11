@@ -1,0 +1,17 @@
+PETRI HEIL PRO 3.3.2 – REPARATURTEST KINDERWELT
+Fehlerursache: bisher wurde die Lektion nach allen acht Karten angezeigt.
+Änderung: eigene Erklärungsansicht nach Kartenklick, mit sofortiger Sichtbarkeit.
+Automatisierter isolierter Browser-Test (Chromium):
+- 320, 390, 430 und 768 Pixel Bildschirmbreite: erfolgreich, kein horizontaler Überlauf.
+- Acht Lernabenteuer geöffnet, vier Schritte pro Abenteuer sichtbar.
+- Erste/letzte Karte, Weiterschalten, Zurück: erfolgreich.
+- Altersstufen, Detailinformationen, Lernstand, Quiz: erfolgreich.
+- Keine JavaScript-Laufzeitfehler im isolierten Browser-Test.
+Service Worker in simulierter Installation:
+- Vollständiger Offline-Kerncache: 91/91 erfolgreich.
+- Fehlendes neues CSS: Installation verweigert, bisheriger Cache erhalten.
+- Alle neuen JavaScript-Dateien bestehen die Node-Syntaxprüfung.
+- ZIP-Integrität geprüft.
+Einschränkungen: Keine echte iPhone-/Android-Geräteprüfung, kein HTTP-End-to-End-Test.
+Die Vollständigkeit bereits vorhandener älterer Dateien wurde zuvor im GitHub-Repository geprüft.
+

@@ -1,0 +1,27 @@
+PETRI HEIL PRO 3.3.2 – REPARATUR KINDERWELT
+
+FEHLER
+Die bisherigen Erklärungen wurden ganz unten nach allen acht Lernkarten angezeigt.
+Beim Tippen auf „Erklären lassen“ blieb der Bildschirm auf der Karte stehen.
+
+BEHOBEN
+- Sofortige eigene Erklärungsansicht nach jedem Kartentipp.
+- Gut sichtbare nummerierte Schritte, Zurück und Nächstes Abenteuer.
+- Altersabhängige Zusatzinformationen bleiben erhalten.
+- Bereits gesammelte Lernerfolge und andere App-Daten bleiben unverändert.
+
+INSTALLATION
+1. Vor der Installation optional eine Datensicherung erstellen.
+2. ZIP entpacken und NUR die Dateien (nicht die ZIP) in das Stammverzeichnis
+   https://github.com/4h7zm6hnjy-skizze/PetriHeil laden.
+3. Gleichnamige Dateien ersetzen; übrige Bilder und Module NICHT löschen.
+4. GitHub-Pages-Veröffentlichung abwarten, einmal online die Update-Reparatur
+   öffnen und 3.3.2 installieren. Dann die App schließen und neu öffnen.
+5. Unter Angelschule → Kinderwelt → Lernabenteuer → Erklären lassen testen.
+   Ab jetzt erscheint die Erklärung sofort auf einer eigenen Seite.
+6. Für Offline-Nutzung nach Update zuerst online die Diagnose prüfen.
+
+WICHTIG: Auf iOS die installierte App nicht löschen oder Websitedaten löschen,
+da sonst persönliche Daten und Lernfortschritte verloren gehen können.
+Der Offline-Cache wird von Browsern bei Speichermangel ggf. automatisch entfernt.
+Keine externen Dienste für Kinderinformationen oder GPS erforderlich.

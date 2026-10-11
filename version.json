@@ -1,17 +1,18 @@
 {
-  "version": "3.3.1",
+  "version": "3.3.2",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "changes": [
+    "Kinderwelt: Jede Lernkarte öffnet ihre Erklärung sofort als eigene Ansicht statt erst unter allen acht Karten.",
+    "Erklärungen: nummerierte Schritt-für-Schritt-Anleitungen, altersgerechte Zusatzinformationen, Merksatz und direkter Zurück-Button.",
+    "Anschließend nächstes Abenteuer öffnen oder abgeschlossenes Abenteuer markieren; Lernfortschritt bleibt erhalten.",
+    "Mobil: automatisch zur geöffneten Erklärung springen, auch nach Auswahl der letzten Karte.",
+    "Kinderwelt-Dateien versioniert auf 3.3.2; Offline-Worker und Diagnose auf 3.3.2 aktualisiert.",
     "Angelschule als neuer oberster Hauptpunkt im Seitenmenü mit aufklappbaren Unterpunkten.",
     "Bisherige Lernpunkte aus der Hauptnavigation werden ohne Entfernen ihrer Original-Funktionen unter Angelschule gruppiert.",
     "Eigene Angelschule-Übersicht mit Theorie, Fischkunde, praktischer NRW-Prüfung, Knoten, Montagen, Rutenmontage, Fischartenvergleich, Prüfungs-Akademie und Kinderwelt.",
     "Startseite erhält einen sichtbaren Angelschule-Schnellzugriff; Gezeiten bleiben separat.",
-    "Bestehende Lernstände und Fangdaten bleiben unverändert; keine Konten, Werbung, PIN oder Weitergabe persönlicher Daten.",
-    "Offline-Worker und Diagnose auf Version 3.3.1 aktualisiert; Angelschule vollständig im Offline-Kernpaket.",
-    "Gezeiten: lokale Hoch-/Niedrigwasser-Abfrage für gewählten Pegelort und Datum, Vorschau der nächsten Ereignisse, Export und manueller Import von Gezeitentabellen in CSV/TXT/JSON.",
-    "Gezeiten werden niemals auf Grundlage von Mondphasen geschätzt; echte Pegeldaten müssen vom Nutzer selbst beschafft und lokal importiert werden.",
-    "Kinder-Angelwelt: acht kurze Lernthemen für Sicherheit, Fischkunde, Angelgerät, Knoten, Umwelt, Regeln, Wetter und Tierschutz."
+    "Bestehende Lernstände und Fangdaten bleiben unverändert; keine Konten, Werbung, PIN oder Weitergabe persönlicher Daten."
   ],
   "limitations": [
     "Theorie und Fischkunde der ursprünglichen Haupt-App werden aus der Angelschule per vorhandener Navigations-Schaltfläche geöffnet; veränderte Menübezeichnungen erfordern ggf. Anpassung.",
