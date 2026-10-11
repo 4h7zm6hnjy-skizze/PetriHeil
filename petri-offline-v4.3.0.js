@@ -22,3 +22,13 @@ async function run(id){if(processing)return;processing=true;for(const n of ['pet
 document.addEventListener('click',e=>{const b=e.target.closest?.('#petri-offline-check,#petri-offline-prepare,#petri-core-check');if(b){e.preventDefault();void run(b.id)}});
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount,{once:true});else mount();
 })();
+
+/* v4.4.5: add universal back navigation without changing existing modules. */
+;(()=>{'use strict';
+ if(typeof window==='undefined'||window.__petri445NavRequested)return;
+ window.__petri445NavRequested=true;
+ const root=new URL('./',document.currentScript?.src||document.baseURI);
+ const script=document.createElement('script');script.src=new URL('petri445-nav.js?v=4.4.5',root).href;
+ script.addEventListener('error',()=>{window.__petri445NavRequested=false;});
+ (document.head||document.documentElement).appendChild(script);
+})();

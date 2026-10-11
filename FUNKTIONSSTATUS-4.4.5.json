@@ -1,0 +1,26 @@
+{
+  "version": "4.4.5",
+  "scope": "alle produktiven App-Seiten",
+  "scriptPatches": [
+    "petri-bildschirm-v3.0.2.js",
+    "petri430-core.js",
+    "petri430.js",
+    "petri420.js",
+    "petri400.js",
+    "petri370.js",
+    "petri411-bilderpruefung.js",
+    "petri420-quality.js",
+    "petri430-system.js",
+    "petri410-backup-ui.js",
+    "petri-offline-v4.3.0.js",
+    "petri440-core.js"
+  ],
+  "newFiles": [
+    "petri445-nav.js",
+    "petri445-nav.css"
+  ],
+  "offlineResources": 204,
+  "data": "keine Migration oder Löschung",
+  "baseVersion": "4.4.3",
+  "cumulative": "4.4.4"
+}

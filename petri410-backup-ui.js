@@ -6,3 +6,13 @@ async function preview(){unlocked=null;el('restorearea').replaceChildren();const
 async function restore(){if(!unlocked)throw Error('Bitte zuerst eine Sicherung prüfen.');if(!confirm('Bestehende App-Daten können durch Werte aus dem Backup überschrieben werden. Hast du die jetzigen Daten separat gesichert?'))return;if(!confirm('Wiederherstellung unwiderruflich starten? Im Fehlerfall gibt es kein vollständiges Zurückrollen über mehrere Datenbanken.'))return;status('previewout','Wiederherstellung wird ausgeführt …');const r=await PetriVault410.restore(unlocked);unlocked=null;el('restorearea').replaceChildren();el('oldpass').value='';status('previewout',`Wiederherstellung abgeschlossen: ${r.keys} Schlüssel, ${r.databases} Datenbanken. App bitte vollständig neu öffnen und die Fänge, Fotos und Dokumente prüfen.`)}
 addEventListener('DOMContentLoaded',()=>{el('create').addEventListener('click',()=>run(create));el('preview').addEventListener('click',()=>run(preview));});
 })();
+
+/* v4.4.5: add universal back navigation without changing existing modules. */
+;(()=>{'use strict';
+ if(typeof window==='undefined'||window.__petri445NavRequested)return;
+ window.__petri445NavRequested=true;
+ const root=new URL('./',document.currentScript?.src||document.baseURI);
+ const script=document.createElement('script');script.src=new URL('petri445-nav.js?v=4.4.5',root).href;
+ script.addEventListener('error',()=>{window.__petri445NavRequested=false;});
+ (document.head||document.documentElement).appendChild(script);
+})();

@@ -1,0 +1,9 @@
+{
+  "version": "4.4.5",
+  "baseGithubCommit": "ed3b1d44aa02f91ad1f568c16199bbfb6ccf79c7",
+  "baseGithubVersion": "4.4.4",
+  "cumulativeIncludes": "4.4.4",
+  "offlineCore": 204,
+  "changes": "Universal Back Navigation",
+  "dataMigration": "none"
+}

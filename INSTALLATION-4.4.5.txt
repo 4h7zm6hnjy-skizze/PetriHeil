@@ -1,0 +1,8 @@
+Petri Heil Pro 4.4.5 – zurück auf allen App-Seiten
+1. Vorher verschlüsseltes Backup erstellen.
+2. ZIP entpacken und ALLE enthaltenen Dateien in das Hauptverzeichnis 4h7zm6hnjy-skizze/PetriHeil auf GitHub hochladen.
+3. Gleichnamige Dateien ersetzen. Andere vorhandene Dateien niemals löschen.
+4. GitHub Pages Build abwarten. App online neu starten, neueste PWA-Dateien laden.
+5. Auf Beißindex, Angelschule, Kinderwelt, Gewässerkarte, Fangbuch, Sicherung jeweils ← Zurück testen.
+6. Direkte Seite ohne Navigationshistorie führt zur Angelzentrale; von dieser zur klassischen App.
+Hinweis: Paket enthält auch 4.4.4-Ort-Entfernen-Funktion, wenn diese noch nicht hochgeladen wurde.

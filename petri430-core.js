@@ -17,3 +17,12 @@ const days=()=>{const d=read(DAY,{sessions:[]});if(!Array.isArray(d.sessions))th
 function saveDay(item){const prior=localStorage.getItem(DAY),d=days(),i=d.sessions.findIndex(x=>x.id===item.id);if(i>=0)d.sessions[i]=item;else d.sessions.unshift(item);if(d.sessions.length>500)throw Error('Maximal 500 Angeltage in dieser lokalen Datenbank. Bitte zuerst exportieren.');write(DAY,d,prior)}
 window.Petri430=Object.freeze({keys,esc,uid,read,write,catches,mutateCatch,csv,download,stamp,format,days,saveDay});
 })();
+/* v4.4.5: add universal back navigation without changing existing modules. */
+;(()=>{'use strict';
+ if(typeof window==='undefined'||window.__petri445NavRequested)return;
+ window.__petri445NavRequested=true;
+ const root=new URL('./',document.currentScript?.src||document.baseURI);
+ const script=document.createElement('script');script.src=new URL('petri445-nav.js?v=4.4.5',root).href;
+ script.addEventListener('error',()=>{window.__petri445NavRequested=false;});
+ (document.head||document.documentElement).appendChild(script);
+})();

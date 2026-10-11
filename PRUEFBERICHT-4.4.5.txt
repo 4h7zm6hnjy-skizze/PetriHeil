@@ -1,0 +1,45 @@
+PETRI HEIL PRO 4.4.5 – TECHNISCHER PRÜFBERICHT
+Stand: 11.10.2026
+Ausgangsstand: GitHub-Version 4.4.4, Commit ed3b1d44aa02f91ad1f568c16199bbfb6ccf79c7.
+
+ÄNDERUNG
+- Sichtbarer, einheitlicher "← Zurück"-Button oben links auf den produktiven App-Seiten.
+- Bei internem vorherigem App-Seitenaufruf: Browser-Zurück; sonst sicherer App-Fallback auf petri440.html.
+- Von petri440.html ohne Vorgeschichte zurück zur klassischen index.html.
+- Ausgelöst durch gemeinsame JS-Module, ohne vorhandene HTML-Menüs oder Formulare auszutauschen.
+- Abgedeckt: index.html, petri440.html, petri430*.html, petri410/420/400/370, Bildprüfung,
+  Sicherung, Offline-Prüfung, Systemqualität, Angelschule, Kinderwelt, Karten, Gewässer,
+  Lernspiele, Gezeiten, Montagen, Praxis, Installieren, Datenschutz, Werkzeuge etc.
+- Nicht verändert: historische reine Logo-/Designvorschauen und Update-Assistenten (keine produktiven App-Seiten).
+- CSS als separates lokales Asset für CSP-freundlichen Einsatz, Darstellung auch offline.
+- Keine Änderung an persönlichen Fang-, Angeltag-, Angelplatz-, Foto- oder Tiefendaten.
+- Ortsarchiv-/Löschfunktion und Karten-Bugfix aus 4.4.4 bleiben im Overlay enthalten.
+
+TESTERGEBNISSE
+- Alle ausgelieferten JS-Dateien: node --check erfolgreich.
+- Alle ausgelieferten JSON-Dateien gültig.
+- Ausgangsskripte auf Git-Blob-SHA verglichen: 12/12 exakte Bestandsstände.
+- Isolierter Chromium mit nachgeladenem Nav-Skript und CSS: 6 Bildschirmbreiten
+  (320, 375, 390, 430, 768, 1024 px), Button sichtbar, Mindesthöhe 44px,
+  kein Abschneiden, keine doppelten Buttons.
+- Node-Virtual-DOM: direkter Beißindex->Angelzentrale, direkte Angelzentrale->klassische
+  Startseite, interne Vorgängerseite->History-Back, externer Referrer->sicherer Fallback.
+- Service-Worker-VM: 204 Ressourcen vollständig installiert (Simulation).
+- Absichtlich nicht verfügbare Datei: Installation abgebrochen, alter Cache bleibt erhalten.
+- Alle ZIP-Mitglieder auf Lesbarkeit/Hash geprüft.
+
+EINSCHRÄNKUNGEN
+- Kein kompletter Live-GitHub-Pages-/iPhone-End-to-End-Test; die Browser-Testumgebung blockiert
+  lokale HTTP/HTTPS-Seitenaufrufe. Deshalb wurden DOM/CSS mit Chromium und Navigationspfade
+  in Node-VM isoliert getestet.
+- Die universelle Navigation verwendet bestehende gemeinschaftliche Skriptmodule. Auf
+  Seiten, deren JS generell nicht startet, erscheint der Button ebenfalls nicht.
+- Direkter Einstieg ohne internen Referrer: Der Button öffnet die Angelzentrale; das ist Absicht.
+- Keine Bestätigung einer echten Safari-PWA-Cache-Aktualisierung auf dem iPhone.
+- ZIP nur als manuelles Update für GitHub vorbereitet, nicht automatisch hochgeladen.
+
+INSTALLATION
+Vorher ein verschlüsseltes Backup erstellen. ZIP entpacken, ALLE Dateien in das bestehende
+Repo-Hauptverzeichnis hochladen, gleichnamige Dateien ersetzen, andere Dateien nicht löschen.
+Nach erfolgreichem GitHub-Pages-Deployment die App im WLAN starten, aktualisieren und den
+Zurück-Button auf Beißindex, Angelschule, Fangbuch und Gewässerkarte testen.

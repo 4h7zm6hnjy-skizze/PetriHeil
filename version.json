@@ -1,20 +1,19 @@
 {
-  "version": "4.4.4",
+  "version": "4.4.5",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "serviceWorker": "sw.js",
   "changes": [
-    "Angelplätze mit Sicherheitsabfrage ausblenden (archivieren), auch für bestehende Einträge wie Biggi.",
-    "Entfernte Angelplätze mit Name und Datum wiederherstellen.",
-    "Endgültig löschen nur ohne Fänge, Angeltage, Tiefenpunkte oder Angelplatz-Fotos.",
-    "Bestehende Daten und Fotoverknüpfungen bleiben erhalten; keine automatische Migration oder Löschung.",
-    "Kartendarstellungs-Bugfix 4.4.3 ist kumulativ enthalten (Ladefehler, Wiederholen, Offline-Rückfall).",
-    "Helles Design, alte Module und Offline-Cache bleiben unverändert nutzbar."
+    "Überall auf den App-Seiten ein einheitlicher, sichtbarer Zurück-Button – auch Beißindex, Fangbuch, Kinderwelt, Angelschule und Karten.",
+    "Beim Wechsel von einer anderen App-Seite zur vorherigen Seite zurück; bei direktem Einstieg zur Angelzentrale (bzw. von der Angelzentrale zur klassischen App).",
+    "Kumulativ: Ortsarchiv und sicheres Entfernen von Angelplätzen aus 4.4.4 sind enthalten.",
+    "Keine Änderungen oder Migration an vorhandenen Fang-, Foto-, Angeltag-, Angelplatz- oder Tiefendaten.",
+    "Offline-Cache und alle modifizierten Hauptskripte mit 4.4.5 neu vorbereitet."
   ],
   "limitations": [
-    "Echter iPhone-Endtest sowie externer Satelliten-/Kartenprovider-Test ausstehend.",
-    "Der Archiv-Vorgang ist keine endgültige Löschung; im Archiv kann ein Ort wiederhergestellt werden.",
-    "Endgültiges Löschen mit Abhängigkeiten wird bewusst blockiert, bis diese gesondert geklärt sind.",
-    "App wurde nicht direkt auf GitHub geschrieben; ZIP manuell hochladen."
+    "iPhone-Praxistest steht aus; überprüft im isolierten Chromium, kein echter GitHub-Pages-Gerätetest.",
+    "Externe offene Tools (Update-Assistenten und Bild-Designvorschauen) erhalten keinen Zurück-Button; alle produktiven App-Seiten sind abgedeckt.",
+    "Bei direkt geöffneten Seiten ohne interne Navigation führt Zurück zur 4.4.5-Angelzentrale; auf der Angelzentrale zur klassischen App.",
+    "Vorgängerversion des Buttons kann bis zur Aktivierung des neuen Service Workers im Cache liegen."
   ]
 }

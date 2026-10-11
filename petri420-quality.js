@@ -19,3 +19,12 @@ function download(){if(!latest)return;const b=new Blob([JSON.stringify(latest,nu
 function start(){el('run').addEventListener('click',()=>void run());el('save').addEventListener('click',download)}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
 })();
+/* v4.4.5: add universal back navigation without changing existing modules. */
+;(()=>{'use strict';
+ if(typeof window==='undefined'||window.__petri445NavRequested)return;
+ window.__petri445NavRequested=true;
+ const root=new URL('./',document.currentScript?.src||document.baseURI);
+ const script=document.createElement('script');script.src=new URL('petri445-nav.js?v=4.4.5',root).href;
+ script.addEventListener('error',()=>{window.__petri445NavRequested=false;});
+ (document.head||document.documentElement).appendChild(script);
+})();

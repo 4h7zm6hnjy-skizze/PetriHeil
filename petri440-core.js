@@ -91,3 +91,13 @@ function linkCatch(record,dayId='',placeId=''){
 function csv(){const rows=[['Fischart','Datum','Gewässer','Köder','Länge (cm)','Gewicht (kg)','Fangbuch','Angeltag-ID','Angelplatz-ID']];for(const c of allCatches()){const l=links(c);rows.push([c.fish,c.time,c.water,c.bait,c.length??'',c.weight??'',c.source,l.dayId||'',l.placeId||''])}return A.csv(rows)}
 window.Petri440=Object.freeze({A,keys:{PLACES,SETTINGS,PHOTOS},esc,uid,fmt,now,places,archivedPlaces,setPlace,archivePlace,restorePlace,deleteArchivedPlace,active,attachPlaceToDay,startDay,stopDay,dayEntry,createCatch,linkCatch,allCatches,links,byPlace,byDay,readSettings,settings,photoSave,photos,csv,validCoord});
 })();
+
+/* v4.4.5: add universal back navigation without changing existing modules. */
+;(()=>{'use strict';
+ if(typeof window==='undefined'||window.__petri445NavRequested)return;
+ window.__petri445NavRequested=true;
+ const root=new URL('./',document.currentScript?.src||document.baseURI);
+ const script=document.createElement('script');script.src=new URL('petri445-nav.js?v=4.4.5',root).href;
+ script.addEventListener('error',()=>{window.__petri445NavRequested=false;});
+ (document.head||document.documentElement).appendChild(script);
+})();

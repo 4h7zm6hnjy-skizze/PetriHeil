@@ -14,3 +14,13 @@ try{const q=await navigator.storage?.estimate();if(q)lines.push('Browser-Speiche
 lines.push('Echter iPhone-Test und AES-Restore: separat durchführen.');lines.push('Datenspeicher anderer Webadressen und systemweit entfernte Daten sind hier nicht nachprüfbar.');output('diagout',lines.join('\n'))}
 function setup(){const small=localStorage.getItem('petri410-large')==='yes';$('bigger').checked=small;document.documentElement.classList.toggle('large-font',small);$('checkrelease').addEventListener('click',()=>runRelease().catch(e=>output('releaseout',e.message)));$('checkoffline').addEventListener('click',()=>runOffline().catch(e=>output('offlineout','Prüfung fehlgeschlagen: '+e.message)));$('diagnostic').addEventListener('click',()=>runDiagnostic().catch(e=>output('diagout','Prüfung fehlgeschlagen: '+e.message)));$('bigger').addEventListener('change',()=>{document.documentElement.classList.toggle('large-font',$('bigger').checked);localStorage.setItem('petri410-large',$('bigger').checked?'yes':'no')});$('read').addEventListener('click',()=>{if(!window.speechSynthesis){output('diagout','Vorlesefunktion nicht unterstützt');return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance($('offlineout').textContent||document.querySelector('main')?.innerText?.slice(0,10000)||'');u.lang='de-DE';speechSynthesis.speak(u)});$('stopread').addEventListener('click',()=>speechSynthesis?.cancel())}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup,{once:true});else setup();
 })();
+
+/* v4.4.5: add universal back navigation without changing existing modules. */
+;(()=>{'use strict';
+ if(typeof window==='undefined'||window.__petri445NavRequested)return;
+ window.__petri445NavRequested=true;
+ const root=new URL('./',document.currentScript?.src||document.baseURI);
+ const script=document.createElement('script');script.src=new URL('petri445-nav.js?v=4.4.5',root).href;
+ script.addEventListener('error',()=>{window.__petri445NavRequested=false;});
+ (document.head||document.documentElement).appendChild(script);
+})();

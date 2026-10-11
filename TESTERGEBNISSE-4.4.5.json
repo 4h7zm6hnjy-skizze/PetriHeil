@@ -1,0 +1,59 @@
+{
+  "isolatedBrowser": {
+    "320": {
+      "button": true,
+      "size": [
+        101.1875,
+        44
+      ],
+      "x": 10,
+      "y": 8
+    },
+    "375": {
+      "button": true,
+      "size": [
+        101.1875,
+        44
+      ],
+      "x": 10,
+      "y": 8
+    },
+    "390": {
+      "button": true,
+      "size": [
+        101.1875,
+        44
+      ],
+      "x": 10,
+      "y": 8
+    },
+    "430": {
+      "button": true,
+      "size": [
+        101.1875,
+        44
+      ],
+      "x": 10,
+      "y": 8
+    },
+    "768": {
+      "button": true,
+      "size": [
+        101.1875,
+        44
+      ],
+      "x": 10,
+      "y": 8
+    },
+    "1024": {
+      "button": true,
+      "size": [
+        101.1875,
+        44
+      ],
+      "x": 12,
+      "y": 12
+    }
+  },
+  "limits": "Keine echten HTTP/PWA Seitenaufrufe in dieser Testumgebung möglich."
+}
