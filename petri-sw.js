@@ -1,9 +1,9 @@
 /* Petri Heil Pro: stabiler Worker-Pfad, Version 3.2.0.
    Updated in place on future releases. Does not import legacy workers. */
 'use strict';
-const VERSION='3.3.0';
+const VERSION='3.3.1';
 const ROOT=new URL('./',self.location.href);
-const CORE_CACHE='petri-core-3.3.0';
+const CORE_CACHE='petri-core-3.3.1';
 const IMAGE_CACHE='petri-media-2.2.0';
 const CORE=[
  'index.html','update-rettung.html','version.json','manifest.webmanifest',
@@ -20,14 +20,14 @@ const CORE=[
  'petri-report-v2.0.36.js?v=2.0.42','petri-next-v2.0.37.js?v=2.0.42',
  'petri-gesamt-v2.0.41.js?v=2.0.42','petri-unified-ui-v2.1.2.js?v=2.1.2',
  'petri-species-regions-v2.1.3.js?v=2.1.3','petri-updater.js?v=2.4.0',
- 'petri-media-v2.2.0.json','petri-offline-v3.3.0.js?v=3.3.0','offline-check.html',
+ 'petri-media-v2.2.0.json','petri-offline-v3.3.1.js?v=3.3.1','offline-check.html',
  'petri-platform-v2.2.1.css?v=2.2.1','petri-platform-v2.2.1.js?v=2.2.1','installieren.html',
  'petri-privacy-v2.2.2.js?v=2.2.2','datenschutz.html',
  'petri-praktisch-v2.2.3.css?v=2.2.3','petri-praktisch-data-v2.2.3.js?v=2.2.3',
  'petri-praktisch-v2.2.3.js?v=2.2.3','praxis.html',
- 'petri-werkzeuge-v2.3.0.css?v=2.3.0','petri-werkzeuge-v3.3.0.js?v=3.3.0',
+ 'petri-werkzeuge-v2.3.0.css?v=2.3.0','petri-werkzeuge-v3.3.1.js?v=3.3.1',
  'petri-praxis-plus-v2.3.0.js?v=2.3.0','petri-compat-v2.5.0.js?v=2.5.0',
- 'petri-core-v3.3.0.json','werkzeuge.html',
+ 'petri-core-v3.3.1.json','werkzeuge.html',
  'petri-bildschirm-v3.0.2.css?v=3.1.0','petri-bildschirm-v3.0.2.js?v=3.1.0',
  'petri-erweiterungen-v2.4.0.css?v=2.4.0','petri-erweiterungen-v2.4.0.js?v=2.4.0','erweiterungen.html',
  'petri-angelwerkzeuge-v2.5.0.css?v=2.5.0','petri-angelwerkzeuge-v2.5.0.js?v=2.5.0','angelwerkzeuge.html',
@@ -43,7 +43,7 @@ const CORE=[
  'gezeiten.html','kinderwelt.html',
  'petri-gezeiten-v3.3.0.js?v=3.3.0','petri-gezeiten-v3.3.0.css?v=3.3.0',
  'petri-kids-v3.3.0.js?v=3.3.0','petri-kids-v3.3.0.css?v=3.3.0',
- 'petri-330-navigation.js?v=3.3.0','petri-330-navigation.css?v=3.3.0',
+ 'petri-angelschule-nav-v3.3.1.js?v=3.3.1','petri-angelschule-v3.3.1.css?v=3.3.1','angelschule.html',
  'hecht.webp','flussbarsch.webp','karpfen.webp','rotauge.webp','rotfeder.webp',
  'schleie.webp','zander.webp','aal.webp','wels.webp','bachforelle.webp','brasse.webp','regenbogenforelle.webp'
 ];
@@ -174,7 +174,7 @@ self.addEventListener('fetch',evt=>{
     // standalone page as index.html. Otherwise offline navigation shows the
     // wrong app after visiting the installation/privacy/practical pages.
     const known=new Set(['index.html','offline-check.html','update-rettung.html',
-      'installieren.html','datenschutz.html','praxis.html','erweiterungen.html','werkzeuge.html','karte.html','premium.html','angelwerkzeuge.html','montagen.html','gezeiten.html','kinderwelt.html']);
+      'installieren.html','datenschutz.html','praxis.html','erweiterungen.html','werkzeuge.html','karte.html','premium.html','angelwerkzeuge.html','montagen.html','gezeiten.html','kinderwelt.html','angelschule.html']);
     const name=url.pathname.slice(ROOT.pathname.length);
     const key=known.has(name)?file(name):essentialKey;
     if(name==='update-rettung.html')evt.respondWith(networkFirst(evt.request,key));

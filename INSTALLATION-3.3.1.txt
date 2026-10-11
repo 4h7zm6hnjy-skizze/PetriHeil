@@ -1,0 +1,15 @@
+PETRI HEIL PRO 3.3.1 – ANGELSCHULE
+================================
+1. VORHER Fangdaten lokal sichern. App NICHT deinstallieren.
+2. ZIP ENTPACKEN; die App-Dateien ohne übergeordneten Unterordner direkt in das Hauptverzeichnis deines GitHub-Repository PetriHeil hochladen.
+3. Gleichnamige Dateien ersetzen. Andere App-Dateien und alle 228 Bilder NICHT löschen.
+4. GitHub Pages Veröffentlichung abwarten, dann update-rettung.html öffnen und 3.3.1 installieren.
+5. In der App linkes Menü (auf Smartphone über ☰) > ANGELSCHULE wählen, dort Alle Lernbereiche ansehen.
+6. Unter Offline prüfen Cache-Dateien & Bildarchiv bestätigen; Angelschule im Flugmodus öffnen.
+
+INHALT
+Neuer Hauptpunkt Angelschule mit gebündelten Lernthemen: Theorie, Fischkunde, praktische Prüfung, Lern-Akademie, Fischbestimmung, Fischarten-Vergleich, Rutenmontage, Montagen, Knoten, Schonzeiten, Kinderwelt.
+Gezeiten bleiben bewusst außerhalb der Angelschule im übrigen Hauptbereich.
+Es werden keine bestehenden Fang-, Lern- oder Backup-Datenschlüssel verändert.
+
+Hinweis: Theorie/Fischkunde bleiben technisch als bisherige Module in der Haupt-App. Das Schul-Portal öffnet diese über ihre ursprünglichen Schaltflächen. Die Haupt-App app.js wurde nicht verändert.

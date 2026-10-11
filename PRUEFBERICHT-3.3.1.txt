@@ -1,0 +1,30 @@
+PETRI HEIL PRO 3.3.1 – PRÜFBERICHT ANGELSCHULE
+=============================================
+Geprüft am 11.10.2026
+
+ERFOLGREICH
+- Hauptmenüpunkt »Angelschule« wird angelegt; vorhandene Theorie- und
+  Fischkunde-Schaltflächen werden mitsamt ihren Klick-Handlern gruppiert.
+- Nach Wechsel auf andere App-Seiten wird der Angelschule-Kurzzugriff
+  entfernt und auf der Übersicht genau einmal wiederhergestellt.
+- Angelschule-Portalseite enthält 13 Lernzugänge in vier Themenbereichen:
+  Fischerprüfung, Fischkunde, Angelpraxis, Kinderwelt.
+- Bei 320, 375, 390, 430 und 768 Pixeln: keine seitliche Seitenverbreiterung
+  in isolierten Chromium-Tests; JavaScript-Ausführung ohne Konsolenfehler.
+- ZIP-Struktur fehlerfrei, ohne doppelte Dateinamen; alle neun geänderten
+  HTML-Seiten tragen Version 3.3.1.
+- Offline-Kernliste enthält 91 eindeutige Datei-URLs; alle neuen 3.3.1-
+  Ressourcen sind im ZIP enthalten. Alte App- und Bilddateien bleiben erhalten.
+- JavaScript-Syntaxprüfung für alle im ZIP enthaltenen Skripte erfolgreich.
+
+NOCH AUF ECHTEN GERÄTEN ZU PRÜFEN
+- End-to-End-Installation per iPhone-Safari und Android-Chrome,
+  einschließlich Offline-Start und vollständiger 228-Bilder-Bibliothek.
+- Theorie- und Fischkunde-Deep-Links in der vollständigen 4,5-MB-Haupt-App.
+- Zugriff über alle Navigationswege nach Benutzerinteraktionen.
+- Persönliche Datensicherung vor und nach Update.
+
+DATENSCHUTZ UND BESTAND
+Das Update enthält nur Navigation und Lernportal. Es setzt keinen PIN,
+verlangt kein Konto und sendet keine Fangdaten, Fotos oder Angelstellen
+an Drittanbieter. Bestehende Lernstände und Fangdaten werden nicht migriert.

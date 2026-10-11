@@ -1,25 +1,24 @@
 {
-  "version": "3.3.0",
+  "version": "3.3.1",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "changes": [
+    "Angelschule als neuer oberster Hauptpunkt im Seitenmenü mit aufklappbaren Unterpunkten.",
+    "Bisherige Lernpunkte aus der Hauptnavigation werden ohne Entfernen ihrer Original-Funktionen unter Angelschule gruppiert.",
+    "Eigene Angelschule-Übersicht mit Theorie, Fischkunde, praktischer NRW-Prüfung, Knoten, Montagen, Rutenmontage, Fischartenvergleich, Prüfungs-Akademie und Kinderwelt.",
+    "Startseite erhält einen sichtbaren Angelschule-Schnellzugriff; Gezeiten bleiben separat.",
+    "Bestehende Lernstände und Fangdaten bleiben unverändert; keine Konten, Werbung, PIN oder Weitergabe persönlicher Daten.",
+    "Offline-Worker und Diagnose auf Version 3.3.1 aktualisiert; Angelschule vollständig im Offline-Kernpaket.",
     "Gezeiten: lokale Hoch-/Niedrigwasser-Abfrage für gewählten Pegelort und Datum, Vorschau der nächsten Ereignisse, Export und manueller Import von Gezeitentabellen in CSV/TXT/JSON.",
-    "Zeitangaben: auswählbare Import-Zeitzone MEZ oder gesetzliche Zeit (MEZ/MESZ), automatische Umrechnung mit Europe/Berlin.",
     "Gezeiten werden niemals auf Grundlage von Mondphasen geschätzt; echte Pegeldaten müssen vom Nutzer selbst beschafft und lokal importiert werden.",
-    "Kinder-Angelwelt: acht kurze Lernthemen für Sicherheit, Fischkunde, Angelgerät, Knoten, Umwelt, Regeln, Wetter und Tierschutz.",
-    "Kinder-Fischkarten mit zwölf vorhandenen Offline-Artenfotos, altersgestufte Erklärungen und 8-/12-Fragen-Quiz.",
-    "Lernfortschritt nur lokal, kein Konto, kein Chat, keine Werbung, keine automatische Datenweitergabe.",
-    "Neue Direktlinks auf der Startseite, im Fußbereich und auf der Premium-Seite; bestehender Beißindex bleibt oben.",
-    "Offline-Paket enthält alle benötigten neuen HTML-, CSS- und JavaScript-Dateien. Alte Fischbilder und persönliche Daten bleiben erhalten."
+    "Kinder-Angelwelt: acht kurze Lernthemen für Sicherheit, Fischkunde, Angelgerät, Knoten, Umwelt, Regeln, Wetter und Tierschutz."
   ],
   "limitations": [
-    "Die App liefert keine amtlichen Gezeiten vorausberechnet ab Werk. Die Zeiten müssen als Tabelle importiert oder manuell eingegeben werden.",
-    "Gezeiten-Import unterstützt einfache Text-/CSV- und PetriHeil-JSON-Dateien; proprietäre BSH-Dateiformate können eine vorherige Aufbereitung benötigen.",
-    "Die echte Wasserhöhe hängt von Wind und Wetter ab; Tidenprognosen ersetzen keine aktuellen Warnungen und dürfen nicht als alleinige Sicherheitsgrundlage für Wattwanderungen dienen.",
-    "Kinderbereich vermittelt Grundlagen, ersetzt keine Aufsicht Erwachsener oder fachliche, rechtliche Einweisung.",
-    "Offline-Fischbilder sind erst vollständig verfügbar, nachdem der 228-Bilder-Check abgeschlossen wurde.",
-    "iPhone- und Android-Gerätetests, Kamera, GPS und der große bestehende app.js-Hauptcode bleiben außerhalb dieser isolierten Tests.",
-    "GitHub Pages verarbeitet technische Verbindungsdaten bei Installation und Updates; keine automatischen Uploads persönlicher GPS-, Fang- oder Kinder-Daten."
+    "Theorie und Fischkunde der ursprünglichen Haupt-App werden aus der Angelschule per vorhandener Navigations-Schaltfläche geöffnet; veränderte Menübezeichnungen erfordern ggf. Anpassung.",
+    "Einige Lernbereiche sind direkt in anderen App-Modulen integriert und werden von der Angelschule verlinkt, nicht in eine neue Datenbank übertragen.",
+    "Das Update ist eine Navigationserweiterung, keine Überarbeitung des ursprünglichen 4,5-MB-App-Codes.",
+    "Der Offline-Kerncache muss auf dem Gerät installiert sein; weitere lokale Bilder sind gegebenenfalls unter Offline prüfen vorzubereiten.",
+    "Vollständiger iPhone-/Android-Test bleibt erforderlich."
   ],
   "serviceWorker": "sw.js"
 }
