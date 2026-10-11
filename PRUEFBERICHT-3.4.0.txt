@@ -1,0 +1,36 @@
+PETRI HEIL PRO – PRÜFBERICHT 3.4.0 (11.10.2026)
+================================================
+
+GEPRÜFT
+- Alle neuen JavaScript-Dateien + petri-sw.js: node --check ohne Syntaxfehler.
+- Offline-Worker in Node-Simulation: 104 von 104 Kernressourcen gespeichert;
+  fünf Navigationsseiten im Offline-Modus aus Cache geöffnet.
+- Simulierter unvollständiger Download: alte Version bleibt erhalten,
+  neuer Cache wird verworfen, Update wird nicht aktiviert.
+- Isolierter Chromium-Browsertest: Angelstudio (22 Anleitungen, Wechsel
+  der Schritte, Fischsuche, Packliste, sechs Tabs, Diagnose),
+  Kinderwelt (acht Lernabenteuer, Memory mit zwölf Karten),
+  GeoJSON-Import mit simuliertem IndexedDB und Angelschule.
+- Darstellungsprüfung bei 320/375/390/430/768 px ohne horizontalen
+  Überlauf in den getesteten Bereichen.
+- ZIP-Inhalt, referenzierte neue Kernressourcen und Version 3.4.0 geprüft.
+
+GRENZEN DER PRÜFUNG
+- Browserprüfung nutzt eine isolierte Oberfläche sowie Modell-/Testdaten.
+- Die GeoJSON-Datenbank wurde im Browsertest simuliert; echter Speicher auf
+  iPhone/Android ist noch nicht geprüft.
+- Die große bestehende app.js wurde nicht vollständig neu analysiert.
+- Echtgerätetests von GPS, Kamera, Export, Vorlesen und Installation fehlen.
+- Keine vollständigen straßengenauen Deutschlandkarten und keine amtlichen
+  Tidezeiten im Paket. Fremde GeoJSON-Karten müssen selbst legal bezogen werden.
+- 177 Lexikonarten stammen aus der vorhandenen App; zusätzliche Artfotos
+  nur für zwölf zuverlässig zugeordnete Arten.
+- Knotengrafik im neuen Lerntrainer ist ein symbolischer Fortschrittsindikator,
+  nicht die exakte technische Knotenfolge. Die bestehenden Detailzeichnungen
+  bleiben über die Original-Lernbibliothek verfügbar.
+
+DATENSCHUTZ
+- Die neuen Module stellen keine automatische Verbindung zu Drittdiensten her.
+- GitHub Pages empfängt weiterhin technische Daten für App-/Update-Abrufe.
+- Persönliche Daten bleiben im lokalen Gerätespeicher, sofern nicht vom
+  Nutzer selbst exportiert und weitergegeben.

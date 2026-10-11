@@ -1,25 +1,27 @@
 {
-  "version": "3.3.2",
+  "version": "3.4.0",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
+  "serviceWorker": "sw.js",
   "changes": [
-    "Kinderwelt: Jede Lernkarte öffnet ihre Erklärung sofort als eigene Ansicht statt erst unter allen acht Karten.",
-    "Erklärungen: nummerierte Schritt-für-Schritt-Anleitungen, altersgerechte Zusatzinformationen, Merksatz und direkter Zurück-Button.",
-    "Anschließend nächstes Abenteuer öffnen oder abgeschlossenes Abenteuer markieren; Lernfortschritt bleibt erhalten.",
-    "Mobil: automatisch zur geöffneten Erklärung springen, auch nach Auswahl der letzten Karte.",
-    "Kinderwelt-Dateien versioniert auf 3.3.2; Offline-Worker und Diagnose auf 3.3.2 aktualisiert.",
-    "Angelschule als neuer oberster Hauptpunkt im Seitenmenü mit aufklappbaren Unterpunkten.",
-    "Bisherige Lernpunkte aus der Hauptnavigation werden ohne Entfernen ihrer Original-Funktionen unter Angelschule gruppiert.",
-    "Eigene Angelschule-Übersicht mit Theorie, Fischkunde, praktischer NRW-Prüfung, Knoten, Montagen, Rutenmontage, Fischartenvergleich, Prüfungs-Akademie und Kinderwelt.",
-    "Startseite erhält einen sichtbaren Angelschule-Schnellzugriff; Gezeiten bleiben separat.",
-    "Bestehende Lernstände und Fangdaten bleiben unverändert; keine Konten, Werbung, PIN oder Weitergabe persönlicher Daten."
+    "Ein Gesamtupdate: neue Module für acht Funktionsbereiche bei unverändertem bisherigem Design und gespeicherten App-Daten.",
+    "Kinderwelt: Fisch-Memory im Kinderbereich, zusätzliche Bilderrätsel und Memory-Seite, Vorlesen über Geräte-Sprachausgabe und Lernabzeichen; vorhandener Lernstand bleibt erhalten.",
+    "Kinderwelt: Fisch-Memory und Fischbilderrätsel mit lokalem Spielfortschritt; geräteabhängiges Vorlesen.",
+    "Detailkarte: GeoJSON-Vektordateien mit Straßen, Wegen und Gewässern lokal in IndexedDB importieren, anzeigen, vergrößern und verschieben.",
+    "Beißindex: transparenter Erklärbereich zu beeinflussten Faktoren und persönlichen Einstellungen.",
+    "Gezeiten: lokale Tabelle und Import-Anleitung inklusive CSV-Vorlage – keine erfundenen Hoch-/Niedrigwasserzeiten.",
+    "Fischlexikon: 177 vorhandene Arten mit Textinformationen und Fotos ausgewählter häufiger Arten.",
+    "Angelassistent: Checkliste, Angelplatz, Datum, Budget, Notizen und JSON-Export.",
+    "Diagnose: lokalen Speicher, Offline-Kernpaket, Gerätefunktionen und Browserdarstellung prüfen.",
+    "Offline-Worker und Versionsdatei auf 3.4.0 mit 104 unterschiedlichen Kernressourcen; Installation nur nach vollständigem Kerndownload."
   ],
   "limitations": [
-    "Theorie und Fischkunde der ursprünglichen Haupt-App werden aus der Angelschule per vorhandener Navigations-Schaltfläche geöffnet; veränderte Menübezeichnungen erfordern ggf. Anpassung.",
-    "Einige Lernbereiche sind direkt in anderen App-Modulen integriert und werden von der Angelschule verlinkt, nicht in eine neue Datenbank übertragen.",
-    "Das Update ist eine Navigationserweiterung, keine Überarbeitung des ursprünglichen 4,5-MB-App-Codes.",
-    "Der Offline-Kerncache muss auf dem Gerät installiert sein; weitere lokale Bilder sind gegebenenfalls unter Offline prüfen vorzubereiten.",
-    "Vollständiger iPhone-/Android-Test bleibt erforderlich."
-  ],
-  "serviceWorker": "sw.js"
+    "Straßengenaue Deutschlandkarte ist nicht mitgeliefert: GeoJSON-Regionaldateien müssen separat legal bezogen werden. Keine Straßennavigation.",
+    "Amtliche Gezeitentabellen werden nicht automatisch geladen und müssen vor Ort beschafft und importiert werden.",
+    "Sprachwiedergabe ist vom Betriebssystem und verfügbaren Stimmen abhängig.",
+    "Beißindex ist eine unverbindliche Faustregel, keine wissenschaftlich validierte Fangwahrscheinlichkeit.",
+    "Echte Gerätetests auf iPhone/Android sind weiterhin erforderlich.",
+    "Ausführliche amtliche Schonzeiten/Mindestmaße und lokale Vorschriften müssen an der gültigen Quelle geprüft werden.",
+    "Gerätespeicher und Service-Worker-Cache können vom Betriebssystem entfernt werden; Backups regelmäßig erstellen."
+  ]
 }

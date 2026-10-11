@@ -1,0 +1,18 @@
+Petri Heil Pro 3.4.0 – Gemeinsames Funktionsupdate
+
+1. Vorher privates Backup exportieren.
+2. ZIP entpacken und ALLE enthaltenen Dateien (nicht die ZIP selbst) in den Hauptordner des Repositories 4h7zm6hnjy-skizze/PetriHeil hochladen.
+3. Vorhandene gleichnamige Dateien ersetzen, KEINE der sonstigen 3.3.x- und früheren Dateien löschen.
+4. Nach Veröffentlichung update-rettung.html online öffnen und 3.4.0 installieren.
+5. Offline prüfen: 104 Pflichtdateien und 228 Bilder. Kinder-Memory, Angelstudio, Kartenimport testen.
+
+WICHTIG: Voraussetzung ist die bereits veröffentlichte vollständige Version 3.3.2.
+Die unveränderten Programmdateien, Fischbilder, bisherigen Karten und die Kinderwelt-3.3.2-Dateien bleiben im Repository und dürfen nicht gelöscht werden.
+
+Angelschule: angelschule.html
+Angelstudio: angelstudio.html
+Lokale Detailkarten: karten-detail.html
+Kinderwelt: kinderwelt.html
+Gezeiten: gezeiten.html
+
+GRENZEN: Keine fertigen OSM-Straßenkarten oder amtlichen Tidezeiten im ZIP. Die Detailkarte importiert GeoJSON, keine .pbf, .mbtiles oder .osm-Dateien. Echtgeräte-Prüfung nötig.
