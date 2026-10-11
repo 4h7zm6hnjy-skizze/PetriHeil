@@ -1,30 +1,27 @@
 {
-  "version": "2.5.0",
+  "version": "3.0.0",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "changes": [
-    "Offline-GPS-Peilung mit Entfernung und Richtung; GPX-Import und Export, keine Übertragung von GPS-Daten.",
-    "Offline-Fischbestimmung mit lokalen Fischbildern und Merkmalfiltern (regelbasiertes Lernhilfesystem, keine Foto-KI).",
-    "Interaktiver Rutenmontage-Trainer für zehn NRW-Aufgaben mit fünf auswählbaren Teilen, Sofortauswertung und lokalem Fortschritt.",
-    "Fang-Schnelleingabe mit lokalen Vorlagen und ausdrücklich bestätigter Übernahme in das bestehende Pro-Fangbuch.",
-    "Privates Angelalbum mit Datei-Upload in IndexedDB, lokaler SHA-256-Duplikaterkennung und Druck/PDF-Funktion.",
-    "Ausrüstungsverleih mit Rückgabedatum, Status und eigenen Notizen.",
-    "Gerätespeicher-Diagnose einschließlich Cache-Übersicht; keine automatische Löschung von Benutzerdaten.",
-    "Notfallbereich mit Offline-Erste-Hilfe-Grundlagen, Kontaktliste, Standortabruf nach Freigabe und Telefonverknüpfung.",
-    "Barrierefreiheit: größere Schrift, höherer Kontrast, bessere Touch-Ziele und betriebssystemabhängige Vorlesefunktion.",
-    "Ausdrücklich ohne PIN-Schutz. Bestehender Privatmodus und AES-verschlüsseltes manuelles Backup bleiben erhalten.",
-    "Offline-Kernpaket enthält 54 unterschiedliche Kernressourcen, neue eigenständige Route und bisherigen 228-Bilder-Cache."
+    "Premium-Zentrale mit sechs Bereichen: Übersicht, Angel-Analyst, lokaler Fischfotovergleich, Lernplan, GPS-Positionsskizze und Offline-Systemcheck.",
+    "Angel-Analyst: Köder-, Arten-, Gewässer- und Tageszeitenhäufigkeiten sowie protokollierte Angeltage ohne Fang.",
+    "Experimenteller Bildmustervergleich mit 49 lokalen Artenbildern: keine externen KI-Dienste, keine Bildübertragung; ausdrücklich keine zuverlässige Fischbestimmung.",
+    "NRW Lernakademie mit lokalem Wiederholungsplan für 49 Arten und 10 Rutenaufgaben.",
+    "Privater GPS-Track mit GPX-Export und eigenen Angelstellen auf lokaler SVG-Positionsskizze.",
+    "Gerätediagnose für Programm- und Bildcache, Versionsstand, Speicher und Browserfunktionen.",
+    "Barrierefreiheit verbessert: Seitenzoom auf mobilen Geräten zugelassen.",
+    "Fehlenden Werkzeuge-CSS-Verweis repariert, versionierte Offline- und Diagnosemodule aktualisiert.",
+    "Offline-Kernpaket wird vor Installation geprüft; vorhandener 228-Bilder-Cache bleibt erhalten.",
+    "Strenger Privatmodus bleibt erhalten, keine PIN, keine Anmeldung und keine Cloud-Synchronisierung."
   ],
   "limitations": [
-    "Die Fischerkennung ist ein Merkmalsfilter und keine automatische KI-Analyse eines hochgeladenen Fischfotos.",
-    "Offline-GPS liefert Entfernung und Himmelsrichtung, keine Straßen-/Gewässer-Wegeführung. GPS-Signal benötigt geeignete Gerätebedingungen.",
-    "Bestehendes 4,5-MB-Hauptmodul app.js bleibt unverändert und ist nicht vollständig End-to-End geprüft.",
-    "PDF wird über die lokale Druckfunktion von Safari/Chrome erstellt; das genaue PDF-Verhalten ist geräteabhängig.",
-    "Die PIN-Sperre ist nicht enthalten. Das verschlüsselte Privat-Backup bleibt optional und verwendet weiterhin ein vom Benutzer gewähltes Passwort.",
-    "Browserverwaltete Offline-Caches können bei Speicherdruck entfernt werden. Regelmäßig prüfen und sichern.",
-    "Für gespeicherte 2.5.0-Albumfotos ist eine verschlüsselte Sicherung mit zugänglichen IndexedDB-Datenbanken erforderlich.",
-    "Live-Wetter, externe Karten und Drittanbieter sind durch den Privatmodus blockiert; Hosting benötigt für Updates technische Verbindungen.",
-    "Echte iPhone- und Android-Gerätefunktionen sind vor produktivem Einsatz zu testen."
+    "Eine eigens trainierte, zuverlässige On-Device-Foto-KI ist nicht enthalten. Der Fotovergleich bewertet einfache Bildmerkmale, keine Artwahrscheinlichkeiten.",
+    "Die Offline-GPS-Karte ist eine lokale Positionsskizze ohne topografische oder hydrographische Kartentiles. Echte Offline-Karten benötigen separat lizenziertes Kartenmaterial.",
+    "Der ursprüngliche rund 4,5-MB große Hauptcode app.js ist unverändert und wurde nicht vollständig refaktoriert. Bestehende Module wurden nicht ersetzt.",
+    "Wetter, externe Karten und öffentliche Internetinformationen bleiben im Privatmodus gesperrt.",
+    "Fehlerfreiheit und Leistung lassen sich erst nach Gerätetests auf iPhone und Android unter realen Bedingungen beurteilen.",
+    "Ein vollständiger Backup-Wiederherstellungstest muss vor produktivem Import auf beiden Plattformen erfolgen.",
+    "Dieses Update ist inkrementell; ältere unveränderte Ressourcen und die 228 Bilder müssen im GitHub-Repository verbleiben."
   ],
   "serviceWorker": "sw.js"
 }

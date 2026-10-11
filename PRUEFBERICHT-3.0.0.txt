@@ -1,0 +1,34 @@
+PETRI HEIL PRO 3.0.0 – PRUEFBERICHT (11.10.2026)
+
+1. AUSGANGSLAGE
+GitHub-Hauptstand vor Erstellung: 2.5.0. Bestehende Datenmodelle und das 2.2.0-Medienarchiv bleiben erhalten. Keine PIN-Sperre.
+
+2. NACHWEISLICH GEPRUEFT
+[OK] JavaScript-Syntax: petri-sw.js, petri-premium-v3.0.0.js, petri-offline-v3.0.0.js, petri-werkzeuge-v3.0.0.js.
+[OK] Core-Manifest: 57 Eintraege, 57 eindeutige Ressourcen, 0 Duplikate.
+[OK] Versionskonsistenz: index.html, version.json, petri-sw.js, sw.js mit 3.0.0.
+[OK] Simulierte Service-Worker-Installation: 57 Dateien erfolgreich; neuer Cache aktiviert; vorheriger Cache bleibt bestehen.
+[OK] Negativtest: fehlende neue JavaScript-Datei fuehrt zu Installationsabbruch, neuem Cache wird geloescht, alter Cache bleibt erhalten.
+[OK] Isolierter Chromium-Browsertest (390 px breit): sechs Premium-Reiter, Fang-Auswertungen, Lernkarten und lokales Speichern, SVG-GPS-Skizze, Fotoeingabe und Diagnosebedienung.
+[OK] Isolierter Browsertest: keine JavaScript-Ausnahme, kein horizontaler Seitenueberlauf bei 390 px.
+[OK] Behobener Altfund: Werkzeuge-HTML referenzierte eine nicht existente v2.5.0-CSS-Datei; verweist jetzt auf die vorhandene v2.3.0-CSS-Datei.
+
+3. NICHT ABSCHLIESSEND GEPRUEFT
+[OFFEN] Ende-zu-Ende-Test der unveraenderten grossen app.js (~4,5 MB) und ihrer zahlreichen Altfunktionen.
+[OFFEN] Echte Safari/iPhone- und Chrome/Android-Geraetetests fuer Kamera, GPS-Berechtigung, PWA-Update, Backup-Wiederherstellung, Druck und langen Offline-Betrieb.
+[OFFEN] Reale Bildabdeckung nach Installation auf den Geraeten (erfordert 228/228 im Bildcheck).
+[OFFEN] Leistungsbenchmark auf mehreren Endgeraeten (Startzeit, Zeit bis Interaktion, Speicherbedarf).
+
+4. FUNKTIONALE GRENZEN
+Der Fotovergleich bewertet einfache lokale Pixel- und Farbmerkmale; er ist KEIN trainiertes KI-Modell, keine sichere Fischbestimmung und die Aehnlichkeitswerte sind keine Wahrscheinlichkeiten.
+Die Offline-GPS-Ansicht ist eine Positionsskizze mit Spur und Angelstellen ohne externe Kartentiles; keine echte topo-/bathymetrische Grundkarte.
+Die urspruengliche 4,5-MB-Hauptdatei wurde aus Gruenden der Daten- und Kompatibilitaetssicherheit NICHT modular refaktoriert.
+Keine Garantie absoluter Fehlerfreiheit. Backup-Importe sind nicht generell atomar; vor Import die vorhandene Datenlage sichern.
+GitHub Pages empfaengt bei Installation und Updates technisch notwendige Verbindungsdaten. Live-Wetter/Online-Karten bleiben im Privatmodus deaktiviert.
+
+5. BESCHREIBUNG
+Premium-Zentrale: lokaler Angel-Analyst, experimenteller Fotovergleich mit 49 Arten, Lernplan mit 59 Karten (49 Arten und zehn Aufgaben), private GPX-Spuransicht, Systemdiagnose, Startseite.
+Die bestehende Praxis, Angelzentrale, Fangbucheintraege und Backup-Funktionen bleiben unveraendert erhalten.
+
+6. INSTALLATION
+ZIP-Dateien ins Stammverzeichnis der GitHub-App laden, nichts anderes loeschen. Beim ersten Update vorher Backup erstellen. Nach 3.0-Installation auf beiden Plattformen Offline-Check und Flugmodus-Test durchfuehren.

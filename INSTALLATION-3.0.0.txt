@@ -1,0 +1,16 @@
+PETRI HEIL PRO 3.0.0 – EIN GESAMTUPDATE
+
+Dieses inkrementelle Update enthaelt 18 Dateien. Die bisherigen App-Dateien und 228 Bilder bleiben im bestehenden Repository.
+
+1. ZUERST in Version 2.5.0 ein verschluesseltes Privat-Backup erzeugen und sicher aufbewahren.
+2. Alle 18 Dateien aus diesem ZIP IN DAS ROOT des bestehenden GitHub-PetriHeil-Repositorys hochladen. Identische Namen ersetzen, andere Dateien nicht loeschen.
+3. GitHub Pages-Veröffentlichung abwarten.
+4. Im installierten iPhone-/Android-PetriHeil 'Update-Reparatur' oeffnen, 3.0.0 installieren und die App neu laden.
+5. 'Offline pruefen' oeffnen und alle 228 Bilder vorbereiten. Die bestehende Bildsammlung wird NICHT durch dieses ZIP ersetzt.
+6. Auf 'Premium-Zentrale' die Systemdiagnose ausfuehren und den Flugmodus testen.
+7. Auf beiden Plattformen Fang erfassen, GPS, Kamera, Backup-Export und (an einer TESTSICHERUNG) Import durchpruefen.
+
+Datenschutz: Kein Konto, keine PIN, keine externe Bildauswertung. GitHub Pages empfaengt bei Installation/Updates notwendige technische Verbindungsdaten.
+
+Grenzen: Experimenteller Bildvergleich statt trainierter KI. Positionsskizze statt echter topografischer Offline-Karte.
+Der alte Hauptcode bleibt erhalten; eine komplette modulare Refaktorierung ist NICHT Gegenstand dieses Pakets.
