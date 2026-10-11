@@ -1,0 +1,17 @@
+PETRI HEIL PRO 4.1.0 – ANLEITUNG
+1. Die bestehende Petri-Heil-App am iPhone/Safari oeffnen und unter "Werkzeuge" eine verschluesselte Gesamtsicherung erstellen. Datei und Kennwort getrennt aufbewahren. Vor einem Import die Wiederherstellung moeglichst in einem zweiten Profil testen.
+2. Die heruntergeladene ZIP VOLLSTAENDIG entpacken.
+3. Den INHALT des Ordners in das Stammverzeichnis von https://github.com/4h7zm6hnjy-skizze/PetriHeil auf Branch main hochladen. Gleichnamige Webdateien ersetzen. NICHT den ZIP-Container selbst als Webdatei ablegen. Keine anderen bisherigen Daten, alten Module oder Fischbilder auf GitHub loeschen.
+4. Warten, bis GitHub Pages die neuen Dateien ausliefert; auf https://4h7zm6hnjy-skizze.github.io/PetriHeil/update-rettung.html (nur falls dies deine tatsaechlich konfigurierte Pages-Adresse ist) den Update-Installer ausfuehren. Nicht auf falsche Pages-URL vertrauen, wenn in den Repo-Einstellungen eine andere Adresse hinterlegt wurde.
+5. Nach erfolgreichem Laden: Haupt-App Version 4.1.0 pruefen, neue Zentrale ueber "petri410.html" oeffnen.
+6. "system410.html" oeffnen und Diagnose/Kern pruefen. "offline-check.html" oeffnen und die 228 Bilder getrennt vorbereiten. Fuer Karten die benoetigten Bundeslaender herunterladen. Danach im Flugmodus OHNE Internet testen.
+7. "sicherung410.html" fuer neues AES-Backup und kontrollierte Restore-Vorschau nutzen. Alte Sicherungen aus Werkzeugen bleiben unter werkzeuge.html verfuegbar; 4.1-Container ist NICHT automatisch das gleiche Dateiformat wie die alte .petri-Sicherung.
+8. Fange, Bilder, Kindermodus, Gezeiten, Pegel, PDF, GPS, Backup-Wiederherstellung auf einem echten iPhone einzeln pruefen. Sollten wichtige Daten fehlen: NICHT den Browser-Cache oder Webseitendaten loeschen, sondern Backup und Installationskontext pruefen.
+
+WICHTIG:
+- Alte Fangbuecher und Bilder werden beim Update nicht geloescht und nicht automatisch zusammengefuehrt.
+- Die 149 Offline-Kernressourcen umfassen nicht automatisch 228 Bildmedien und alle Kartenpakete.
+- Originale Nutzer-Daten liegen im Browser und sind NICHT im GitHub-Repository.
+- Keine trainierte Foto-KI, keine vollstaendige Offline-Detailkarte fuer ganz Deutschland, keine rechtsverbindliche Schonzeiten-Datenbank.
+- Live-Pegel benoetigen Online-Verbindung; Gezeiten stammen aus importierten Daten.
+- Ein iPhone-Geraete- und Wiederherstellungstest steht aus.

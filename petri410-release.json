@@ -1,0 +1,13 @@
+{
+  "version": "4.1.0",
+  "baseGitHubRepo": "4h7zm6hnjy-skizze/PetriHeil",
+  "baseCommit": "e002c05ebd30604df216fbe28b243fe521db0733",
+  "originVersion": "4.0.0",
+  "patchCompatibleWith": [
+    "4.0.0"
+  ],
+  "offlineCoreCount": 141,
+  "dataMigration": "None; reading legacy Pro + Plus; new quick catches go to legacy Pro",
+  "uploadStatus": "ZIP_CREATED_NOT_UPLOADED",
+  "qualityScope": "local Chromium tests; official data/live device unavailable"
+}

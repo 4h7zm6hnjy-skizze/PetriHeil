@@ -1,0 +1,27 @@
+PETRI HEIL PRO 4.1.0 – SACHLICHER FUNKTIONSSTATUS
+Stand: 11.10.2026
+
+ 1. Gesamtbackup und Wiederherstellung
+    Umgesetzt: AES-256-GCM-Export, Prüfung/Import lokal; echter iPhone-Restore nicht getestet.
+ 2. Einheitliches Fangbuch
+    Teilweise: gemeinsame Anzeige, Suche, Exporte, Warnung möglicher Duplikate; getrennte Originalspeicher und Fotos bleiben.
+ 3. Offline-Komplettprüfung
+    Umgesetzt für 149 App-Kernressourcen; 228 Medien und regionale Karten getrennt zu prüfen.
+ 4. Automatische Tests
+    Umgesetzt als isolierte Chromium-/Node-Prüfungen; keine vollständige Alt-App-Regression.
+ 5. Performance
+    Leichte Zusatzmodule und gefilterte Fangübersicht; 4,5-MB-Alt-Skript noch nicht aufgeteilt.
+ 6. Professionelle Offline-Karten
+    Bestehende Deutschland- und importierbare Detailkarten beibehalten; keine lizenzierten Detail-Tiles für ganz Deutschland.
+ 7. Schonzeiten/Mindestmaße
+    Eigenes Quellenprotokoll beibehalten; keine amtlich aktualisierte, bundesweite Regeln-Datenbank.
+ 8. Fischbilder/KI
+    177 Bild-Zuordnungen weiter vorhanden; keine unabhängig bestätigte Zuordnung aller Arten oder trainierte Foto-KI.
+ 9. Gezeiten/Pegel
+    BSH-Dateiimporte und WSV-PEGELONLINE-Abruf aus 4.0 beibehalten; Live-Abruf auf GitHub Pages nicht geprüft.
+10. Beißindex
+    Qualitative Heuristik und Fangstatistiken vorhanden; keine wissenschaftlich validierte Fangprognose.
+11. Barrierefreiheit
+    Leichtes Design, Fokusanzeigen, mobil, größere Schrift und Browser-Vorlesen; kein vollständiges WCAG-Audit.
+12. Qualität/Sicherheit
+    Prüfbericht, Offline-Installationsabbruch, Datenkontrollen, Backup; echte Betriebssystem- und Integrationstests offen.

@@ -1,23 +1,22 @@
 {
-  "version": "4.0.0",
+  "version": "4.1.0",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "serviceWorker": "sw.js",
   "changes": [
-    "Kumulatives 4.0.0 Qualitätsupdate auf Basis von 3.6.0 – auch ohne 3.7.0-Zwischeninstallation.",
-    "Gemeinsame Anzeige der Pro- und Plus-Fanglisten; Such- und Quellenfilter, CSV-Export, sichere Schnellerfassung.",
-    "Pläne, eigene Gewässerregeln, Beißindex-Faustregeln, Lerntrainer und Knotenmodule in einer hellen Zentrale.",
-    "Gesicherter Einstellungsimport und -export, Schreibkontrollen, vorsichtige Behandlung beschädigter Datensätze.",
-    "Eigenständiges 4.0.0-Offline-Manifest und atomarer Service-Worker-Installationsablauf mit altem Cache als Rückfall.",
-    "Offline-Prüfung für App-Kern und optional 228 vorhandene lokale Medien.",
-    "Barrierefreiere Navigation, mobile Lesbarkeit und Versionsanzeige."
+    "4.1.0: Gesamtes Offline-Kernmanifest prüfen, ohne alte Medien- oder Nutzerdaten zu löschen.",
+    "Separater AES-256-GCM-Gesamtbackup-Assistent für lokale Daten und bekannte IndexedDB-Speicher einschließlich Fotos, mit Passwort und Vorschau vor Restore.",
+    "Pro/Plus-Fänge gemeinsam durchsuchen und auswerten; möglicher Duplikat-Hinweis ohne automatische Löschung.",
+    "Neuer Systemdiagnose-Bereich: Zugriffsprüfung, LocalStorage, IndexedDB, Service Worker, Kern-/Mediencache, Nutzerdatenquellen.",
+    "Helles Design, vorhandene 177 Bildzuordnungen, Kinderwelt, Karten, Angelplaner, Lernmodule und Pegelabruf beibehalten.",
+    "Versionen, Kernliste und Update-Seiten auf 4.1.0 synchronisiert; alter Worker-/Datenbestand bleibt bis erfolgreicher Installation bestehen."
   ],
   "limitations": [
-    "Nicht auf echtem iPhone/Android geprüft; kein vollständiger End-to-End-Test des vorhandenen 4,5-MB-Hauptskripts.",
-    "Kein trainiertes Bild-KI-Modell, keine vollständig lizenzierten detaillierten Straßenkarten und keine geprüfte bundesweite Rechtsdatenbank.",
-    "Pegelonline funktioniert nur bei Netzwerk- und Browserfreigabe; Gezeiten stammen aus lokalen Importen.",
-    "Kernmanifest macht keinen Anspruch auf die komplette Offline-Sicherung sämtlicher 228 Medien.",
-    "Bestandsfangbuch und Fangbuch Plus bleiben als getrennte Datenspeicher bestehen, werden aber gemeinsam angezeigt.",
-    "Lokale Daten können bei Browser-Löschung verloren gehen; AES-Gesamtbackup vorher exportieren und separat auf Echtdaten prüfen."
+    "Kein vollständig trainiertes Fischfoto-KI-Modell; Bestimmung weiter anhand von Merkmalen und extern verifizierten Fachinfos.",
+    "Keine flächendeckenden lizenzierten Offline-Detailkarten oder automatisch verifizierte bundesweite Rechtsdatenbank.",
+    "Gezeiten aus bisher importierten Daten; Live-Pegel nur bei Netzwerk und Browserfreigabe verfügbar.",
+    "Alt-Fangbücher bleiben getrennt gespeichert, obwohl sie zusammen angezeigt werden; Fotos bleiben in jeweiligen Datenbanken.",
+    "Echtes iPhone/Android, echte GitHub-Pages-Auslieferung und vollständige 4,5-MB-Alt-App sind nicht lokal Ende-zu-Ende geprüft.",
+    "Verschlüsseltes Backup erfasst Weborigin-lokale localStorage/IndexedDB; keine Cache Storage oder Daten anderer Domains; Browser-Speicher kann Daten verlieren."
   ]
 }

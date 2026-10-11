@@ -1,0 +1,44 @@
+PETRI HEIL PRO 4.1.0 – TECHNISCHER PRUEFBERICHT
+Erstellt: 11.10.2026
+
+AUSGANGSZUSTAND (GitHub Connector, gelesen)
+- Repo: 4h7zm6hnjy-skizze/PetriHeil, Branch main
+- Gemeldete Version: 4.0.0
+- Commit: e002c05ebd30604df216fbe28b243fe521db0733
+- Stammverzeichnis: 532 Dateien, alle 136 alten Kernressourcen zuvor vorhanden.
+- Direkte GitHub-Schreibberechtigung war zuvor nicht verfügbar (HTTP 403).
+
+RELEASE-PROFIL
+- Overlay-Update: nur neue/geaenderte Dateien hochladen, NIE alte Bilder oder Daten loeschen.
+- Kernmanifest 4.1.0: 149 EINDEUTIGE Ressourcen, 136 aus dem alten Kernpaket weitergefuehrt/ersetzt plus erhaltene ältere Einstiegsmodule.
+- 228 weitere Bilder aus petri-media-v2.2.0.json und 16 Kartenregionen separat.
+- Neuer Backup-Assistent mit AES-256-GCM, PBKDF2-SHA256 (250.000 Iterationen) und Import-Vorschau.
+- Fangbuch Pro und Fangbuch Plus bleiben im Originalspeicher erhalten; gemeinsame Ansicht statt automatischer Migration.
+
+DURCHGEFUEHRTE TESTS
+1. JavaScript-Syntax: Node --check aller geaenderten JS-Dateien – bestanden.
+2. JSON: Version und Kernmanifest parsebar, 149/149 eindeutige Eintraege – bestanden.
+3. Isoliertes Chromium: 9/9 Zentrale-Reiter; Fang anlegen, Pro- und Plus-Listen lesen, Suche, Quellenfilter, CSV/JSON-Export, Angelplan mit Checkboxen, Regelnotiz, Lernfrage, Knoten, Systemeinstellungen – bestanden.
+4. 320/375/390/430/768/1024 px: alle 9 Reiter ohne horizontalen Ueberlauf – bestanden (54 Layoutkonfigurationen).
+5. Beschaedigtes vorhandenes Fangbuch: Abbruch statt Ueberschreiben – bestanden.
+6. Speicherausfall in Einstellungen: lokale Transaktion bleibt im isolierten Test unveraendert – bestanden.
+7. AES-256-GCM mit echtem Node-WebCrypto: verschluesselter Export, korrektes Kennwort, falsches Kennwort abgewiesen, manipulierte Datei abgewiesen, LocalStorage-Restore – bestanden.
+8. IndexedDB-Datei-/Bilddatensatz: Export- und Restore-Logik mit simulierter IndexedDB-Transaktionsschicht – bestanden; KEIN echter Safari-IndexedDB-Test.
+9. Service-Worker: 149 Ressourcen in Stage/Core mit simulierter Fetch-/Cache-Schicht – bestanden; bei fehlender Pflichtdatei Abbruch und altes Core-Cache unveraendert – bestanden.
+10. Backup-Seite und Systemdiagnose: isolierte Chromium-UI-Pruefung, Klick-/Eingabe-/Vorlese-Einstellungen ohne JavaScript-Fehler – bestanden.
+
+NICHT NACHGEWIESEN
+- HTTPS-Bereitstellung und Service-Worker-Aktivierung auf GitHub Pages; iPhone-Flugmodus im realen Betrieb.
+- Kamerazugriff, GPS, Fotos aus realen IndexedDBs auf iOS, Dateiexport von iOS.
+- Echtes AES-Gesamtbackup-Restore im selben Safari- und Home-Screen-Speicherprofil.
+- Alle 4,5 MB des historischen Haupt-App-Skripts, alle 532 GitHub-Dateien und deren komplettes Zusammenspiel.
+- Biologische Richtigkeit von 177 Artenbildern, Rechtssicherheit von Mindestmassen/Schonzeiten.
+- Live-Gezeiten, amtliche Datenlizenz, CORS und Erreichbarkeit von PEGELONLINE auf GitHub Pages.
+- Zugrunde liegende Echtzeitdaten werden nicht als offline-frisch ausgegeben.
+
+EXTERNE FACHQUELLEN (DOKUMENTATION, KEINE LIVE-FUNKTIONSTESTS)
+- https://pegelonline.wsv.de/webservice/dokuRestapi?SERVICE=-- (WSV REST-API v2: Stationen, CurrentMeasurement)
+- https://gezeiten.bsh.de/ (BSH: regionale Gezeitendaten und Nutzungsbedingungen)
+
+FAZIT
+Das neue lokale Overlay ist technisch testbar und konsistent. Es darf nicht als vollstaendig getestet oder garantiert fehlerfrei ausgegeben werden. Installation ist erst nach GitHub-Upload und echtem Geraete-Test bestaetigt. Vorher verschluesseltes Gesamtbackup exportieren.

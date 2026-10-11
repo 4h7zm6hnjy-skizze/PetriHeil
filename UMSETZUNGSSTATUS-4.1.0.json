@@ -1,0 +1,65 @@
+{
+  "version": "4.1.0",
+  "targets": [
+    {
+      "number": 1,
+      "topic": "Encrypted backup",
+      "status": "implemented; restore browser-iOS-unverified"
+    },
+    {
+      "number": 2,
+      "topic": "Unified catch management",
+      "status": "implemented shared read and safe edit; physical migration not done"
+    },
+    {
+      "number": 3,
+      "topic": "Offline full check",
+      "status": "implemented core+media+regional map check"
+    },
+    {
+      "number": 4,
+      "topic": "Automated quality tests",
+      "status": "implemented isolated Chromium/Node suites; legacy E2E incomplete"
+    },
+    {
+      "number": 5,
+      "topic": "Performance",
+      "status": "new light module; legacy monolith not refactored"
+    },
+    {
+      "number": 6,
+      "topic": "Detailed offline maps",
+      "status": "existing 16 regions/GeoJSON retained; nationwide detailed tiles unavailable"
+    },
+    {
+      "number": 7,
+      "topic": "Legal rules",
+      "status": "source/date fields retained; verified automatic database unavailable"
+    },
+    {
+      "number": 8,
+      "topic": "Fish imagery recognition",
+      "status": "manual visual comparison added; trained CV unavailable"
+    },
+    {
+      "number": 9,
+      "topic": "Tides and gauges",
+      "status": "manual WSV click; local tide imports; live BSH unverified"
+    },
+    {
+      "number": 10,
+      "topic": "Bite index",
+      "status": "qualitative old index + personal descriptive counts, no calibrated forecasts"
+    },
+    {
+      "number": 11,
+      "topic": "Accessibility and children",
+      "status": "larger-font, screen reader support, children area retained; WCAG audit outstanding"
+    },
+    {
+      "number": 12,
+      "topic": "Privacy and security",
+      "status": "backup encryption, optimistic writes, safe staged worker, code tests; penetration test outstanding"
+    }
+  ]
+}
