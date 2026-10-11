@@ -1,0 +1,20 @@
+PETRI HEIL PRO 2.3.0 – PRÜFBERICHT
+----------------------------------
+Reproduzierbare Prüfpunkte:
+[PASS] 48 einzigartige Kernressourcen in Offline-Worker-Dateiliste.
+[PASS] Simulierter Installationslauf aller 48 Kernressourcen.
+[PASS] Erzwungener 404 auf neuer Werkzeug-JavaScriptdatei verhindert Aktivierung.
+[PASS] Erzwungener 404 auf index.html verhindert Aktivierung.
+[PASS] Bei beiden Fehlversuchen bleibt der alte Cache petri-core-2.2.3 erhalten.
+[PASS] AES-256-GCM mit PBKDF2-SHA256 (210.000 Iterationen) erfolgreich getestet.
+[PASS] Gleiche Sicherung mit falschem Passwort wird abgelehnt.
+[PASS] Strukturierte Daten mit Datum und Binärbytes für Backup dekodierbar.
+[PASS] Syntax-Checks aller neuen JavaScript-Dateien.
+[PASS] Kontrollen für eindeutige Dateinamen und relative URL-Pfade.
+[UNGETESTET] End-to-End-Browsertest: lokale Netzwerknavigation der Testumgebung
+    mit ERR_BLOCKED_BY_ADMINISTRATOR blockiert.
+[UNGETESTET] iOS Safari, Android Chrome, vollständiger Nutzerdatensatz,
+    Kamera, GPS und großer Backup-Import.
+[UNGETESTET] Hauptdatei app.js (4.5 MB), nicht vollständig vom Connector lesbar.
+
+Die Datei enthält keine Behauptung, dass die Anwendung absolut fehlerfrei ist.

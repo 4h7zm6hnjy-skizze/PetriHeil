@@ -1,2 +1,2 @@
-/* Petri Heil: stabiler Worker-Einstiegspunkt. Keine Benutzerdaten werden geloescht. */
-importScripts('./petri-sw.js?v=2.1.7');
+/* Stable Petri Heil Pro Service Worker entry. Does not touch user data. */
+importScripts('./petri-sw.js?v=2.3.0');

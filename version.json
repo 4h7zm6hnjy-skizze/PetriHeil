@@ -1,29 +1,26 @@
 {
-  "version": "2.2.3",
+  "version": "2.3.0",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "changes": [
-    "Praktische Fischerprüfung NRW: 10 amtliche Aufgabenbereiche A1–A10 mit erläuternden Montagebeispielen und waidgerechtem Zubehör.",
-    "Offline-Knotenkunde mit vier Schritt-für-Schritt-Anleitungen und Checkliste für waidgerechtes Zubehör.",
-    "Offline-Knotenkunde mit vier Schritt-für-Schritt-Anleitungen und Checkliste für waidgerechtes Zubehör.",
-    "49 NRW-Arten aus Anlage 3 mit vorhandenen lokalen Fisch- und Krebsbildern und Kennzeichen.",
-    "Artenprüfung-Simulation: 6 zufällige Arten, freie Texteingabe, mindestens 4 richtige Namen.",
-    "28-Punkte-Selbstkontrolle der 16 Positionen nach dem NRW-Bewertungsbogen (25 Punkte Mindestgrenze).",
-    "Lernbereich über App-Startseite, Lern-/Mehr-Bereich, Desktop-Navigation und eigene offline gespeicherte Praxis-Seite erreichbar.",
-    "Keine automatische Datenweitergabe; Ergebnisse nur lokal; strikter Privatmodus 2.2.2 und iPhone-/Android-Unterstützung erhalten.",
-    "Verwaltete Bilddateien unverändert, vorhandene Offline-Bildvorbereitung für 228 Fotos weiterhin nutzbar.",
-    "Strikter Privatmodus: Content-Security-Policy blockiert externe Datenverbindungen (Wetter, Karten, andere Domains) und externe Einbettungen.",
-    "Wetter-/Karten-/Ortsabfrage-Buttons werden mit einer verständlichen Datenschutzhinweis-Meldung abgefangen.",
-    "Lokale Funktionen, Fangdaten, Bilder, GPS-Erfassung, vorhandene Backups und iPhone-/Android-Unterstützung bleiben erhalten.",
-    "Neue Datenschutzseite beschreibt genau, welche Informationen lokal bleiben und welche Verbindungsdaten beim Website-Host anfallen."
+    "Systemcheck mit Prüfroutine für Versionsstand, Offline-Worker, 228 Bilder, alle Kern-Dateien, lokalen Speicher und Bildschirmbreite; lokaler Diagnosebericht.",
+    "Passwortgeschützter AES-256-GCM-Export lokaler App-Daten und zugänglicher Petri-IndexedDB-Datenbanken, mit PBKDF2-Schlüsselableitung und manuellem Import.",
+    "Zusätzliche Fangfotos je Pro-Fang (bis acht) in separatem lokalem IndexedDB-Bereich, sowie Artenhäufigkeit aus dem Pro-Fangbuch.",
+    "Praktische Fischerprüfung NRW mit abhakbarem Schritt-für-Schritt-Rutenaufbau für zehn Aufgaben; Fortschritt nur lokal.",
+    "Anzeige- und Touchkorrekturen für iPhone, Android und Tablets, Barrierefreiheit der Hero-Schaltflächen, schonenderes Laden von Listenbildern.",
+    "Offline-Status anhand der aktuellen installierten Version statt fest codiertem Altstand; neue Werkzeugseite offline erreichbar.",
+    "Service Worker enthält alle neuen Kern-Dateien, lädt versionierte statische Dateien bevorzugt aus dem Cache und behält alte Caches bei.",
+    "Strikter Privatmodus 2.2.2 bleibt aktiv. Keine Cloud-Synchronisierung, kein automatisches Senden von Fotos, Fängen oder Koordinaten.",
+    "Bestehendes Design, Fang-Datenmodelle, Fischkunde und Prüfungsmodul bleiben erhalten."
   ],
   "limitations": [
-    "Montagevorschläge sind Lernbeispiele, keine vollständige amtliche Liste verbindlicher Gerätedetails. Prüfungshandhabung mit realem Gerät üben.",
-    "Die abgebildeten 49 Lernfotos sind nicht identisch mit den amtlichen DIN-A4-Bildtafeln der NRW-Fischerprüfung.",
-    "Für vollständige Offline-Nutzung aller 49 Prüfungsfotos ist die einmalige Bildvorbereitung unter Offline prüfen (228/228) notwendig.",
-    "Live-Wetter und externe Karten sind im Privatmodus 2.2.2 weiterhin deaktiviert.",
-    "Praxis- und Gerätebewertung erfolgt als Selbstcheck und ist keine behördliche Prüfung.",
-    "Eine vollständige Prüfung auf einem physischen iPhone und Android-Gerät sowie ein End-to-End-Audit der großen app.js stehen aus."
+    "Der bisherige 4,5-MB-Hauptcode app.js ist unverändert; vollständiger End-to-End-Test und eine sichere Modulaufteilung bedürfen einer separaten Prüfung.",
+    "Import eines verschlüsselten Backups kann gleichnamige Einträge überschreiben. Eine komplette Sicherung vor dem Import ist erforderlich; Datenbank-Importe sind nicht vollständig atomar.",
+    "Datenbanken können je nach Browser von Sicherungen ausgeschlossen sein, wenn sie nicht verfügbar, nicht Petri-benannt oder nicht lesbar sind.",
+    "Der Offline-Check bestätigt zwischengespeicherte Ressourcen. Browser können diese später unter Speicherdruck entfernen; erneute Prüfung notwendig.",
+    "Live-Wetter, externe Karten und externe Webseiten sind im Privatmodus gesperrt, nicht offline verfügbar.",
+    "Kamera, Geräte-GPS, Dateiverwaltung, Backup-Restore und UI auf realen iPhones/Android-Geräten sind gesondert zu testen.",
+    "Dieses ZIP enthält die geänderten und neuen Dateien, kein vollständiges Duplikat der über 330 Repository-Dateien."
   ],
   "serviceWorker": "sw.js"
 }

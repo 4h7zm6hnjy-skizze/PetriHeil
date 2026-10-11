@@ -1,9 +1,9 @@
-/* Petri Heil Pro: stabiler Worker-Pfad, Version 2.2.3.
+/* Petri Heil Pro: stabiler Worker-Pfad, Version 2.3.0.
    Updated in place on future releases. Does not import legacy workers. */
 'use strict';
-const VERSION='2.2.3';
+const VERSION='2.3.0';
 const ROOT=new URL('./',self.location.href);
-const CORE_CACHE='petri-core-2.2.3';
+const CORE_CACHE='petri-core-2.3.0';
 const IMAGE_CACHE='petri-media-2.2.0';
 const CORE=[
  'index.html','update-rettung.html','version.json','manifest.webmanifest',
@@ -19,12 +19,15 @@ const CORE=[
  'petri-pro-suite-v2.0.42.js?v=2.0.42','petri-data-bridge-v2.0.33.js?v=2.0.42',
  'petri-report-v2.0.36.js?v=2.0.42','petri-next-v2.0.37.js?v=2.0.42',
  'petri-gesamt-v2.0.41.js?v=2.0.42','petri-unified-ui-v2.1.2.js?v=2.1.2',
- 'petri-species-regions-v2.1.3.js?v=2.1.3','petri-updater.js?v=2.2.1',
- 'petri-media-v2.2.0.json','petri-offline-v2.2.0.js?v=2.2.0','offline-check.html',
+ 'petri-species-regions-v2.1.3.js?v=2.1.3','petri-updater.js?v=2.3.0',
+ 'petri-media-v2.2.0.json','petri-offline-v2.3.0.js?v=2.3.0','offline-check.html',
  'petri-platform-v2.2.1.css?v=2.2.1','petri-platform-v2.2.1.js?v=2.2.1','installieren.html',
  'petri-privacy-v2.2.2.js?v=2.2.2','datenschutz.html',
  'petri-praktisch-v2.2.3.css?v=2.2.3','petri-praktisch-data-v2.2.3.js?v=2.2.3',
- 'petri-praktisch-v2.2.3.js?v=2.2.3','praxis.html'
+ 'petri-praktisch-v2.2.3.js?v=2.2.3','praxis.html',
+ 'petri-werkzeuge-v2.3.0.css?v=2.3.0','petri-werkzeuge-v2.3.0.js?v=2.3.0',
+ 'petri-praxis-plus-v2.3.0.js?v=2.3.0','petri-compat-v2.3.0.js?v=2.3.0',
+ 'petri-core-v2.3.0.json','werkzeuge.html'
 ];
 const IMAGES=[
  'petri-fisch-v2.0.29.webp','petri-marke-v2.0.29.webp',
@@ -125,6 +128,12 @@ async function networkFirst(req,key){
       await caches.match(key||req,{ignoreSearch:true})||Response.error();
   }
 }
+async function staticCacheFirst(req){
+ const current=await caches.open(CORE_CACHE);
+ const cached=await current.match(req)||await caches.match(req);
+ if(cached)return cached;
+ return networkFirst(req,req);
+}
 async function imageCacheFirst(req){
   const cache=await caches.open(IMAGE_CACHE);
   const cached=await cache.match(req,{ignoreSearch:true})||await caches.match(req,{ignoreSearch:true});
@@ -145,7 +154,7 @@ self.addEventListener('fetch',evt=>{
     // standalone page as index.html. Otherwise offline navigation shows the
     // wrong app after visiting the installation/privacy/practical pages.
     const known=new Set(['index.html','offline-check.html','update-rettung.html',
-      'installieren.html','datenschutz.html','praxis.html']);
+      'installieren.html','datenschutz.html','praxis.html','werkzeuge.html']);
     const name=url.pathname.slice(ROOT.pathname.length);
     const key=known.has(name)?file(name):essentialKey;
     evt.respondWith(networkFirst(evt.request,key));return;
@@ -154,7 +163,7 @@ self.addEventListener('fetch',evt=>{
     evt.respondWith(imageCacheFirst(evt.request));return;
   }
   if(/\.(?:css|js|json|webmanifest|html)$/.test(url.pathname)){
-    evt.respondWith(networkFirst(evt.request));return;
+    evt.respondWith(url.pathname.endsWith('/version.json')?networkFirst(evt.request):staticCacheFirst(evt.request));return;
   }
 });
 // Previously installed app modules request a background prefetch automatically.
