@@ -1,26 +1,31 @@
 {
-  "version": "2.3.0",
+  "version": "2.4.0",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "changes": [
-    "Systemcheck mit Prüfroutine für Versionsstand, Offline-Worker, 228 Bilder, alle Kern-Dateien, lokalen Speicher und Bildschirmbreite; lokaler Diagnosebericht.",
-    "Passwortgeschützter AES-256-GCM-Export lokaler App-Daten und zugänglicher Petri-IndexedDB-Datenbanken, mit PBKDF2-Schlüsselableitung und manuellem Import.",
-    "Zusätzliche Fangfotos je Pro-Fang (bis acht) in separatem lokalem IndexedDB-Bereich, sowie Artenhäufigkeit aus dem Pro-Fangbuch.",
-    "Praktische Fischerprüfung NRW mit abhakbarem Schritt-für-Schritt-Rutenaufbau für zehn Aufgaben; Fortschritt nur lokal.",
-    "Anzeige- und Touchkorrekturen für iPhone, Android und Tablets, Barrierefreiheit der Hero-Schaltflächen, schonenderes Laden von Listenbildern.",
-    "Offline-Status anhand der aktuellen installierten Version statt fest codiertem Altstand; neue Werkzeugseite offline erreichbar.",
-    "Service Worker enthält alle neuen Kern-Dateien, lädt versionierte statische Dateien bevorzugt aus dem Cache und behält alte Caches bei.",
-    "Strikter Privatmodus 2.2.2 bleibt aktiv. Keine Cloud-Synchronisierung, kein automatisches Senden von Fotos, Fängen oder Koordinaten.",
-    "Bestehendes Design, Fang-Datenmodelle, Fischkunde und Prüfungsmodul bleiben erhalten."
+    "Angeltrip-Planer mit Checklisten und bewusster Verknüpfung vorhandener Pro-Fänge.",
+    "Digitales Gewässertagebuch für Temperatur, Sichttiefe, Pegel, Strömung und Notizen.",
+    "Offline-Köderanalyse auf Grundlage vorhandener Fänge und persönlicher Erfahrungen.",
+    "Zusätzliche private Ausrüstungsverwaltung mit Wartungsterminen, ohne Bestandsdaten zu überschreiben.",
+    "Vergleich von zwei Fischarten mit vorhandenen Artenbildern und Erkennungsmerkmalen.",
+    "NRW-Praxistrainer mit 10 Aufgaben und lokaler Schritt-Checkliste.",
+    "Schonzeiten- und Mindestmaßübersicht für NRW mit Quellenstand 03.07.2026 und Hinweis auf Sonderregelungen.",
+    "Persönliches Rekordbuch nach Arten, Gewichten und Jahren aus dem Pro-Fangbuch.",
+    "Angel-Kostenrechner mit Kategorien und Zuordnung zum Angeltrip.",
+    "Offline-Gewässerkarten: private hochgeladene Bildkarten und lokale Koordinaten-Skizze; keine externen Kartendienste.",
+    "Verschlüsseltes Privat-Backup vor einem Import lokal vergleichen, ohne Änderungen.",
+    "Startseite: individuell wähl- und sortierbare Schnellzugriffe auf die zwölf Erweiterungen.",
+    "Update 2.4.0: 51 Kernressourcen mit separater Offline-Route und unverändertem 228-Bilder-Cache.",
+    "Privatmodus bleibt aktiviert; keine automatische Übermittlung von Fängen, Fotos oder Koordinaten."
   ],
   "limitations": [
-    "Der bisherige 4,5-MB-Hauptcode app.js ist unverändert; vollständiger End-to-End-Test und eine sichere Modulaufteilung bedürfen einer separaten Prüfung.",
-    "Import eines verschlüsselten Backups kann gleichnamige Einträge überschreiben. Eine komplette Sicherung vor dem Import ist erforderlich; Datenbank-Importe sind nicht vollständig atomar.",
-    "Datenbanken können je nach Browser von Sicherungen ausgeschlossen sein, wenn sie nicht verfügbar, nicht Petri-benannt oder nicht lesbar sind.",
-    "Der Offline-Check bestätigt zwischengespeicherte Ressourcen. Browser können diese später unter Speicherdruck entfernen; erneute Prüfung notwendig.",
-    "Live-Wetter, externe Karten und externe Webseiten sind im Privatmodus gesperrt, nicht offline verfügbar.",
-    "Kamera, Geräte-GPS, Dateiverwaltung, Backup-Restore und UI auf realen iPhones/Android-Geräten sind gesondert zu testen.",
-    "Dieses ZIP enthält die geänderten und neuen Dateien, kein vollständiges Duplikat der über 330 Repository-Dateien."
+    "Bestehende app.js (rund 4,5 MB) wurde nicht umgebaut und nicht vollständig Ende-zu-Ende getestet.",
+    "Offline-Karten enthalten private Bildkarten und Positionsskizzen, aber keine automatisch heruntergeladenen Straßen- oder Gewässerkarten.",
+    "Fänge werden nur gelesen; neue Zusatzdaten werden getrennt gespeichert. Backup-Vergleich ist nur Vorschau, keine automatische Zusammenführung von Datenbankeinträgen.",
+    "NRW-Schonzeiten und Mindestmaße sind Momentaufnahme Stand 03.07.2026; Gewässerordnungen und Sonderregelungen können abweichen.",
+    "Offline-Abdeckung muss nach Installation und Vorbereitung auf realen Geräten kontrolliert werden.",
+    "Webhost empfängt bei Installation und Updates technisch erforderliche Netzwerkdaten; Live-Wetter und externe Karten sind gesperrt.",
+    "ZIP enthält nur neue/angepasste Dateien; unveränderte alte App-Dateien und 228 Bilddateien müssen im Repository verbleiben."
   ],
   "serviceWorker": "sw.js"
 }

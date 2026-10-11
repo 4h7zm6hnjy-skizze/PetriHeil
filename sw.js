@@ -1,2 +1,2 @@
 /* Stable Petri Heil Pro Service Worker entry. Does not touch user data. */
-importScripts('./petri-sw.js?v=2.3.0');
+importScripts('./petri-sw.js?v=2.4.0');

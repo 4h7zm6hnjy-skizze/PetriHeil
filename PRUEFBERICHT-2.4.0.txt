@@ -1,0 +1,29 @@
+PETRI HEIL PRO 2.4.0 – PRÜFBERICHT (11.10.2026)
+
+1) Gegen Repository-Version 2.3.0 mit eingebundener NRW-Praxis, Privatmodus,
+   Offline-Bildern und verschlüsselter Sicherung entwickelt.
+2) JavaScript-Syntax: neue Erweiterung und angepasste bestehende Module mit
+   Node.js --check überprüft.
+3) Offline-Verzeichnis: 51 eindeutige Dateien (Service Worker und Prüfliste).
+   Keine doppelten Pfade; geänderte/verwendete 2.4.0-Dateien im Paket vorhanden.
+4) Browser-Smoketest mit DOM ohne Netzwerknavigation: 12 Hauptbereiche sichtbar,
+   390px ohne horizontalen Überlauf, Trip- und Tagebucheinträge, Kosten,
+   Fischarten-Vergleich, 10 Prüfungsaufgaben, Schonzeiten und Startseitenfilter
+   überprüft. Beim ersten Lauf keine JavaScript-Seitenfehler.
+5) Ein nachfolgender vollständiger Browser-Nachtest wurde durch die Umgebung
+   unterbrochen (Administrator blockiert file:// und 127.0.0.1-Navigation).
+6) Neue Karten-/Gerätebilder werden ausschließlich in IndexedDB gespeichert.
+   Vollständiger Foto-/Datenbanktest auf realen Geräten OFFEN.
+7) Keine externen Netzwerkadressen im Ergänzungsmodul; andere App-Module
+   unterliegen dem vorhandenen strikten Privacy-Modus.
+8) Verschlüsselte Vergleichs-Vorschau ist eingebaut, aber noch nicht mit
+   großen realen Benutzer-Backups Ende-zu-Ende getestet.
+9) Keinerlei Zusicherung einer absolut fehlerfreien App.
+
+INSTALLATION VORORT PRÜFEN:
+- Auf iPhone und Android: alle 51 Kern-Dateien + 228 Medien fertig geladen?
+- Flugmodus: Startseite, Praxis, Erweiterungen und Bilder erreichbar?
+- Neu angelegter Trip nach Neustart noch da?
+- Foto zur Ausrüstung / eigene Gewässerkarte offline sichtbar?
+- Vorhandene Fänge/Foto-/Backups nach dem Update unverändert?
+- Update auf neues Gerät als PWA installierbar?
