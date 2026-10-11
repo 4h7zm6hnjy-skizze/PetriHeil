@@ -1,14 +1,30 @@
-PETRI HEIL PRO 3.6.0 – PRUEFBERICHT
+PETRI HEIL PRO – FUNKTIONSPRÜFUNG 3.6.0
 
-Github-Vorversion 3.5.0: 494 Dateien im Stammverzeichnis, 119 von 119 Offline-Kernressourcen vorhanden (geprüft 11.10.2026).
-Neues Update: 43 ZIP-Dateien, 122 eindeutige Offline-Kernressourcen. Alle neuen 3.6.0-Kernressourcen im ZIP enthalten.
-- JavaScript-Syntax: alle neuen Skripte bestanden.
-- Isolierte Chrome-Funktionstests bei 320, 375, 390, 430 und 768 px: bestanden, keine JavaScript-Fehler.
-- Geprüft: Angeltag starten/beenden, Köderberatung, Merkmals-Fischbestimmung, Ausrüstung speichern, PDF-Dokument speichern, Fangbuch Plus, Lernquiz und lokale Notfallangaben.
-- Integration: Angler-Zentrale, Gewässer-Steckbrief mit Bild/PDF-Export, Angelschule, Kinderwelt und 177 Arten-Bildzuordnungen bestanden.
-- Offline-Worker: 122 von 122 Ressourcen im Installationssimulator; bei 404 bleibt vorheriger Core-Cache erhalten.
-- Offline-Navigation: Angelbegleiter, Angelschule, Startseite aus dem Cache ohne Netzwerkzugriff.
-- AES-256-GCM-Backup: Vorhandene Verschlüsselungsroutine und Fallback-Liste auf neue Petri-Datenbanken erweitert; vollständige Verschlüsselung/Wiederherstellung in echtem HTTPS-Browser wegen Testumgebungs-Sperre NICHT Ende-zu-Ende getestet.
+GitHub Ausgangszustand: Version 3.5.0 (Versionsdatei, Startseite und Offline-Worker).
 
-Keine amtliche Fangprognose, keine autonome Foto-KI, keine Echtzeitwarnungen, keine automatische Straßen-/Gezeiten-Datenbereitstellung.
-Kein Test auf echtem iPhone oder Android; Kamera, GPS und Wiederherstellung dort prüfen.
+FUNKTIONSTESTS (isolierter Chromium-Browser)
+- 10 Reiter; 5 Bildschirmbreiten: 320/375/390/430/768 Pixel ohne Seitenüberlauf.
+- Angeltag starten, beenden; Fänge, Ausrüstung, Erlaubnisse speichern.
+- Datei-Upload: PDF und Bild mit simulierter IndexedDB, Testeinträge gespeichert.
+- Merkmalsbasierter Fischvergleich und Köderberatung.
+- 12-Fragen-Übungsrunde vollständig durchgespielt, Lernstand gespeichert.
+- Lokaler JSON-Export im Browser als Download gestartet.
+- Browser-JavaScript: keine Pageerrors in diesen isolierten Tests.
+- Node: Syntaxprüfung aller ausgelieferten JavaScript-Dateien bestanden.
+
+OFFLINE-TEST (simulierter Service Worker)
+- 122/122 Pflichtressourcen zwischengespeichert und aktiviert.
+- Fehlende petri360.js simuliert: Installation abgebrochen; vorheriger Cache erhalten.
+- Paket/Manifest/Worker und Versionsdateien 3.6.0 stimmen überein.
+
+EINSCHRÄNKUNGEN
+- Echte HTTPS- und iPhone-/Android-Tests hier technisch blockiert (ERR_BLOCKED_BY_ADMINISTRATOR).
+- IndexedDB, Kamera, Standort, PDF und komplette Wiederherstellung nicht auf einem echten Gerät getestet.
+- Ursprüngliche große Haupt-App app.js nicht vollständig end-to-end getestet.
+- Bestehende verschlüsselte Gesamtsicherung wurde weiterverwendet. Ein kompletter Restore aus einer 3.6.0-Petri-Datei wurde nicht end-to-end getestet.
+- Zusatzfangbuch und älteres Pro-Fangbuch sind getrennte Listen.
+- Foto-Erkennung nur über vom Benutzer gewählte Merkmale, keine trainierte KI.
+- Amtliche Pegel-/Schonzeiten sowie umfangreiche Straßenkartendaten bleiben separate Importdaten.
+- Keine Echtzeit-Unwetterwarnungen oder Push-Erinnerungen.
+
+WICHTIG: Erst im bestehenden Petri-Heil-Werkzeugbereich ein Privatbackup exportieren. Bilder, Dokumente und private Dateneinträge bleiben im Browserprofil und können ohne Sicherung verloren gehen.
