@@ -2,7 +2,7 @@
 /* iPhone portrait: intrinsic canvas dimensions must not impose a 420px grid minimum. */
 .mapwrap{width:100%;min-width:0;min-height:0;aspect-ratio:auto}.mapwrap canvas{max-width:100%;width:100%;height:auto;aspect-ratio:840/520}
 
-/* 4.4.1: explicit non-destructive linking, keyboard and mobile layout */
+/* 4.4.2: explicit non-destructive linking, keyboard and mobile layout */
 .link-editor{margin:14px 0;padding:15px;border:1px solid #81c4e4;border-radius:12px;background:#ecf8fe}.link-editor h4{margin:0 0 9px}.link-editor[hidden]{display:none!important}.link-editor button{min-height:44px}.tabs button:focus-visible{outline:3px solid #d28c13}.item .link-button{background:#e6f3fb;color:#075c85;border-color:#80bedb}.mapwrap canvas{touch-action:manipulation}@media(max-width:540px){.link-editor{padding:11px}.item button{max-width:100%}}
 
 /* Narrow phones: prevent network-status chip from forcing horizontal scrolling. */

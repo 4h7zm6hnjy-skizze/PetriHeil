@@ -1,0 +1,54 @@
+PETRI HEIL PRO 4.4.2 – KARTE & TIEFENPUNKTE · PRÜFBERICHT
+Datum: 11.10.2026
+
+QUELLSTAND UND RELEASE
+- GitHub: 4h7zm6hnjy-skizze/PetriHeil, main
+- Basis laut vor Update geprüftem GitHub: Version 4.4.1, Commit f7404f09f1c53f89e0e9aa356bc3abc5268b4a23.
+- Keine neuen Fisch-/Krebsbilder, keine Löschung alter Dateien und keine automatische Änderung alter Datensätze.
+- Update als ZIP zur manuellen Übernahme, nicht direkt auf GitHub veröffentlicht.
+
+IMPLEMENTIERT
+1. Standardkarte mit OpenStreetMap-Onlinekacheln, durch Tippen freizuschalten.
+2. Satellitenkarte mit Esri World Imagery, abhängig von Dienstzugang und Nutzungslizenz.
+3. Hybridkarte (Satellit + transparentes OpenStreetMap-Kartenoverlay, nicht amtlich).
+4. Vergrößern, verkleinern, Panning mit Maus und Touch; Standort über altes GPS-Formular und ausgewählten Angelplatz.
+5. Vorhandene Offline-Übersicht unverändert erreichbar; bestehende private Angelplätze dort weiterhin sichtbar.
+6. Eigene Tiefenpunkte auf Online-Karte UND Offline-Übersicht: Tiefe, Koordinaten, gemessen/geschätzt, Datum, Angelplatz, Gewässer, Boden und Notiz.
+7. Farbige lokale Tiefenmarkierungen: unter 2 m, 2–5 m, über 5 m. Farbschwellen sind rein illustrativ und keine Bathymetrie.
+8. Bearbeitung / Bestätigung für Löschung / Export der eigenen Tiefenpunkte als CSV oder JSON.
+9. Bestehende Angelplätze, Fangverknüpfung, Angeltag und persönlicher Datenstand werden nur gelesen; altes Speicherformat bleibt unverändert.
+10. Neuer Tiefenspeicher im localStorage; der verschlüsselte Gesamtbackup-Assistent sichert bestehend alle localStorage-Einträge.
+11. 4.4.2-Cachemanifest mit 198 eindeutigen Dateien. Kein Vorladen von Kartenkacheln fremder Anbieter.
+
+BESTANDENE TESTS
+- Node.js Syntaxprüfung der neu ausgelieferten Skripte.
+- Syntaktisch gültige JSON-Metadaten; 198 eindeutige Offline-Kern-URLs.
+- Chromium isoliert (mit nachgebildetem localStorage, IndexedDB, Netzwerk): Offline-Übersicht startet ohne externen Kartenabruf; Tiefenpunkt erstellen, bearbeiten und löschen; zugeordnetes Angelplatzobjekt bleibt intakt.
+- Chromium: eigene Tiefenpunkte auf Offline-Karte dargestellt; CSV-Export; Opt-in für Onlinekarten; Standard-/Satellit-/Hybrid-Kachel-URLs und Marker; Rückkehr zu Offline.
+- Chromium: 7 Bildschirmgrößen (320–1280 px) x 4 Hauptbereiche = 28 Kombinationen ohne horizontalen Überlauf.
+- Service-Worker-Virtualisierung: 198 Pflichtressourcen komplett, bei absichtlich fehlender Pflichtdatei kein Update-Aktivieren und alter Kerncache bleibt erhalten.
+- ZIP-Integrität, vollständige Dateiliste und SHA-256-Prüfsummen geprüft.
+
+WICHTIGE EINSCHRÄNKUNGEN
+- Kartendarstellung nicht an echter GitHub-Pages-Domain und nicht mit iPhone/Safari getestet.
+- Wirkliche Kartenanbieter-Verfügbarkeit nicht im isolierten Test verifiziert; sie kann von Nutzungsbedingungen, Rate-Limit und Zugangsvoraussetzungen abhängen.
+- Esri-Dienste können lizenziert bzw. durch API-Schlüssel geschützt sein; Nutzung nur im Rahmen der jeweils aktuellen Anbieterbedingungen.
+- OpenStreetMap tile.openstreetmap.org erlaubt normale interaktive Anzeige mit Attribution, aber kein flächendeckendes Prefetching/Offline-Archiv der öffentlichen Kacheln.
+- Nur selbst eingetragene Tiefenpunkte, KEINE tatsächlichen automatisch gemessenen Tiefenkonturen. Keine sicherheitskritische Navigation nach den Tiefenangaben.
+- Bestehende Offline-Karte ist ein vereinfachter geografischer Atlas ohne Detailstraßen- oder Satellitendaten.
+- Keine abgeschlossene Ende-zu-Ende-Testung der echten iPhone-IndexedDB-Rücksicherung, des großen app.js oder aller Altmodule.
+
+DATENSCHUTZ
+- Drittanbieter erhalten erst nach einer expliziten Bestätigung Anfragen für den jeweils sichtbaren Kartenbereich; IP-Adresse und angefragter Kartenausschnitt werden technisch übertragen.
+- Gewässer-/Fang-Datensätze werden von der Kartenfunktion nicht an Anbieter hochgeladen; genaue eigene Markerkoordinaten verbleiben im Browser, sofern der Nutzer sie nicht in den sichtbaren Kachelausschnitt steuert.
+- Tiefen, Angelplätze und Fotos werden nicht stillschweigend gelöscht oder verschoben. Extern abgelegte verschlüsselte Sicherung dringend empfohlen.
+
+ABNAHME NACH UPLOAD
+1. Im bisherigen iPhone-Browser ein extern abgelegtes verschlüsseltes Gesamtbackup erstellen.
+2. ZIP-Dateien ins vorhandene GitHub-Repo-Hauptverzeichnis, gleichnamige ersetzen, nichts anderes löschen.
+3. Auf GitHub Pages 4.4.2 öffnen, alle Kachelmodi mit Internet und Zustimmung ausprobieren.
+4. Eigenen Angelplatz mit Tiefe erstellen; Tiefenpunkt setzen, Ansicht wechseln, neu laden und Offline-Modus einschalten.
+5. Flugmodus prüfen: Offline-Übersicht, lokale Punkte und Fanghistorie sichtbar.
+6. Exporte und Foto-/Backup-Test auf separatem Testgerät durchführen.
+
+STATUS: Isolierte Funktions- und Installationssimulation bestanden; iPhone-/Provider-Endtest noch offen.

@@ -1,0 +1,16 @@
+{
+  "version": "4.4.2",
+  "baseVersion": "4.4.1",
+  "baseCommit": "f7404f09f1c53f89e0e9aa356bc3abc5268b4a23",
+  "offlineCoreCount": 198,
+  "packageType": "GitHub root overlay; do not remove other files",
+  "privateDataMigration": false,
+  "sourceProviders": [
+    "OpenStreetMap standard raster online (with attribution, no offline scraping)",
+    "Esri World Imagery online (conditional on provider access / noncommercial rights)",
+    "existing GSHHG/WDBII offline overview"
+  ],
+  "depthData": "petri442-depths-v1 localStorage, automatically included in previous encrypted backup snapshot",
+  "lastVerifiedGitHubVersion": "4.4.1",
+  "published": false
+}

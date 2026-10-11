@@ -1,0 +1,31 @@
+{
+  "version": "4.4.2",
+  "implemented": [
+    "Online-Standardkarte nach Zustimmung",
+    "Esri-Satellitenbild nach Zustimmung",
+    "Hybridkarte",
+    "Offline-Altatlas",
+    "Private Tiefenpunkte inklusive Meterwert, Datum, Gewässer und Angelplatz",
+    "Farbliche Tiefenmarker online+offline",
+    "Export CSV/JSON",
+    "Backup über lokalen Bestandsspeicher",
+    "Datenbank-Schutz und keine Migration",
+    "198 Offline-Kernressourcen"
+  ],
+  "partial": [
+    "Online-Satellit und Hybrid abhängig von Dienst und Lizenz",
+    "GPS-Bedienung über bisherige Funktion; kein Sonar-Sensor",
+    "Offline nur gespeicherte Daten und vereinfachter Altatlas"
+  ],
+  "not_implemented": [
+    "Keine amtliche vollflächige Tiefenkarte ohne Original-Messdaten",
+    "Kein automatisches OSM/Esri-Kachelarchiv",
+    "Keine flächendeckende Offline-Satellitenkarte"
+  ],
+  "tested": {
+    "isolatedChromium": true,
+    "realIPhone": false,
+    "liveEsri": false,
+    "serviceWorkerSimulated": true
+  }
+}

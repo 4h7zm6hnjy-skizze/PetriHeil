@@ -1,0 +1,15 @@
+PETRI HEIL PRO 4.4.2 – INSTALLATION
+
+1. ZUERST externes verschlüsseltes Gesamtbackup deiner lokalen iPhone-App anlegen.
+2. ZIP herunterladen und entpacken. Die enthaltenen Dateien direkt ins Hauptverzeichnis des bestehenden GitHub-Repositories 4h7zm6hnjy-skizze/PetriHeil hochladen.
+3. Gleichnamige Dateien ersetzen, keine anderen Bestandsdateien und keine Bilder löschen.
+4. GitHub Pages erfolgreich bauen lassen. App zuerst MIT Internet unter https://4h7zm6hnjy-skizze.github.io/PetriHeil/petri440.html öffnen und Service-Worker-Update abschließen.
+5. Gewässerkarte öffnen, Karte/Satellit/Hybrid bewusst freigeben. Ohne Freigabe bleiben bisherige Offline-Übersicht, Angelplätze und Tiefenpunkte nutzbar.
+6. Eigene Tiefenpunkte mit Angaben zu Messung/Schätzung erstellen; bei Bedarf als CSV/JSON exportieren.
+7. Flugmodus und verschlüsseltes Backup auf dem iPhone testen, bevor die App als vollständig offlinefähig gilt.
+
+LIZENZEN UND DATEN
+- OpenStreetMap: © OpenStreetMap-Mitwirkende, ODbL; niemals öffentliche Kacheln flächendeckend herunterladen.
+- Esri: Esri World Imagery / beteiligte Bildanbieter, nur online und nach gültigen Anbieterbedingungen; ggf. Token oder Lizenz erforderlich.
+- Offline: vorhandene GSHHG/WDBII-Übersicht und lokal gespeicherte Angelplätze/Tiefenpunkte.
+- Tiefenfarben sind ausschließlich eigene Messpunkte mit schematischer Klassifikation. KEINE verlässliche Tiefenlinienkarte.

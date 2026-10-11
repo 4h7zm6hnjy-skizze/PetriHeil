@@ -1,4 +1,4 @@
-/* Petri Heil Pro 4.4.1 — additive, local-only cross-module data bridge. */
+/* Petri Heil Pro 4.4.2 — additive, local-only cross-module data bridge. */
 (()=>{'use strict';
 const A=window.Petri430;if(!A)throw Error('Petri430-Basisbibliothek fehlt');
 const PLACES='petri440-places-v1',SETTINGS='petri440-settings-v1',PHOTOS='petri440-photos';
