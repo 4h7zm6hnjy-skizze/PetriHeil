@@ -1,0 +1,14 @@
+PETRI HEIL PRO 3.5.0 – ALLE FUNKTIONEN IN EINER APP
+
+1. Bestehende Daten unter Werkzeuge sichern. Vorher die aktuelle Version 3.4.0 belassen.
+2. ZIP entpacken. Dateien ins gleiche GitHub-Pages-Repository-Hauptverzeichnis laden, gleichnamige ersetzen. Andere Dateien NICHT löschen!
+3. Das Update ist kein vollständiger Neu-Download der bereits vorhandenen 475 Repository-Dateien.
+4. GitHub Pages Veröffentlichung abwarten. Im Update-Assistenten auf 3.5.0 aktualisieren.
+5. Die Angler-Zentrale unter /zentrale.html öffnen.
+6. Unter Offline prüfen den Bestand vorbereiten und Flugmodus testen.
+
+NEU: Gewässer-Datenbank mit Fotos und Erlaubnisscheinen; als JSON inkl. Anhängen exportieren und separat sichern (unverschlüsselt). Ältere verschlüsselte Backups schließen die neue IndexedDB-Datenbank nicht automatisch ein.
+
+BITTE TESTEN: GPS, iOS-Datenspeicherung, Dateiauswahl, gesicherte Offline-Seiten, Fischbilder und Kinder-Lernprofile auf echten Geräten. Kein interner oder externer Kartendienst erhält GPS automatisch.
+
+Sicherheits- und Rechtsstand: Fischartenbilder nicht als amtliche Identifikationshilfe, Fangregelungen je Gewässer prüfen; Beißindex ist eine Faustregel und Gezeiten nur aus importierten Daten.

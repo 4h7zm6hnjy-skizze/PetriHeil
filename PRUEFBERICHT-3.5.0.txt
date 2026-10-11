@@ -1,0 +1,31 @@
+PETRI HEIL PRO 3.5.0 – PRUEFBERICHT (11.10.2026)
+====================================================
+
+AUF GITHUB VORHANDENE BASIS
+- Version 3.4.0 im Repo bestaetigt.
+- 104/104 bestehende Offline-Kernressourcen im GitHub-Repo vorhanden.
+- 177/177 Arten haben eine lokale Bilddatei-Zuordnung; alle genannten Bilder im GitHub-Repo vorhanden.
+- Nur 172 unterschiedliche lokale Bilddateien fuer 177 Zuordnungen; biologische Richtigkeit der Bilder nicht unabh. geprueft.
+
+NEUE VERSION 3.5.0
+- 40 Update-Dateien, ZIP-Integritaet geprueft.
+- 119 eindeutige Service-Worker-Kernressourcen.
+- Service-Worker-Installation simuliert: 119/119 Ressourcen, neuer Versionsstand erfolgreich.
+- Fehlende Pflichtdatei simuliert: Installation bricht ab, alter Offline-Cache bleibt erhalten.
+- JavaScript-Syntaxpruefung aller neuen 3.5.0-Dateien bestanden.
+- Isolierter Chromium-Test: zentrale Suche und Bereichsfilter, Gewaesser speichern/bearbeiten,
+  JSON-Export MIT Foto und PDF-Anhang, Fisch-Lernkarten, Kinderwelt-Erklaerung,
+  Fischbild-Zuordnung und 177-Arten-Auswahl, keine JavaScript-Fehler.
+- Browser-Test der neuen Zentrale und Gewaesserverwaltung bei 320/375/390/430/768px:
+  kein horizontaler Ueberlauf.
+- Bestehende doppelte Lernspiele-Kachel und doppelte Startseiten-Skripteinbindung beseitigt.
+
+EINSCHRAENKUNGEN
+- Die Browser-Umgebung sperrt echte lokale und simulierte Online-Webseitenaufrufe.
+  Daher erfolgten Browserfunktionstests isoliert, IndexedDB-Zugriffe darin mit Testdaten simuliert.
+- Keine Ende-zu-Ende-Pruefung der 4.5 MB grossen historischen app.js oder der gesamten
+  bisherigen App inklusive Kamera, PDF und echtem Geraete-GPS.
+- Reale iPhone- und Android-Tests nach der Installation bleiben erforderlich.
+- Gewaesser samt Bildern/Erlaubnisscheinen separat exportieren, da bisherige Backups
+  die neue IndexedDB-Gewaesserdatenbank nicht automatisch erfassen.
+- Kartendetaildaten und amtliche Tidezeiten sind weiterhin separate lokale Importe.

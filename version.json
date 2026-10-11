@@ -1,27 +1,26 @@
 {
-  "version": "3.4.0",
+  "version": "3.5.0",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "serviceWorker": "sw.js",
   "changes": [
-    "Ein Gesamtupdate: neue Module für acht Funktionsbereiche bei unverändertem bisherigem Design und gespeicherten App-Daten.",
-    "Kinderwelt: Fisch-Memory im Kinderbereich, zusätzliche Bilderrätsel und Memory-Seite, Vorlesen über Geräte-Sprachausgabe und Lernabzeichen; vorhandener Lernstand bleibt erhalten.",
-    "Kinderwelt: Fisch-Memory und Fischbilderrätsel mit lokalem Spielfortschritt; geräteabhängiges Vorlesen.",
-    "Detailkarte: GeoJSON-Vektordateien mit Straßen, Wegen und Gewässern lokal in IndexedDB importieren, anzeigen, vergrößern und verschieben.",
-    "Beißindex: transparenter Erklärbereich zu beeinflussten Faktoren und persönlichen Einstellungen.",
-    "Gezeiten: lokale Tabelle und Import-Anleitung inklusive CSV-Vorlage – keine erfundenen Hoch-/Niedrigwasserzeiten.",
-    "Fischlexikon: 177 vorhandene Arten mit Textinformationen und Fotos ausgewählter häufiger Arten.",
-    "Angelassistent: Checkliste, Angelplatz, Datum, Budget, Notizen und JSON-Export.",
-    "Diagnose: lokalen Speicher, Offline-Kernpaket, Gerätefunktionen und Browserdarstellung prüfen.",
-    "Offline-Worker und Versionsdatei auf 3.4.0 mit 104 unterschiedlichen Kernressourcen; Installation nur nach vollständigem Kerndownload."
+    "Eine Angler-Zentrale mit durchsuchbarem Hauptzugang zu allen bestehenden Modulen, ohne getrennte Installationen.",
+    "Gewässerverwaltung mit Tiefen, Angelregeln, eigenen Fotos, Erlaubnisscheinen und GPS-Koordinaten; IndexedDB und Datenexport/Import.",
+    "177 bestehende Arten im Angelstudio erhalten jetzt die lokale Bildzuordnung des vorhandenen Artenarchivs, sofern das Bild offline vorliegt.",
+    "Fischlernkarten (49 NRW-Prüfungsarten) mit einfachem Wiederholungsplan und Lernfortschritt.",
+    "Kinderwelt mit bis zu acht getrennten lokalen Lernprofilen, altersbezogene Lektionen, Memory und Rätsel weiter nutzbar.",
+    "Alle Lernbereiche, Fangdaten, Beißindex, Gezeiten, GPS, 16 Kartenregionen, Planung und private Sicherung sind aus einer Zentrale erreichbar.",
+    "Doppelte Lernspiele-Kachel und doppelt geladenes Angelstudio-Startseiten-Skript entfernt.",
+    "Offline-Worker und Diagnose auf 3.5.0 gesetzt; Pflichtdateien vor Aktivierung zwischenspeichern. Keine neuen Drittanbieter-Verbindungen."
   ],
   "limitations": [
-    "Straßengenaue Deutschlandkarte ist nicht mitgeliefert: GeoJSON-Regionaldateien müssen separat legal bezogen werden. Keine Straßennavigation.",
-    "Amtliche Gezeitentabellen werden nicht automatisch geladen und müssen vor Ort beschafft und importiert werden.",
-    "Sprachwiedergabe ist vom Betriebssystem und verfügbaren Stimmen abhängig.",
-    "Beißindex ist eine unverbindliche Faustregel, keine wissenschaftlich validierte Fangwahrscheinlichkeit.",
-    "Echte Gerätetests auf iPhone/Android sind weiterhin erforderlich.",
-    "Ausführliche amtliche Schonzeiten/Mindestmaße und lokale Vorschriften müssen an der gültigen Quelle geprüft werden.",
-    "Gerätespeicher und Service-Worker-Cache können vom Betriebssystem entfernt werden; Backups regelmäßig erstellen."
+    "Die ZIP ist ein Update für die bestehende Petri Heil Pro GitHub-Pages-App, keine eigenständige Installation ohne deren bisherigen Bilder und Programmdateien.",
+    "Nicht alle 177 Artenbilder sind wissenschaftlich als Artbestimmungsbelege überprüft; die Bildzuordnung stammt aus dem bisherigen App-Archiv.",
+    "Alle Fischbilder sind erst dann sicher offline verfügbar, wenn die separate Medienvorbereitung alle Bilder vollständig gespeichert hat.",
+    "Gezeitendaten und detaillierte Straßenkarten sind nicht vollständig im Update enthalten; weiterhin Import eigener Datendateien nötig.",
+    "Das Gewässer-JSON ist unverschlüsselt, enthält gegebenenfalls Bilder und Erlaubnisscheine und muss sicher aufbewahrt werden.",
+    "Bestehende Backups decken neue IndexedDB-Gewässer nicht automatisch ab: separat exportieren.",
+    "Gespeicherte Kinderdaten hängen vom Browserprofil und Gerätespeicher ab; Browserdaten nicht ohne Export löschen.",
+    "iPhone/Android Kamera, GPS, IndexedDB und PDF müssen auf tatsächlichen Geräten getestet werden."
   ]
 }
