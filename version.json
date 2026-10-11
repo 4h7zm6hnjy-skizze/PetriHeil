@@ -1,25 +1,23 @@
 {
-  "version": "4.3.0",
+  "version": "4.4.0",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "serviceWorker": "sw.js",
   "changes": [
-    "Mein Angeltag: Start/Stopp, Notizen, Köder, Methoden, optional GPS, lokale Fotos, Druck/PDF via Browser",
-    "Fangbuch 5.0: Pro und Plus gemeinsam suchen, bearbeiten und exportieren ohne Migration",
-    "Persönlicher qualitativer Beißindex mit Fangauswertung, ohne unbewiesene Fangwahrscheinlichkeit",
-    "177 Arten im Bildlexikon mit Vergleich auf Grundlage vorhandener Daten",
-    "Lokales Ausrüstungsinventar und Packliste, 28 Archivbilder",
-    "Gerätequalität mit Kern-, Medien- und Speicherprüfung",
-    "Offline-Paket kumulativ erweitert, zuvor erfolgreiche Caches bleiben erhalten",
-    "Dauerhaft korrigierte Bildzuordnung, weiter bestehende Kinderwelt, Angelschule, Karten und Sicherungen"
+    "Intelligente neue Startseite mit sichtbarem Beißindex, Fangstatistik, Angeltag, Ausflugdatum, Offlinestatus und manuell abrufbaren Live-Werten.",
+    "Angeltag und Fangbuch automatisch über eindeutige IDs verbunden, beim 4.4-Schnellfang auch mit gespeicherten Angelplätzen.",
+    "Fangbuch 5.0: Pro/Plus lesen, neue Pro-Fänge verknüpft speichern, nach Angelplätzen filtern, Köder-/Artenstatistiken, optionale Fangfotos lokal.",
+    "Offline-Gewässerkarte mit GPS-Markierungen, optionaler einmaliger Standortfreigabe, Tiefe/Boden/Notizen, lokalen Fotos und Fanghistorie.",
+    "Backup-Fallback für Angeltag- und Angelplatz-Fotos auch ohne indexedDB.databases() ergänzt.",
+    "Alle bisherigen Module, gespeicherten Daten, Original-Fotoverweise und das helle Design bleiben erhalten."
   ],
   "limitations": [
-    "no trained camera AI",
-    "no official verified nationwide fishing laws",
-    "no all-Germany licensed street or bathymetry offline tiles",
-    "no live tides without imported data",
-    "browser print-to-PDF depends on device",
-    "no real device end-to-end restore",
-    "legacy 4.5MB app.js not fully regression-tested"
+    "Alle neuen automatischen Fangverknüpfungen gelten für Fänge, die über das 4.4-Fangformular angelegt werden; ältere Fänge werden nicht stillschweigend zugeordnet.",
+    "Vollflächige Tiefen-/Straßen-/Satellitenkarten nicht enthalten; Offline-Karte zeigt vereinfachte historische Geodaten.",
+    "Wetter Open-Meteo und Pegel PEGELONLINE sind nur nach Klick online verfügbar; tatsächlicher externer API-Abruf nicht auf iPhone geprüft.",
+    "Tagesbericht als Druck/Browser-PDF, kein eigener PDF-Generator; iOS-Druckoberfläche kann abweichen.",
+    "Kein vollständiger iPhone-End-to-End-Backup-Restore mit realen Fotos bestätigt.",
+    "Beißindex ist qualitative Lernhilfe, keine validierte Fangwahrscheinlichkeit.",
+    "Vorhandene 4.3-Fangbuch- und Angeltagseiten bleiben als Bestandsfunktionen erhalten."
   ]
 }

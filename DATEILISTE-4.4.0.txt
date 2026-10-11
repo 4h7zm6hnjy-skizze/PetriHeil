@@ -1,0 +1,24 @@
+PETRI HEIL PRO 4.4.0 – DATEILISTE (Overlay)
+
+index.html
+petri430.html
+sicherung410.html
+petri410-vault.js
+petri440.html
+petri440.css
+petri440-core.js
+petri440-app.js
+petri-core-v4.4.0.json
+petri-offline-v4.4.0.js
+petri-sw.js
+sw.js
+version.json
+petri440-release.json
+PRUEFBERICHT-4.4.0.txt
+INSTALLATION-4.4.0.txt
+FUNKTIONSSTATUS-4.4.0.json
+README-4.4.0.txt
+DATEILISTE-4.4.0.txt
+SHA256SUMS-4.4.0.txt
+
+Nicht enthaltene alte Dateien aus dem GitHub-Repository behalten.

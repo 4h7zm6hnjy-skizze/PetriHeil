@@ -1,0 +1,11 @@
+PETRI HEIL PRO 4.4.0 – SICHERE INSTALLATION
+
+1. In der laufenden 4.3.0-App eine AES-Gesamtsicherung erstellen; Datei außerhalb des Gerätes speichern.
+2. ZIP-Datei entpacken. GitHub: 4h7zm6hnjy-skizze/PetriHeil, Branch main.
+3. Alle Dateien dieser ZIP IN DAS REPOSITORY-HAUPTVERZEICHNIS hochladen, bei identischem Namen ersetzen. Keine alten Dateien entfernen.
+4. Nach GitHub-Pages-Deployment https://4h7zm6hnjy-skizze.github.io/PetriHeil/petri440.html aufrufen und Anzeige 4.4.0 prüfen.
+5. Bei bestehender Startseitenverknüpfung zunächst / öffnen und „Intelligentes Angelcockpit 4.4.0“ auswählen. Die alte Haupt-App bleibt erhalten.
+6. Offlineprüfung im Cockpit durchführen; im Flugmodus kontrollieren. Bilder und Detailkarten sind nicht automatisch vollständig offline.
+7. Foto-Backup: Neue Datenbanken petri430-angeltag und petri440-photos sind im Fallback des aktualisierten AES-Skripts enthalten. Vor einem produktiven Restore unbedingt Testprofil verwenden.
+
+WICHTIG: keine automatischen Datenmigrationen, alten Fangbuchspeicher nicht löschen. Automatische Fang-/Angeltag-/Ort-Verknüpfung nur bei neu erfassten 4.4-Cockpit-Fängen.

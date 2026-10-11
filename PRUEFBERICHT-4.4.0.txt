@@ -1,0 +1,49 @@
+PETRI HEIL PRO 4.4.0 – TEST- UND QUALITÄTSBERICHT
+Datum: 11.10.2026
+
+AUSGANGSSTAND
+GitHub: 4h7zm6hnjy-skizze/PetriHeil, Branch main.
+Vor dem Paketbau: Version 4.3.0, Commit 54816d223f0481b8a53472d6ef51888a946027dc.
+Dieses Archiv ist ein OVERLAY: alle bisherigen GitHub-Dateien behalten, vorhandene Dateien gleicher Namen ersetzen, niemals das Repository vor dem Upload leeren.
+
+VIER VERBUNDENE PFLICHTBEREICHE
+1. Intelligente Startseite: qualitativer Beißindex aus bisherigen Einstellungen, Fanganzahl, nächster Ausflug, laufender Angeltag, Angelplätze, Offline-Cache, Wetter (Open-Meteo) und WSV-Pegel nur nach manuellem Abruf.
+2. Mein Angeltag: Start/Stopp, Angelmethode, Köderwechsel/Notizen, GPS nur nach Freigabe, Fotos privat in IndexedDB, Fangzuordnung und Tagesbericht über Browserdruck/PDF.
+3. Fangbuch 5.0: gemeinsame Pro-/Plus-Lesansicht; neue Fänge landen im vorhandenen Pro-Speicher und werden – bei Erfassung im 4.4-Cockpit – automatisch mit dem laufenden Angeltag und ausgewähltem/übernommenem Angelplatz verbunden. Keine automatische Migration. Bearbeitung älterer Fänge über bestehendes Fangbuch.
+4. Intelligente Gewässerkarte: vorhandene Deutschland- und NRW-Übersichtsdaten, eigene Angelstellen mit GPS, selbst erfasster Tiefe/Bodenstruktur, lokalen Fotos und Fanghistorie je Angelplatz. Keine präzise Straßen- oder amtliche Tiefenkarte.
+
+DATENSCHUTZ UND DATENERHALT
+- Keine Benutzer-Datenbankmigration, kein Löschen von localStorage oder IndexedDB.
+- AES-GCM-Backup-Skript um IndexedDB-Namen petri430-angeltag und petri440-photos ergänzt, besonders für Browser ohne indexedDB.databases().
+- Keine automatische Übertragung privater Angelstellen; nur explizit angeforderter Wetterabruf übermittelt Koordinaten an Open-Meteo, WSV erhält Suchbegriff/Stationsanfrage.
+- Neuer Service Worker aktiviert neuen Kerncache erst nach kompletter Installation, ältere App-Caches bleiben bestehen (isolierte Simulation).
+
+BESTANDENE AUTOMATISIERTE TESTS
+- JavaScript-Syntaxprüfung aller gelieferten JS-Dateien; JSON validiert.
+- Isolierter Chromium: 4 Hauptbereiche laden, Angelplatz speichern, aktiven Angeltag beginnen, Köderwechsel notieren, Fang im Pro-Fangbuch schreiben, Auto-Zuordnung zu Tag und Angelplatz nachweisen.
+- Chromium: Fanghistorie in Karten- und Angeltag-Ansicht; simulierte IndexedDB-Speicherung und Darstellung von Angeltag-/Angelplatzfotos.
+- Chromium: Tagesbericht Druckaufruf, Abschluss Angeltag, CSV-Fanglistenexport, gespeichertes Ausflugdatum und Wasserstand/Wetter-Testantworten (synthetische Anbieterantworten).
+- Chromium: sieben Bildschirmgrößen von 320 bis 1280 Pixel × vier Tabs = 28 Ansichten ohne horizontalen Seitenüberlauf.
+- Isolierter Chromium: erzwungener Speicherfehler verändert zuvor gespeicherte Angelplätze nicht.
+- Service-Worker-VM: vollständige Installation mit 194 Kernressourcen und absichtliche Pflichtdatei-Störung, vorhandener 4.3-Cache bleibt erhalten.
+- HTML/Dateipfade und Offline-Manifest geprüft; Medienbilder (228) und die 177 Artenzuordnungen aus GitHub 4.3.0 bleiben bestehen, werden nicht ersetzt.
+
+OFFEN UND EHRLICHE EINSCHRÄNKUNGEN
+- Noch kein echter Test auf deinem iPhone und kein vollständiger Echtdaten-Restore mit großen Fotos.
+- Weder wissenschaftlich kalibrierte Biss-/Fangwahrscheinlichkeiten noch amtlich synchrone Gewässergesetze.
+- Die NRW-/Deutschlandkarte ist eine grobe geografische Übersicht und ausdrücklich keine Straßen-, Navigations- oder flächendeckende Tiefenkarte.
+- Neue automatische Fang-zu-Angeltag- und Fang-zu-Angelplatz-Zuordnung findet nur beim Speichern über das NEUE 4.4-Cockpit statt. Historische Fangmasken bleiben unverändert.
+- Wetter- und WSV-Schnittstellen nicht mit echter iPhone-PWA live geprüft; sie können offline, bei fehlender CORS-Freigabe oder bei Serverausfällen scheitern.
+- Browserdruck ist die PDF-Ausgabe; eine native PDF-Bibliothek wurde nicht hinzugefügt.
+- 4,5-MB-Legacy-Renderer app.js nicht vollständig Ende-zu-Ende geprüft.
+
+EMPFOHLENE GERÄTE-ABNAHME
+1. Vor Update ein verschlüsseltes Backup in der ALTEN App erstellen und separat aufbewahren.
+2. Dateien des ZIP-Archivs in denselben GitHub-Ordner hochladen; nichts anderes löschen.
+3. Nach GitHub-Pages-Build petri440.html über die Haupt-App öffnen; v4.4.0 bestätigen.
+4. Unter WLAN die Offline-Ressourcen installieren lassen, dann im Flugmodus die vier Bereiche öffnen.
+5. Einen Test-Angelplatz anlegen, Angeltag starten, Test-Fang eintragen und beide Verknüpfungen prüfen.
+6. Je ein Testfoto zu Angeltag und Angelplatz hinzufügen, nach Browser-Neustart prüfen.
+7. Neue Gesamtsicherung erstellen; Wiederherstellung NUR auf separatem Testgerät/Testprofil mit nicht produktiven Daten prüfen.
+
+FREIGABE: Technische Teilabnahme bestanden. Vollständige Geräteabnahme und Originaldaten-Wiederherstellung bleiben offen.

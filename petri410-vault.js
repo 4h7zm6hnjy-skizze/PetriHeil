@@ -2,7 +2,7 @@
 (()=>{'use strict';
 const encoder=new TextEncoder(), decoder=new TextDecoder();
 const FORMAT='petri-vault-aesgcm-410',MAX_FILE=170*1024*1024, MAX_RAW=125*1024*1024;
-const known=['petri31-media-v1','petri230-extra-photos','petri240-offline-map-v1','petri250-album-v1','petri350-gewaesser','petri360-private'];
+const known=['petri31-media-v1','petri230-extra-photos','petri240-offline-map-v1','petri250-album-v1','petri350-gewaesser','petri360-private','petri430-angeltag','petri440-photos'];
 const B64=bytes=>{let str='';for(let i=0;i<bytes.length;i+=16384)str+=String.fromCharCode(...bytes.subarray(i,i+16384));return btoa(str)};
 const bytes=b64=>Uint8Array.from(atob(b64),c=>c.charCodeAt(0));
 const awaitRequest=req=>new Promise((resolve,reject)=>{req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error||Error('IndexedDB-Anfrage fehlgeschlagen'))});

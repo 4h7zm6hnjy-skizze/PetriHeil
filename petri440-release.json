@@ -1,0 +1,10 @@
+{
+  "version": "4.4.0",
+  "baseVersion": "4.3.0",
+  "baseCommit": "54816d223f0481b8a53472d6ef51888a946027dc",
+  "offlineCoreResources": 194,
+  "privateDataMigration": "none",
+  "automaticCatchLinkScope": "new catches saved through petri440.html",
+  "status": "ZIP package prepared for manual upload",
+  "oldModulesPreserved": true
+}

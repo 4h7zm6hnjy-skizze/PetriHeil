@@ -1,0 +1,1 @@
+Petri Heil Pro 4.4.0 – vier vernetzte Pflichtfunktionen. GitHub-Overlay auf 4.3.0; bestehende Bilder, Daten und Bestandsskripte bleiben erhalten. Lies INSTALLATION-4.4.0.txt und PRUEFBERICHT-4.4.0.txt.

@@ -1,0 +1,34 @@
+{
+  "version": "4.4.0",
+  "baseVersion": "4.3.0",
+  "baseCommit": "54816d223f0481b8a53472d6ef51888a946027dc",
+  "umfang": {
+    "intelligenteStartseite": "Umgesetzt: qualitative Beißindex-Bewertung, Fangstatistik, Angeltagstatus, Ausflugdatum, Cacheprüfung, manuell abgerufene Wetter- und Pegeldaten mit Quelle und Zeitstempel",
+    "meinAngeltag": "Umgesetzt: Start/Stopp, Beobachtungen, Köderwechsel, lokale Fotos, Angelplatzbezug, GPS einmalig nach Freigabe, Tagesbericht via Browserdruck/PDF",
+    "fangbuch": "Umgesetzt: Pro-/Plus-Lesansicht, neuer Fang im Pro-Originalspeicher, automatische Verknüpfung mit laufendem Angeltag und ausgewähltem Angelplatz, Fotos und Auswertung nach Köder und Fischart; Bearbeitung bestehender Fänge über Fangbuch 5.0",
+    "gewaesserkarte": "Umgesetzt: Deutschland-/NRW-Geodatenübersicht, GPS-Angelstellen, Ortsfotos, selbst eingegebene Tiefe/Bodenstruktur, verknüpfte Fänge, Offline-Speicherung der Übersicht",
+    "datensicherung": "Skript zur AES-Sicherung um petri430-angeltag und petri440-photos in Fallback-Datenbankliste erweitert; kein echter iPhone-Restore getestet",
+    "serviceWorker": "194 Offline-Kernressourcen mit simuliert geprüftem fehlerresistenten Staging-Installationsablauf; alte Caches/Daten nicht gelöscht"
+  },
+  "teilweiseOderOffen": [
+    "Kein automatischer Abgleich mit Fängen, die in alten Eingabemasken erfasst werden: neue Zuordnung gilt für die 4.4-Cockpit-Fangerfassung",
+    "Keine amtlich lizenzierten bundesweiten Straßen- oder Tiefenkartendaten; Gewässertiefe nur vom Nutzer erfasst",
+    "Kein belastbarer wissenschaftlicher Beißindex oder Erfolgswahrscheinlichkeitswert",
+    "Live-Wetter/WSV werden nur auf Anforderung abgerufen, tatsächliche Erreichbarkeit in iPhone/PWA nicht live getestet",
+    "PDF-Ausgabe über Browserdrucken statt integrierter PDF-Erzeugung",
+    "IndexedDB-Fotos im isolierten Chromium mit Nachbildung getestet; echte iPhone-Speicherung und Restore weiterhin ausstehend",
+    "Vollständige Regression des 4,5 MB großen historischen app.js nicht belegt",
+    "Keine automatische Migration; bestehende Daten/Medien bleiben unverändert"
+  ],
+  "testverfahren": [
+    "Node --check für ausgelieferte JS-Dateien",
+    "JSON-/Manifestprüfung 194 eindeutige Einträge",
+    "Isolierter Chromium-Test von 4 verbundenen Bereichen: Angelplatz, Angeltag, Fang, Historien",
+    "28 Ansichten (7 Breiten × 4 Hauptbereiche)",
+    "Fangbuch-CSV, Ausflugdatum, Browser-Druck, Speicherungsausfall ohne Überschreiben",
+    "Fotos bei Angeltag und Angelplatz in IndexedDB-Simulation mit Browser-Rendering",
+    "Simulierter Wetter-Abruf per Testantwort",
+    "Service Worker: simulierte Installation 194/194 und Abbruch ohne Löschen des alten Caches"
+  ],
+  "freigabe": "Teilabnahme der neuen Module mit isolierten Tests. Ein echter iPhone-/GitHub-Pages-End-to-End-Test ist noch nötig."
+}
