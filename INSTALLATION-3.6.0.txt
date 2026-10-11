@@ -1,0 +1,22 @@
+PETRI HEIL PRO 3.6.0 – EIN GESAMTUPDATE
+
+1. In der bisherigen Petri-Heil-App zuerst in WERKZEUGE eine verschlüsselte Sicherung erstellen. Das Kennwort sicher aufbewahren.
+2. Dieses ZIP entpacken, den gesamten Dateiinhalt direkt in das Stammverzeichnis des GitHub-Repositories im Branch main laden.
+3. Gleichnamige Dateien ersetzen. Keine bisherigen Bilder oder Dateien löschen. Die ZIP selbst nicht als einzelne Datei hochladen.
+4. Nach Veröffentlichung über update-rettung.html auf 3.6.0 aktualisieren und die App vollständig neu öffnen.
+5. Neuer Menüpunkt: Angelbegleiter unter /angelbegleiter.html, zentral aus der App erreichbar.
+6. Unter Offline prüfen das neue Kernpaket (122 Dateien) vorbereiten; anschließend im Flugmodus die Seiten öffnen.
+
+FUNKTIONSUMFANG
+- Angeltage, lokale Merkmals-Fischhilfe, Köderberatung, Ausrüstung, Erlaubnisdokumente
+- Übungsprüfung mit Zeitlimit, zusätzliches Fangbuch mit Fotos, Sicherheitsinformationen
+- Verschlüsseltes AES-256-GCM-Gesamtbackup über werkzeuge.html, lokale Daten aus IndexedDB und localStorage
+- Vorhandene Angelschule, Kinderwelt, Gewässerverwaltung, Beißindex und Offline-Karten bleiben erhalten
+
+EINSCHRÄNKUNGEN
+- Keine garantierte KI-Fotoerkennung, keine echten Live-Gezeiten oder Live-Wetterwarnungen ohne Datenquelle.
+- Neue Fangbuch-Plus-Daten werden zusätzlich zum vorhandenen Fangbuch erfasst; Bestandsdaten bleiben unangetastet.
+- Lokale Datenspeicherung ist nicht automatisch verschlüsselt, nur der exportierte .petri-Container.
+- JSON-Exporte ohne Kennwort enthalten private Daten im Klartext.
+- Ausrüstungstermine sind kein Hintergrund-Pushdienst; die Angaben sieht man beim Öffnen.
+- iPhone/Android sollten Kamera, Dateiexport, GPS, Backup und Offline-Navigation auf echten Geräten prüfen.

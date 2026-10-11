@@ -1,0 +1,14 @@
+PETRI HEIL PRO 3.6.0 – PRUEFBERICHT
+
+Github-Vorversion 3.5.0: 494 Dateien im Stammverzeichnis, 119 von 119 Offline-Kernressourcen vorhanden (geprüft 11.10.2026).
+Neues Update: 43 ZIP-Dateien, 122 eindeutige Offline-Kernressourcen. Alle neuen 3.6.0-Kernressourcen im ZIP enthalten.
+- JavaScript-Syntax: alle neuen Skripte bestanden.
+- Isolierte Chrome-Funktionstests bei 320, 375, 390, 430 und 768 px: bestanden, keine JavaScript-Fehler.
+- Geprüft: Angeltag starten/beenden, Köderberatung, Merkmals-Fischbestimmung, Ausrüstung speichern, PDF-Dokument speichern, Fangbuch Plus, Lernquiz und lokale Notfallangaben.
+- Integration: Angler-Zentrale, Gewässer-Steckbrief mit Bild/PDF-Export, Angelschule, Kinderwelt und 177 Arten-Bildzuordnungen bestanden.
+- Offline-Worker: 122 von 122 Ressourcen im Installationssimulator; bei 404 bleibt vorheriger Core-Cache erhalten.
+- Offline-Navigation: Angelbegleiter, Angelschule, Startseite aus dem Cache ohne Netzwerkzugriff.
+- AES-256-GCM-Backup: Vorhandene Verschlüsselungsroutine und Fallback-Liste auf neue Petri-Datenbanken erweitert; vollständige Verschlüsselung/Wiederherstellung in echtem HTTPS-Browser wegen Testumgebungs-Sperre NICHT Ende-zu-Ende getestet.
+
+Keine amtliche Fangprognose, keine autonome Foto-KI, keine Echtzeitwarnungen, keine automatische Straßen-/Gezeiten-Datenbereitstellung.
+Kein Test auf echtem iPhone oder Android; Kamera, GPS und Wiederherstellung dort prüfen.

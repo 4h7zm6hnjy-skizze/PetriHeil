@@ -1,19 +1,20 @@
-/* Petri Heil Pro: stabiler Worker-Pfad, Version 3.5.0.
+/* Petri Heil Pro: stabiler Worker-Pfad, Version 3.6.0.
    Updated in place on future releases. Does not import legacy workers. */
 'use strict';
-const VERSION='3.5.0';
+const VERSION='3.6.0';
 const ROOT=new URL('./',self.location.href);
-const CORE_CACHE='petri-core-3.5.0';
+const CORE_CACHE='petri-core-3.6.0';
 const IMAGE_CACHE='petri-media-2.2.0';
 const CORE=[
+ 'angelbegleiter.html','petri360.css?v=3.6.0','petri360.js?v=3.6.0',
  'index.html',
- 'petri-studio-v3.5.0.js?v=3.5.0',
- 'zentrale.html','petri-zentrale-v3.5.0.js?v=3.5.0','petri-zentrale-v3.5.0.css?v=3.5.0',
- 'gewaesser.html','petri-gewaesser-v3.5.0.js?v=3.5.0','petri-gewaesser-v3.5.0.css?v=3.5.0',
- 'petri-hauptmenue-v3.5.0.js?v=3.5.0','petri-hauptmenue-v3.5.0.css?v=3.5.0',
- 'petri-fischbilder-v3.5.0.js?v=3.5.0','BILDZUORDNUNGEN_177_ARTEN.json',
- 'petri-kinderprofile-v3.5.0.js?v=3.5.0','petri-kinderprofile-v3.5.0.css?v=3.5.0',
- 'petri-lernkarten-v3.5.0.js?v=3.5.0','petri-lernkarten-v3.5.0.css?v=3.5.0',
+ 'petri-studio-v3.6.0.js?v=3.6.0',
+ 'zentrale.html','petri-zentrale-v3.6.0.js?v=3.6.0','petri-zentrale-v3.6.0.css?v=3.6.0',
+ 'gewaesser.html','petri-gewaesser-v3.6.0.js?v=3.6.0','petri-gewaesser-v3.6.0.css?v=3.6.0',
+ 'petri-hauptmenue-v3.6.0.js?v=3.6.0','petri-hauptmenue-v3.6.0.css?v=3.6.0',
+ 'petri-fischbilder-v3.6.0.js?v=3.6.0','BILDZUORDNUNGEN_177_ARTEN.json',
+ 'petri-kinderprofile-v3.6.0.js?v=3.6.0','petri-kinderprofile-v3.6.0.css?v=3.6.0',
+ 'petri-lernkarten-v3.6.0.js?v=3.6.0','petri-lernkarten-v3.6.0.css?v=3.6.0',
  'update-rettung.html',
  'version.json',
  'manifest.webmanifest',
@@ -44,7 +45,7 @@ const CORE=[
  'petri-species-regions-v2.1.3.js?v=2.1.3',
  'petri-updater.js?v=2.4.0',
  'petri-media-v2.2.0.json',
- 'petri-offline-v3.5.0.js?v=3.5.0',
+ 'petri-offline-v3.6.0.js?v=3.6.0',
  'offline-check.html',
  'petri-platform-v2.2.1.css?v=2.2.1',
  'petri-platform-v2.2.1.js?v=2.2.1',
@@ -56,10 +57,10 @@ const CORE=[
  'petri-praktisch-v2.2.3.js?v=2.2.3',
  'praxis.html',
  'petri-werkzeuge-v2.3.0.css?v=2.3.0',
- 'petri-werkzeuge-v3.5.0.js?v=3.5.0',
+ 'petri-werkzeuge-v3.6.0.js?v=3.6.0',
  'petri-praxis-plus-v2.3.0.js?v=2.3.0',
  'petri-compat-v2.5.0.js?v=2.5.0',
- 'petri-core-v3.5.0.json',
+ 'petri-core-v3.6.0.json',
  'werkzeuge.html',
  'petri-bildschirm-v3.0.2.css?v=3.1.0',
  'petri-bildschirm-v3.0.2.js?v=3.1.0',
@@ -245,7 +246,7 @@ self.addEventListener('fetch',evt=>{
     // standalone page as index.html. Otherwise offline navigation shows the
     // wrong app after visiting the installation/privacy/practical pages.
     const known=new Set(['index.html','offline-check.html','update-rettung.html',
-      'installieren.html','datenschutz.html','praxis.html','erweiterungen.html','werkzeuge.html','karte.html','premium.html','angelwerkzeuge.html','montagen.html','gezeiten.html','kinderwelt.html','angelschule.html','angelstudio.html','karten-detail.html','lernspiele.html','zentrale.html','gewaesser.html']);
+      'installieren.html','datenschutz.html','praxis.html','erweiterungen.html','werkzeuge.html','karte.html','premium.html','angelwerkzeuge.html','montagen.html','gezeiten.html','kinderwelt.html','angelschule.html','angelstudio.html','karten-detail.html','lernspiele.html','zentrale.html','gewaesser.html','angelbegleiter.html']);
     const name=url.pathname.slice(ROOT.pathname.length);
     const key=known.has(name)?file(name):essentialKey;
     if(name==='update-rettung.html')evt.respondWith(networkFirst(evt.request,key));

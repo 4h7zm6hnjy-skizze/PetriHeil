@@ -1,26 +1,32 @@
 {
-  "version": "3.5.0",
+  "version": "3.6.0",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "serviceWorker": "sw.js",
   "changes": [
-    "Eine Angler-Zentrale mit durchsuchbarem Hauptzugang zu allen bestehenden Modulen, ohne getrennte Installationen.",
-    "Gewässerverwaltung mit Tiefen, Angelregeln, eigenen Fotos, Erlaubnisscheinen und GPS-Koordinaten; IndexedDB und Datenexport/Import.",
-    "177 bestehende Arten im Angelstudio erhalten jetzt die lokale Bildzuordnung des vorhandenen Artenarchivs, sofern das Bild offline vorliegt.",
-    "Fischlernkarten (49 NRW-Prüfungsarten) mit einfachem Wiederholungsplan und Lernfortschritt.",
-    "Kinderwelt mit bis zu acht getrennten lokalen Lernprofilen, altersbezogene Lektionen, Memory und Rätsel weiter nutzbar.",
-    "Alle Lernbereiche, Fangdaten, Beißindex, Gezeiten, GPS, 16 Kartenregionen, Planung und private Sicherung sind aus einer Zentrale erreichbar.",
-    "Doppelte Lernspiele-Kachel und doppelt geladenes Angelstudio-Startseiten-Skript entfernt.",
-    "Offline-Worker und Diagnose auf 3.5.0 gesetzt; Pflichtdateien vor Aktivierung zwischenspeichern. Keine neuen Drittanbieter-Verbindungen."
+    "Ein neuer Angelbegleiter direkt in der bestehenden App: Angeltag starten, bearbeiten und beenden; Rute, Köder, Gewässer und auf ausdrücklichen Wunsch den GPS-Punkt speichern.",
+    "Gewässer-Steckbriefe der Version 3.5.0 mit GPS, eigenen Fotos, Erlaubnisscheinen und persönlichem Datenexport weiter eingebunden.",
+    "Fischbestimmung: lokale Merkmalsvorschläge mit Kamera-Fotovorschau; ausdrücklich keine automatisch trainierte Foto-KI.",
+    "Köderberater mit zwölf Zielfischen, Jahreszeiten, Gewässertypen und lokalen Montage-Verweisen.",
+    "Ausrüstung: Preise, Kaufdatum, Wartungs- und Garantietermine lokal verwalten.",
+    "Dokumentenmanager: Angelscheine und Erlaubnisse als PDF oder Bild lokal speichern; Gültigkeitsende vermerken.",
+    "Angelschule: neuer Übungstest mit zwölf Fragen, Zehn-Minuten-Zeitlimit, Ergebnissen und Links zu den vorhandenen NRW-Lernmodulen.",
+    "Fangbuch Plus: zusätzliche Fänge, Länge, Gewicht, Köder, Ort, Fotos, JSON-Export und druckbaren Bericht.",
+    "Sicherheitszentrale mit 112-Link, Erste-Hilfe-Kurzinfos, GPS-Koordinaten zum Kopieren und privaten Notfallangaben.",
+    "AES-256-GCM-Privatbackup schließt auch petri350-gewaesser und petri360-private als bekannte Datenbanken im iOS-Fallback ein.",
+    "Gemeinsame Zentrale aktualisiert; alle bisherigen Funktionen, Offline-Karten, 177 Bildzuordnungen, Kinderwelt, Beißindex und Gezeiten bleiben erhalten.",
+    "Versionen und Offline-Worker synchronisiert, neues Kernpaket vollständig erforderlich; keine Drittanbieter-Datenübertragung."
   ],
   "limitations": [
-    "Die ZIP ist ein Update für die bestehende Petri Heil Pro GitHub-Pages-App, keine eigenständige Installation ohne deren bisherigen Bilder und Programmdateien.",
-    "Nicht alle 177 Artenbilder sind wissenschaftlich als Artbestimmungsbelege überprüft; die Bildzuordnung stammt aus dem bisherigen App-Archiv.",
-    "Alle Fischbilder sind erst dann sicher offline verfügbar, wenn die separate Medienvorbereitung alle Bilder vollständig gespeichert hat.",
-    "Gezeitendaten und detaillierte Straßenkarten sind nicht vollständig im Update enthalten; weiterhin Import eigener Datendateien nötig.",
-    "Das Gewässer-JSON ist unverschlüsselt, enthält gegebenenfalls Bilder und Erlaubnisscheine und muss sicher aufbewahrt werden.",
-    "Bestehende Backups decken neue IndexedDB-Gewässer nicht automatisch ab: separat exportieren.",
-    "Gespeicherte Kinderdaten hängen vom Browserprofil und Gerätespeicher ab; Browserdaten nicht ohne Export löschen.",
-    "iPhone/Android Kamera, GPS, IndexedDB und PDF müssen auf tatsächlichen Geräten getestet werden."
+    "Fischbestimmung arbeitet mit manuell ausgewählten Merkmalen und ist keine trainierte Kamera-KI. Ergebnisse nicht als sichere Artbestimmung verwenden.",
+    "Schonzeiten, Mindestmaße, Fischereiberechtigung und Warnungen sind keine Live-Auskünfte und müssen amtlich geprüft werden.",
+    "Die App kann GPS nur auf ausdrücklichen Knopfdruck abrufen; Standortdaten bleiben im lokalen Gerätespeicher.",
+    "Das Offline-Paket aktualisiert die bestehende Installation, umfasst aber nicht alle 494 bereits vorhandenen Repository-Dateien und das gesamte Medienarchiv.",
+    "Detaillierte Straßenkarten und amtliche Pegelzeiten sind nur nach Import lokaler Datendateien verfügbar.",
+    "Die Verschlüsselung schützt exportierte .petri-Backups, nicht die unverschlüsselten lokalen Browserdaten oder gesonderte JSON-Exporte.",
+    "Backups sichern bekannte Petri-Datenbanken; Cache Storage selbst, fremde Datenbanken und alle zukünftigen unbekannten Datenspeicher sind nicht garantiert enthalten.",
+    "Browser-Speichergrenzen, Dateiauswahl, Standortfreigabe und Druck müssen auf einem echten iPhone oder Android-Gerät getestet werden.",
+    "Bereits im alten Fangbuch gespeicherte Datensätze bleiben dort; Fangbuch Plus ist eine zusätzliche lokale Liste, keine Migration.",
+    "Technische Tests sind simuliert/isoliert; keine vollständige Garantie für alle älteren Bestandteile der Haupt-App."
   ]
 }
