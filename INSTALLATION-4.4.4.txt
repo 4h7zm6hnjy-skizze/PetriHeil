@@ -1,0 +1,12 @@
+Petri Heil Pro 4.4.4 – Kumulatives Update auf veröffentlichte Version 4.4.2
+
+1. VORHER ein verschlüsseltes Gesamtbackup außerhalb des iPhones aufbewahren.
+2. Alle Dateien aus dem ZIP in das Hauptverzeichnis des GitHub-Repositories hochladen und gleichnamige ersetzen.
+3. Keine weiteren GitHub-Dateien löschen. ZIP umfasst auch die nicht hochgeladene Kartenfehler-Reparatur 4.4.3.
+4. Auf GitHub Pages den abgeschlossenen Deployment-Workflow abwarten.
+5. Die App petri440.html öffnen, bei Bedarf im Browser neu laden und den Service Worker aktualisieren.
+6. Unter Gewässerkarte neben einem gespeicherten Ort auf „Ort entfernen“ tippen. Entfernte Orte werden im ausklappbaren Archiv geführt.
+7. Im Archiv „Wiederherstellen“ oder bei Orten ohne Referenzen „Dauerhaft löschen“ wählen.
+8. Im Flugmodus prüfen, ob gespeicherte Angelplätze und Tiefenpunkte sichtbar sind.
+
+Fänge, bestehende Angeltage, Tiefenmessungen und Fotos bleiben beim Archivieren bestehen. Endgültiges Löschen ist bei vorhandenen Verknüpfungen nicht erlaubt.

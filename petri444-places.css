@@ -1,0 +1,9 @@
+/* 4.4.4 – non-destructive, accessible saved-spot management. */
+.p444-remove{color:#9b2837!important;border:1px solid #d7a0aa!important;background:#fff7f8!important;font-weight:650}
+.p444-remove:hover{background:#ffe6e9!important}
+.p444-archive{border:1px solid #b9d6e5;border-radius:12px;margin:14px 0;padding:10px 12px;background:#f8fcff}
+.p444-archive[hidden]{display:none!important}
+.p444-archive summary{cursor:pointer;color:#11587a;font-weight:750;line-height:1.5;min-height:36px}
+.p444-archive .item{margin:8px 0;padding:10px;border:1px solid #d2e2eb;background:white;border-radius:9px}
+.p444-archive .buttons{display:flex;gap:8px;flex-wrap:wrap}
+@media(max-width:420px){#placeList .buttons button,.p444-archive button{min-height:44px}#placeList .buttons{display:flex;flex-wrap:wrap}}

@@ -1,18 +1,20 @@
 {
-  "version": "4.4.3",
+  "version": "4.4.4",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "serviceWorker": "sw.js",
   "changes": [
-    "Fehlerbehandlung für leere Online-Karten und Satellitenkacheln: Bildlade- und Timeout-Prüfung statt nur URL-Test.",
-    "Automatische sichere Umschaltung auf die vorhandene Offline-Übersicht, wenn keine Kachel geladen wird.",
-    "Sichtbare Lademeldung, Erneut-versuchen-Aktion und direkte externe Straßen-/Satellitenkarte.",
-    "Zoomstufe bleibt beim erneuten Öffnen erhalten; bestehende Fang-, Foto-, Angeltag- und Tiefendaten werden nicht verändert."
+    "Angelplätze mit Sicherheitsabfrage ausblenden (archivieren), auch für bestehende Einträge wie Biggi.",
+    "Entfernte Angelplätze mit Name und Datum wiederherstellen.",
+    "Endgültig löschen nur ohne Fänge, Angeltage, Tiefenpunkte oder Angelplatz-Fotos.",
+    "Bestehende Daten und Fotoverknüpfungen bleiben erhalten; keine automatische Migration oder Löschung.",
+    "Kartendarstellungs-Bugfix 4.4.3 ist kumulativ enthalten (Ladefehler, Wiederholen, Offline-Rückfall).",
+    "Helles Design, alte Module und Offline-Cache bleiben unverändert nutzbar."
   ],
   "limitations": [
-    "Die externen OSM- und Esri-Kartenanbieter wurden im Container nicht live erreicht; Browser-Tests mit kontrollierten Kacheln und simulierten Netzfehlern.",
-    "Eine leere Karte aufgrund von Netzsperre, Inhaltsblockern, CSP oder Providerfehler kann nicht durch den Code erzwungen werden; stattdessen Offline-Fallback und externe Karte.",
-    "Es gibt keine eigene Satellitenbild-Datenbank oder lizenzierten flächendeckenden Tiefendaten.",
-    "Keine tatsächliche iPhone-End-to-End-Prüfung und keine reale Fotowiederherstellung."
+    "Echter iPhone-Endtest sowie externer Satelliten-/Kartenprovider-Test ausstehend.",
+    "Der Archiv-Vorgang ist keine endgültige Löschung; im Archiv kann ein Ort wiederhergestellt werden.",
+    "Endgültiges Löschen mit Abhängigkeiten wird bewusst blockiert, bis diese gesondert geklärt sind.",
+    "App wurde nicht direkt auf GitHub geschrieben; ZIP manuell hochladen."
   ]
 }

@@ -1,0 +1,37 @@
+PETRI HEIL PRO 4.4.4 – QUALITÄTS- UND FUNKTIONSPRÜFUNG
+Datum: 11.10.2026
+
+AUSGANGSSTAND
+Veröffentlichte Version bei Beginn: GitHub 4.4.2, inzwischen hat GitHub 4.4.3 erhalten.
+Das Overlay ist kumulativ und enthält den Kartenfix aus 4.4.3 sowie die neue Ortsentfernung.
+
+IMPLEMENTIERT
+- Schaltfläche „Ort entfernen“ in der Angelplatzliste UND direkt bei den Angelplatz-Details.
+- Sicherheitsabfrage vor dem Entfernen mit ausdrücklichem Hinweis auf das reversible Archiv.
+- Der Archivierungsschritt blendet den Angelplatz aus Karte, Auswahllisten und Detailansicht aus.
+- Ausklappbares Archiv der entfernten Orte mit Wiederherstellen und gesondertem „Dauerhaft löschen“.
+- Endgültiges Löschen nur ohne Referenzen aus Pro-/Plus-Fangbuch, Angeltagen, eigenen Tiefenpunkten und Angelplatz-Fotos.
+- Sind Referenzen vorhanden oder Speicher fehlerhaft/nicht lesbar, wird endgültiges Löschen verweigert.
+- Archivierte Plätze blockieren nicht die Fangerfassung im weiterlaufenden Angeltag; neu erfasste Fänge werden ohne den archivierten Platz, aber mit dem Angeltag gespeichert.
+- Bestehende Fotos, Tiefenpunkte und Fang-/Angeltag-Einträge werden NICHT gelöscht oder still migriert.
+- 4.4.3 Karten-Bugfix inklusive Kachelfehlererkennung, erneut versuchen und Offline-Rückfall.
+- Helles Design, bisherige Hauptbereiche und Offline-Kern erhalten.
+
+BESTANDENE AUTOMATISIERTE TESTS
+- JavaScript: node --check für alle gelieferten JS-Module.
+- JSON: Version, Release-Metadaten und 201 eindeutige Offline-Kern-URLs validiert.
+- Node-VM-Datentests: 11 Fälle, einschließlich Archivieren, Wiederherstellen, Sperren bei Fotos/Fängen/Angeltagen/Tiefenpunkten, sicherem endgültigem Löschen eines ungenutzten Ortes, Fangerfassung bei archiviertem Tagesplatz, Restaurieren mit anschließender erneuter Fangverknüpfung.
+- Isolierter Chromium-UI-Test: Angelplatz anlegen, über Liste entfernen, archivierten Ort wiederherstellen, direkt bei Angelplatz-Details entfernen. Keine JavaScript-Laufzeitfehler in diesen Interaktionen.
+- Service-Worker-VM: 201 Ressourcen in der vollständigen Installationssimulation; absichtlich fehlendes petri444-places.css bricht Installation ab, bisheriger Cache bleibt erhalten.
+- Paketcheck: ZIP-Einträge, Prüfsummen, Dateien und Asset-Referenzen geprüft.
+
+NICHT NACHGEWIESEN / GRENZEN
+- Keine vollständige reale iPhone-Installation und kein End-to-End-Restore persönlicher Fotos getestet.
+- Der Live-Abruf von OSM/Esri-Kacheln konnte nicht auf deinem Gerät überprüft werden; es gilt die in 4.4.3 dokumentierte Fallback-Logik.
+- Die Archivierung entfernt einen Ort nur aus den aktiven Ansichten, nicht aus der verschlüsselten Datensicherung. Das ist beabsichtigt.
+- Endgültiges Löschen ist bei jeder bekannten Verknüpfung gesperrt; zuvor müssen Referenzen gesondert geklärt werden. Es werden KEINE Fänge/Fotos automatisch mitgelöscht.
+- Für einen erfolgreichen Versionswechsel muss der Service Worker 4.4.4 aktiviert sein. Lokalen Flugmodustest bitte auf dem iPhone durchführen.
+- Alter großer Haupt-App-Renderer nicht vollständig neu regression-getestet.
+
+INSTALLATION
+VORHER verschlüsseltes Backup außerhalb des Gerätes speichern. Alle gelieferten Dateien ins Hauptverzeichnis von GitHub hochladen, gleichnamige ersetzen, andere Dateien nicht löschen. GitHub Pages abwarten, Seite petri440.html neu öffnen. Bei Ort „Biggi“ in Angelplatz-Details auf „Ausgewählten Angelplatz entfernen“ tippen. Im Archiv wiederherstellen oder, sofern keine Verknüpfungen bestehen, endgültig löschen.

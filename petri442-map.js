@@ -1,4 +1,4 @@
-/* Petri Heil Pro 4.4.3 - reliable online map with offline recovery and private, offline depth samples.
+/* Petri Heil Pro 4.4.4 - reliable online map with offline recovery and private, offline depth samples.
    Provider requests occur only after an informed opt-in. No tile prefetch or tile archive.
    Standalone module: existing Petri440 fishing data / original offline canvas remain unchanged. */
 (()=>{'use strict';
@@ -37,7 +37,7 @@ function pxToPoint(x,y){const w=mapEl.clientWidth,h=mapEl.clientHeight,scale=R*2
 function statusMap(){const spec=mode==='offline'?'Lokale Übersicht (ohne Internet)':mode==='standard'?'OpenStreetMap – Online':mode==='satellite'?'Esri World Imagery – Online':'Esri/OSM kombiniert – Online';text('p442-mapmode',spec)}
 function setMode(request){if(!['offline','standard','satellite','hybrid'].includes(request))return;if(request!=='offline'){if(!navigator.onLine){notice('Du bist offline. Die lokale Übersicht bleibt verfügbar.',true);request='offline'}else if(!consented){const yes=confirm('Für Online-Karten wird der sichtbare Kartenausschnitt beim Kartenanbieter abgerufen. Dadurch erhalten OpenStreetMap bzw. Esri deine IP-Adresse und die Kartenposition. Keine persönlichen Fangdaten werden übertragen. Online-Karten sind nicht zum Offline-Download vorgesehen. Fortfahren?');if(!yes)return;consented=true;localStorage.setItem(CONSENT,'yes')}}mode=request;localStorage.setItem(PREF,JSON.stringify({mode,center,zoom}));for(const btn of document.querySelectorAll('[data-p442-mode]')){const active=btn.dataset.p442Mode===mode;btn.setAttribute('aria-pressed',String(active))}mapEl.hidden=mode==='offline';$('mapCanvas').hidden=mode!=='offline';$('mapCanvas').closest('.mapwrap').hidden=mode!=='offline';$('p442-offline-pins').hidden=mode!=='offline';if(mode==='offline'){stopWatch();for(const node of tileNodes.values())node.remove();tileNodes.clear()}else{p443RequestedMode=mode;tileBanner('Online-Kartenbilder werden geladen …',false)}statusMap();const at=$('mapAttribution');if(at){if(mode==='offline')at.textContent='Offline-Übersicht aus bestehenden GSHHG/WDBII-Geodaten; keine Straßen-, Satelliten- oder amtliche Tiefenkarte.';if(mode==='standard')at.textContent='© OpenStreetMap-Mitwirkende (ODbL) · Online-Straßenkarte, keine amtliche Tiefenkarte.';if(mode==='satellite')at.textContent='Satellitenbilder: Esri und beteiligte Bildanbieter · Online, keine garantierte Verfügbarkeit oder amtliche Tiefenkarte.';if(mode==='hybrid')at.textContent='Satellitenbilder © Esri/Bildanbieter + Kartendaten © OpenStreetMap-Mitwirkende · Online, halbtransparent kombiniert.'}render()}
 
-/* 4.4.3: A generated tile URL does not mean the image actually loaded.
+/* 4.4.4: A generated tile URL does not mean the image actually loaded.
    If both external providers fail, return to the proven local atlas and give a
    real external map link. No third-party tiles are prefetched or archived. */
 function externalMapURL(){
