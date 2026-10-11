@@ -1,27 +1,23 @@
 {
-  "version": "3.0.0",
+  "version": "3.0.1",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "changes": [
-    "Premium-Zentrale mit sechs Bereichen: Übersicht, Angel-Analyst, lokaler Fischfotovergleich, Lernplan, GPS-Positionsskizze und Offline-Systemcheck.",
-    "Angel-Analyst: Köder-, Arten-, Gewässer- und Tageszeitenhäufigkeiten sowie protokollierte Angeltage ohne Fang.",
-    "Experimenteller Bildmustervergleich mit 49 lokalen Artenbildern: keine externen KI-Dienste, keine Bildübertragung; ausdrücklich keine zuverlässige Fischbestimmung.",
-    "NRW Lernakademie mit lokalem Wiederholungsplan für 49 Arten und 10 Rutenaufgaben.",
-    "Privater GPS-Track mit GPX-Export und eigenen Angelstellen auf lokaler SVG-Positionsskizze.",
-    "Gerätediagnose für Programm- und Bildcache, Versionsstand, Speicher und Browserfunktionen.",
-    "Barrierefreiheit verbessert: Seitenzoom auf mobilen Geräten zugelassen.",
-    "Fehlenden Werkzeuge-CSS-Verweis repariert, versionierte Offline- und Diagnosemodule aktualisiert.",
-    "Offline-Kernpaket wird vor Installation geprüft; vorhandener 228-Bilder-Cache bleibt erhalten.",
-    "Strenger Privatmodus bleibt erhalten, keine PIN, keine Anmeldung und keine Cloud-Synchronisierung."
+    "Reparatur: Offline-Navigation nutzt korrekt vorgeprüfte Seiten sofort aus dem Cache; Update-Reparatur nutzt weiterhin aktuelle Netzversion.",
+    "GPS-Aufzeichnung: Start/Stopp-Schaltfläche unmittelbar korrekt, Löschen stoppt aktive Aufzeichnung, Wiederherstellung nach Zurücknavigation bereinigt veraltete GPS-Watches.",
+    "Angelstatistik: Überschneidende Angelzeiten nur einmal zählen; Fänge nicht mehrfach zuordnen; Trips ohne Fang weiterhin auswerten.",
+    "Systemdiagnose: Nur vollständiges Kernpaket der Version 3.0.1 zählt; alte Caches zählen nicht als aktueller Stand; aktiven Offline-Worker nach Version abfragen.",
+    "Bildvergleich: Fehlende Offline-Referenzbilder mit verständlicher Fehlermeldung statt vermeintlichem Ergebnis.",
+    "Ansonsten alle Funktionen des vorherigen Pakets 3.0.0 enthalten: Premium-Analyst, Lernkarten, GPS-Spur, lokaler Fotovergleich und Diagnostik.",
+    "Keine Datenbankmigration; PIN bleibt entfernt; strikter Privatmodus bleibt aktiv."
   ],
   "limitations": [
-    "Eine eigens trainierte, zuverlässige On-Device-Foto-KI ist nicht enthalten. Der Fotovergleich bewertet einfache Bildmerkmale, keine Artwahrscheinlichkeiten.",
-    "Die Offline-GPS-Karte ist eine lokale Positionsskizze ohne topografische oder hydrographische Kartentiles. Echte Offline-Karten benötigen separat lizenziertes Kartenmaterial.",
-    "Der ursprüngliche rund 4,5-MB große Hauptcode app.js ist unverändert und wurde nicht vollständig refaktoriert. Bestehende Module wurden nicht ersetzt.",
-    "Wetter, externe Karten und öffentliche Internetinformationen bleiben im Privatmodus gesperrt.",
-    "Fehlerfreiheit und Leistung lassen sich erst nach Gerätetests auf iPhone und Android unter realen Bedingungen beurteilen.",
-    "Ein vollständiger Backup-Wiederherstellungstest muss vor produktivem Import auf beiden Plattformen erfolgen.",
-    "Dieses Update ist inkrementell; ältere unveränderte Ressourcen und die 228 Bilder müssen im GitHub-Repository verbleiben."
+    "app.js (rund 4,5 MB) konnte nicht vollständig geprüft werden. Funktionsprüfung der bestehenden Haupt-App nur eingeschränkt möglich.",
+    "Fotovergleich ist kein trainiertes KI-Modell; GPS-Skizze ist keine topografische Karte.",
+    "Kamera, GPS, native Dateiauswahl und PDF-Funktionen müssen auf echten iPhones und Android-Geräten getestet werden.",
+    "Die Originaldateien aus älteren Versionen sowie alle lokalen 228 Bilder müssen weiter auf dem Host liegen.",
+    "Service Worker und Cache Storage bleiben von Browser-Speicherverwaltung abhängig; regelmäßig Offline-Diagnose ausführen.",
+    "GitHub Pages empfängt beim Website-Aufruf/Updates technische Verbindungsdaten. Private App-Daten werden nicht automatisch versendet."
   ],
   "serviceWorker": "sw.js"
 }

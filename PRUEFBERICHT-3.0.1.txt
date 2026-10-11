@@ -1,0 +1,85 @@
+PETRI HEIL PRO 3.0.1 – PRÜFBERICHT / FUNKTIONSKONTROLLE
+Stand: 11.10.2026
+
+Ausgangsbasis: Petri Heil Pro 3.0.0, GitHub-Repository 4h7zm6hnjy-skizze/PetriHeil.
+
+1. NACHGEWIESENE FEHLER IN VERSION 3.0.0 UND KORREKTUREN
+
+[A] GPS-Aufzeichnung: Nach „Aufzeichnung starten“ blieb die Startschaltfläche
+    bestehen, weil die Ansicht vor dem Setzen der Watch-ID neu gezeichnet wurde.
+    3.0.1 setzt die Watch-ID vor dem Neuaufbau und zeigt sofort „GPS stoppen“.
+[B] GPS-Löschen: Eine laufende Aufzeichnung wurde nicht gestoppt, sodass die
+    geleerte Spur unmittelbar wieder mit Koordinaten gefüllt werden konnte.
+    3.0.1 stoppt die Aufzeichnung beim Bestätigen von „Spur löschen“.
+[C] GPS-Seitenwechsel: Browserseitiger Rücksprung konnte einen nicht mehr
+    existierenden GPS-Watch als laufend behandeln. 3.0.1 bereinigt die ID
+    beim Verlassen und bei Rückkehr aus dem Browser-Zwischenspeicher.
+[D] Fangstatistik: Bei überlappenden Trips wurden Angelstunden und denselben
+    Fang mehrmals gezählt. 3.0.1 vereinigt Zeitintervalle und zählt jeden
+    Fang einmal. Trips ohne Fang werden weiterhin gesondert gezählt.
+[E] Systemcheck: Frühere Cache-Versionen konnten ein vermeintlich vollständiges
+    neues Kernpaket vortäuschen. 3.0.1 akzeptiert für die Kernprüfung nur
+    exakt den Cache „petri-core-3.0.1“ und kontrolliert die Worker-Version.
+[F] Offline-Navigation: Bei instabiler Verbindung konnte jede Navigation
+    6,5 Sekunden auf einen Netzabruf warten. 3.0.1 verwendet bereits geprüfte
+    aktuelle Offline-Seiten zuerst aus dem Cache; die Update-Reparatur bleibt
+    für aktuelle Versionsinformationen netzorientiert.
+[G] Fotovergleich: Wenn gar keine der 49 Referenzdateien erreichbar war,
+    konnte der Vergleich ohne Ergebnisse als „abgeschlossen“ erscheinen.
+    3.0.1 meldet die fehlende Bildvorbereitung deutlich.
+
+2. AUTOMATISIERTE PRÜFUNGEN
+
+PASS – JavaScript-Syntaxprüfung aller neu erstellten Skripte via Node.js.
+PASS – Offline-Navigation unter simulierter Netztrennung: Startseite, Premium-Zentrale
+       und Offline-Prüfseite werden ohne Netzabruf aus dem Cache geöffnet.
+PASS – 57 eindeutige Offline-Kernpfade; Version in HTML, SW, Manifest
+       und Versionsdatei gleich; keine doppelte Core-Ressource.
+PASS – Simulierte vollständige Offline-Installation: 57/57 Dateien im Cache.
+PASS – Simulierter Installationsfehler: neuer Cache wird entfernt,
+       alter Cache bleibt erhalten; keine fehlerhafte Aktivierung.
+PASS – Premium-Zentrale im Chromium-Test (390 px): 6 Navigationsbereiche,
+       Fangstatistik, Lernkarte und persistierter Fortschritt, SVG-Karte,
+       GPS-Start/Stopp, Spur löschen, Qualität-Seite ohne Seitenfehler.
+PASS – Fangstatistik mit überlappenden Trips: 1 Fang/3 Stunden = 0,33/h.
+PASS – 2.4-Erweiterungen isoliert: 12 Navigationspunkte; Trip, Tagebuch,
+       Kosten, Artenvergleich, Praxistrainer, Schonzeiten, Rekordbuch,
+       Offline-Karten-Eingabe, Backup-Vorschau und Start-Kurzlinks.
+PASS – 2.5-Angelwerkzeuge isoliert: 9 Navigationspunkte; GPS-Punkt,
+       Merkmalsbestimmung, Rutenmontage, Fangvorlage, Pro-Fangübernahme,
+       Verleih, Notfallkontakt und Barrierefreiheit. Kein Skriptfehler.
+PASS – 390-px-Ansicht in diesen isolierten Tests ohne horizontalen Überlauf.
+
+3. NICHT VOLLSTÄNDIG TESTBAR
+
+Die ursprüngliche Hauptdatei app.js (~4,5 MB) war über den verfügbaren
+GitHub-Textzugang nicht vollständig abrufbar. Eine tatsächliche vollständige
+Funktionsprüfung aller bestehenden Ansichten und Formen ist daher OFFEN.
+
+Echte iPhone-/Android-Tests (inklusive Kamera-Zugriff, GPS-Genauigkeit,
+Android-Berechtigungen, Druck/PDF, IndexedDB-Foto-Ablage, Backup-Import)
+sind OFFEN. Die lokale HTTP-Testumgebung blockierte einen älteren
+End-to-End-Test; isolierte Tests konnten ausgeführt werden.
+
+Die Bild-Erkennung ist ein experimenteller Mustervergleich, kein trainiertes
+KI-Modell. Die Offline-Karte ist eine Positionsskizze und keine topografische
+Grundkarte. Live-Wetter und externe Karten bleiben wegen Datenschutz gesperrt.
+
+4. DATENVERTRÄGLICHKEIT
+
+Keine bestehenden localStorage-Schlüssel umbenannt; kein automatischer
+Import, keine Löschung von Fangdaten oder Fotos. Der PIN-Schutz bleibt
+absichtlich ausgeschlossen. Die persönlichen Daten werden weiterhin lokal
+verwaltet. Github Pages erfährt technisch notwendige Verbindungsmetadaten
+bei Installation und Aktualisierung.
+
+5. INSTALLATION / VORAUSSETZUNG
+
+Alle Update-Dateien in das Root-Verzeichnis des bestehenden GitHub-Repos
+hochladen, gleichnamige ersetzen, andere Dateien NICHT löschen.
+Das Repository muss sämtliche früheren App- und 228 Bilddateien behalten.
+Vorher ein privates Backup erstellen. Anschließend 3.0.1 aktivieren,
+Offline-Bilder vorbereiten, Premium-Systemcheck starten und Flugmodus testen.
+
+Die Prüfung ist eine deutliche Verbesserung, aber keine Garantie
+vollständiger Fehlerfreiheit aller Geräte und aller Bestandscodes.

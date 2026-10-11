@@ -1,0 +1,14 @@
+PETRI HEIL PRO 3.0.1 – GEPRÜFTES REPARATURUPDATE
+
+18 App-Dateien plus zwei Prüf-/Installationsdateien. Funktioniert auf einem vollständigen 2.5.0- oder 3.0.0-Repository.
+
+1. VOR DEM UPDATE Fangdaten und Bilder in der alten App sichern. Passwort für verschlüsselte Backups sicher aufbewahren.
+2. ZIP entpacken und die 18 App-Dateien in das HAUPTVERZEICHNIS des bestehenden GitHub-Repositories PetriHeil hochladen. Bei gleichen Dateinamen bestehende ersetzen. KEINE alten Daten-, Bild- oder App-Dateien löschen.
+3. GitHub Pages-Veröffentlichung abwarten.
+4. Auf dem iPhone und Android im installierten Petri Heil: Update-Reparatur öffnen und Version 3.0.1 installieren.
+5. Unter Offline prüfen alle 228 Bilddateien vorbereiten. Danach in der Premium-Zentrale den Systemcheck ausführen und den Flugmodus testen.
+6. Einen Testfang, den Prüfungsbereich, private GPX-Funktionen, Backup-Export und Rückimport ausschließlich mit Testsicherung prüfen.
+
+Inhalt der Reparatur: GPS-Start/Stop, GPS-Seitenwechsel, Statistik-Überlappungen, korrekte Offline-Diagnose, Offline-Navigation, Fehlermeldungen des Bildvergleichs. Kein PIN.
+
+Hinweis: Die ca. 4,5 MB große ursprüngliche app.js wurde nicht verändert. Die 228 Fisch-/Ausrüstungsbilder sind im Repository schon vorhanden und werden nicht nochmals in der Update-ZIP geliefert.
