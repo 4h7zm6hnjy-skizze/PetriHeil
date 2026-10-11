@@ -1,0 +1,30 @@
+PETRI HEIL PRO 4.0.0 — GESAMTUPDATE / QUALITÄTSRELEASE
+Stand: 11.10.2026
+
+1. VORHER: Im bislang installierten Petri Heil Pro über Werkzeuge ein verschlüsseltes AES-Gesamtbackup exportieren. Backup-Archiv und Passwort getrennt aufbewahren; eine Wiederherstellung möglichst in einem zweiten Browserprofil prüfen.
+2. ZIP-Datei vollständig entpacken.
+3. Den entpackten INHALT (alle Dateien auf erster Ebene) ins Wurzelverzeichnis von https://github.com/4h7zm6hnjy-skizze/PetriHeil im Branch main hochladen. Gleichnamige Dateien ersetzen.
+4. KEINE sonstigen Dateien, Bilder, Offline-Karten oder Verzeichnisse aus GitHub entfernen. Die ZIP NICHT als einzelnes Archiv in das Repository laden.
+5. Warten, bis die GitHub-Pages-Veröffentlichung abgeschlossen ist. App aufrufen, Version prüfen; in der App „Update installieren“ bzw. update-rettung.html verwenden.
+6. Neue Angelzentrale öffnen: petri400.html. Vorhandene Haupt-App: index.html.
+7. offline-check.html öffnen, komplettes Kernpaket und separat 228 vorhandene Fisch-/Ausrüstungsmedien prüfen und bei Bedarf vorbereiten. Regionale Kartenpakete in der Karte getrennt laden.
+8. Echtes iPhone: Angeln, Fangbuch/Foto, Standortfreigabe, Kinderwelt, Gezeiten, Offline-Flugmodus, Download und AES-Backup-Wiederherstellung prüfen. Bei Problemen den vorherigen GitHub-Commit wiederherstellen; persönliche Browserdaten nicht löschen.
+
+DAS UPDATE IST KUMULATIV (ab bestehender 3.6.0 oder 3.7.0):
+- 4.0-Oberfläche für Fangbuch Pro + Plus, Fang-Suche/Filter, CSV/JSON-Export, Schnellfang.
+- Bestehende 177 Arten/Bildzuordnungen, Angelschule, Kinderwelt, Gewässer, Bissindex und Karten bleiben erhalten.
+- Neuer Pro-Planer mit Packliste, Lerntrainer, Knoten, Statistik, eigene dokumentierte Gewässerregeln.
+- Pegelonline-Messdaten nur per ausdrücklichem Klick; Quelle und Zeitstempel; offline nur zuletzt gespeicherter Wert.
+- Einstellungs-Import/-Export im Format petri400-settings, Schutz vor kaputten alten Fangbuchdaten.
+- Eigenständiges Offline-Manifest mit 130 Ressourcen und sicherem Installationsabbruch bei fehlender Pflichtdatei.
+- Heller Auftritt, mobile Anpassungen, Fokus- und Tastaturbedienung.
+
+BESCHRÄNKUNGEN
+- Kein fertig trainiertes KI-Modell für Fotobestimmung; keine flächendeckenden echten Offline-Straßentiles oder verifizierte Live-Schonzeitendatenbank.
+- Keine garantierte automatische BSH-Gezeiten-Synchronisierung. Gezeiten funktionieren mit vorhandenen Importen.
+- Die neu gebaute Zentrale ersetzt nicht sämtliche alten Module; sie ergänzt und bündelt sie. Alte getrennte Fang-Speicher bleiben bis zur bewusst geprüften Migration unverändert.
+- Offline-Kernpaket enthält NICHT sämtliche Bild-/Detailkartendaten automatisch.
+- Echter End-to-End-Test der alten Haupt-App (4,5 MB app.js), iPhone und Android sowie vollständige AES-Wiederherstellung sind nicht nachgewiesen.
+- Browser können lokale Daten bei Speicherbereinigung löschen; deshalb Backup auf separatem Gerät/Datenträger empfohlen.
+
+STATUS BEI ERSTELLUNG: GitHub main meldete 3.6.0. Das Update-Paket wurde nicht ins Repository veröffentlicht. GitHub-Schreibversuch im vorangegangenen Arbeitsgang scheiterte an HTTP 403.

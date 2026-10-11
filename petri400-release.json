@@ -1,0 +1,14 @@
+{
+  "version": "4.0.0",
+  "releaseDate": "2026-10-11",
+  "baseGitHubRepo": "4h7zm6hnjy-skizze/PetriHeil",
+  "baseBranch": "main",
+  "baseCommit": "0a2ba186988334077bd516cd38343fcb8fedf996",
+  "baseVersion": "3.6.0",
+  "selfContainedSource": false,
+  "patchCompatibleWith": "3.6.0 or 3.7.0",
+  "uploadStatus": "NOT_UPLOADED_GITHUB_PERMISSION_DENIED",
+  "preserves": "Older HTML modules, images, IndexedDB stores, localStorage data, offline image caches",
+  "noLegacyDeletion": true,
+  "upgradeIsBestEffort": true
+}

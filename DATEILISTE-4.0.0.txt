@@ -1,0 +1,17 @@
+Petri Heil Pro 4.0.0 - Dateiübersicht
+DATEILISTE-4.0.0.txt	391 B
+INSTALLATION-4.0.0.txt	3186 B
+PRUEFBERICHT-4.0.0.txt	2455 B
+angelbegleiter.html	1860 B
+index.html	7776 B
+offline-check.html	1664 B
+petri-core-v4.0.0.json	4951 B
+petri-offline-v4.0.0.js	6660 B
+petri-sw.js	5528 B
+petri400-release.json	514 B
+petri400.css	7082 B
+petri400.html	1481 B
+petri400.js	39154 B
+sw.js	89 B
+version.json	1637 B
+zentrale.html	2483 B

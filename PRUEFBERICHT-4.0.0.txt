@@ -1,0 +1,36 @@
+PETRI HEIL PRO 4.0.0 — PRÜFBERICHT (11.10.2026)
+
+GITHUB-VORPRÜFUNG
+- Repo: 4h7zm6hnjy-skizze/PetriHeil, Branch main.
+- Gemeldete Version: 3.6.0; GitHub-Commit: 0a2ba186988334077bd516cd38343fcb8fedf996.
+- Neue ZIP ist noch NICHT in GitHub installiert. Kein GitHub-Schreibzugriff bestätigt.
+
+PAKET
+- Kumulativer Datei-Overlay auf vorhandene 3.6.0-Bestandsapp (auch falls 3.7.0 bereits installiert).
+- 136 EINDEUTIGE Kernmanifest-URLs, keine automatisch zu löschenden Altdateien.
+- 228 zusätzliche Medien aus bereits vorhandenem petri-media-v2.2.0.json sollen separat vorbereitet werden.
+- 16 Dateien einschließlich Installation und Prüfdokumentation.
+
+TESTS
+- Node-Syntax aller neuen/veränderten JS-Dateien: bestanden.
+- JSON-Syntax und Versionsübereinstimmung: bestanden.
+- Isolierter Chromium-Test: 9/9 Bereiche, Schnellfang, Suchfilter, CSV-Download, Regeln, Lernfragen, Packliste, Checkbox-Speicherung, Einstellungs-Export, lokale Systemprüfung: bestanden.
+- Chromium Layout 320/375/390/430/768/1024 Pixel, alle 9 Bereiche: kein horizontaler Seitenüberlauf.
+- Datenfehler: beschädigtes bestehendes Pro-Fangbuch wird nicht überschrieben (isoliert bestanden).
+- Übernahme von 3.7.0-Einstellungen, Test auf lokalen Schreibfehler und Zurückrollen von Änderungen: bestanden.
+- Service-Worker-Modelltest: 136 Kernressourcen in simulierten Stage/Produktiv-Cache übernommen; Fehler einer Pflichtdatei führt zu Abbruch ohne Aktivierung und ohne Löschen bestehender Kernversion (simuliert bestanden).
+
+NICHT VERIFIZIERT
+- Echte HTTPS-Service-Worker-Installation auf GitHub Pages und Offline-Flugmodus am iPhone.
+- Kamera, Geo-Position, IndexedDB-Fotos, PDF, echte AES-Gesamtwiederherstellung.
+- Gesamtes älteres 3.6.0-Haupt-App-Skript end-to-end und biologische Richtigkeit aller Fischbilder.
+- Live-PEGELONLINE/CORS auf GitHub Pages sowie aktuelle amtliche Gezeiten/Schonmaße.
+
+DATENSCHUTZ
+- Keine Cloud-Synchronisierung oder Telemetrie eingeführt.
+- WSV-Zugriff erfolgt nur nach aktivem Klick; dabei wird technisch eine externe Netzwerkverbindung aufgebaut.
+- Neue lokale Einstellungen in petri400-settings-v1; bestehende Daten bleiben in ihren bisherigen Keys und IndexedDB.
+- Import bezieht sich ausschließlich auf 4.0-Einstellungen und erfordert eine Nutzerbestätigung.
+- Keine automatischen Löschungen von persönlichem Speicher oder alten Caches.
+
+KEIN VERSPRECHEN UNBEGRENZTER FEHLERFREIHEIT. Reale Gerätetests sind notwendig.

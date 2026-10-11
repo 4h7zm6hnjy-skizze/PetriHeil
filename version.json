@@ -1,27 +1,23 @@
 {
-  "version": "3.7.0",
+  "version": "4.0.0",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "serviceWorker": "sw.js",
   "changes": [
-    "Neue Angelzentrale 3.7.0 mit neun übersichtlichen Reitern für zwölf Entwicklungsbereiche.",
-    "Gemeinsame Leseansicht der Pro- und Plus-Fangbücher, ohne automatische Migration; neue Schnell-Einträge werden im Pro-Fangbuch gespeichert.",
-    "Vorhandene 16 Deutschland-Kartenregionen und GeoJSON-Detailkarten bleiben erreichbar.",
-    "Packlisten für Angeltrips und eigener Lernfortschritt mit Prüfung und Knotentrainer.",
-    "Quellenpflichtige lokale Regeln und qualitativer Beißindex ohne erfundene Zahlen.",
-    "PEGELONLINE-Wasserstand auf ausdrücklichen Online-Abruf; Messwerte mit Zeitstempel lokal zwischenspeichern.",
-    "Gespeicherte BSH-Gezeitenimporte im neuen Portal sichtbar; automatische BSH-Datenanbindung nicht vorhanden.",
-    "Fangstatistik nach Fischart, Monat, Köder mit ausschließlich eigenen Eingaben.",
-    "Neuer Offline-Bildcheck für 228 Medien; vorherige Datenspeicher- und Bilddateien werden nicht gelöscht.",
-    "Startseite, Anglerzentrale, Angelbegleiter und Service Worker auf 3.7.0 angepasst."
+    "Kumulatives 4.0.0 Qualitätsupdate auf Basis von 3.6.0 – auch ohne 3.7.0-Zwischeninstallation.",
+    "Gemeinsame Anzeige der Pro- und Plus-Fanglisten; Such- und Quellenfilter, CSV-Export, sichere Schnellerfassung.",
+    "Pläne, eigene Gewässerregeln, Beißindex-Faustregeln, Lerntrainer und Knotenmodule in einer hellen Zentrale.",
+    "Gesicherter Einstellungsimport und -export, Schreibkontrollen, vorsichtige Behandlung beschädigter Datensätze.",
+    "Eigenständiges 4.0.0-Offline-Manifest und atomarer Service-Worker-Installationsablauf mit altem Cache als Rückfall.",
+    "Offline-Prüfung für App-Kern und optional 228 vorhandene lokale Medien.",
+    "Barrierefreiere Navigation, mobile Lesbarkeit und Versionsanzeige."
   ],
   "limitations": [
-    "Kein KI-Fischfoto-Klassifikator; Merkmalsbestimmung und Fischbilder aus dem Bestand.",
-    "Keine vollständigen präzisen Straßenkarten für Deutschland und keine automatische Erkennung von Angelverbotszonen.",
-    "WSV-Onlineabruf benötigt Internet und eine für den Browser freigegebene API-Verbindung; Daten ungeprüft.",
-    "Keine automatische Live-Wassertemperatur oder Live-Tide-Synchronisierung. Gezeiten werden aus lokal importierten Daten angezeigt.",
-    "Amtliche Schonzeiten und Mindestmaße müssen für Gewässer und Bundesland extern geprüft werden.",
-    "Keine iOS-/Android-Geräteprüfung oder Wiederherstellung einer echten Nutzersicherung nachgewiesen.",
-    "Der Archiv-Upload muss manuell erfolgen, da der GitHub-Zugriff die Schreiboperation abgewiesen hat."
+    "Nicht auf echtem iPhone/Android geprüft; kein vollständiger End-to-End-Test des vorhandenen 4,5-MB-Hauptskripts.",
+    "Kein trainiertes Bild-KI-Modell, keine vollständig lizenzierten detaillierten Straßenkarten und keine geprüfte bundesweite Rechtsdatenbank.",
+    "Pegelonline funktioniert nur bei Netzwerk- und Browserfreigabe; Gezeiten stammen aus lokalen Importen.",
+    "Kernmanifest macht keinen Anspruch auf die komplette Offline-Sicherung sämtlicher 228 Medien.",
+    "Bestandsfangbuch und Fangbuch Plus bleiben als getrennte Datenspeicher bestehen, werden aber gemeinsam angezeigt.",
+    "Lokale Daten können bei Browser-Löschung verloren gehen; AES-Gesamtbackup vorher exportieren und separat auf Echtdaten prüfen."
   ]
 }
