@@ -1,0 +1,42 @@
+PETRI HEIL PRO 3.7.0 – GESAMTUPDATE DES WEB-APP-EINSTIEGS
+Stand: 11.10.2026
+
+GEPRÜFTE AUSGANGSLAGE
+Repository: https://github.com/4h7zm6hnjy-skizze/PetriHeil
+Stand bei Prüfung: main-Version 3.6.0, Commit 0a2ba186988334077bd516cd38343fcb8fedf996.
+Der Versuch, einen GitHub-Branch anzulegen, scheiterte an fehlenden Schreibrechten (HTTP 403). Dieses Update ist deshalb nur eine ZIP-Datei und NICHT auf GitHub installiert.
+
+WICHTIG: VOR DEM UPDATE AUS DER BESTEHENDEN APP EIN VERSCHLÜSSELTES GESAMTBACKUP EXPORTIEREN. BACKUP UND KENNWORT GETRENNT AUFBEWAHREN.
+
+INSTALLATION AUF GITHUB (MAIN)
+1. Das ZIP herunterladen und vollständig entpacken.
+2. Alle enthaltenen Dateien (außer den Hinweis-/Prüftexten nach Belieben) direkt ins STAMMVERZEICHNIS des PetriHeil-Repositories hochladen.
+3. Bestehende gleichnamige Dateien ersetzen: index.html, zentrale.html, angelbegleiter.html, offline-check.html, version.json, sw.js und petri-sw.js.
+4. Alle anderen vorhandenen Dateien, Bilder, Ordner und privaten Daten NICHT löschen. Die ZIP selbst NICHT als einzige Datei hochladen.
+5. GitHub-Pages-Veröffentlichung prüfen, neue Startseite online öffnen, dann den Inhalt vollständig neu laden. Bei Versionskonflikt update-rettung.html öffnen.
+6. Neuer Menüpunkt „Meine Angelzentrale 3.7“ auf der Hauptseite bzw. petri370.html öffnen.
+7. Neue Offline-Kontrolle öffnen: offline-check.html. Bildpaket und Kern prüfen. In der neuen Zentrale Technik -> "3.7.0-Dateien prüfen".
+8. Flugmodus-Test auf echtem iPhone durchführen: Startseite, Kinderwelt, Fangbuch, neue Zentrale, Fische, Lernbereiche, regionale Karten öffnen.
+9. Neue Pro-Schnellerfassung testen und Fangliste in der bestehenden Haupt-App gegenprüfen.
+
+FUNKTIONSÜBERSICHT
+- Gemeinsame Pro+Plus-Fangbuch-Ansicht und zusammengefasste Statistiken, ohne Migration oder Löschung.
+- Neue Schnell-Einträge landen direkt in petri31-pro-data-v1. Fangfotos weiter über vorhandene vollständige Pro-Eingabe.
+- Zugang zu 16 Bundesländer-Offlinekarten und vorhandenem GeoJSON-Detailimport.
+- PEGELONLINE-Messwert auf Knopfdruck; Standszeit und letzter Empfang offline lesbar.
+- Lokal importierte Gezeiten aus dem BSH-Workflow; keine automatische BSH-Synchronisierung.
+- Qualitative, als Faustregel markierte Beißindex-Bewertung.
+- Eigene Gewässerregel-Einträge mit Datum und Quelle; keine ungeprüften generischen Mindestmaße.
+- Individuelle Ausflugs- und Packlisten.
+- Neue Lernfragen und sichere Verweise zur bestehenden Angelschule und Kinderwelt.
+- Knotentraining mit Verbindung zu vorhandenen illustrierten Anleitungen.
+- Fangstatistik nach Art, Monat und Köder.
+- Speichercheck und 228 Bilder umfassende lokale Offline-Bildprüfung.
+
+GRENZEN
+- Keine trainierte Fisch-Foto-KI; vorhandene Merkmalsbestimmung bleibt erhalten.
+- Keine vollständigen neuen Straßenkarten-Datensätze für Deutschland; alte regionale Karten bleiben.
+- Keine amtliche Live-Schonzeiten-/Mindestmaß-Datenquelle und keine Live-Gezeiten; Quellenprüfung bleibt notwendig.
+- Keine automatische Wassertemperatur, Wetter-API oder Hintergrund-Pushmeldung.
+- Keine echten iPhone- oder Android-Ende-zu-Ende-Tests in der isolierten Testumgebung möglich.
+- Upload ist noch erforderlich. Auf GitHub wird weiterhin 3.6.0 angezeigt, bis der Upload erfolgt und Pages die Aktualisierung veröffentlicht.

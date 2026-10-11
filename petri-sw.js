@@ -1,285 +1,47 @@
-/* Petri Heil Pro: stabiler Worker-Pfad, Version 3.6.0.
-   Updated in place on future releases. Does not import legacy workers. */
+/* Petri Heil Pro 3.7.0 – compatible cache-first offline worker.
+   No user-data deletion, no remote tiles, no cache cleanup. */
 'use strict';
-const VERSION='3.6.0';
-const ROOT=new URL('./',self.location.href);
-const CORE_CACHE='petri-core-3.6.0';
-const IMAGE_CACHE='petri-media-2.2.0';
-const CORE=[
- 'angelbegleiter.html','petri360.css?v=3.6.0','petri360.js?v=3.6.0',
- 'index.html',
- 'petri-studio-v3.6.0.js?v=3.6.0',
- 'zentrale.html','petri-zentrale-v3.6.0.js?v=3.6.0','petri-zentrale-v3.6.0.css?v=3.6.0',
- 'gewaesser.html','petri-gewaesser-v3.6.0.js?v=3.6.0','petri-gewaesser-v3.6.0.css?v=3.6.0',
- 'petri-hauptmenue-v3.6.0.js?v=3.6.0','petri-hauptmenue-v3.6.0.css?v=3.6.0',
- 'petri-fischbilder-v3.6.0.js?v=3.6.0','BILDZUORDNUNGEN_177_ARTEN.json',
- 'petri-kinderprofile-v3.6.0.js?v=3.6.0','petri-kinderprofile-v3.6.0.css?v=3.6.0',
- 'petri-lernkarten-v3.6.0.js?v=3.6.0','petri-lernkarten-v3.6.0.css?v=3.6.0',
- 'update-rettung.html',
- 'version.json',
- 'manifest.webmanifest',
- 'style.css?v=2.0.4',
- 'data.js?v=2.0.4',
- 'app.js?v=2.0.4',
- 'petri-ocean-theme.css?v=2.0.42',
- 'petri-logos-v2.0.29.css?v=2.0.42',
- 'petri-pro-suite-v2.0.39.css?v=2.0.42',
- 'petri-report-v2.0.36.css?v=2.0.42',
- 'petri-next-v2.0.37.css?v=2.0.42',
- 'petri-gesamt-v2.0.39.css?v=2.0.42',
- 'petri-gps-v2.0.42.css?v=2.0.42',
- 'petri-ui-v2.1.2.css?v=2.1.2',
- 'petri-species-regions-v2.1.3.css?v=2.1.3',
- 'petri-hero-logo-v2.1.4.css?v=2.1.4',
- 'petri-start-design-v2.1.6.css?v=2.1.6',
- 'petri-start-design-v2.1.6.js?v=3.2.0',
- 'petri-hero-uebersicht-v2.1.6.webp',
- 'species-images-v2.0.5.js?v=2.0.42',
- 'petri-anglerclock-pruefung-v2.0.30.js?v=2.0.42',
- 'petri-pro-suite-v2.0.42.js?v=2.0.42',
- 'petri-data-bridge-v2.0.33.js?v=2.0.42',
- 'petri-report-v2.0.36.js?v=2.0.42',
- 'petri-next-v2.0.37.js?v=2.0.42',
- 'petri-gesamt-v2.0.41.js?v=2.0.42',
- 'petri-unified-ui-v2.1.2.js?v=2.1.2',
- 'petri-species-regions-v2.1.3.js?v=2.1.3',
- 'petri-updater.js?v=2.4.0',
- 'petri-media-v2.2.0.json',
- 'petri-offline-v3.6.0.js?v=3.6.0',
- 'offline-check.html',
- 'petri-platform-v2.2.1.css?v=2.2.1',
- 'petri-platform-v2.2.1.js?v=2.2.1',
- 'installieren.html',
- 'petri-privacy-v2.2.2.js?v=2.2.2',
- 'datenschutz.html',
- 'petri-praktisch-v2.2.3.css?v=2.2.3',
- 'petri-praktisch-data-v2.2.3.js?v=2.2.3',
- 'petri-praktisch-v2.2.3.js?v=2.2.3',
- 'praxis.html',
- 'petri-werkzeuge-v2.3.0.css?v=2.3.0',
- 'petri-werkzeuge-v3.6.0.js?v=3.6.0',
- 'petri-praxis-plus-v2.3.0.js?v=2.3.0',
- 'petri-compat-v2.5.0.js?v=2.5.0',
- 'petri-core-v3.6.0.json',
- 'werkzeuge.html',
- 'petri-bildschirm-v3.0.2.css?v=3.1.0',
- 'petri-bildschirm-v3.0.2.js?v=3.1.0',
- 'petri-erweiterungen-v2.4.0.css?v=2.4.0',
- 'petri-erweiterungen-v2.4.0.js?v=2.4.0',
- 'erweiterungen.html',
- 'petri-angelwerkzeuge-v2.5.0.css?v=2.5.0',
- 'petri-angelwerkzeuge-v2.5.0.js?v=2.5.0',
- 'angelwerkzeuge.html',
- 'petri-premium-v3.0.0.css?v=3.0.0',
- 'petri-premium-v3.2.0.js?v=3.2.0',
- 'premium.html',
- 'karte.html',
- 'petri-karte-v3.1.0.css?v=3.1.0',
- 'petri-karte-v3.1.0.js?v=3.1.0',
- 'petri-karten-regionen-v3.1.0.json',
- 'petri-karte-de-uebersicht-v3.1.0.json',
- 'petri-biss-v3.2.0.css?v=3.2.0',
- 'petri-biss-v3.2.0.js?v=3.2.0',
- 'montagen.html',
- 'petri-montagen-v3.2.0.css?v=3.2.0',
- 'petri-montagen-data-v3.2.0.js?v=3.2.0',
- 'petri-montagen-v3.2.0.js?v=3.2.0',
- 'gezeiten.html',
- 'kinderwelt.html',
- 'petri-gezeiten-v3.3.0.js?v=3.3.0',
- 'petri-gezeiten-v3.3.0.css?v=3.3.0',
- 'petri-kids-v3.3.2.js?v=3.3.2',
- 'petri-kids-v3.3.2.css?v=3.3.2',
- 'petri-angelschule-nav-v3.4.0.js?v=3.4.0',
- 'petri-angelschule-v3.3.1.css?v=3.3.1',
- 'angelschule.html',
- 'hecht.webp',
- 'flussbarsch.webp',
- 'karpfen.webp',
- 'rotauge.webp',
- 'rotfeder.webp',
- 'schleie.webp',
- 'zander.webp',
- 'aal.webp',
- 'wels.webp',
- 'bachforelle.webp',
- 'brasse.webp',
- 'regenbogenforelle.webp',
- 'angelstudio.html',
- 'petri-studio-v3.4.0.js?v=3.4.0',
- 'petri-studio-v3.4.0.css?v=3.4.0',
- 'petri-studio-entry-v3.4.0.js?v=3.4.0',
- 'petri-studio-entry-v3.4.0.css?v=3.4.0',
- 'petri-kids-plus-v3.4.0.js?v=3.4.0',
- 'petri-kids-plus-v3.4.0.css?v=3.4.0',
- 'lernspiele.html',
- 'petri-lernspiele-v3.4.0.js?v=3.4.0',
- 'petri-lernspiele-v3.4.0.css?v=3.4.0',
- 'karten-detail.html',
- 'petri-karten-detail-v3.4.0.js?v=3.4.0',
- 'petri-karten-detail-v3.4.0.css?v=3.4.0'
+const VERSION='3.7.0', CORE_CACHE='petri-core-3.7.0', IMAGE_CACHE='petri-media-2.2.0';
+const ROOT=new URL('./',self.location.href), file=n=>new URL(n,ROOT).href;
+const DELTA=[
+ 'petri370.html','petri370.css?v=3.7.0','petri370.js?v=3.7.0',
+ 'index.html','zentrale.html','angelbegleiter.html','offline-check.html',
+ 'petri-offline-v3.7.0.js?v=3.7.0','version.json','petri-core-v3.7.0.json','sw.js','petri-sw.js?v=3.7.0'
 ];
-const IMAGES=[
- 'petri-fisch-v2.0.29.webp','petri-marke-v2.0.29.webp',
- 'icon-192.png','icon-512.png','petri-hero-uebersicht-v2.1.6.webp',
- 'gear-bissfestes-vorfach.webp','gear-boilie.webp','gear-mais-teig.webp',
- 'gear-wuermer-maden.webp','gear-pilker-paternoster.webp','gear-rettungsweste.webp'
-];
-const file=s=>new URL(s,ROOT).href;
-const essentialKey=file('index.html');
-self.addEventListener('message',evt=>{
-  const type=evt.data?.type;
-  if(type==='PETRI_GET_WORKER_VERSION'){
-    try{evt.ports?.[0]?.postMessage({version:VERSION,cache:CORE_CACHE,ready:true})}catch{}
-  }else if(type==='SKIP_WAITING'){
-    void self.skipWaiting();
-  }else if(type==='PREFETCH_IMAGES'){
-    evt.waitUntil(prefetchImages());
-  }
+const CHANGED=new Set(['petri370.html','petri370.css','petri370.js','index.html','zentrale.html','angelbegleiter.html','offline-check.html','petri-offline-v3.7.0.js','version.json','petri-core-v3.7.0.json','sw.js','petri-sw.js']);
+const ROUTES=new Set(['index.html','offline-check.html','update-rettung.html','installieren.html','datenschutz.html','praxis.html','erweiterungen.html','werkzeuge.html','karte.html','premium.html','angelwerkzeuge.html','montagen.html','gezeiten.html','kinderwelt.html','angelschule.html','angelstudio.html','karten-detail.html','lernspiele.html','zentrale.html','gewaesser.html','angelbegleiter.html','petri370.html']);
+self.addEventListener('message',e=>{
+ const t=e.data?.type;
+ if(t==='PETRI_GET_WORKER_VERSION'){try{e.ports?.[0]?.postMessage({version:VERSION,cache:CORE_CACHE,ready:true})}catch{}}
+ if(t==='SKIP_WAITING')void self.skipWaiting();
+ if(t==='PREFETCH_IMAGES')e.waitUntil(prefetchImages());
 });
-// Distinct cache keys are essential: Cache.addAll rejects duplicate requests.
-// Each required file is cached only once and its individual failure is reported.
-function announceInstall(type, extra={}){
-  return self.clients.matchAll({includeUncontrolled:true,type:'window'}).then(list=>{
-    for(const client of list){try{client.postMessage({type,version:VERSION,...extra})}catch{}}
-  }).catch(()=>{});
-}
-self.addEventListener('install',evt=>evt.waitUntil((async()=>{
-  const cache=await caches.open(CORE_CACHE);
-  const paths=[...new Set(CORE)];
-  const required=['index.html','version.json'];
-  let completed=0;
-  async function load(path){
-    const uri=file(path);
-    let last;
-    for(let attempt=1;attempt<=2;attempt++){
-      const ctrl=new AbortController();
-      const timer=setTimeout(()=>ctrl.abort(),30000);
-      try{
-        const response=await fetch(uri,{cache:'no-store',signal:ctrl.signal});
-        if(!response.ok||response.type==='opaque')throw Error('HTTP '+response.status);
-        if(path==='index.html'){
-          const text=await response.clone().text();
-          if(!text.includes('name="petri-app-version" content="'+VERSION+'"'))
-            throw Error('Veröffentlichte Startseite hat nicht Version '+VERSION);
-        }
-        if(path==='version.json'){
-          const data=await response.clone().json();
-          if(data.version!==VERSION)throw Error('Veröffentlichte Versionsdatei ist nicht '+VERSION);
-        }
-        await cache.put(uri,response);
-        completed++;
-        if(completed===paths.length || completed%3===0)
-          await announceInstall('PETRI_INSTALL_PROGRESS',{done:completed,total:paths.length,file:path});
-        return;
-      }catch(e){last=e}finally{clearTimeout(timer)}
-    }
-    throw Error('Datei '+path+' konnte nicht offline gespeichert werden: '+(last?.message||last));
-  }
-  try{
-    for(const p of required)await load(p);
-    const remaining=paths.filter(p=>!required.includes(p));
-    let i=0, firstError=null;
-    async function consume(){
-      while(!firstError&&i<remaining.length){
-        const path=remaining[i++];
-        try{await load(path)}catch(e){firstError=e;break}
-      }
-    }
-    await Promise.all([consume(),consume(),consume()]);
-    if(firstError)throw firstError;
-    if(completed!==paths.length)throw Error('Offline-Paket unvollständig');
-    await announceInstall('PETRI_INSTALL_PROGRESS',{done:completed,total:paths.length,complete:true});
-    await self.skipWaiting();
-  }catch(e){
-    await announceInstall('PETRI_INSTALL_FAILURE',{error:String(e?.message||e)});
-    await caches.delete(CORE_CACHE);
-    throw e;
-  }
+async function prefetchImages(){const c=await caches.open(IMAGE_CACHE);for(const name of ['petri-fisch-v2.0.29.webp','petri-marke-v2.0.29.webp','icon-192.png','icon-512.png','petri-hero-uebersicht-v2.1.6.webp']){try{const u=file(name);if(await c.match(u)||await caches.match(u))continue;const r=await fetch(u);if(r.ok&&r.type!=='opaque')await c.put(u,r)}catch{}}}
+async function getCoreFiles(){const r=await fetch(file('petri-core-v3.6.0.json'),{cache:'reload'});if(!r.ok)throw Error('Vorversion-Medienliste fehlt (HTTP '+r.status+')');const j=await r.json();if(j.version!=='3.6.0'||!Array.isArray(j.files)||j.files.length<100)throw Error('Unplausible Liste der bisherigen Offline-App');return [...new Set([...j.files,...DELTA])];}
+self.addEventListener('install',e=>e.waitUntil((async()=>{
+ const names=await getCoreFiles();const cache=await caches.open(CORE_CACHE);
+ for(let i=0;i<names.length;i+=8){await Promise.all(names.slice(i,i+8).map(async name=>{
+ const u=file(name);let resp=null;const base=name.split('?')[0];
+ if(!CHANGED.has(base))resp=await caches.match(u,{ignoreSearch:true});
+ if(!resp){const r=await fetch(u,{cache:'reload'});if(!r.ok||r.type==='opaque')throw Error('Pflichtdatei fehlt: '+name+' HTTP '+r.status);resp=r;}
+ if(base==='index.html'){const body=await resp.clone().text();if(!body.includes('name="petri-app-version" content="3.7.0"'))throw Error('Startseite ist noch nicht 3.7.0');}
+ if(base==='petri370.html'){const body=await resp.clone().text();if(!body.includes('name="petri-app-version" content="3.7.0"'))throw Error('Angelzentrale ist noch nicht 3.7.0');}
+ await cache.put(u,resp.clone());
+ }));}
+ await self.skipWaiting();
 })()));
-self.addEventListener('activate',evt=>evt.waitUntil((async()=>{
-  await self.clients.claim();
-  // Keep old caches because many fish photos may only exist there.
-})()));
-async function networkFirst(req,key){
-  const cache=await caches.open(CORE_CACHE);
-  try{
-    const ctrl=new AbortController();
-    const timer=setTimeout(()=>ctrl.abort(),6500);
-    let resp;try{resp=await fetch(req,{cache:'no-store',signal:ctrl.signal});}finally{clearTimeout(timer)}
-    if(!resp.ok)throw Error('HTTP '+resp.status);
-    if(key===essentialKey){
-      const body=await resp.clone().text();
-      if(!body.includes('name="petri-app-version" content="'+VERSION+'"'))
-        throw Error('Server liefert noch veraltete Startseite.');
-    }
-    if(resp.type!=='opaque')await cache.put(key||req,resp.clone()).catch(()=>{});
-    return resp;
-  }catch(e){
-    return await cache.match(key||req,{ignoreSearch:true})||
-      await caches.match(key||req,{ignoreSearch:true})||Response.error();
-  }
-}
-async function staticCacheFirst(req){
- const current=await caches.open(CORE_CACHE);
- const cached=await current.match(req)||await caches.match(req);
- if(cached)return cached;
- return networkFirst(req,req);
-}
-async function imageCacheFirst(req){
-  const cache=await caches.open(IMAGE_CACHE);
-  const cached=await cache.match(req,{ignoreSearch:true})||await caches.match(req,{ignoreSearch:true});
-  if(cached)return cached;
-  try{
-    const resp=await fetch(req);
-    if(resp.ok&&resp.type!=='opaque')await cache.put(req,resp.clone()).catch(()=>{});
-    return resp;
-  }catch{ return Response.error() }
-}
-self.addEventListener('fetch',evt=>{
-  const url=new URL(evt.request.url);
-  if(url.origin!==self.location.origin||!url.pathname.startsWith(ROOT.pathname))return;
-  if(evt.request.method!=='GET')return;
-  if(evt.request.mode==='navigate'){
-    // Repair page is never replaced by an old cached index.html.
-    // Important: each route must use its OWN cached page, never cache a
-    // standalone page as index.html. Otherwise offline navigation shows the
-    // wrong app after visiting the installation/privacy/practical pages.
-    const known=new Set(['index.html','offline-check.html','update-rettung.html',
-      'installieren.html','datenschutz.html','praxis.html','erweiterungen.html','werkzeuge.html','karte.html','premium.html','angelwerkzeuge.html','montagen.html','gezeiten.html','kinderwelt.html','angelschule.html','angelstudio.html','karten-detail.html','lernspiele.html','zentrale.html','gewaesser.html','angelbegleiter.html']);
-    const name=url.pathname.slice(ROOT.pathname.length);
-    const key=known.has(name)?file(name):essentialKey;
-    if(name==='update-rettung.html')evt.respondWith(networkFirst(evt.request,key));
-    else evt.respondWith((async()=>{
-      const active=await caches.open(CORE_CACHE);
-      return await active.match(key)||await networkFirst(evt.request,key);
-    })());
-    return;
-  }
-  if(/\.(?:png|webp|jpe?g|gif|svg)$/.test(url.pathname)){
-    evt.respondWith(imageCacheFirst(evt.request));return;
-  }
-  if(/\.(?:css|js|json|webmanifest|html)$/.test(url.pathname)){
-    evt.respondWith(url.pathname.endsWith('/version.json')?networkFirst(evt.request):staticCacheFirst(evt.request));return;
-  }
+self.addEventListener('activate',e=>e.waitUntil((async()=>{await self.clients.claim();/* old versions and photo caches remain */})()));
+async function networkFirst(req,key){const c=await caches.open(CORE_CACHE);try{const ctl=new AbortController(),timer=setTimeout(()=>ctl.abort(),8500);let resp;try{resp=await fetch(req,{cache:'no-store',signal:ctl.signal})}finally{clearTimeout(timer)}if(!resp.ok||resp.type==='opaque')throw Error('HTTP '+resp.status);await c.put(key||req,resp.clone()).catch(()=>{});return resp}catch{return await c.match(key||req,{ignoreSearch:true})||await caches.match(key||req,{ignoreSearch:true})||Response.error()}}
+async function staticFirst(req){const c=await caches.open(CORE_CACHE);const found=await c.match(req,{ignoreSearch:true})||await caches.match(req,{ignoreSearch:true});return found||await networkFirst(req,req)}
+async function imageFirst(req){const c=await caches.open(IMAGE_CACHE);const found=await c.match(req,{ignoreSearch:true})||await caches.match(req,{ignoreSearch:true});if(found)return found;try{const r=await fetch(req);if(r.ok&&r.type!=='opaque')await c.put(req,r.clone()).catch(()=>{});return r}catch{return Response.error()}}
+self.addEventListener('fetch',e=>{
+ const u=new URL(e.request.url);if(e.request.method!=='GET'||u.origin!==ROOT.origin||!u.pathname.startsWith(ROOT.pathname))return;
+ if(e.request.mode==='navigate'){
+  const name=u.pathname.slice(ROOT.pathname.length),key=file(ROUTES.has(name)?name:'index.html');
+  if(name==='update-rettung.html')e.respondWith(networkFirst(e.request,key));
+  else e.respondWith((async()=>{const c=await caches.open(CORE_CACHE);return await c.match(key,{ignoreSearch:true})||await caches.match(key,{ignoreSearch:true})||await networkFirst(e.request,key)})());
+  return;
+ }
+ if(/\.(?:webp|png|jpe?g|gif|svg)$/i.test(u.pathname)){e.respondWith(imageFirst(e.request));return}
+ if(/\.(?:js|css|json|html|webmanifest)$/i.test(u.pathname)){e.respondWith(u.pathname.endsWith('/version.json')?networkFirst(e.request):staticFirst(e.request));return}
 });
-// Previously installed app modules request a background prefetch automatically.
-// Only cache a few app graphics here. The complete 228-image library is prepared
-// and VERIFIED by the foreground Offline-Check, so iOS cannot silently truncate
-// a claimed-complete image set when the application is suspended.
-let prefetching=null;
-function prefetchImages(){
-  if(prefetching)return prefetching;
-  prefetching=(async()=>{
-    const c=await caches.open(IMAGE_CACHE);
-    for(const name of IMAGES.slice(0,5)){
-      const url=file(name);
-      try{
-        if(await c.match(url)||await caches.match(url))continue;
-        const r=await fetch(url,{cache:'reload'});
-        if(r.ok&&r.headers.get('content-type')?.startsWith('image/'))await c.put(url,r);
-      }catch{}
-    }
-  })().finally(()=>{prefetching=null});
-  return prefetching;
-}

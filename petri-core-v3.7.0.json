@@ -1,0 +1,19 @@
+{
+  "version": "3.7.0",
+  "baseManifest": "petri-core-v3.6.0.json",
+  "cache": "petri-core-3.7.0",
+  "files": [
+    "petri370.html",
+    "petri370.css?v=3.7.0",
+    "petri370.js?v=3.7.0",
+    "index.html",
+    "zentrale.html",
+    "angelbegleiter.html",
+    "sw.js",
+    "petri-sw.js?v=3.7.0",
+    "version.json",
+    "petri-core-v3.7.0.json",
+    "petri-offline-v3.7.0.js?v=3.7.0",
+    "offline-check.html"
+  ]
+}

@@ -1,32 +1,27 @@
 {
-  "version": "3.6.0",
+  "version": "3.7.0",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "serviceWorker": "sw.js",
   "changes": [
-    "Ein neuer Angelbegleiter direkt in der bestehenden App: Angeltag starten, bearbeiten und beenden; Rute, Köder, Gewässer und auf ausdrücklichen Wunsch den GPS-Punkt speichern.",
-    "Gewässer-Steckbriefe der Version 3.5.0 mit GPS, eigenen Fotos, Erlaubnisscheinen und persönlichem Datenexport weiter eingebunden.",
-    "Fischbestimmung: lokale Merkmalsvorschläge mit Kamera-Fotovorschau; ausdrücklich keine automatisch trainierte Foto-KI.",
-    "Köderberater mit zwölf Zielfischen, Jahreszeiten, Gewässertypen und lokalen Montage-Verweisen.",
-    "Ausrüstung: Preise, Kaufdatum, Wartungs- und Garantietermine lokal verwalten.",
-    "Dokumentenmanager: Angelscheine und Erlaubnisse als PDF oder Bild lokal speichern; Gültigkeitsende vermerken.",
-    "Angelschule: neuer Übungstest mit zwölf Fragen, Zehn-Minuten-Zeitlimit, Ergebnissen und Links zu den vorhandenen NRW-Lernmodulen.",
-    "Fangbuch Plus: zusätzliche Fänge, Länge, Gewicht, Köder, Ort, Fotos, JSON-Export und druckbaren Bericht.",
-    "Sicherheitszentrale mit 112-Link, Erste-Hilfe-Kurzinfos, GPS-Koordinaten zum Kopieren und privaten Notfallangaben.",
-    "AES-256-GCM-Privatbackup schließt auch petri350-gewaesser und petri360-private als bekannte Datenbanken im iOS-Fallback ein.",
-    "Gemeinsame Zentrale aktualisiert; alle bisherigen Funktionen, Offline-Karten, 177 Bildzuordnungen, Kinderwelt, Beißindex und Gezeiten bleiben erhalten.",
-    "Versionen und Offline-Worker synchronisiert, neues Kernpaket vollständig erforderlich; keine Drittanbieter-Datenübertragung."
+    "Neue Angelzentrale 3.7.0 mit neun übersichtlichen Reitern für zwölf Entwicklungsbereiche.",
+    "Gemeinsame Leseansicht der Pro- und Plus-Fangbücher, ohne automatische Migration; neue Schnell-Einträge werden im Pro-Fangbuch gespeichert.",
+    "Vorhandene 16 Deutschland-Kartenregionen und GeoJSON-Detailkarten bleiben erreichbar.",
+    "Packlisten für Angeltrips und eigener Lernfortschritt mit Prüfung und Knotentrainer.",
+    "Quellenpflichtige lokale Regeln und qualitativer Beißindex ohne erfundene Zahlen.",
+    "PEGELONLINE-Wasserstand auf ausdrücklichen Online-Abruf; Messwerte mit Zeitstempel lokal zwischenspeichern.",
+    "Gespeicherte BSH-Gezeitenimporte im neuen Portal sichtbar; automatische BSH-Datenanbindung nicht vorhanden.",
+    "Fangstatistik nach Fischart, Monat, Köder mit ausschließlich eigenen Eingaben.",
+    "Neuer Offline-Bildcheck für 228 Medien; vorherige Datenspeicher- und Bilddateien werden nicht gelöscht.",
+    "Startseite, Anglerzentrale, Angelbegleiter und Service Worker auf 3.7.0 angepasst."
   ],
   "limitations": [
-    "Fischbestimmung arbeitet mit manuell ausgewählten Merkmalen und ist keine trainierte Kamera-KI. Ergebnisse nicht als sichere Artbestimmung verwenden.",
-    "Schonzeiten, Mindestmaße, Fischereiberechtigung und Warnungen sind keine Live-Auskünfte und müssen amtlich geprüft werden.",
-    "Die App kann GPS nur auf ausdrücklichen Knopfdruck abrufen; Standortdaten bleiben im lokalen Gerätespeicher.",
-    "Das Offline-Paket aktualisiert die bestehende Installation, umfasst aber nicht alle 494 bereits vorhandenen Repository-Dateien und das gesamte Medienarchiv.",
-    "Detaillierte Straßenkarten und amtliche Pegelzeiten sind nur nach Import lokaler Datendateien verfügbar.",
-    "Die Verschlüsselung schützt exportierte .petri-Backups, nicht die unverschlüsselten lokalen Browserdaten oder gesonderte JSON-Exporte.",
-    "Backups sichern bekannte Petri-Datenbanken; Cache Storage selbst, fremde Datenbanken und alle zukünftigen unbekannten Datenspeicher sind nicht garantiert enthalten.",
-    "Browser-Speichergrenzen, Dateiauswahl, Standortfreigabe und Druck müssen auf einem echten iPhone oder Android-Gerät getestet werden.",
-    "Bereits im alten Fangbuch gespeicherte Datensätze bleiben dort; Fangbuch Plus ist eine zusätzliche lokale Liste, keine Migration.",
-    "Technische Tests sind simuliert/isoliert; keine vollständige Garantie für alle älteren Bestandteile der Haupt-App."
+    "Kein KI-Fischfoto-Klassifikator; Merkmalsbestimmung und Fischbilder aus dem Bestand.",
+    "Keine vollständigen präzisen Straßenkarten für Deutschland und keine automatische Erkennung von Angelverbotszonen.",
+    "WSV-Onlineabruf benötigt Internet und eine für den Browser freigegebene API-Verbindung; Daten ungeprüft.",
+    "Keine automatische Live-Wassertemperatur oder Live-Tide-Synchronisierung. Gezeiten werden aus lokal importierten Daten angezeigt.",
+    "Amtliche Schonzeiten und Mindestmaße müssen für Gewässer und Bundesland extern geprüft werden.",
+    "Keine iOS-/Android-Geräteprüfung oder Wiederherstellung einer echten Nutzersicherung nachgewiesen.",
+    "Der Archiv-Upload muss manuell erfolgen, da der GitHub-Zugriff die Schreiboperation abgewiesen hat."
   ]
 }

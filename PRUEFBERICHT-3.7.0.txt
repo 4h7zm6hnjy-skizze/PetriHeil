@@ -1,0 +1,40 @@
+PETRI HEIL PRO – TECHNISCHER PRÜFBERICHT 3.7.0
+Stand: 11.10.2026
+
+AUSGANGSLAGE
+- Öffentliches GitHub-Repository 4h7zm6hnjy-skizze/PetriHeil, main.
+- Bei Abfrage: version.json 3.6.0, letzter Commit 0a2ba186988334077bd516cd38343fcb8fedf996.
+- Schreibversuch (GitHub-Branch anlegen) scheiterte an HTTP 403. Keine Dateien hochgeladen.
+
+STATISCHE PRÜFUNG
+- Node Syntaxprüfung: petri370.js, petri-offline-v3.7.0.js und petri-sw.js bestanden.
+- version.json, petri-core-v3.7.0.json und petri370-release.json valides JSON.
+- Neue HTML-Einstiegspunkte und neue Script-/CSS-Referenzen sind im Paket vorhanden.
+- Weitere HTML-Verweise führen zu nachweislich vorhandenen Bestandteilen des zuvor geprüften GitHub-Repositories.
+
+ISOLIERTER CHROMIUM-BROWSERTEST (OHNE REALES HTTP/HTTPS)
+- Neue Oberfläche und CSS separat geladen, localStorage auf Testdaten simuliert.
+- Neun Navigationsbereiche navigierbar, keine JavaScript-Pageerrors.
+- Pro-Fang gespeichert, Statistik zeigt eigenen Fang.
+- Packliste erstellt, Checklisten-Haken persistiert im Teststore.
+- Drei Knotenkurse rendern. Quiz bewertet Antwort. Eigene Regeln werden gespeichert und gezeigt.
+- Isolierte Bildschirmbreiten 320, 375, 390, 430, 768 Pixel:
+  kein horizontaler Overflow beim Durchschalten aller neun Bereiche.
+
+ISOLIERTER SERVICE-WORKER-MODELLTEST
+- Der Installationshandler lud 134 Ressourcen aus einem künstlichen 3.6.0-Manifestsatz mit 122 Einträgen plus 3.7.0-Dateien in einen simulierten Cache.
+- Kein echter Browser-Cache oder HTTP-Abruf des GitHub-Pages-Deployments getestet.
+
+EINSCHRÄNKUNGEN
+- Chromium-Navigation zu localhost, file:// und data:-URLs wird in dieser Umgebung mit ERR_BLOCKED_BY_ADMINISTRATOR blockiert.
+- Deshalb keine reale Ende-zu-Ende-Prüfung der Haupt-App, iPhone-Kamera, GPS, IndexedDB-Dateidialoge, Offline-Service-Worker im echten Browser oder verschlüsselte Backup-Wiederherstellung.
+- WSV-PEGELONLINE-Dokumentation bestätigt REST-API, aber die Browser-CORS-Funktion im ausgelieferten GitHub-Pages-Kontext wurde nicht geprüft.
+- Alle 177 bestehenden Fischbilder biologisch nicht unabhängig geprüft.
+- Regionale Karten sind die bestehenden Vektordaten, keine neuen vollständigen Straßentiles.
+- Gesetzesangaben werden nicht als amtliche Live-Regeln oder vollständige Schonzeitentabelle präsentiert.
+
+DATENSICHERHEIT
+- Neu entstandene Datensätze in petri370-settings-v1. Neue Schnellfänge werden im bestehenden petri31-pro-data-v1 gespeichert.
+- Andere alte Schlüssel und IndexedDB-Namen werden vom 3.7.0-Code nicht migriert oder gelöscht.
+- Service Worker löscht keine alten Caches.
+- Dennoch können Browserdaten durch Speicherbereinigung, Browserlimits oder alte Bugs verloren gehen: verschlüsseltes Gesamtbackup vor Installation anlegen und die Wiederherstellung separat testen.

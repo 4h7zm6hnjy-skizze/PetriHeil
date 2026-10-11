@@ -1,0 +1,12 @@
+{
+  "version":"3.7.0",
+  "releaseDate":"2026-10-11",
+  "basis":{"repo":"4h7zm6hnjy-skizze/PetriHeil","branch":"main","previousVersion":"3.6.0","previousCommit":"0a2ba186988334077bd516cd38343fcb8fedf996"},
+  "updatesMainIndex":true,
+  "updatesLegacyPages":["zentrale.html","angelbegleiter.html","offline-check.html"],
+  "updatesWorker":true,
+  "preservesExistingDataByDesign":true,
+  "uploadStatus":"NOT_UPLOADED_GITHUB_403",
+  "scope":"Integrated 3.7 launch page, new features as supplemental hub; existing old feature modules are unchanged",
+  "limitations":["No certified photo AI or complete detailed offline maps", "Official fishing laws require verification", "No automatic BSH tide import", "PEGELONLINE may be unavailable or blocked by browser/CORS", "iOS/Android real-device testing is outstanding"]
+}

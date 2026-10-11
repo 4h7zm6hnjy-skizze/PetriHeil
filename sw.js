@@ -1,2 +1,2 @@
-/* Stable Service Worker entry; cache versions handled in petri-sw.js. */
-importScripts('./petri-sw.js?v=3.6.0');
+/* Stable service-worker entry for Petri Heil Pro. */
+importScripts('./petri-sw.js?v=3.7.0');
