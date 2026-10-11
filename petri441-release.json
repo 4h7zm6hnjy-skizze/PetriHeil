@@ -1,0 +1,22 @@
+{
+  "version": "4.4.1",
+  "baseVersion": "4.4.0",
+  "baseCommit": "97db57d4873d4a54591e4425092c080b92a6d860",
+  "type": "cumulative-non-destructive-overlay",
+  "offlineCoreResources": 196,
+  "dataMigration": "none",
+  "photoDB": "petri440-photos",
+  "features": [
+    "Manuelle Zuordnung bestehender Pro-/Plus-Fänge",
+    "Speicher-Konfliktprüfung",
+    "Angeltag-Anzeige und Fotolade-Rennbedingungen korrigiert",
+    "Koordinaten-Validierung",
+    "Offline-Cache-Versionswechsel"
+  ],
+  "important": "Bitte Datensicherung vor Installation erstellen; keine Bestandsdateien löschen.",
+  "limitations": [
+    "Keine echte iPhone-Freigabe",
+    "Keine vollständige Foto-Wiederherstellung mit Echtdaten",
+    "Keine amtliche Prüfung von Fangregeln oder KI-Artenbestimmung"
+  ]
+}

@@ -1,15 +1,15 @@
 {
-  "version": "4.4.0",
+  "version": "4.4.1",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "serviceWorker": "sw.js",
   "changes": [
-    "Intelligente neue Startseite mit sichtbarem Beißindex, Fangstatistik, Angeltag, Ausflugdatum, Offlinestatus und manuell abrufbaren Live-Werten.",
-    "Angeltag und Fangbuch automatisch über eindeutige IDs verbunden, beim 4.4-Schnellfang auch mit gespeicherten Angelplätzen.",
-    "Fangbuch 5.0: Pro/Plus lesen, neue Pro-Fänge verknüpft speichern, nach Angelplätzen filtern, Köder-/Artenstatistiken, optionale Fangfotos lokal.",
-    "Offline-Gewässerkarte mit GPS-Markierungen, optionaler einmaliger Standortfreigabe, Tiefe/Boden/Notizen, lokalen Fotos und Fanghistorie.",
-    "Backup-Fallback für Angeltag- und Angelplatz-Fotos auch ohne indexedDB.databases() ergänzt.",
-    "Alle bisherigen Module, gespeicherten Daten, Original-Fotoverweise und das helle Design bleiben erhalten."
+    "Ältere Pro- und Plus-Fänge lassen sich gezielt mit Angeltagen und Angelplätzen verknüpfen, ohne Datenmigration und ohne Verlust von Fotoverweisen.",
+    "Änderungen an Originalfängen nutzen optimistische Speicherprüfung und verhindern Überschreiben parallel geänderter Daten.",
+    "Der laufende Angeltag bleibt nach GPS-, Notiz- oder Fotoaufnahme der angezeigte Tag; bisherige Tage bleiben auswählbar.",
+    "Asynchrone Fotovorschau verhindert verspätete Bildergebnisse bei schnellem Seitenwechsel.",
+    "Zusätzliche Prüfung leerer GPS-Koordinaten, iPhone-taugliche Zuordnungsmaske, klarere Netzwerkstatus-Anzeige.",
+    "Offline-Worker und Cache-Manifest auf 4.4.1 aktualisiert; vorhandene private Daten und Alt-Caches bleiben erhalten."
   ],
   "limitations": [
     "Alle neuen automatischen Fangverknüpfungen gelten für Fänge, die über das 4.4-Fangformular angelegt werden; ältere Fänge werden nicht stillschweigend zugeordnet.",
@@ -18,6 +18,9 @@
     "Tagesbericht als Druck/Browser-PDF, kein eigener PDF-Generator; iOS-Druckoberfläche kann abweichen.",
     "Kein vollständiger iPhone-End-to-End-Backup-Restore mit realen Fotos bestätigt.",
     "Beißindex ist qualitative Lernhilfe, keine validierte Fangwahrscheinlichkeit.",
-    "Vorhandene 4.3-Fangbuch- und Angeltagseiten bleiben als Bestandsfunktionen erhalten."
+    "Vorhandene 4.3-Fangbuch- und Angeltagseiten bleiben als Bestandsfunktionen erhalten.",
+    "Manuelle Zuordnung benötigt ausdrücklich den Nutzerklick; historische Fänge werden nicht automatisch einer Stelle zugewiesen.",
+    "Neue Fangfoto-Anzeige zeigt nur 4.4-Fotoobjekte; historische Fotoreferenzen bleiben im ursprünglichen Fangbuch.",
+    "Keine echten iPhone-/Safari- oder Live-API-End-to-End-Tests; Offline-Cache wird in einer Simulation geprüft."
   ]
 }

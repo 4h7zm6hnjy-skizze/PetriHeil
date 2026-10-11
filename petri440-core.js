@@ -1,4 +1,4 @@
-/* Petri Heil Pro 4.4.0 — additive, local-only cross-module data bridge. */
+/* Petri Heil Pro 4.4.1 — additive, local-only cross-module data bridge. */
 (()=>{'use strict';
 const A=window.Petri430;if(!A)throw Error('Petri430-Basisbibliothek fehlt');
 const PLACES='petri440-places-v1',SETTINGS='petri440-settings-v1',PHOTOS='petri440-photos';
@@ -24,6 +24,33 @@ function settings(patch){const old=localStorage.getItem(SETTINGS),d=readSettings
 function openDB(){return new Promise((resolve,reject)=>{if(!('indexedDB' in window))return reject(Error('IndexedDB fehlt'));const r=indexedDB.open(PHOTOS,1);r.onupgradeneeded=()=>{if(!r.result.objectStoreNames.contains('photos'))r.result.createObjectStore('photos',{keyPath:'id'})};r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);r.onblocked=()=>reject(Error('Fotodatenbank blockiert'))})}
 async function photoSave(kind,entity,file){if(!['day','place','catch'].includes(kind))throw Error('Unbekannter Fotozweck');if(!file||file.size<=0||file.size>7*1048576||!/^image\/(?:png|jpeg|webp|heic|heif)$/.test(file.type))throw Error('Foto muss JPG/PNG/WebP/HEIC und maximal 7 MB groß sein');const b=await openDB();const p={id:uid(),kind,entity,blob:file,name:String(file.name).slice(0,150),createdAt:now()};try{await new Promise((ok,bad)=>{const tx=b.transaction('photos','readwrite');tx.oncomplete=ok;tx.onabort=()=>bad(tx.error||Error('Speicher gescheitert'));tx.onerror=()=>bad(tx.error||Error('Foto nicht gespeichert'));tx.objectStore('photos').put(p)})}finally{b.close()}return p}
 async function photos(kind,entity){const b=await openDB();try{return await new Promise((ok,bad)=>{const tx=b.transaction('photos','readonly'),q=tx.objectStore('photos').getAll();q.onsuccess=()=>ok(q.result.filter(p=>p.kind===kind&&p.entity===entity));q.onerror=()=>bad(q.error||Error('Fotos nicht lesbar'))})}finally{b.close()}}
+
+/* Optional reassignment for a selected historic Pro/Plus catch. The unchanged legacy record
+   stays at its exact original index. No photo references or unknown fields are removed. */
+function linkCatch(record,dayId='',placeId=''){
+ if(!record||!['pro','plus'].includes(record.source))throw Error('Fangquelle nicht gültig');
+ const day=dayId?A.days().sessions.find(x=>x.id===dayId):null;
+ if(dayId&&!day)throw Error('Der ausgewählte Angeltag existiert nicht mehr');
+ let pid=placeId||'';
+ if(day?.p440PlaceId&&!pid)pid=day.p440PlaceId;
+ const place=pid?places().find(x=>x.id===pid):null;
+ if(pid&&!place)throw Error('Der Angelplatz existiert nicht mehr');
+ if(day?.p440PlaceId&&pid!==day.p440PlaceId)throw Error('Angeltag und Angelplatz widersprechen sich. Bitte den Angelplatz des Tages wählen.');
+ const key=record.source==='pro'?A.keys.PRO:A.keys.PLUS;
+ const previous=localStorage.getItem(key);
+ if(previous===null)throw Error('Ursprüngliches Fangbuch nicht vorhanden');
+ const data=A.read(key,{catches:[]});
+ if(!Array.isArray(data.catches))throw Error('Ungültiges ursprüngliches Fangbuch');
+ const source=data.catches[record.index];
+ if(!source||typeof source!=='object'||Array.isArray(source)||
+    (record.id&&String(source.id)!==record.id)||
+    JSON.stringify(source)!==JSON.stringify(record.raw))throw Error('Fang wurde zwischenzeitlich verändert. Bitte neu laden.');
+ const oldMeta=source.p440&&typeof source.p440==='object'&&!Array.isArray(source.p440)?source.p440:{};
+ const updated={...source,p440:{...oldMeta,dayId:dayId||null,placeId:pid||null,linkedAt:now(),manuallyLinked:true}};
+ data.catches[record.index]=updated;
+ A.write(key,data,previous);
+ return {source:record.source,index:record.index,id:String(source.id||''),dayId:dayId||null,placeId:pid||null};
+}
 function csv(){const rows=[['Fischart','Datum','Gewässer','Köder','Länge (cm)','Gewicht (kg)','Fangbuch','Angeltag-ID','Angelplatz-ID']];for(const c of allCatches()){const l=links(c);rows.push([c.fish,c.time,c.water,c.bait,c.length??'',c.weight??'',c.source,l.dayId||'',l.placeId||''])}return A.csv(rows)}
-window.Petri440=Object.freeze({A,keys:{PLACES,SETTINGS,PHOTOS},esc,uid,fmt,now,places,setPlace,active,attachPlaceToDay,startDay,stopDay,dayEntry,createCatch,allCatches,links,byPlace,byDay,readSettings,settings,photoSave,photos,csv,validCoord});
+window.Petri440=Object.freeze({A,keys:{PLACES,SETTINGS,PHOTOS},esc,uid,fmt,now,places,setPlace,active,attachPlaceToDay,startDay,stopDay,dayEntry,createCatch,linkCatch,allCatches,links,byPlace,byDay,readSettings,settings,photoSave,photos,csv,validCoord});
 })();

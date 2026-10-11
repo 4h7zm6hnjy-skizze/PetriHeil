@@ -1,0 +1,46 @@
+PETRI HEIL PRO 4.4.1 – PRÜFBERICHT
+Datum: 11.10.2026
+
+QUELLE
+GitHub 4h7zm6hnjy-skizze/PetriHeil, main; geprüfte Ausgangsversion: 4.4.0
+Ausgangscommit: 97db57d4873d4a54591e4425092c080b92a6d860
+Kumulatives Overlay: bestehende Dateien und lokale Browserdaten NICHT löschen.
+
+FUNKTIONEN
+- Frühere Pro- UND Plus-Fänge erhalten eine optionale, manuell bestätigte Angeltag-/Angelplatz-Zuordnung.
+- Bei der Änderung bleiben ID, vollständiger Originaldatensatz, bisherige Metadaten und Fotoreferenzen erhalten.
+- Konfliktprüfung gegen zwischenzeitlich geänderte Originalfänge verhindert versehentliches Überschreiben.
+- GPS-, Notiz- und Fotoaktionen springen zur aktiven Angeltag-Ansicht zurück.
+- Veraltete asynchrone Fotoanzeige wird nach schnellem Wechsel zwischen Orten/Tagen verworfen.
+- Leere GPS-Eingaben nicht als Nullinsel (0,0) speichern.
+- Barriereärmere große Zuordnungsschaltflächen und sichtbare Fokusmarkierung.
+- Versionierte Offline-Kerninstallation 4.4.1, alte Caches bleiben erhalten.
+
+AUTOMATISCHE TESTS
+1. Node.js --check: alle neuen JS-Skripte syntaktisch gültig.
+2. JSON-Dateien syntaktisch gültig; 196 unterschiedliche Kern-URLs im Offline-Manifest.
+3. Isolierter Chromium-Test: vier Bereiche starten, historischer Pro-Fang mit alter Foto-ID zugeordnet, alter Plus-Fang mit Fotoliste zugeordnet; alte Felder bleiben erhalten.
+4. Vorhandene Fanghistorie wird nach Zuordnung am Angelplatz und beim Angeltag angezeigt.
+5. Neuer Testfang wird automatisch mit aktuellem Tag und Ort verbunden.
+6. Manipulation nach Öffnen der Zuordnungsmaske: Speicherkonflikt erkannt, kein Überschreiben fremder Änderungen.
+7. Angeltag-Notizen und Fotoanzeige über nachgebildetes IndexedDB geprüft.
+8. 7 Bildschirmbreiten x 4 Bereiche = 28 Layoutprüfungen ohne horizontalen Überlauf.
+9. Service-Worker-Modell: 196 Ressourcen erfolgreich installiert; künstlich fehlendes Pflichtskript blockiert Installation, alter Cache bleibt erhalten.
+10. ZIP-Datei auf CRC/Dateiliste/Hash-Konsistenz geprüft.
+
+GRENZEN
+- Automatische Tests fanden in isoliertem Chromium und simulierten PWA-Caches statt, nicht auf deinem iPhone.
+- Die Foto-IndexedDB war im Chromium-Test nachgebildet, kein echter iOS-Restore wurde geprüft.
+- Neue Fotogalerie zeigt nur die neuen 4.4-Fotos, alte Fotoverweise bleiben im früheren Fangbuch.
+- Die alten 4,5 MB Haupt-App-Skripte wurden nicht vollständig neu getestet.
+- Offline-Karte bleibt vereinfachte Übersicht, kein Satellit-/Straßen-/Tiefenkartenanbieter enthalten.
+- Live-Wetter und PEGELONLINE benötigen Onlinezugang und gesonderte API-Verfügbarkeit.
+- Rechtsdaten, Fischabbildungen und Beißprognose nicht fachlich neu validiert.
+- GitHub Pages muss nach deinem manuellen Upload separat überprüft werden.
+
+INSTALLATION
+1. Vorher verschlüsseltes Backup erzeugen und extern sichern.
+2. ZIP entpacken, alle enthaltenen Dateien ins vorhandene GitHub-Repository-Hauptverzeichnis hochladen.
+3. Gleichnamige Dateien ersetzen. KEINE Bestandsdateien löschen.
+4. GitHub Pages Veröffentlichung abwarten; Cockpit /petri440.html im Browser neu laden.
+5. Offline/Backup und einen TEST-Fang prüfen. Kein Produktivrestore ohne Sicherheitskopie.

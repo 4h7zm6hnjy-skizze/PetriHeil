@@ -1,0 +1,10 @@
+Petri Heil Pro 4.4.1 – Sicherheits-Update
+
+AUSGANGSVERSION: 4.4.0
+SICHERUNG: Vor dem Upload ein verschlüsseltes Gesamtbackup außerhalb der App speichern.
+UPDATE: Alle Dateien dieses ZIP direkt in das bestehende Repo-Hauptverzeichnis hochladen.
+BESTAND: KEINE anderen alten Dateien, Bilder oder Daten löschen!
+OFFLINE: App danach online laden, Installation abwarten und Cacheprüfung durchführen.
+KONTROLLE: Historischen Fang öffnen -> "Angeltag / Angelplatz zuordnen".
+HINWEIS: Nur die explizit gewählte Zuordnung wird ergänzt. Bestehende Bildverweise bleiben erhalten.
+NEUE VERSION: https://4h7zm6hnjy-skizze.github.io/PetriHeil/petri440.html
