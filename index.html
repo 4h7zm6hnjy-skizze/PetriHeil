@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' blob:; style-src 'self' 'unsafe-inline'; connect-src 'self' data: blob:; img-src 'self' data: blob:; font-src 'self' data:; media-src 'self' blob: data:; frame-src 'self' blob: data:; object-src 'self' blob: data:; worker-src 'self' blob:; base-uri 'self'; form-action 'self'">
 <meta name="theme-color" content="#e8f4fc">
-<meta name="petri-app-version" content="2.2.1">
+<meta name="petri-app-version" content="2.2.3">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Petri Heil Pro">
@@ -28,6 +29,7 @@
 <link rel="stylesheet" href="./petri-hero-logo-v2.1.4.css?v=2.1.4">
 <link rel="stylesheet" href="./petri-start-design-v2.1.6.css?v=2.1.6">
 <link rel="stylesheet" href="./petri-platform-v2.2.1.css?v=2.2.1">
+<link rel="stylesheet" href="./petri-praktisch-v2.2.3.css?v=2.2.3">
 </head>
 <body>
 <div class="app-shell">
@@ -37,13 +39,13 @@
   <p class="side-heading">DEIN COCKPIT</p>
   <nav class="nav" id="nav-desktop" aria-label="Hauptnavigation"></nav>
   <div class="side-bottom"><img src="./petri-fisch-v2.0.29.webp" class="petri-fisch29-promo" alt="Petri Heil – Hecht ohne Schrift"><p>FANG DEN MOMENT.</p><small>Deine Angelerlebnisse. Deine Daten.</small><button class="side-cta" data-action="openCatch">+ Fang eintragen</button></div>
-  <div class="tiny">Version 2.2.1 · Offline-PWA</div>
+  <div class="tiny">Version 2.2.3 · Offline-PWA</div>
 </aside>
 <div class="mobile-shade" id="mobile-shade"></div>
 <div class="workspace">
 <header class="topbar"><button class="icon-button mobile-only" id="menu-toggle" aria-label="Menü öffnen">☰</button><div class="header-title"><span class="eyebrow" id="crumb">DEIN ANGELCOCKPIT</span><h1 id="page-title">Übersicht</h1></div><div class="header-actions"><span class="network-tag" id="network-tag">OFFLINE READY</span><button class="button button-primary top-add" data-action="openCatch"><span>＋</span> Fang erfassen</button></div></header>
 <main id="main" tabindex="-1" aria-live="polite"></main>
-<footer class="foot-note">Petri Heil Pro · By Marcel Hentschel · Lokale Speicherung auf deinem Gerät · Rechtshinweise sorgfältig prüfen · <a href="./offline-check.html">Offline prüfen</a> · <a href="./installieren.html">iPhone & Android</a></footer>
+<footer class="foot-note">Petri Heil Pro · By Marcel Hentschel · Lokale Speicherung auf deinem Gerät · Rechtshinweise sorgfältig prüfen · <a href="./offline-check.html">Offline prüfen</a> · <a href="./datenschutz.html">Datenschutz</a> · <a href="./praxis.html">Praxis NRW</a> · <a href="./installieren.html">iPhone & Android</a></footer>
 </div>
 </div>
 <nav class="bottom-nav" aria-label="Schnellnavigation" id="nav-bottom"></nav>
@@ -75,5 +77,8 @@
 <script src="./petri-start-design-v2.1.6.js?v=2.1.6" defer></script>
 <script src="./petri-offline-v2.2.0.js?v=2.2.0" defer></script>
 <script src="./petri-platform-v2.2.1.js?v=2.2.1" defer></script>
+<script src="./petri-privacy-v2.2.2.js?v=2.2.2" defer></script>
+<script src="./petri-praktisch-data-v2.2.3.js?v=2.2.3" defer></script>
+<script src="./petri-praktisch-v2.2.3.js?v=2.2.3" defer></script>
 </body>
 </html>

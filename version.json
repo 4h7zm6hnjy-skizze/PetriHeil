@@ -1,26 +1,29 @@
 {
-  "version": "2.2.1",
+  "version": "2.2.3",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "changes": [
-    "Gemeinsame iPhone- und Android-Web-App: Plattformabhängige Installationshilfe und Android-Installationsschaltfläche, sofern Chrome diese anbietet.",
-    "Mobile Oberflächen für Safari und Chrome: Touch-Ziele, sichere Bildschirmränder und Eingabefelder verbessert.",
-    "Bestehendes 2.2.0-Offline-Bildarchiv wird weiterverwendet, damit bereits heruntergeladene Bilder nicht erneut geladen werden müssen.",
-    "Lokale Offline-Prüfung und wiederaufnehmbare Vorbereitung aller 228 Bilder (Fischkunde, Ausrüstung, Logos und Grafiken).",
-    "Offline-Anzeige trennt vollständige Medienvorbereitung vom grundlegenden App-Start; Erfolge nur nach Cache-Prüfung.",
-    "Stabile Versionserkennung und Reparatur bleiben aktiv; keine Löschung von Benutzerdaten.",
-    "PWA-Grunddateien vollständig vor Aktivierung geprüft; keine doppelten Kern-Dateinamen.",
-    "Hecht-Startdesign 2.1.6, Fang-Podium, Angelzentrale und Artenverbreitung bleiben erhalten.",
-    "Offline-Updatefehler behoben: Doppelte Bildressource in der Pflichtdatei-Liste entfernt.",
-    "Service Worker lädt und prüft alle Kernressourcen einzeln mit kontrollierter Parallelität statt doppeltem Cache.addAll.",
-    "Detaillierte Update-Fehlermeldungen und Fortschrittsanzeige auf der Reparaturseite."
+    "Praktische Fischerprüfung NRW: 10 amtliche Aufgabenbereiche A1–A10 mit erläuternden Montagebeispielen und waidgerechtem Zubehör.",
+    "Offline-Knotenkunde mit vier Schritt-für-Schritt-Anleitungen und Checkliste für waidgerechtes Zubehör.",
+    "Offline-Knotenkunde mit vier Schritt-für-Schritt-Anleitungen und Checkliste für waidgerechtes Zubehör.",
+    "49 NRW-Arten aus Anlage 3 mit vorhandenen lokalen Fisch- und Krebsbildern und Kennzeichen.",
+    "Artenprüfung-Simulation: 6 zufällige Arten, freie Texteingabe, mindestens 4 richtige Namen.",
+    "28-Punkte-Selbstkontrolle der 16 Positionen nach dem NRW-Bewertungsbogen (25 Punkte Mindestgrenze).",
+    "Lernbereich über App-Startseite, Lern-/Mehr-Bereich, Desktop-Navigation und eigene offline gespeicherte Praxis-Seite erreichbar.",
+    "Keine automatische Datenweitergabe; Ergebnisse nur lokal; strikter Privatmodus 2.2.2 und iPhone-/Android-Unterstützung erhalten.",
+    "Verwaltete Bilddateien unverändert, vorhandene Offline-Bildvorbereitung für 228 Fotos weiterhin nutzbar.",
+    "Strikter Privatmodus: Content-Security-Policy blockiert externe Datenverbindungen (Wetter, Karten, andere Domains) und externe Einbettungen.",
+    "Wetter-/Karten-/Ortsabfrage-Buttons werden mit einer verständlichen Datenschutzhinweis-Meldung abgefangen.",
+    "Lokale Funktionen, Fangdaten, Bilder, GPS-Erfassung, vorhandene Backups und iPhone-/Android-Unterstützung bleiben erhalten.",
+    "Neue Datenschutzseite beschreibt genau, welche Informationen lokal bleiben und welche Verbindungsdaten beim Website-Host anfallen."
   ],
   "limitations": [
-    "Live-Wetter, externe Webseiten und Online-Karten können nicht vollständig offline aktualisiert werden; Internet ist hierfür erforderlich.",
-    "Der vollständige Quellcode der sehr großen app.js (4,5 MB) konnte nicht mit den verfügbaren GitHub-Textwerkzeugen extrahiert und end-to-end getestet werden.",
-    "Für den vollständigen Bildbestand muss die Vorbereitung auf dem iPhone bei Internetverbindung bis 228/228 abgeschlossen werden.",
-    "Echte iOS-Tests von Fangbuch, GPS, Kamerazugriff und Speicherberechtigungen bleiben erforderlich.",
-    "iOS- und Android-Gerätetests stehen aus; Betriebssystem, Browser und verfügbare Speicherressourcen können Funktionen beeinflussen."
+    "Montagevorschläge sind Lernbeispiele, keine vollständige amtliche Liste verbindlicher Gerätedetails. Prüfungshandhabung mit realem Gerät üben.",
+    "Die abgebildeten 49 Lernfotos sind nicht identisch mit den amtlichen DIN-A4-Bildtafeln der NRW-Fischerprüfung.",
+    "Für vollständige Offline-Nutzung aller 49 Prüfungsfotos ist die einmalige Bildvorbereitung unter Offline prüfen (228/228) notwendig.",
+    "Live-Wetter und externe Karten sind im Privatmodus 2.2.2 weiterhin deaktiviert.",
+    "Praxis- und Gerätebewertung erfolgt als Selbstcheck und ist keine behördliche Prüfung.",
+    "Eine vollständige Prüfung auf einem physischen iPhone und Android-Gerät sowie ein End-to-End-Audit der großen app.js stehen aus."
   ],
   "serviceWorker": "sw.js"
 }
