@@ -1,0 +1,32 @@
+PETRI HEIL PRO 3.3.0 – UPDATE GEZEITEN + KINDERWELT
+==================================================
+DATEIEN IM UPDATE: 34. Pflichtdateien im Offline-Worker: 90.
+
+INSTALLATION
+1. Fangdaten/Backups sichern, App nicht deinstallieren.
+2. ZIP entpacken; die enthaltenen Dateien direkt im Stamm des bestehenden GitHub-Repositories PetriHeil hochladen (gleichnamige ersetzen).
+3. ALLE bestehenden Dateien – insbesondere app.js, data.js, Bilder und Deutschlandkarten – behalten.
+4. Nach Veröffentlichung: Update-Reparatur öffnen und 3.3.0 installieren.
+5. In der App „Gezeiten“ und „Kinderwelt“ testen. Unter „Offline prüfen“ alle 228 Bilder vorbereiten.
+6. Im Flugmodus beide neuen Seiten öffnen. Gezeitenzeiten funktionieren nur mit importierter Tabelle.
+
+GEZEITEN-DATEI-BEISPIEL (keine echten Zeiten!)
+Datum;Uhrzeit;Typ
+11.10.2026;07:14;HW
+11.10.2026;13:26;NW
+
+Diese Beispiele sind rein synthetische Formatbeispiele, KEINE Pegelvorhersagen.
+Vorausberechnungen eigenständig vom BSH/anderen vertrauenswürdigen Quellen und unter Beachtung deren Nutzungsbedingungen beschaffen.
+Zeitformat MEZ oder gesetzliche Zeit beim Import prüfen, sonst entsteht im Sommer eine Zeitverschiebung.
+
+DATENSCHUTZ
+Lernstände und importierte Tidezeiten liegen im lokalen Browser (localStorage). Keine automatische Drittanbieter-Synchronisierung und keine personenbezogenen Uploads.
+
+WARNUNG
+Gezeitenkalender ersetzt keine Sturmflutwarnung oder Sicherheitsplanung. Kinder nie unbeaufsichtigt am Wasser.
+
+OFFENE PRÜFUNGEN
+Echter Safari-/Chrome-Gerätetest sowie Prüfung des vorhandenen, großen app.js und Import proprietärer BSH-Originalformate.
+
+INTEGRATION
+Die ZIP ist ein Delta-Update, nicht der vollständige App-Quellcode. Die vorhandenen Karten-/Bilddateien bleiben auf dem Webhost.

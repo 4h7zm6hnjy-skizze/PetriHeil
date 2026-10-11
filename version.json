@@ -1,25 +1,25 @@
 {
-  "version": "3.2.0",
+  "version": "3.3.0",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "changes": [
-    "Beißindex direkt unter dem Hecht-Banner vor dem Fang-Podium auf der Übersicht, vollständig lokal und gut sichtbar.",
-    "Fischartbezogene Aktivitäts-Orientierung mit 24-Stunden-Balken, modellierten Tageshöchstwerten für sieben Tage und optionalen lokal erfassten Umweltbedingungen.",
-    "Vor-Ort-GPS nur auf ausdrücklichen Knopfdruck; keine Übertragung persönlicher Standortdaten oder Fänge an externe Dienste.",
-    "10 Montagen mit eigenen SVG-Lernzeichnungen, Teilelisten, Schritt-für-Schritt-Anleitungen und Suchfunktion.",
-    "12 Angelknoten mit eigenen SVG-Lernzeichnungen, vier Lernschritten, Favoriten und Filter.",
-    "Montagen & Knoten sind auf der Übersicht, in der Premium-Zentrale und im Menü-Fußbereich erreichbar.",
-    "Aktualisierte Versionsprüfung und 3.2.0-Offline-Kernpaket; bestehender Bild- und Karten-Cache bleibt erhalten.",
-    "Keine neue Benutzeranmeldung, kein PIN, keine automatische Datenübermittlung; bestehende Datenmodelle bleiben unverändert."
+    "Gezeiten: lokale Hoch-/Niedrigwasser-Abfrage für gewählten Pegelort und Datum, Vorschau der nächsten Ereignisse, Export und manueller Import von Gezeitentabellen in CSV/TXT/JSON.",
+    "Zeitangaben: auswählbare Import-Zeitzone MEZ oder gesetzliche Zeit (MEZ/MESZ), automatische Umrechnung mit Europe/Berlin.",
+    "Gezeiten werden niemals auf Grundlage von Mondphasen geschätzt; echte Pegeldaten müssen vom Nutzer selbst beschafft und lokal importiert werden.",
+    "Kinder-Angelwelt: acht kurze Lernthemen für Sicherheit, Fischkunde, Angelgerät, Knoten, Umwelt, Regeln, Wetter und Tierschutz.",
+    "Kinder-Fischkarten mit zwölf vorhandenen Offline-Artenfotos, altersgestufte Erklärungen und 8-/12-Fragen-Quiz.",
+    "Lernfortschritt nur lokal, kein Konto, kein Chat, keine Werbung, keine automatische Datenweitergabe.",
+    "Neue Direktlinks auf der Startseite, im Fußbereich und auf der Premium-Seite; bestehender Beißindex bleibt oben.",
+    "Offline-Paket enthält alle benötigten neuen HTML-, CSS- und JavaScript-Dateien. Alte Fischbilder und persönliche Daten bleiben erhalten."
   ],
   "limitations": [
-    "Beißindex ist eine offen deklarierte Faustregel und keine validierte Fangwahrscheinlichkeit oder zuverlässige 7-Tage-Wetterprognose.",
-    "Schrittzeichnungen sind eigene schematische Lernillustrationen; sie ersetzen keine praktische Einweisung oder amtlichen Prüfungsbilder.",
-    "Die 7-Tage-Übersicht setzt unveränderte Wetter-Eingaben voraus und zeigt keine Live-Daten.",
-    "Offline-Nutzung setzt erfolgreiche Installation des vollständigen Kernpakets und gegebenenfalls Vorbereitung älterer Bildbestände voraus.",
-    "Vorhandene geografische Deutschlandkarte enthält weiterhin keine straßengenaue Navigation.",
-    "Originaldatei app.js wurde nicht neu geschrieben; iPhone-/Android-Gerätetests und alle alten Haupt-App-Funktionen sind nicht vollständig getestet.",
-    "Zoom-Sperren können Betriebssysteme aus Barrierefreiheitsgründen übersteuern."
+    "Die App liefert keine amtlichen Gezeiten vorausberechnet ab Werk. Die Zeiten müssen als Tabelle importiert oder manuell eingegeben werden.",
+    "Gezeiten-Import unterstützt einfache Text-/CSV- und PetriHeil-JSON-Dateien; proprietäre BSH-Dateiformate können eine vorherige Aufbereitung benötigen.",
+    "Die echte Wasserhöhe hängt von Wind und Wetter ab; Tidenprognosen ersetzen keine aktuellen Warnungen und dürfen nicht als alleinige Sicherheitsgrundlage für Wattwanderungen dienen.",
+    "Kinderbereich vermittelt Grundlagen, ersetzt keine Aufsicht Erwachsener oder fachliche, rechtliche Einweisung.",
+    "Offline-Fischbilder sind erst vollständig verfügbar, nachdem der 228-Bilder-Check abgeschlossen wurde.",
+    "iPhone- und Android-Gerätetests, Kamera, GPS und der große bestehende app.js-Hauptcode bleiben außerhalb dieser isolierten Tests.",
+    "GitHub Pages verarbeitet technische Verbindungsdaten bei Installation und Updates; keine automatischen Uploads persönlicher GPS-, Fang- oder Kinder-Daten."
   ],
   "serviceWorker": "sw.js"
 }
