@@ -1,28 +1,25 @@
 {
-  "version": "4.2.0",
+  "version": "4.3.0",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "serviceWorker": "sw.js",
   "changes": [
-    "Stabilitäts-Update auf 4.1.1, alte Seiten und Daten bleiben erhalten.",
-    "Beißindex um Tageszeit und Pegeltendenz als ausdrücklich qualitative Faktoren ergänzt.",
-    "Lokale Gewässerregeln mit Alterswarnung; alte Pegelwerte als veraltet gekennzeichnet.",
-    "Pro-/Plus-Fänge gemeinsam ansehen, direkt im jeweiligen Originalspeicher bearbeiten und potenzielle Doppeleinträge nur melden.",
-    "Neue Bildkennungs-Konsistenzprüfung für die beiden Krebsarten; 177 Artenbilder und 228 Mediendateien im Archiv.",
-    "Bildprüfseite für Offline-Navigation in Service Worker ergänzt; atomare Offline-Kerninstallation und Diagnose aktualisiert.",
-    "Angeltag-Kurzcheck, direkter Zugang zu Kinderwelt, Angelschule, Karte und Backup.",
-    "Mobile Bedienung, lokale Vorlesefunktion, vorhandene 4.1.0/4.1.1-Funktionen und AES-Backup beibehalten.",
-    "Neuer Zusatzbereich Angelassistent, fachlich transparenter Beißindex 4.0 mit Zielfisch, Tageszeit, Wind und Bewölkung; keine verifizierte Fangprognose.",
-    "Bildbasierter Lern-Einstieg mit sechs vorhandenen lokalen Fischbildern.",
-    "Separate Offline-Qualitätsseite mit Messung des Kern- und Mediencache und anonymem Prüfbericht."
+    "Mein Angeltag: Start/Stopp, Notizen, Köder, Methoden, optional GPS, lokale Fotos, Druck/PDF via Browser",
+    "Fangbuch 5.0: Pro und Plus gemeinsam suchen, bearbeiten und exportieren ohne Migration",
+    "Persönlicher qualitativer Beißindex mit Fangauswertung, ohne unbewiesene Fangwahrscheinlichkeit",
+    "177 Arten im Bildlexikon mit Vergleich auf Grundlage vorhandener Daten",
+    "Lokales Ausrüstungsinventar und Packliste, 28 Archivbilder",
+    "Gerätequalität mit Kern-, Medien- und Speicherprüfung",
+    "Offline-Paket kumulativ erweitert, zuvor erfolgreiche Caches bleiben erhalten",
+    "Dauerhaft korrigierte Bildzuordnung, weiter bestehende Kinderwelt, Angelschule, Karten und Sicherungen"
   ],
   "limitations": [
-    "Keine automatische Migration beider Fangbuchspeicher; Bildverknüpfungen bleiben in den ursprünglichen Datenbanken.",
-    "Keine vollständigen amtlich aktualisierten Fischereirechtsdaten; Regeln und Schonmaße müssen an Originalquellen geprüft werden.",
-    "Kein trainiertes Fischfoto-KI-Modell und keine lizenzierten vollständigen Detailkarten-Tiles.",
-    "Beißindex ist eine qualitative Lernhilfe und keine verifizierte Vorhersage.",
-    "Gezeiten nur aus lokalen Importen; Live-Wasserstände müssen explizit abgerufen werden und sind nicht durchgängig verifiziert.",
-    "Kein realer GitHub Pages- oder iPhone-End-to-End-Test vor Upload möglich.",
-    "Vollständiger 4,5-MB-Altskript-Regressionstest nicht bestätigt; lokaler Chrome-Test verwendet isolierte Testdaten."
+    "no trained camera AI",
+    "no official verified nationwide fishing laws",
+    "no all-Germany licensed street or bathymetry offline tiles",
+    "no live tides without imported data",
+    "browser print-to-PDF depends on device",
+    "no real device end-to-end restore",
+    "legacy 4.5MB app.js not fully regression-tested"
   ]
 }

@@ -1,0 +1,77 @@
+[
+  {
+    "bereich": "1. Intelligente Startseite",
+    "status": "Teilweise",
+    "beschreibung": "Neue zentrale Schnellzugriffe; Live-Wetter- und Wasserstanddashboard bleibt beschränkt"
+  },
+  {
+    "bereich": "2. Mein Angeltag",
+    "status": "Umgesetzt",
+    "beschreibung": "Start/Stopp, Verlauf, Köder/Technik, GPS auf ausdrücklichen Wunsch, Fotos lokal, Drucken/Als PDF speichern"
+  },
+  {
+    "bereich": "3. Fangbuch 5.0",
+    "status": "Teilweise",
+    "beschreibung": "Pro/Plus gemeinsam suchen, Originalbearbeitung, Statistik/Export; kein physisches Datenbank-Merge, keine neue zentrale Foto-Galerie"
+  },
+  {
+    "bereich": "4. Gewässerkarte",
+    "status": "Bestand erhalten",
+    "beschreibung": "Grobe regionale Offlinekarte und GeoJSON-Import; keine neuen vollflächigen Detailkarten"
+  },
+  {
+    "bereich": "5. Fischbestimmung",
+    "status": "Teilweise",
+    "beschreibung": "177 Artenbilder und vergleichende Merkmale; kein trainiertes KI-Modell"
+  },
+  {
+    "bereich": "6. Persönlicher Beißindex",
+    "status": "Umgesetzt, heuristisch",
+    "beschreibung": "Eigene Fanghistorie + qualitative Bedingungen; keine kalibrierte Fangwahrscheinlichkeit"
+  },
+  {
+    "bereich": "7. Amtliche Fischereiregeln",
+    "status": "Nur Bestandsfunktion",
+    "beschreibung": "Regelnotizen mit Quelle und Warnungen; keine amtlich gepflegte nationale Rechtsdatenbank"
+  },
+  {
+    "bereich": "8. Pegel- und Gezeitenzentrale",
+    "status": "Nur Bestandsfunktion",
+    "beschreibung": "WSV auf Abruf und lokale Gezeitenimporte, bestehende Alterskennzeichnung; nicht als Live-Dauerdienst"
+  },
+  {
+    "bereich": "9. Angelschule",
+    "status": "Bestand erhalten",
+    "beschreibung": "Direktzugänge zu Knoten und Montagen; fehlende Foto-Schrittfolgen nicht neu erstellt"
+  },
+  {
+    "bereich": "10. Kinderwelt",
+    "status": "Bestand erhalten",
+    "beschreibung": "Kinderwelt, Memory und Lernbereiche verlinkt; keine neuen altersgesteuerten Lernebenen"
+  },
+  {
+    "bereich": "11. Köder/Ausrüstungsmanager",
+    "status": "Umgesetzt",
+    "beschreibung": "Neues Inventar, Menge, Kategorien, Packliste und 28 lokale Ausrüstungsbilder"
+  },
+  {
+    "bereich": "12. Sichere Backups",
+    "status": "Bestand erhalten",
+    "beschreibung": "AES-Backup und Restore bleiben; vollständiger Echt-Restore am iPhone nicht getestet"
+  },
+  {
+    "bereich": "13. Offline-Manager",
+    "status": "Umgesetzt, teilweise",
+    "beschreibung": "185 Kernressourcen in atomarem Worker und Medienprüfung; Detailkarten und private Bilder separat"
+  },
+  {
+    "bereich": "14. Geschwindigkeit",
+    "status": "Teilweise",
+    "beschreibung": "Neue Bereiche separat geladen; 4,5-MB-Bestands-Hauptskript nicht modularisiert"
+  },
+  {
+    "bereich": "15. Automatisierte Tests",
+    "status": "Teilweise",
+    "beschreibung": "Node Syntax/JSON, Chromium neue Funktionen, 9 Alttabs × 6 Größen, Arten und Worker-Simulation; kein echtes End-to-End iPhone"
+  }
+]

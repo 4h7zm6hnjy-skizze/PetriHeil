@@ -1,0 +1,27 @@
+{
+  "version": "4.3.0",
+  "releaseDate": "2026-10-11",
+  "baseCommit": "2df65f64f3ca2729cc530373099d00aac9294aed",
+  "baseVersion": "4.2.0",
+  "type": "cumulative-overlay",
+  "offlineCoreResources": 185,
+  "artMappings": 177,
+  "mediaInRepo": 228,
+  "dataMigration": "none",
+  "uploadStatus": "ZIP_PREPARED_NOT_UPLOADED",
+  "knownLimitations": [
+    "no trained camera AI",
+    "no official verified nationwide fishing laws",
+    "no all-Germany licensed street or bathymetry offline tiles",
+    "no live tides without imported data",
+    "browser print-to-PDF depends on device",
+    "no real device end-to-end restore",
+    "legacy 4.5MB app.js not fully regression-tested"
+  ],
+  "preserve": [
+    "existing catches and photo references",
+    "all prior GitHub modules",
+    "all existing media",
+    "light theme"
+  ]
+}

@@ -1,0 +1,14 @@
+/* Read-only quality diagnostic. No private data in exported file. */
+(()=>{'use strict';const A=Petri430,$=id=>document.getElementById(id),R=new URL('./',location.href);let last=null;
+const full=x=>new URL(x,R).href;
+async function getManifest(name){let r;try{r=await fetch(full(name),{cache:'no-store'})}catch{}if(!r?.ok&&'caches' in window)r=await caches.match(full(name),{ignoreSearch:true});if(!r?.ok)throw Error('Manifest nicht verfügbar: '+name);return r.json()}
+async function cached(u){const r=await caches.match(full(u),{ignoreSearch:true});return Boolean(r?.ok)}
+async function check(){let res={version:'4.3.0',testedAt:new Date().toISOString(),online:navigator.onLine,worker:'unbekannt',cache:{},storage:{},data:{},limitations:['Keine tatsächliche Flugmodusprüfung','Kein automatischer Wiederherstellungstest','Keine rechtliche/biologische Datenprüfung']};
+const m=await getManifest('petri-core-v4.3.0.json'),media=await getManifest('petri-media-v2.2.0.json');if(m.version!=='4.3.0'||!Array.isArray(m.files)||new Set(m.files).size!==m.files.length)throw Error('Ungültiges Kernmanifest');if(media.files.length!==228)throw Error('Unerwartetes Medienarchiv');let core=0,med=0,missing=[];for(const f of m.files){if(await cached(f))core++;else missing.push(f)}for(const f of media.files)if(await cached(f))med++;res.cache={coreTotal:m.files.length,coreCached:core,mediaTotal:media.files.length,mediaCached:med,firstMissingCore:missing.slice(0,12)};
+if(navigator.serviceWorker){try{const reg=await navigator.serviceWorker.getRegistration();res.worker=reg?.active?.scriptURL||'nicht installiert'}catch{res.worker='unbekannt'}}
+try{res.data={catchCount:A.catches().length,sessionCount:A.days().sessions.length,inventoryCount:A.read(A.keys.GEAR,{items:[]}).items.length,readable:true}}catch(e){res.data={readable:false,error:String(e?.message||e)}}
+try{if(navigator.storage?.estimate){const est=await navigator.storage.estimate();res.storage={usageBytes:est.usage??null,quotaBytes:est.quota??null}}}catch{}
+return res}
+function render(d){$('results').textContent=`Offline-Kern: ${d.cache.coreCached}/${d.cache.coreTotal}\nMedien: ${d.cache.mediaCached}/${d.cache.mediaTotal}\nFang-/Angeltag-Daten lesbar: ${d.data.readable?'Ja':'Nein'}\nFänge: ${d.data.catchCount??'unbekannt'}\nAngeltage: ${d.data.sessionCount??'unbekannt'}\nBrowser laut navigator.online: ${d.online?'online':'offline'}\nAktiver Worker: ${d.worker}\nFehlende Kernressourcen (Auszug): ${d.cache.firstMissingCore.join(', ')||'keine'}\n\nAchtung: Keine Live-/Flugmodusprüfung und kein echter Restore-Test.`}
+$('run').addEventListener('click',async()=>{try{$('error').textContent='';$('run').disabled=true;last=await check();render(last);$('export').disabled=false}catch(e){$('error').textContent=String(e?.message||e)}finally{$('run').disabled=false}});$('export').addEventListener('click',()=>{if(last)A.download('PetriHeil_430_Systempruefung.json',JSON.stringify(last,null,2))});
+})();

@@ -1,0 +1,51 @@
+PETRI HEIL PRO 4.3.0 – QUALITÄTS- UND PRÜFBERICHT
+Datum: 11.10.2026
+
+AUSGANGSSTAND
+GitHub: 4h7zm6hnjy-skizze/PetriHeil – Branch main
+Version vor Paketbau: 4.2.0
+Commit: 2df65f64f3ca2729cc530373099d00aac9294aed
+Dieses ZIP ist ein kumulatives Overlay. Nicht enthaltene Bestandsdateien BLEIBEN auf GitHub und dürfen NICHT gelöscht werden.
+
+WESENTLICHE NEUHEITEN
+- Mein Angeltag: Start/Stopp, Journal, Methode, Köder, einmalige GPS-Freigabe, lokale Fotos in IndexedDB, vorhandene Fang-Referenzen, browserseitiger Druck/PDF.
+- Fangbuch 5.0: einheitliche Sicht, Filter, originale Datensatzbearbeitung ohne Löschung von IDs, Foto-Referenzen und unbekannten Alt-Feldern; JSON-/CSV-Export ohne Fotos.
+- Persönlicher Beißindex mit nachvollziehbarer Heuristik und rein beschreibenden Statistiken aus den bisherigen Fangdaten.
+- 177 Arten im lokalen Nachschlage- und Vergleichsmodul; 28 Ausrüstungsfotos, Inventar & Packliste.
+- Separater Gerätequalitätscheck, 185 eindeutige Offline-Kernressourcen. Alte Seiten, 228 vorhandene Bilddateien und Backups bleiben bestehen.
+- Keine stille Migration, kein Upload privater Daten, kein Zurücksetzen vorhandener Fangbücher.
+
+ECHTE AUTOMATISIERTE TESTS DIESER ERSTELLUNG
+1. Node --check: alle ausgelieferten .js-Skripte syntaktisch gültig.
+2. JSON: alle ausgelieferten JSON-Dateien parsebar; Manifest 185 URLs eindeutig.
+3. Isoliertes Chromium: Angeltag Start, Notiz, Stopp, Print-Auslösung.
+4. Chromium: Angeltag-Darstellung bei 320, 375, 390, 430, 768, 1024 px ohne horizontalen Überlauf.
+5. Chromium: Pro und Plus Fanglisten zusammen, Bearbeitung im Originalspeicher, alte Fotoverweise und unbekannte Felder erhalten.
+6. Chromium: Fangliste als CSV herunterladbar.
+7. Chromium: persönlicher qualitativer Beißindex, Inventarerfassung und Packlistenstatus.
+8. Chromium: Artenkatalog 177 Einträge, Suche, Bildzuordnungen, 6 Bildschirmbreiten ohne Überlauf (simuliertes Netz).
+9. Isolierter Chromium-Regressionstest der 9 bestehenden Angelzentrale-Tabs: Anzeigen, Fangschreiben, Filter, JSON/CSV, Lernfragen, Knoten, Plan, Regelnotizen, beschädigte Daten und Quota-Fehler; 6 Breiten × 9 Tabs.
+10. Node-Worker-VM: 185 Kernressourcen in atomarer Installationssimulation; absichtlich fehlende Pflichtdatei führt zum Installationsabbruch, alter Cache bleibt erhalten.
+
+WICHTIGE NICHT NACHGEWIESENE FUNKTIONEN / GRENZEN
+- Kein tatsächliches iPhone/Android getestet; echte GitHub-Pages-Laufzeit und Flugmodus müssen nach Upload geprüft werden.
+- Lokale Fotos mit IndexedDB angelegt, aber kein Ende-zu-Ende-Restore mit echten iPhone-Fotos durchgeführt.
+- PDF-Tagesbericht nutzt Browserdruck/Als PDF speichern, keinen integrierten PDF-Generator; Verfügbarkeit vom Gerät abhängig.
+- Ohne erfasste erfolglose Ausflüge und Angelstunden sind individuelle Fangwahrscheinlichkeiten statistisch nicht belegbar.
+- Keine trainierte Foto-KI, keine amtlich live synchronisierte vollständige Schonzeit-/Mindestmaßdatenbank.
+- Keine lizenzierten vollständigen Deutschland-Straßen-, Tiefen- und Gewässer-Offlinekarten.
+- Historischer großer Renderer app.js nicht vollständig als Ganzes automatisiert getestet und nicht modularisiert.
+- Alte Fischbild-IDs im historischen species-images-v2.0.5.js sind aus dem 4.2-Altmodul noch bekannt; das bestehende 4.2-Laufzeitkorrekturskript bleibt aktiv. Nicht als Quelltextkorrektur ausgegeben.
+- 228 Bilddateien auf GitHub aus vorheriger Prüfung vorhanden; keine neue biologische Bildprüfung und keine lokale Dekodierung aller Original-WebP-Dateien durchgeführt.
+- Cache ist kein Ersatz für verschlüsseltes extern abgelegtes Gesamtbackup.
+
+EMPFOHLENE ABNAHME NACH UPLOAD
+1. Backup auf dem iPhone erzeugen und außerhalb der App speichern.
+2. Neue Dateien hochladen, vorhandene nicht löschen.
+3. Version/Worker 4.3.0 bestätigen; Offline-Kern + 228 Medien vorbereiten, Flugmodus testen.
+4. Fangbuch auf beiden Quellen prüfen; mit Testfang bearbeiten und Fotos im Alt-Fangbuch öffnen.
+5. Test-Angeltag mit Foto erzeugen und in der App erneut öffnen; PDF über Drucken speichern.
+6. Vor produktivem Restore unbedingt getrenntes Testgerät/Testprofil mit gesicherten Daten benutzen.
+
+FREIGABE
+Automatisierte isolierte Tests bestanden. Keine vollständige Geräte-/Produktionsfreigabe ohne iPhone-End-to-End-Test.

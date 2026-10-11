@@ -1,0 +1,1 @@
+Petri Heil Pro 4.3.0 – Kumulatives Overlay auf GitHub 4.2.0. ZIP-Inhalt komplett in Repository Root hochladen; bestehende Dateien nicht löschen. Siehe INSTALLATION-4.3.0.txt, FUNKTIONSSTATUS-4.3.0.json und PRUEFBERICHT-4.3.0.txt.

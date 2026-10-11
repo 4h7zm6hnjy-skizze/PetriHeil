@@ -1,0 +1,12 @@
+INSTALLATION PETRI HEIL PRO 4.3.0
+
+1. Vor dem Update ein verschlüsseltes Backup auf einen zweiten Speicherort exportieren.
+2. ZIP entpacken und sämtliche Dateien aus dem ZIP direkt in das Root-Verzeichnis von GitHub 4h7zm6hnjy-skizze/PetriHeil (main) laden.
+3. Gleichnamige Dateien ersetzen. KEINE anderen Dateien, Bilddateien oder persönlichen Daten löschen.
+4. GitHub Pages Build/Deployment abwarten und VERSION in version.json auf 4.3.0 prüfen.
+5. App und Angelzentrale petri430.html neu öffnen, Worker-Update und 185 Kernressourcen prüfen.
+6. Im Browser petri430-qualitaet.html öffnen, Medien herunterladen, dann einen echten Flugmodus-Test durchführen.
+7. Angeltag: petri430-angeltag.html; Fangbuch 5.0: petri430-fangbuch.html; persönlicher Beißindex: petri430-beissindex.html.
+8. Fotos im Angeltag liegen in der lokalen Datenbank petri430-angeltag. JSON-Angeltag- und JSON-Fangliste-Exporte enthalten keine Fotodateien. Verschlüsseltes Gesamtbackup separat verwenden.
+
+Nicht bestätigte Funktionen: keine echte iPhone-End-to-End-Abnahme, keine automatische KI-Artbestimmung, keine amtlich live geprüfte Bundesdatenbank, keine vollständigen lizenzpflichtigen Offline-Detailkarten. Tagesbericht über Browserdruck / Als PDF speichern.
