@@ -1,21 +1,28 @@
 {
-  "version": "4.1.1",
+  "version": "4.2.0",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "serviceWorker": "sw.js",
   "changes": [
-    "Alle 177 Bildzuordnungen mit aktuellem APP_DATA-Fischkatalog abgeglichen: c8 Galizischer Sumpfkrebs und c14 Kaisergranat korrigiert.",
-    "Zehn veraltete Ordnerpfade der Legacy-Datei bildzuordnung.json auf aktuelle lokale Medienpfade umgestellt.",
-    "Historischer ARTENZUORDNUNG.json-Index auf c8 berichtigt (Korrektur beschränkt auf Bildmetadaten).",
-    "Bilder-Prüfseite mit Anzeige von 177 Arten, 28 Ausrüstungsmedien und realem Lade-/Dekodiertest aller 228 Bilddateien.",
-    "Zusätzliche Zuordnung für vorhandenes Kescher-Zubehör-Bild, wenn ein passender Ausrüstungsartikel existiert.",
-    "4.1.1-Offline-Kernliste und Service Worker aktualisiert; bestehende persönliche Daten und Alt-Caches bleiben bestehen."
+    "Stabilitäts-Update auf 4.1.1, alte Seiten und Daten bleiben erhalten.",
+    "Beißindex um Tageszeit und Pegeltendenz als ausdrücklich qualitative Faktoren ergänzt.",
+    "Lokale Gewässerregeln mit Alterswarnung; alte Pegelwerte als veraltet gekennzeichnet.",
+    "Pro-/Plus-Fänge gemeinsam ansehen, direkt im jeweiligen Originalspeicher bearbeiten und potenzielle Doppeleinträge nur melden.",
+    "Neue Bildkennungs-Konsistenzprüfung für die beiden Krebsarten; 177 Artenbilder und 228 Mediendateien im Archiv.",
+    "Bildprüfseite für Offline-Navigation in Service Worker ergänzt; atomare Offline-Kerninstallation und Diagnose aktualisiert.",
+    "Angeltag-Kurzcheck, direkter Zugang zu Kinderwelt, Angelschule, Karte und Backup.",
+    "Mobile Bedienung, lokale Vorlesefunktion, vorhandene 4.1.0/4.1.1-Funktionen und AES-Backup beibehalten.",
+    "Neuer Zusatzbereich Angelassistent, fachlich transparenter Beißindex 4.0 mit Zielfisch, Tageszeit, Wind und Bewölkung; keine verifizierte Fangprognose.",
+    "Bildbasierter Lern-Einstieg mit sechs vorhandenen lokalen Fischbildern.",
+    "Separate Offline-Qualitätsseite mit Messung des Kern- und Mediencache und anonymem Prüfbericht."
   ],
   "limitations": [
-    "KI-Bilder sind Illustrationen und nicht biologisch auf Bestimmungsmerkmale geprüft.",
-    "Bilddateien wurden über vorhandene GitHub-Dateimetadaten überprüft; vollständige Bilddekodierung erst auf deinem Gerät über Bildarchiv-Prüfung.",
-    "Keine neuen Bilder generiert: fehlende Bilder gab es in den beiden zentralen Listen nicht.",
-    "Unveränderte 4.1.0 Backup-/Lern-/Karten-Funktionen wurden nicht vollständig auf echten Geräten regression-getestet.",
-    "Für Cache-Aktualisierung ist ein erfolgreicher Service-Worker-Wechsel erforderlich; private Daten bleiben auf dem Gerät."
+    "Keine automatische Migration beider Fangbuchspeicher; Bildverknüpfungen bleiben in den ursprünglichen Datenbanken.",
+    "Keine vollständigen amtlich aktualisierten Fischereirechtsdaten; Regeln und Schonmaße müssen an Originalquellen geprüft werden.",
+    "Kein trainiertes Fischfoto-KI-Modell und keine lizenzierten vollständigen Detailkarten-Tiles.",
+    "Beißindex ist eine qualitative Lernhilfe und keine verifizierte Vorhersage.",
+    "Gezeiten nur aus lokalen Importen; Live-Wasserstände müssen explizit abgerufen werden und sind nicht durchgängig verifiziert.",
+    "Kein realer GitHub Pages- oder iPhone-End-to-End-Test vor Upload möglich.",
+    "Vollständiger 4,5-MB-Altskript-Regressionstest nicht bestätigt; lokaler Chrome-Test verwendet isolierte Testdaten."
   ]
 }

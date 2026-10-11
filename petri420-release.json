@@ -1,0 +1,20 @@
+{
+  "version": "4.2.0",
+  "baseRepo": "4h7zm6hnjy-skizze/PetriHeil",
+  "baseCommit": "0fe56a2b9794b6c212464144e2ed10f41d6fa294",
+  "baseVersion": "4.1.1",
+  "offlineCoreResources": 162,
+  "uploadState": "Prepared ZIP; not uploaded automatically",
+  "dataMigration": "None",
+  "preserves": [
+    "localStorage",
+    "IndexedDB",
+    "existing app modules",
+    "media assets"
+  ],
+  "mediaCount": 228,
+  "speciesCount": 177,
+  "readme": "PRUEFBERICHT-4.2.0.txt",
+  "scope": "Additive quality update; existing subpages preserved; no automatic data migration; no full legal/AI/map data.",
+  "state": "ZIP prepared for manual upload; not committed on GitHub"
+}

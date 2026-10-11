@@ -1,0 +1,79 @@
+{
+  "version": "4.2.0",
+  "components": [
+    {
+      "n": 1,
+      "name": "Update-Manager",
+      "status": "improved",
+      "detail": "Versioniertes atomisches Cache-Update, kein automatisches Löschen; Rollback bei fehlender Pflichtdatei im Test"
+    },
+    {
+      "n": 2,
+      "name": "Fangbuch",
+      "status": "improved",
+      "detail": "Gemeinsame Ansicht, lokale Bearbeitung im Originalspeicher, Duplikatwarnung; keine Migration"
+    },
+    {
+      "n": 3,
+      "name": "Offline-Verwaltung",
+      "status": "improved",
+      "detail": "Service Worker mit Navigationsroute für Bilder, Kernmanifest und On-Device-Diagnose"
+    },
+    {
+      "n": 4,
+      "name": "Bildqualität",
+      "status": "partially-improved",
+      "detail": "177 Mappings und bekannte c8/c14-Bilder; keine visuell/biologische Artprüfung aller Bilder"
+    },
+    {
+      "n": 5,
+      "name": "Beißindex",
+      "status": "improved",
+      "detail": "Transparenter Beißindex 4.0 mit Zielfisch, Methode, Tageszeit, Wind, Bewölkung und lokalem Speicher; keine validierte Fangwahrscheinlichkeit"
+    },
+    {
+      "n": 6,
+      "name": "Gewässerkarten",
+      "status": "retained",
+      "detail": "16 Bundesländer-Atlas und GeoJSON-Import, keine echten flächendeckenden Offline-Kachelkarten"
+    },
+    {
+      "n": 7,
+      "name": "Schonzeit/Größen",
+      "status": "improved",
+      "detail": "Warnung bei veralteten lokal gespeicherten Regeln; keine amtliche rechtssichere Live-Datenbank"
+    },
+    {
+      "n": 8,
+      "name": "Gezeiten/Pegel",
+      "status": "improved",
+      "detail": "Alte Messwerte gekennzeichnet, lokal importierte Gezeiten; externe Schnittstelle nicht auf Pages geprüft"
+    },
+    {
+      "n": 9,
+      "name": "Angelschule",
+      "status": "retained",
+      "detail": "49 Lernkarten, bestehende Knoten-SVGs/Kinderwelt, keine neuen fotorealistischen Knotenserien"
+    },
+    {
+      "n": 10,
+      "name": "Design",
+      "status": "retained",
+      "detail": "Helles responsive CSS, Navigation und Querverlinkungen"
+    },
+    {
+      "n": 11,
+      "name": "Performance",
+      "status": "improved",
+      "detail": "Paginierte Bildgalerie und limitierte Zusatzlisten; kein vollständiges Bündel-Refactoring der 4,5-MB-Legacy-App"
+    },
+    {
+      "n": 12,
+      "name": "Tests/Datenschutz",
+      "status": "tested-with-limits",
+      "detail": "Standalone Systemdiagnose mit Version, Kern- und Bildzählung, JSON-Export; echter iPhone-Test weiterhin offen"
+    }
+  ],
+  "actualOfflineCoreResources": 162,
+  "extraQualityCheck": "Separate quality panel compares all manifest entries and 228 media resources against actual device Cache Storage. No telemetry."
+}

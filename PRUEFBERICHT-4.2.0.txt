@@ -1,0 +1,45 @@
+PETRI HEIL PRO 4.2.0 – QUALITÄTS- UND REGRESSIONSPRÜFBERICHT
+Datum: 11.10.2026
+
+AUSGANGSZUSTAND
+- GitHub-Repository: 4h7zm6hnjy-skizze/PetriHeil, main.
+- Bestätigte Ausgangsversion: 4.1.1, Commit 0fe56a2b9794b6c212464144e2ed10f41d6fa294.
+- Das Paket ist ein kumulativer Datei-Overlay auf diesem Stand. Bestehende Repository-Dateien NICHT löschen.
+
+KERNUMFANG
+- 162 eindeutige Offline-Kern-URLs; darunter HTML-Einstiege, App-Module, Backups, Qualitätspanel und Stylesheet.
+- Bildmedien: 228 separate Bestandsdateien bleiben im Repository, sie sind NICHT im ZIP und müssen fürs Offline-Angeln separat vorbereitet werden.
+- Bildarten: 177 vorhandene Zuordnungen, 172 unterschiedliche Artdateien; c8/c14 im Hauptkatalog korrigiert; Laufzeitabgleich für veraltete Ansichten.
+- Keine automatische Datenbank-Migration. Bestehende Pro-/Plus-Fangdaten sowie Fotoverweise bleiben in ihren ursprünglichen Browser-Speichern.
+
+BESTANDENE TESTS (LOKAL)
+- JavaScript-Syntax Node.js – alle gelieferten JS-Dateien.
+- JSON-Syntax und Eindeutigkeit des Versions-/Offline-Manifests.
+- Chromium (isoliert): 9 Hauptbereiche, Fangansicht mit Pro+Plus, Fangerfassung, Original-Fangbearbeitung, CSV-/JSON-Export, Lernfragen, Knoten, Packliste, Regelnotizen und Einstellungs-Export.
+- Chromium: 54 Kombinationen aus 9 Bereichen und 6 Bildschirmbreiten ohne horizontalen Überlauf.
+- Fehlerfall beschädigte Pro-Daten: kein Überschreiben; Fehlerfall Quota beim Speichern: Zustand zurückgesetzt.
+- Chromium: Bildarchiv mit 177 Artzuordnungen, 28 Ausrüstungsmedien und 228 Medienobjekten; erzwungener Ladefehler korrekt angezeigt (synthetische Bildantworten).
+- Isolierte Chromium-Qualitätsprüfung: alle 162 Kern-URLs und 228 Medienzählungen, fehlende sowie vorhandene Cache-Einträge erkannt, technischer Bericht herunterladbar.
+- Service-Worker-VM-Modell: Cache-Installationsablauf, erfolgreicher vollständiger Staging-Durchlauf, Fehler einer Pflichtdatei führt zu Abbruch, früherer Cache bleibt bestehen.
+- Alle neuen HTML-Skript/CSS-Dateiverweise überprüft. Unveränderte Bestandsskripte bleiben erhalten.
+
+OFFEN / NICHT BESTANDEN BEHAUPTET
+- Kein echter GitHub-Pages-Installations- und Flugmodus-Test auf iPhone/Android durchgeführt.
+- Keine vollständige End-to-End-Ausführung der alten 4,5-MB-Haupt-App; alter Renderer nicht in allen Kombinationen automatisiert geprüft.
+- Kein kompletter Echt-Restore aller bestehenden IndexedDB-Fotos auf einem iPhone getestet.
+- Keine wissenschaftlich kalibrierte Fangwahrscheinlichkeitsberechnung. Beißindex ist eine qualitative Heuristik.
+- Keine trainierte Foto-KI. Bildqualität/Artmerkmale aller 228 Illustrationen nicht fachbiologisch einzeln verifiziert.
+- Keine vollflächigen lizenzierten Offline-Detailstraßen-/Tiefenkarten.
+- Rechtliche Schonzeiten/Mindestmaße nicht amtlich synchronisiert. Quelle vor Ort selbst prüfen.
+- PEGELONLINE Live-API/BSH Gezeiten-Synchronisierung nicht auf GitHub Pages nachgewiesen; Gezeiten sind bisher lokal importiert.
+- Browser können lokale Daten/Caches löschen. AES-Backup außerhalb des Geräts aufbewahren.
+
+NUTZERSICHERHEIT
+- Keine routinemäßige Löschung von localStorage/IndexedDB/alten Caches.
+- SW aktiviert Kerncache erst nach komplettem Ressourcencheck (simuliert geprüft).
+- Neue Diagnose exportiert keine Fangdaten und sendet keine Telemetrie.
+- Keine automatische Duplikatbereinigung; potenzielle Doppelungen nur Hinweise.
+- Der verschlüsselte Backup-Assistent ist weiterhin der aus 4.1.0; echte Wiederherstellung unter Praxisbedingungen separat prüfen.
+
+PROFESSIONELLE FREIGABE
+Teilabnahme isoliert bestanden. Die Abnahme auf dem Zielgerät einschließlich Installation, Offlinebetrieb und vollständiger Rücksicherung ist weiterhin erforderlich.

@@ -1,0 +1,9 @@
+PETRI HEIL PRO 4.2.0 – INSTALLATION
+1. VORHER: In der vorhandenen 4.1.1 im Bereich Datensicherung ein verschlüsseltes Backup von Fängen, Fotos, Dokumenten und Einstellungen auf einem zweiten Speicherort sichern.
+2. ZIP entpacken; enthaltene Dateien in das Stammverzeichnis des Repositories 4h7zm6hnjy-skizze/PetriHeil auf Branch main hochladen.
+3. Namensgleiche Dateien ersetzen, keine sonstigen vorhandenen Bilder/Module löschen. ZIP NICHT selbst als eine Datei hochladen.
+4. GitHub Pages Build in Actions auf Erfolg kontrollieren; danach App im Browser öffnen und kontrollieren, dass `version.json` 4.2.0 ausweist.
+5. Unter system410.html Kernpaket kontrollieren und unter petri420-quality.html den Gerätestatus prüfen und unter petri411-bilderpruefung.html alle Bilder laden. Vor Offline-Test alle notwendigen Medien/Kartenpakete separat speichern.
+6. Danach auf iPhone mit Flugmodus und WLAN AUS prüfen: Startseite, Angelzentrale, Bildprüfseite, Fangbuch, Kinderwelt, Karte. Abschließend Stichproben-Backup/Rücksicherung mit Kopie und gesondertem Testprofil prüfen.
+7. Bei Fehler: private Daten NICHT löschen. Sicherung behalten, Seite update-rettung.html verwenden und GitHub Pages sowie Service Worker prüfen.
+Grenzen: Karten sind nicht bundesweit vollständige Straßen-/Tiefenkarten; Gezeiten basieren auf Importen; keine trainierte Foto-KI; Rechtsdaten können sich ändern.

@@ -1,14 +1,14 @@
-/* Petri Heil Pro 4.1.1: install-safe offline PWA worker. No user-data deletion. */
+/* Petri Heil Pro 4.2.0: install-safe offline PWA worker. No user-data deletion. */
 'use strict';
-const VERSION='4.1.1';
-const CORE_CACHE='petri-core-4.1.1', STAGE='petri-stage-4.1.1', IMAGES='petri-media-2.2.0';
+const VERSION='4.2.0';
+const CORE_CACHE='petri-core-4.2.0', STAGE='petri-stage-4.2.0', IMAGES='petri-media-2.2.0';
 const ROOT=new URL('./',self.location.href),local=n=>new URL(n,ROOT).href;
-const CHANGED=new Set(['BILDZUORDNUNGEN_177_ARTEN.json','bildzuordnung.json','ARTENZUORDNUNG.json','petri411-bilderpruefung.html','petri411-bilderpruefung.js','petri411-gear-detail.js','petri411.js','petri411-system.js','petri411-release.json','index.html','zentrale.html','angelbegleiter.html','offline-check.html','petri410.html','petri411-bilderpruefung.html','petri411.js','petri410.css','petri-offline-v4.1.1.js','sw.js','petri-sw.js','version.json','petri-core-v4.1.1.json','petri411-release.json','petri410-vault.js','petri410-backup-ui.js','petri411-system.js','sicherung410.html','system410.html']);
-const ROUTES=new Set(['index.html','offline-check.html','update-rettung.html','installieren.html','datenschutz.html','praxis.html','erweiterungen.html','werkzeuge.html','karte.html','premium.html','angelwerkzeuge.html','montagen.html','gezeiten.html','kinderwelt.html','angelschule.html','angelstudio.html','karten-detail.html','lernspiele.html','zentrale.html','gewaesser.html','angelbegleiter.html','petri410.html','petri400.html','petri370.html','sicherung410.html','system410.html']);
+const CHANGED=new Set(['petri420-enhance.js','petri420-quality.js','petri420.html','petri420.css','petri420-quality.html','petri420-quality.js','petri420-quality.css','petri420-quality.html','petri420.html','BILDZUORDNUNGEN_177_ARTEN.json','bildzuordnung.json','ARTENZUORDNUNG.json','petri411-bilderpruefung.html','petri411-bilderpruefung.js','petri420-bildabgleich.js','petri410.css','petri411-gear-detail.js','petri420.js','petri420-system.js','petri420-release.json','index.html','zentrale.html','angelbegleiter.html','offline-check.html','petri410.html','petri411-bilderpruefung.html','petri420.js','petri410.css','petri-offline-v4.2.0.js','sw.js','petri-sw.js','version.json','petri-core-v4.2.0.json','petri420-release.json','petri410-vault.js','petri410-backup-ui.js','petri420-system.js','sicherung410.html','system410.html']);
+const ROUTES=new Set(['petri420-quality.html','petri420.html','petri420-quality.html','petri420.html','index.html','offline-check.html','update-rettung.html','installieren.html','datenschutz.html','praxis.html','erweiterungen.html','werkzeuge.html','karte.html','premium.html','angelwerkzeuge.html','montagen.html','gezeiten.html','kinderwelt.html','angelschule.html','angelstudio.html','karten-detail.html','lernspiele.html','zentrale.html','gewaesser.html','angelbegleiter.html','petri410.html','petri411-bilderpruefung.html','petri400.html','petri370.html','sicherung410.html','system410.html']);
 const fileName=n=>n.split('?')[0];
 async function notify(type,props={}){try{const clients=await self.clients.matchAll({type:'window',includeUncontrolled:true});for(const c of clients)c.postMessage({type,version:VERSION,...props})}catch{}}
 self.addEventListener('message',e=>{if(e.data?.type==='SKIP_WAITING')void self.skipWaiting();if(e.data?.type==='PETRI_GET_WORKER_VERSION'){try{e.ports[0]?.postMessage({version:VERSION,cache:CORE_CACHE})}catch{}}});
-async function coreList(){const response=await fetch(local('petri-core-v4.1.1.json'),{cache:'no-store'});if(!response.ok)throw Error('Manifest HTTP '+response.status);const data=await response.json();if(data.version!==VERSION||!Array.isArray(data.files)||data.files.length<120||new Set(data.files).size!==data.files.length)throw Error('Ungültiges Versionsmanifest');for(const x of data.files)if(typeof x!=='string'||!/^[a-zA-Z0-9._-]+(?:\?v=[0-9.]+)?$/.test(x))throw Error('Unsicherer Offline-Pfad');for(const x of ['index.html','petri410.html','petri411.js?v=4.1.1','version.json'])if(!data.files.includes(x))throw Error('Pflichtdatei fehlt in Liste: '+x);return data.files}
+async function coreList(){const response=await fetch(local('petri-core-v4.2.0.json'),{cache:'no-store'});if(!response.ok)throw Error('Manifest HTTP '+response.status);const data=await response.json();if(data.version!==VERSION||!Array.isArray(data.files)||data.files.length<120||new Set(data.files).size!==data.files.length)throw Error('Ungültiges Versionsmanifest');for(const x of data.files)if(typeof x!=='string'||!/^[a-zA-Z0-9._-]+(?:\?v=[0-9.]+)?$/.test(x))throw Error('Unsicherer Offline-Pfad');for(const x of ['index.html','petri410.html','petri420.js?v=4.2.0','version.json'])if(!data.files.includes(x))throw Error('Pflichtdatei fehlt in Liste: '+x);return data.files}
 self.addEventListener('install',event=>event.waitUntil((async()=>{
   const names=await coreList();const stage=await caches.open(STAGE);
   try{
@@ -18,7 +18,7 @@ self.addEventListener('install',event=>event.waitUntil((async()=>{
       if(!CHANGED.has(stem))response=await caches.match(u,{ignoreSearch:true});
       if(!response){const r=await fetch(u,{cache:'reload'});if(!r.ok||r.type==='opaque')throw Error('Offline-Pflichtdatei: '+name+' ('+r.status+')');response=r;}
       if(stem==='index.html'||stem==='petri410.html'){
-        const body=await response.clone().text();if(!body.includes('name="petri-app-version" content="4.1.1"'))throw Error('Veraltete Startdatei: '+name);
+        const body=await response.clone().text();if(!body.includes('name="petri-app-version" content="4.2.0"'))throw Error('Veraltete Startdatei: '+name);
       }
       if(stem==='version.json'){
         const data=await response.clone().json();if(data.version!==VERSION)throw Error('Veraltete version.json');
