@@ -1,0 +1,15 @@
+{
+  "version": "4.1.1",
+  "date": "2026-10-11",
+  "baseRepository": "4h7zm6hnjy-skizze/PetriHeil",
+  "baseCommit": "61fbf69bd44d806d2ac1ea61e7b25cb5cab6ba9a",
+  "baseVersion": "4.1.0",
+  "status": "ZIP for manual GitHub upload",
+  "manifestCount": 155,
+  "species": 177,
+  "speciesImages": 172,
+  "mediaCount": 228,
+  "gearImages": 28,
+  "imageFilesIncludedInPatch": 0,
+  "userDataMigrations": 0
+}

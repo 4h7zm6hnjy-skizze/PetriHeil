@@ -1,8 +1,8 @@
 {
-  "version": "2.0.21",
+  "version": "4.1.1",
   "totalArten": 177,
   "unterschiedlicheLokaleDateien": 172,
-  "hinweis": "Dateizuordnung, keine Prüfung der biologischen Bildmerkmale",
+  "hinweis": "Lokale Dateizuordnung, keine biologisch validierte Bestimmungsaufnahme; IDs c8/c14 mit APP_DATA.fish abgeglichen.",
   "arten": [
     {
       "id": "f32",
@@ -636,13 +636,13 @@
     },
     {
       "id": "c8",
-      "name": "Kaisergranat",
-      "bilddatei": "kaisergranat-ki-weiss.webp"
+      "name": "Galizischer Sumpfkrebs",
+      "bilddatei": "galizischer-sumpfkrebs-ki-weiss.webp"
     },
     {
       "id": "c14",
-      "name": "Galizischer Sumpfkrebs",
-      "bilddatei": "galizischer-sumpfkrebs-ki-weiss.webp"
+      "name": "Kaisergranat",
+      "bilddatei": "kaisergranat-ki-weiss.webp"
     },
     {
       "id": "f1",

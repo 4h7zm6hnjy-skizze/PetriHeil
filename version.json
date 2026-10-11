@@ -1,22 +1,21 @@
 {
-  "version": "4.1.0",
+  "version": "4.1.1",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "serviceWorker": "sw.js",
   "changes": [
-    "4.1.0: Gesamtes Offline-Kernmanifest prüfen, ohne alte Medien- oder Nutzerdaten zu löschen.",
-    "Separater AES-256-GCM-Gesamtbackup-Assistent für lokale Daten und bekannte IndexedDB-Speicher einschließlich Fotos, mit Passwort und Vorschau vor Restore.",
-    "Pro/Plus-Fänge gemeinsam durchsuchen und auswerten; möglicher Duplikat-Hinweis ohne automatische Löschung.",
-    "Neuer Systemdiagnose-Bereich: Zugriffsprüfung, LocalStorage, IndexedDB, Service Worker, Kern-/Mediencache, Nutzerdatenquellen.",
-    "Helles Design, vorhandene 177 Bildzuordnungen, Kinderwelt, Karten, Angelplaner, Lernmodule und Pegelabruf beibehalten.",
-    "Versionen, Kernliste und Update-Seiten auf 4.1.0 synchronisiert; alter Worker-/Datenbestand bleibt bis erfolgreicher Installation bestehen."
+    "Alle 177 Bildzuordnungen mit aktuellem APP_DATA-Fischkatalog abgeglichen: c8 Galizischer Sumpfkrebs und c14 Kaisergranat korrigiert.",
+    "Zehn veraltete Ordnerpfade der Legacy-Datei bildzuordnung.json auf aktuelle lokale Medienpfade umgestellt.",
+    "Historischer ARTENZUORDNUNG.json-Index auf c8 berichtigt (Korrektur beschränkt auf Bildmetadaten).",
+    "Bilder-Prüfseite mit Anzeige von 177 Arten, 28 Ausrüstungsmedien und realem Lade-/Dekodiertest aller 228 Bilddateien.",
+    "Zusätzliche Zuordnung für vorhandenes Kescher-Zubehör-Bild, wenn ein passender Ausrüstungsartikel existiert.",
+    "4.1.1-Offline-Kernliste und Service Worker aktualisiert; bestehende persönliche Daten und Alt-Caches bleiben bestehen."
   ],
   "limitations": [
-    "Kein vollständig trainiertes Fischfoto-KI-Modell; Bestimmung weiter anhand von Merkmalen und extern verifizierten Fachinfos.",
-    "Keine flächendeckenden lizenzierten Offline-Detailkarten oder automatisch verifizierte bundesweite Rechtsdatenbank.",
-    "Gezeiten aus bisher importierten Daten; Live-Pegel nur bei Netzwerk und Browserfreigabe verfügbar.",
-    "Alt-Fangbücher bleiben getrennt gespeichert, obwohl sie zusammen angezeigt werden; Fotos bleiben in jeweiligen Datenbanken.",
-    "Echtes iPhone/Android, echte GitHub-Pages-Auslieferung und vollständige 4,5-MB-Alt-App sind nicht lokal Ende-zu-Ende geprüft.",
-    "Verschlüsseltes Backup erfasst Weborigin-lokale localStorage/IndexedDB; keine Cache Storage oder Daten anderer Domains; Browser-Speicher kann Daten verlieren."
+    "KI-Bilder sind Illustrationen und nicht biologisch auf Bestimmungsmerkmale geprüft.",
+    "Bilddateien wurden über vorhandene GitHub-Dateimetadaten überprüft; vollständige Bilddekodierung erst auf deinem Gerät über Bildarchiv-Prüfung.",
+    "Keine neuen Bilder generiert: fehlende Bilder gab es in den beiden zentralen Listen nicht.",
+    "Unveränderte 4.1.0 Backup-/Lern-/Karten-Funktionen wurden nicht vollständig auf echten Geräten regression-getestet.",
+    "Für Cache-Aktualisierung ist ein erfolgreicher Service-Worker-Wechsel erforderlich; private Daten bleiben auf dem Gerät."
   ]
 }

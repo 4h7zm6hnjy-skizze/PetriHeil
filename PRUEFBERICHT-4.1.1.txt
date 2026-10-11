@@ -1,0 +1,40 @@
+PETRI HEIL PRO 4.1.1 – BILD- & UPDATE-PRÜFBERICHT
+Ausgangsversion: 4.1.0 – GitHub Commit 61fbf69bd44d806d2ac1ea61e7b25cb5cab6ba9a
+
+VORHER (GitHub-Connector-Abgleich)
+- 549 Dateien im Root, darunter 228 WebP/PNG/GIF/JPG/SVG-Assets, alle ungleich 0 Byte.
+- 228 eindeutige Einträge in petri-media-v2.2.0.json, 228/228 vorhanden.
+- 177 eindeutige Arten-IDs, 172 Bilddateien, 0 fehlende referenzierte Dateien.
+- Fünf Artenvarianten nutzen dieselbe lokale Datei.
+- 2 semantisch falsch zugeordnete IDs c8 und c14 in Bildzuordnung und altem species-images-Modul.
+- 10 veraltete relative Pfade in bildzuordnung.json (assets/ki-bilder/... statt Dateiname).
+- 28 Ausrüstungsdateien, 27 direkt in aktiver Ausrüstungskarten-Zuordnung; gear-kescher-zubehoer.webp zuvor nicht direkt zugeordnet.
+- fish.json enthielt 162 Arten; die aktuelle APP_DATA in data.js enthielt 177 (und bleibt unverändert).
+
+KORREKTUREN
+- BILDZUORDNUNGEN_177_ARTEN.json id c8 = Galizischer Sumpfkrebs = galizischer-sumpfkrebs-ki-weiss.webp; c14 = Kaisergranat = kaisergranat-ki-weiss.webp.
+- bildzuordnung.json: 10 Pfade bereinigt; ARTENZUORDNUNG.json: Galizischer Sumpfkrebs id c8.
+- Main-app species-images-v2.0.5.js hat noch die beiden alten internen IDs, wählt Bild in der Hauptkarte jedoch per ARTNAME; Angelstudio liest die korrigierte JSON-Datei per ID. Das alte Skript bleibt zur Risikobegrenzung unberührt.
+- 4.1.1 ergänzt die bestehende Haupt-App (Bildkontrolle, Kescher-Zubehör-Bild) ohne Datenmigration.
+- 4.1.1-Offline-Manifest mit 155 URL-Ressourcen, Service-Worker-Ausfallschutz und ohne Löschroutine.
+
+TESTGRENZEN
+- Bilddateien wurden nicht einzeln visuell/biologisch geprüft; ein echter Geräte-Bildladetest kann im neuen Prüfbildschirm durchgeführt werden.
+- Vollständige alte 4,5 MB-Haupt-App, echtes GitHub-Pages-Deployment der neuen ZIP und iPhone-PWA können hier nicht vollständig getestet werden.
+- Erneuter Abgleich der 177 Zeilen zu APP_DATA vollständig für c8/c14, übrige Zeilen stammten aus bisherigem Live-Manifest.
+
+DURCHGEFÜHRTE AUTOMATISIERTE TESTS (11.10.2026)
+- Vollständige Gegenprüfung der 177 Bildzeilen gegen korrigiertes GitHub-Quellmapping per FNV-1a-Prüfsumme: identisch (0x1e091912).
+- Alle 177 IDs eindeutig, 172 eindeutige Bildnamen, c8/c14 korrekt.
+- Playwright/Chromium: Galerie lädt 177 Arten, zeigt c8/c14 korrekt, 28 Ausrüstungsbilder inklusive Kescher-Zubehör.
+- Playwright: 228er Bildlade-Mechanik mit simulierten Bilddateien: 1 fehlgeschlagenes Bild wird korrekt gemeldet, nach Korrektur 0 Fehler. Keine echten GitHub-WebP-Dateien wurden im Browser-Test geladen.
+- Playwright: bei 320/375/390/430/768/1024 Pixel kein horizontaler Überlauf der Galerie.
+- Playwright: Angelzentrale 9 Navigationen, gemeinsames Fangbuch, CSV/JSON Export, Plan, Checkliste, Regeln, Lernen, Statistiken, Einstellungs-Sicherung und Datenerhalt erfolgreich.
+- Playwright: 9 Ansichten bei 320 bis 1024 Pixel ohne horizontalen Überlauf.
+- Node: Offline-Service-Worker-Installation von 155 simulierten Ressourcen erfolgreich; fehlende Pflichtdatei bewirkt Fehlerabbruch und erhält bestehenden 4.1.0-Cache.
+- Node: JavaScript-Syntaxprüfung aller 4.1.1-Skripte erfolgreich. JSON-Syntax und ZIP-Integrität ebenfalls bestanden.
+
+WEITERE TESTGRENZEN
+- Das korrekte Aussehen jeder WebP-Datei (Artenmerkmale, Anatomie, Farbe) wurde nicht manuell/visuell geprüft.
+- Der Galerie-Browsertest verwendete simulierte Bild-Load-Events; eine echte 228er-Bilddekodierung ist über den neuen Prüfknopf auf dem iPhone möglich.
+- Ein vollständig echtes GitHub-Pages-/iPhone-Offline-Upgrade konnte nicht durchgespielt werden.

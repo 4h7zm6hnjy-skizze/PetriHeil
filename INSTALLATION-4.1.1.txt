@@ -1,0 +1,21 @@
+PETRI HEIL PRO 4.1.1 – BILDKORREKTUR (11.10.2026)
+
+BASIS: GitHub 4h7zm6hnjy-skizze/PetriHeil, Branch main, Commit 61fbf69bd44d806d2ac1ea61e7b25cb5cab6ba9a, Version 4.1.0.
+
+1. Sicherheit: Bestehendes AES-Backup in der App erstellen und außerhalb speichern. Vorher möglichst Wiederherstellungsfunktion prüfen.
+2. ZIP entpacken. Alle enthaltenen Dateien flach in das Repository-Wurzelverzeichnis hochladen (main).
+3. Gleichnamige Dateien ERSETZEN. Sonstige Dateien und alle 228 Bilddateien NICHT löschen.
+4. Die ZIP selbst nicht als Datei ins Repository hochladen. Bestehende 4.1.0-Dateien bleiben erhalten.
+5. Nach erfolgreicher GitHub-Pages-Bereitstellung die App online aufrufen und über Update-Reparatur die 4.1.1 aktivieren.
+6. Systemdiagnose und petri411-bilderpruefung.html öffnen, "228 Bilder testen" benutzen.
+7. Im Angelstudio Galizischer Sumpfkrebs (c8) und Kaisergranat (c14) visuell prüfen.
+8. Offline-Kontrolle durchführen und bei Bedarf alle 228 Medien herunterladen, danach im Flugmodus nachprüfen.
+
+WARUM KEINE NEUEN FISCHBILDER?
+Alle 177 Arten sind 172 lokalen WebP-Dateien zugeordnet. Alle 228 Medienlisten-Dateien existierten laut GitHub-Metadaten vor Update.
+Die Qualitätslücke waren zwei vertauschte Katalog-IDs, zehn veraltete Pfade und ein nicht zugeordnetes Ausrüstungsbild.
+Die Fotoqualität und taxonomische Genauigkeit von KI-Illustrationen sind nicht unabhängig geprüft.
+
+DATENSCHUTZ: Keine Änderungen an Fängen, Fotos, localStorage oder IndexedDB; keine Telemetrie. Alte Offline-Caches werden nicht automatisch gelöscht.
+
+NEUE SEITE: petri411-bilderpruefung.html
