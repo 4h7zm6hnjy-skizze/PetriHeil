@@ -1,8 +1,14 @@
 {
-  "version": "3.0.1",
+  "version": "3.0.2",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "changes": [
+    "Feste Bildschirmbreite auf allen zehn App-Seiten; keine unbeabsichtigte Vergrößerung durch Pinch-Zoom oder Doppeltippen.",
+    "Gleiches responsive Seitenlayout auf iPhone, Android und Tablets; Inhalte können weiterhin vertikal gescrollt werden.",
+    "iPhone-Eingabefelder verwenden mobil mindestens 16 Pixel Schriftgröße gegen automatischen Fokus-Zoom.",
+    "Breite Tabellen bleiben im eigenen Bereich horizontal scrollbar; keine Verbreiterung der ganzen App.",
+    "Offline-Worker und Diagnose auf 3.0.2 aktualisiert; alle 59 Kernressourcen vor Aktivierung geprüft.",
+    "Keine Änderungen an Fangdaten, Backups, GPS-Aufzeichnungen, Datenschutz oder dem bestehenden hellen Design.",
     "Reparatur: Offline-Navigation nutzt korrekt vorgeprüfte Seiten sofort aus dem Cache; Update-Reparatur nutzt weiterhin aktuelle Netzversion.",
     "GPS-Aufzeichnung: Start/Stopp-Schaltfläche unmittelbar korrekt, Löschen stoppt aktive Aufzeichnung, Wiederherstellung nach Zurücknavigation bereinigt veraltete GPS-Watches.",
     "Angelstatistik: Überschneidende Angelzeiten nur einmal zählen; Fänge nicht mehrfach zuordnen; Trips ohne Fang weiterhin auswerten.",
@@ -12,6 +18,9 @@
     "Keine Datenbankmigration; PIN bleibt entfernt; strikter Privatmodus bleibt aktiv."
   ],
   "limitations": [
+    "iOS und Android können Zoombeschränkungen aus Gründen der Barrierefreiheit systemseitig übersteuern.",
+    "Zoombeschränkungen können für Menschen mit Sehbeeinträchtigung nachteilig sein; Schriftgröße des Betriebssystems bleibt unabhängig davon.",
+    "Echte Tests auf iPhone und Android erforderlich; Browser-/Geräteverhalten kann von automatisierten Tests abweichen.",
     "app.js (rund 4,5 MB) konnte nicht vollständig geprüft werden. Funktionsprüfung der bestehenden Haupt-App nur eingeschränkt möglich.",
     "Fotovergleich ist kein trainiertes KI-Modell; GPS-Skizze ist keine topografische Karte.",
     "Kamera, GPS, native Dateiauswahl und PDF-Funktionen müssen auf echten iPhones und Android-Geräten getestet werden.",

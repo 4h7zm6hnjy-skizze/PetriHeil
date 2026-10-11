@@ -1,0 +1,26 @@
+PETRI HEIL PRO 3.0.2 – FESTE BILDSCHIRMGRÖSSE / KEIN ZOOM
+
+Erstellt auf Grundlage von Version 3.0.1.
+
+INSTALLATION
+1. Vorher private Fangdaten und Bilder sichern.
+2. Alle App-Dateien aus dem ZIP in das Hauptverzeichnis des bestehenden
+   GitHub-Repositories PetriHeil hochladen und gleichnamige Dateien ersetzen.
+   Die alten Fisch-/Ausrüstungsbilder, app.js und data.js NICHT löschen.
+3. Nach der GitHub-Pages-Veröffentlichung in der App die Update-Reparatur
+   starten und Version 3.0.2 installieren.
+4. Auf iPhone und Android Startseite, Fangformular, Prüfung und Premium-Zentrale
+   testen: Pinch-Zoom, Doppeltippen, Texteingabe, Scrollen und Flugmodus.
+
+GEÄNDERT
+- Alle zehn HTML-Ansichten haben denselben mobilen Viewport ohne Seitenzoom.
+- Neue CSS-Datei begrenzt die Breite und verhindert seitliches Seitenwandern.
+- Neues JavaScript unterdrückt Zoom-Gesten, lässt einhändiges Scrollen zu.
+- Formulare erhalten auf schmalen Bildschirmen mindestens 16 px Eingabeschrift.
+- Versionsprüfung, Offline-Worker und Diagnose auf 3.0.2 umgestellt.
+- PIN-Schutz wird NICHT hinzugefügt. Privater Offline-Bildcache bleibt erhalten.
+
+HINWEIS
+Der Browser oder das Betriebssystem kann die Zoombeschränkung aus
+Barrierefreiheitsgründen übersteuern. Auf iPhone und Android ist ein
+abschließender Gerätetest nötig. Keine Änderungen an gespeicherten Fängen.
