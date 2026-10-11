@@ -1,23 +1,25 @@
 {
-  "version": "3.1.0",
+  "version": "3.2.0",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "changes": [
-    "Deutschland-Offline-Kartenübersicht mit geografischen GSHHG/WDBII-Küsten, Flüssen, Seen, Grenzen und Städten.",
-    "16 Regionendateien für Bundesländer separat direkt von GitHub Pages herunterladen und im lokalen Cache speichern; keine externen Kartendienstanfragen.",
-    "Interaktive Kartenansicht mit eigener Finger-Zoomfunktion, Verschieben, GPS-Punkt und gespeicherten Pro-Angelstellen.",
-    "Private neue Angelstellen anlegen, Luftpfeilrichtung und Entfernung zum gewählten Angelplatz berechnen.",
-    "Premium-Zentrale und Hauptnavigation verlinken die Deutschland-Karte; Offline-Worker mit separater Offline-Route.",
-    "Core-Cache prüft die neue Übersicht, Kartenlogik und Regionsliste; einzelne 16 Bundeslandpakete sind bewusste optionale Downloads.",
-    "Keine Änderung an vorhandenen Fangbüchern, Fotos, privaten GPS-Spuren oder Datensicherungen."
+    "Beißindex direkt unter dem Hecht-Banner vor dem Fang-Podium auf der Übersicht, vollständig lokal und gut sichtbar.",
+    "Fischartbezogene Aktivitäts-Orientierung mit 24-Stunden-Balken, modellierten Tageshöchstwerten für sieben Tage und optionalen lokal erfassten Umweltbedingungen.",
+    "Vor-Ort-GPS nur auf ausdrücklichen Knopfdruck; keine Übertragung persönlicher Standortdaten oder Fänge an externe Dienste.",
+    "10 Montagen mit eigenen SVG-Lernzeichnungen, Teilelisten, Schritt-für-Schritt-Anleitungen und Suchfunktion.",
+    "12 Angelknoten mit eigenen SVG-Lernzeichnungen, vier Lernschritten, Favoriten und Filter.",
+    "Montagen & Knoten sind auf der Übersicht, in der Premium-Zentrale und im Menü-Fußbereich erreichbar.",
+    "Aktualisierte Versionsprüfung und 3.2.0-Offline-Kernpaket; bestehender Bild- und Karten-Cache bleibt erhalten.",
+    "Keine neue Benutzeranmeldung, kein PIN, keine automatische Datenübermittlung; bestehende Datenmodelle bleiben unverändert."
   ],
   "limitations": [
-    "Wichtige Abgrenzung: geografische Übersicht statt detaillierter Straßen-/Wanderweg-/Hausnummernkarte; Straßenrouting und Gewässertiefen fehlen.",
-    "GSHHG 2.3.7 ist ein historischer Datensatz von 2017, nicht aktuell genug für sicherheitskritische Navigation.",
-    "GPS-Navigation liefert Kompassrichtung und Luftlinienentfernung, keine Wegführung auf Wegen oder Straßen.",
-    "Nach dem einmaligen Download funktioniert ein regionales Paket offline; Browser können gespeicherte Dateien unter Speicherdruck entfernen.",
-    "Online-Download von Regionen erfolgt von GitHub Pages. Der Host erhält technische Netzmetadaten wie die IP-Adresse und den angeforderten Regionnamen, niemals Geräte-GPS-Koordinaten.",
-    "App-Grundfunktionen sind unverändert; ausführliche iOS-/Android-Geräte- und GPS-Tests stehen aus."
+    "Beißindex ist eine offen deklarierte Faustregel und keine validierte Fangwahrscheinlichkeit oder zuverlässige 7-Tage-Wetterprognose.",
+    "Schrittzeichnungen sind eigene schematische Lernillustrationen; sie ersetzen keine praktische Einweisung oder amtlichen Prüfungsbilder.",
+    "Die 7-Tage-Übersicht setzt unveränderte Wetter-Eingaben voraus und zeigt keine Live-Daten.",
+    "Offline-Nutzung setzt erfolgreiche Installation des vollständigen Kernpakets und gegebenenfalls Vorbereitung älterer Bildbestände voraus.",
+    "Vorhandene geografische Deutschlandkarte enthält weiterhin keine straßengenaue Navigation.",
+    "Originaldatei app.js wurde nicht neu geschrieben; iPhone-/Android-Gerätetests und alle alten Haupt-App-Funktionen sind nicht vollständig getestet.",
+    "Zoom-Sperren können Betriebssysteme aus Barrierefreiheitsgründen übersteuern."
   ],
   "serviceWorker": "sw.js"
 }

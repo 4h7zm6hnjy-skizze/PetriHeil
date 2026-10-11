@@ -1,0 +1,26 @@
+PETRI HEIL PRO 3.2.0 – BEISSINDEX, MONTAGEN UND KNOTEN
+
+INSTALLATION
+1. Vorhandene Fänge und Fotos über die Privat-Backup-Funktion sichern.
+2. ZIP entpacken. Nur die darin enthaltenen Dateien, nicht die ZIP, in das Hauptverzeichnis des GitHub-Repositories PetriHeil hochladen. Gleichnamige Dateien ersetzen; andere nicht löschen.
+3. GitHub Pages veröffentlichen lassen. Die Dateien index.html, version.json, petri-sw.js und sw.js müssen zusammen hochgeladen sein.
+4. In der bisherigen App Update-Reparatur öffnen und Version 3.2.0 installieren. Die App NICHT deinstallieren oder Websitedaten löschen.
+5. Auf Übersicht sollte der Beißindex direkt nach dem Hecht-Banner und vor dem Fang-Podium stehen.
+6. Von dort Montagen oder Knoten öffnen. Offline-Prüfung starten und alle Kernressourcen kontrollieren.
+7. Im Flugmodus die Startseite sowie montagen.html öffnen.
+
+DATENSCHUTZ
+Keine automatische Übertragung von Fotos, Fangplätzen oder GPS-Koordinaten. Die App verwendet beim Update GitHub Pages, das technische Verbindungsdaten erhält. GPS-Übernahme im Beißindex wird nur auf Knopfdruck ausgelöst.
+
+WICHTIG
+Das sind Lernillustrationen, keine amtlichen Prüfungstafeln. Der Beißindex ist eine modellierte Faustregel, KEINE wissenschaftlich geprüfte Fangprognose. 7-Tage-Balken sind keine Wettervorhersage.
+
+DATEN
+Bestehende Fang-/Fotodatenmodelle werden nicht migriert oder gelöscht. Das Update enthält nur ändernde/zusätzliche Dateien, nicht die unveränderten >300 Altdateien des Repositories.
+
+TESTGRENZEN
+Kein vollständiger End-to-End-Test der 4,5 MB großen ursprünglichen app.js sowie keine echten GPS-/iPhone-/Android-Tests.
+
+12 Knoten, 10 Montagen, 24-Stunden-Balken und modellierte 7-Tage-Tageshöchstwerte.
+
+NEUE LERNINHALTE: 10 Angelmontagen, 12 Knoten, jeweils mit bebilderten Schrittfolgen, Suche und Favoriten.
