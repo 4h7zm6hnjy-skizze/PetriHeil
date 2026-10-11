@@ -12,3 +12,11 @@
 .p442-depth-panel .message{position:static;white-space:pre-wrap;margin:9px 0}.p442-depth-panel .message.error{background:#fff0ed;color:#7b2828}.p442-credit{font-size:.74rem;line-height:1.4;max-width:100%;overflow-wrap:anywhere}.p442-exports{display:flex;gap:8px;flex-wrap:wrap}.p442-exports button{font-size:.84rem}
 @media(max-width:950px){.p442-depth-panel .p442-depth-body{grid-template-columns:1fr}}@media(max-width:600px){.p442-depth-panel .fields{grid-template-columns:1fr}.p442-live-map{height:390px}.p442-depthrow{display:block}.p442-depthrow>div:last-child{justify-content:flex-start}.p442-toolbar button{flex:1 1 auto}.p442-credit{font-size:.75rem}}
 @media print{.p442-toolbar,.p442-toolbars,.p442-live-map,.p442-depth-panel{display:none!important}}
+
+/* 4.4.3: visible tile-loading/error fallback on compact iPhone layouts */
+.p443-tile-notice{padding:10px 13px;margin:10px 0;background:#eff8fd;color:#264e64;border:1px solid #aacbdf;border-radius:10px;overflow-wrap:anywhere}
+.p443-tile-notice[hidden],.p443-tile-notice button[hidden]{display:none!important}
+.p443-tile-notice p{font-weight:650;font-size:.86rem;margin:2px 0 8px}
+.p443-help-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.p443-help-actions a{font-size:.85rem;color:#075b92;font-weight:650}
+.p443-help-actions button{min-height:42px;max-width:100%;background:#fff}

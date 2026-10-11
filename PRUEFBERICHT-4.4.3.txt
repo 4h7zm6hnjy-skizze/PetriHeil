@@ -1,0 +1,18 @@
+PETRI HEIL PRO 4.4.3 – KARTEN-BUGFIX UND PRUEFBERICHT
+
+Basis: GitHub 4.4.2, Commit 1ca14686f1b8b2f161ee44a0f9ce20548b0c7de4.
+Befund: Auf echten iPhone-Screenshots sind alle externen Online-Karten leer.
+Die alte Testreihe hat nur die Existenz von Kachel-URLs und Kartenmodi getestet, nicht echte Bildladung.
+Im isolierten Test mit synthetischen 256x256-Kacheln zeichnet der vorhandene Karten-Renderer korrekt.
+Der genaue externe Ablehnungsgrund (Anbieter, iOS-Inhaltsblocker oder Netzwerk) ist ohne Geräteprotokoll nicht nachweisbar.
+
+Fix:
+- Beobachtet image load/error und naturalWidth statt nur Bild-URLs zu zaehlen.
+- Zeigt Ladehinweis und schaltet nach 7,5 Sekunden ohne sichtbare Kachel auf den lokalen Offline-Atlas zurueck.
+- Gibt einen erneuten Online-Versuch und direkte Kartenlinks (OSM / Google Maps Satellite) an.
+- Haelt die Nutzer-Einwilligung bei; kein automatisches Vorladen von Kartenkacheln.
+- Haelt manuell gespeicherte Tiefenpunkte, GPS-Angelplaetze, Fangaenge und Foto-Datenbanken unveraendert.
+
+Tests vor Veröffentlichung: JS-Syntax, Manifest und ZIP-Prüfsummen; Chromium mit synthetischen echten Bildantworten (Standard/Satellit/Hybrid), Zoom und HTTP-403-Fallback; Worker-VM Install/Fehlerabbruch. Details im Chat und diesem Bericht.
+Noch offen: iPhone-Test mit echten OSM-/Esri-Antworten, vollstaendiger Restore mit echten Fotos.
+Sicherheit: Bestehende Repository-Dateien nicht entfernen; vorher verschluesseltes Backup erstellen.

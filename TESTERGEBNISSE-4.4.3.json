@@ -1,0 +1,34 @@
+{
+  "version": "4.4.3",
+  "baseCommit": "1ca14686f1b8b2f161ee44a0f9ce20548b0c7de4",
+  "isolatedChromium": {
+    "passed": true,
+    "tests": [
+      "Isolated Chromium with controlled image responses: standard tiles decode to naturalWidth=256; zoom builds new tile URLs without blank canvas",
+      "Satellite and hybrid use real image elements, decode to 256 px, and keep map visible",
+      "Manual offline return restores original atlas",
+      "No horizontal overflow at 320/375/390/430/768 px (success)",
+      "No uncaught JavaScript errors during success scenario; requests: 21",
+      "OSM HTTP 403: visible offline atlas with clear error banner, retry, external OSM link",
+      "Satellite HTTP 403: offline fallback with correct external Google satellite map URL",
+      "Repeated 403 on retry does not leave blank map",
+      "No horizontal overflow at 320/375/390/430/768 px (error)",
+      "No uncaught JavaScript errors during error scenario; requests: 27"
+    ]
+  },
+  "offlineWorkerSimulation": {
+    "success": {
+      "success": true,
+      "count": 200
+    },
+    "rollback": {
+      "failureRetainsOld": true,
+      "version": "4.4.3"
+    }
+  },
+  "JS": "node --check passed",
+  "JSON": "All new JSON parse",
+  "CSP": "Meta policy allows the exact declared tile origins; real HTTP-origin CSP runtime could not be tested in the container",
+  "liveProviders": "Not tested against OSM/Esri or on iPhone",
+  "autoTimeout": "7.5-second watchdog implemented; immediate rejection/fallback tested; unresponsive-provider timeout not browser-simulated"
+}

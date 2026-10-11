@@ -1,0 +1,9 @@
+{
+  "version": "4.4.3",
+  "baseVersion": "4.4.2",
+  "baseCommit": "1ca14686f1b8b2f161ee44a0f9ce20548b0c7de4",
+  "files": "DATEILISTE-4.4.3.txt",
+  "coreResources": 200,
+  "dataMigration": "none",
+  "purpose": "reliable map image loading with offline fallback and external map links"
+}

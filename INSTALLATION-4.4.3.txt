@@ -1,0 +1,7 @@
+Petri Heil Pro 4.4.3 – Kartenkorrektur
+1. Vorab ein verschluesseltes Gesamtbackup erzeugen.
+2. Dieses ZIP entpacken und alle Dateien in das GitHub-Repository 4h7zm6hnjy-skizze/PetriHeil (Root) hochladen.
+3. Gleichnamige Dateien ersetzen; andere Bestandsdateien sowie Medien nicht loeschen.
+4. Auf erfolgreichen GitHub-Pages-Build warten; danach petri440.html auf dem iPhone mit Internet oeffnen.
+5. Kartenmodus Standard, Satellit und Hybrid testen. Bei Fehlern erscheint automatisch die Offline-Karte und ein Alternativ-Link.
+6. Im Zweifel erneut laden oder Homebildschirm-PWA nach erfolgreicher Worker-Aktualisierung neu oeffnen.

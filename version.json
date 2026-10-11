@@ -1,24 +1,18 @@
 {
-  "version": "4.4.2",
+  "version": "4.4.3",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "serviceWorker": "sw.js",
   "changes": [
-    "Gewässerkarte in vier Modi: Offline-Übersicht, OpenStreetMap Standard, Esri-Satellitenbild und Hybrid-Satellit mit Kartenoverlay.",
-    "Online-Kacheln nur nach ausdrücklicher Zustimmung; bei der ersten Installation kein externer Kartenabruf. Kein Kachel-Prefetch oder Offline-Download fremder Karten.",
-    "Eigene Tiefenpunkte mit Koordinaten, Meterwert, gemessen/geschätzt, Messdatum, Gewässer, Angelplatz, Bodenstruktur und Notiz.",
-    "Tiefenwerte farbig auf Online-Karte und vorhandener Offline-Übersicht; manuell erfasste Tiefe am Angelplatz ebenfalls als Beschriftung.",
-    "Tiefenpunkte bearbeiten und gezielt löschen, CSV/JSON-Export; lokale Speicherung ohne Migration älterer Fänge oder Fotos.",
-    "Angelplätze, Fanghistorie, Angeltag, helle Oberfläche, 177 Fischarten, 228 Medien und bestehende Backupfunktionen bleiben erhalten.",
-    "Offline-Kerninstallation aktualisiert auf 198 eindeutige Ressourcen; bisherige Cache-Version bleibt bei Fehlern bestehen."
+    "Fehlerbehandlung für leere Online-Karten und Satellitenkacheln: Bildlade- und Timeout-Prüfung statt nur URL-Test.",
+    "Automatische sichere Umschaltung auf die vorhandene Offline-Übersicht, wenn keine Kachel geladen wird.",
+    "Sichtbare Lademeldung, Erneut-versuchen-Aktion und direkte externe Straßen-/Satellitenkarte.",
+    "Zoomstufe bleibt beim erneuten Öffnen erhalten; bestehende Fang-, Foto-, Angeltag- und Tiefendaten werden nicht verändert."
   ],
   "limitations": [
-    "Satellit und Online-Straßenkarte benötigen Internet, Nutzungsrechte und Verfügbarkeit der jeweiligen Dienste; Esri kann einen API-Zugang verlangen oder die Dienste einschränken.",
-    "Hybrid ist eine halbtransparente Kombination von Straßenkarte und Satellitenbildern, keine speziell lizenzierte Referenzkarte.",
-    "Es werden keine echten automatischen Gewässertiefen oder Tiefenlinien berechnet, da flächendeckende geprüfte Messdaten fehlen.",
-    "Manuell geschätzte Tiefen sind keine amtlichen Messungen und dürfen nicht für Navigation verwendet werden.",
-    "Die Offline-Karte ist weiterhin nur eine geografische Übersicht; öffentliche OSM-Kacheln dürfen nicht massenhaft offline gespeichert werden.",
-    "Ein tatsächlicher iPhone-Livetest von Kartenanbietern, GPS, Service-Worker und verschlüsselter Datenwiederherstellung steht aus.",
-    "Bisherige große Bestandsskripte und alle Drittanbieter-Bedingungen wurden nicht vollständig neu regression-getestet."
+    "Die externen OSM- und Esri-Kartenanbieter wurden im Container nicht live erreicht; Browser-Tests mit kontrollierten Kacheln und simulierten Netzfehlern.",
+    "Eine leere Karte aufgrund von Netzsperre, Inhaltsblockern, CSP oder Providerfehler kann nicht durch den Code erzwungen werden; stattdessen Offline-Fallback und externe Karte.",
+    "Es gibt keine eigene Satellitenbild-Datenbank oder lizenzierten flächendeckenden Tiefendaten.",
+    "Keine tatsächliche iPhone-End-to-End-Prüfung und keine reale Fotowiederherstellung."
   ]
 }
