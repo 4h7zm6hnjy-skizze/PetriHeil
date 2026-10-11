@@ -1,0 +1,25 @@
+PETRI HEIL PRO 2.5.0 – PRÜFBERICHT, STAND 11.10.2026
+
+UMFANG: Update mit neun Ergänzungen (alle Funktionen außer dem vom Benutzer ausdrücklich abgelehnten PIN-Schutz). Vorhandene 2.4.0-Funktionen bleiben erhalten; originale app.js und data.js bleiben unangetastet.
+
+BESTANDENE AUTOMATISIERTE PRÜFUNGEN
+- Syntax von neuem JS, Offline-Worker, Versionshilfen und Datenschutz-/Werkzeugmodulen: bestanden (node --check).
+- Isolierter Chromium-Oberflächentest (390 Pixel): neun Bereiche angezeigt, keine JavaScript-Ausnahmefehler, kein horizontaler Seitenüberlauf.
+- Interaktionstests für: GPS-Punkt manuell speichern, Merkmalsfilter, zehn Ruten-Aufgaben über Datendatei und deren Auswahl-Prüfung, Fangvorlagen, Schnellfang-Übernahme in Pro-Fangbuch, Albumseite, Ausrüstungsverleih, Speicheransicht, Notfallkontakt und Barrierefreiheits-Einstellung.
+- Pro-Fangbuch Schema-Abgleich: Fischart, Fangzeit, Gewässer-Freitext, Länge in cm, Gewicht in kg, Status und Notizen.
+- 54 verschiedene Offline-Kernressourcen, ohne doppelte Einträge; drei neue Module im Offline-Paket.
+- Simulierter Offline-Worker: erfolgreiche Installation 54/54; bei Dateifehler bleibt Cache 2.4.0 bestehen und neuer Cache wird verworfen.
+- Datenschutzprüfung: neue Module enthalten keine externe fetch-Verbindung; Standort wird nur auf Anforderung genutzt; keine Drittanbieter-/Cloud-Synchronisierung und kein PIN-Modul.
+
+NICHT ALS GETESTET AUSGEBEN
+- iPhone Safari / Android Chrome auf tatsächlichen Geräten: nicht durchgeführt.
+- GPS-Position und GPS-Berechtigung auf Gerät: nicht durchgehend getestet.
+- Echtes Speichern/Wiedergeben von Bildern in IndexedDB und PDF-Druck auf einem Gerät: durch die Browser-Sandbox nicht ende-zu-ende testbar.
+- Haupt-App app.js (~4,5 MB): wurde nicht verändert und nicht vollständig ende-zu-ende getestet.
+- Geräteabhängige Systemstimmen: können fehlen; das Vorlesen wird dann absichtlich nicht aktiviert.
+
+SICHERHEIT UND BACKUPS
+- Bestehende Fänge werden beim Laden nicht modifiziert. Schnellfang-Transfer ins Pro-Fangbuch erfolgt nur auf Bestätigung.
+- Lokale Zusatzfotos werden in petri250-album-v1 gespeichert. Das bestehende verschlüsselte Privat-Backup wurde um die neue Datenbank für den Fall ohne indexedDB.databases ergänzt. Bei iOS müssen die Datensicherungen unbedingt auf dem Gerät überprüft werden.
+- Kein PIN-Schutz; das Kennwort des verschlüsselten Export-Backups ist davon unabhängig und bleibt erforderlich, wenn man diese Sicherung verwendet.
+- Bestehende Bilddateien (228) werden weiterhin über das vorhandene Offline-Paket vorbereitet. Nur die 16 geänderten/neuen Update-Dateien befinden sich in dieser ZIP.

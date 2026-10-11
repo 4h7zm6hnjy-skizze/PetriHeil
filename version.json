@@ -1,31 +1,30 @@
 {
-  "version": "2.4.0",
+  "version": "2.5.0",
   "releaseDate": "2026-10-11",
   "name": "Petri Heil Pro",
   "changes": [
-    "Angeltrip-Planer mit Checklisten und bewusster Verknüpfung vorhandener Pro-Fänge.",
-    "Digitales Gewässertagebuch für Temperatur, Sichttiefe, Pegel, Strömung und Notizen.",
-    "Offline-Köderanalyse auf Grundlage vorhandener Fänge und persönlicher Erfahrungen.",
-    "Zusätzliche private Ausrüstungsverwaltung mit Wartungsterminen, ohne Bestandsdaten zu überschreiben.",
-    "Vergleich von zwei Fischarten mit vorhandenen Artenbildern und Erkennungsmerkmalen.",
-    "NRW-Praxistrainer mit 10 Aufgaben und lokaler Schritt-Checkliste.",
-    "Schonzeiten- und Mindestmaßübersicht für NRW mit Quellenstand 03.07.2026 und Hinweis auf Sonderregelungen.",
-    "Persönliches Rekordbuch nach Arten, Gewichten und Jahren aus dem Pro-Fangbuch.",
-    "Angel-Kostenrechner mit Kategorien und Zuordnung zum Angeltrip.",
-    "Offline-Gewässerkarten: private hochgeladene Bildkarten und lokale Koordinaten-Skizze; keine externen Kartendienste.",
-    "Verschlüsseltes Privat-Backup vor einem Import lokal vergleichen, ohne Änderungen.",
-    "Startseite: individuell wähl- und sortierbare Schnellzugriffe auf die zwölf Erweiterungen.",
-    "Update 2.4.0: 51 Kernressourcen mit separater Offline-Route und unverändertem 228-Bilder-Cache.",
-    "Privatmodus bleibt aktiviert; keine automatische Übermittlung von Fängen, Fotos oder Koordinaten."
+    "Offline-GPS-Peilung mit Entfernung und Richtung; GPX-Import und Export, keine Übertragung von GPS-Daten.",
+    "Offline-Fischbestimmung mit lokalen Fischbildern und Merkmalfiltern (regelbasiertes Lernhilfesystem, keine Foto-KI).",
+    "Interaktiver Rutenmontage-Trainer für zehn NRW-Aufgaben mit fünf auswählbaren Teilen, Sofortauswertung und lokalem Fortschritt.",
+    "Fang-Schnelleingabe mit lokalen Vorlagen und ausdrücklich bestätigter Übernahme in das bestehende Pro-Fangbuch.",
+    "Privates Angelalbum mit Datei-Upload in IndexedDB, lokaler SHA-256-Duplikaterkennung und Druck/PDF-Funktion.",
+    "Ausrüstungsverleih mit Rückgabedatum, Status und eigenen Notizen.",
+    "Gerätespeicher-Diagnose einschließlich Cache-Übersicht; keine automatische Löschung von Benutzerdaten.",
+    "Notfallbereich mit Offline-Erste-Hilfe-Grundlagen, Kontaktliste, Standortabruf nach Freigabe und Telefonverknüpfung.",
+    "Barrierefreiheit: größere Schrift, höherer Kontrast, bessere Touch-Ziele und betriebssystemabhängige Vorlesefunktion.",
+    "Ausdrücklich ohne PIN-Schutz. Bestehender Privatmodus und AES-verschlüsseltes manuelles Backup bleiben erhalten.",
+    "Offline-Kernpaket enthält 54 unterschiedliche Kernressourcen, neue eigenständige Route und bisherigen 228-Bilder-Cache."
   ],
   "limitations": [
-    "Bestehende app.js (rund 4,5 MB) wurde nicht umgebaut und nicht vollständig Ende-zu-Ende getestet.",
-    "Offline-Karten enthalten private Bildkarten und Positionsskizzen, aber keine automatisch heruntergeladenen Straßen- oder Gewässerkarten.",
-    "Fänge werden nur gelesen; neue Zusatzdaten werden getrennt gespeichert. Backup-Vergleich ist nur Vorschau, keine automatische Zusammenführung von Datenbankeinträgen.",
-    "NRW-Schonzeiten und Mindestmaße sind Momentaufnahme Stand 03.07.2026; Gewässerordnungen und Sonderregelungen können abweichen.",
-    "Offline-Abdeckung muss nach Installation und Vorbereitung auf realen Geräten kontrolliert werden.",
-    "Webhost empfängt bei Installation und Updates technisch erforderliche Netzwerkdaten; Live-Wetter und externe Karten sind gesperrt.",
-    "ZIP enthält nur neue/angepasste Dateien; unveränderte alte App-Dateien und 228 Bilddateien müssen im Repository verbleiben."
+    "Die Fischerkennung ist ein Merkmalsfilter und keine automatische KI-Analyse eines hochgeladenen Fischfotos.",
+    "Offline-GPS liefert Entfernung und Himmelsrichtung, keine Straßen-/Gewässer-Wegeführung. GPS-Signal benötigt geeignete Gerätebedingungen.",
+    "Bestehendes 4,5-MB-Hauptmodul app.js bleibt unverändert und ist nicht vollständig End-to-End geprüft.",
+    "PDF wird über die lokale Druckfunktion von Safari/Chrome erstellt; das genaue PDF-Verhalten ist geräteabhängig.",
+    "Die PIN-Sperre ist nicht enthalten. Das verschlüsselte Privat-Backup bleibt optional und verwendet weiterhin ein vom Benutzer gewähltes Passwort.",
+    "Browserverwaltete Offline-Caches können bei Speicherdruck entfernt werden. Regelmäßig prüfen und sichern.",
+    "Für gespeicherte 2.5.0-Albumfotos ist eine verschlüsselte Sicherung mit zugänglichen IndexedDB-Datenbanken erforderlich.",
+    "Live-Wetter, externe Karten und Drittanbieter sind durch den Privatmodus blockiert; Hosting benötigt für Updates technische Verbindungen.",
+    "Echte iPhone- und Android-Gerätefunktionen sind vor produktivem Einsatz zu testen."
   ],
   "serviceWorker": "sw.js"
 }
