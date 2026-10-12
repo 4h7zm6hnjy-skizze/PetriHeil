@@ -1,16 +1,17 @@
 {
-  "version": "4.4.6",
+  "version": "4.4.7",
   "releaseDate": "2026-10-12",
   "name": "Petri Heil Pro",
   "serviceWorker": "sw.js",
   "changes": [
-    "Zurück-Button nicht mehr als schwebende Overlay-Schaltfläche: eigene Zeile vor dem Seitenkopf in allen bekannten App-Layoutvarianten.",
-    "Schaltfläche auf Smartphones (auch 320px) ohne Überdeckung und ohne horizontalen Überlauf.",
-    "Back-Verhalten: nur in der gleichen App zurück; ansonsten zur Angelzentrale.",
-    "Offline-Kerncache aktualisiert; vorherige Caches und private Daten bleiben bestehen."
+    "Zurück-Schaltfläche auf 37 App-Seiten im normalen Dokumentfluss.",
+    "Gewässerkarten: bei fehlerhaften Bildkacheln maßstabsgetreue Ersatzdarstellung aus bis zu zwei niedrigeren Zoomstufen.",
+    "Offline-Prüfung im Angelcockpit auf 4.4.7 korrigiert.",
+    "PWA-Offline-Cache und neue Versionsdateien aktualisiert; vorhandene Nutzerdaten werden nicht migriert oder gelöscht."
   ],
   "limitations": [
-    "Korrektur lokal in Chromium mit vier nachgebildeten App-Layouts und sechs Bildschirmbreiten geprüft; echter iPhone-Test ausstehend.",
-    "Bisherige Funktionen, Bilder, Karten und lokale Datenspeicher bleiben unverändert."
+    "Satelliten-/Straßenkarten erfordern Internet und Zustimmung; die Anbieter können einzelne Zoomstufen sperren.",
+    "Keine amtlichen Tiefendaten: nur eigene Mess-/Schätzpunkte.",
+    "Kein vollständiger iPhone-Browsertest; vor Installation ein persönliches Backup erstellen."
   ]
 }

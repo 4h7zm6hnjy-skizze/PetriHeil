@@ -1,4 +1,4 @@
-/* Petri Heil Pro 4.4.4 - reliable online map with offline recovery and private, offline depth samples.
+/* Petri Heil Pro 4.4.7 - reliable online map with offline recovery and private, offline depth samples.
    Provider requests occur only after an informed opt-in. No tile prefetch or tile archive.
    Standalone module: existing Petri440 fishing data / original offline canvas remain unchanged. */
 (()=>{'use strict';
@@ -64,10 +64,16 @@ function fallbackTiles(){
 function tileHealth(force=false){
  if(mode==='offline'||!visible())return;
  const tiles=[...tileNodes.values()];
- const loaded=tiles.filter(i=>i.complete&&i.naturalWidth>0).length;
- const failed=tiles.filter(i=>i.complete&&i.naturalWidth===0).length;
- if(loaded){tileBanner('',false);if(p443Timer!==null){clearTimeout(p443Timer);p443Timer=null;}return;}
- if(tiles.length&&(force||failed===tiles.length))fallbackTiles();
+ const ready=tiles.filter(i=>i.complete),loaded=ready.filter(i=>i.naturalWidth>0),failed=ready.filter(i=>i.naturalWidth===0);
+ const lowres=loaded.some(i=>Number(i.dataset.parentLevel||0)>0);
+ if(loaded.length){
+   if(ready.length===tiles.length||force){if(p443Timer!==null)clearTimeout(p443Timer);p443Timer=null;}
+   if(failed.length)tileBanner('Einzelne Kartenkacheln fehlen. Anderen Ausschnitt oder Kartenstil ausprobieren.',true);
+   else if(lowres)tileBanner('Das Kartenbild stammt teilweise aus einer niedrigeren Zoomstufe und kann unscharf sein.',false);
+   else if(ready.length===tiles.length)tileBanner('',false);
+   return;
+ }
+ if(tiles.length&&(force||failed.length===tiles.length))fallbackTiles();
 }
 function watchTiles(key){
  if(mode==='offline'||!visible())return;
@@ -77,7 +83,37 @@ function watchTiles(key){
  tileBanner('Online-Kartenbilder werden geladen …',false);
  p443Timer=setTimeout(()=>{p443Timer=null;tileHealth(true)},7500);
 }
-function updateTile(key,url,left,top,opacity=1){let node=tileNodes.get(key);if(!node){node=new Image();node.alt='';node.draggable=false;node.decoding='async';node.loading='eager';node.referrerPolicy='strict-origin-when-cross-origin';node.className='p442-tile';node.style.opacity=String(opacity);node.addEventListener('load',()=>{if(node.isConnected)tileHealth(false)});node.addEventListener('error',()=>{if(!node.isConnected)return;failures++;tileHealth(false);if(failures>=3)notice('Ein Teil der Online-Kacheln konnte nicht geladen werden.',true)});node.src=url;tilesEl.append(node);tileNodes.set(key,node)}node.style.transform=`translate3d(${Math.round(left)}px,${Math.round(top)}px,0)`;return node}
+function updateTile(key,url,left,top,opacity=1){
+ const parts=key.split('/'),z=Number(parts[1]),x=Number(parts[2]),y=Number(parts[3]),kind=parts[0]==='osm'?'standard':'satellite';
+ let node=tileNodes.get(key);
+ if(!node){
+   node=new Image();node.alt='';node.draggable=false;node.decoding='async';node.loading='eager';
+   node.referrerPolicy='strict-origin-when-cross-origin';node.className='p442-tile';node.style.opacity=String(opacity);
+   node.addEventListener('load',()=>{if(node.isConnected)tileHealth(false)});
+   node.addEventListener('error',()=>{
+     if(!node.isConnected)return;
+     const level=Number(node.dataset.parentLevel||0)+1;
+     if(level<=2&&z-level>=4){
+       node.dataset.parentLevel=String(level);
+       const factor=2**level,sx=x%factor,sy=y%factor;
+       node.style.setProperty('width',(factor*R)+'px','important');
+       node.style.setProperty('height',(factor*R)+'px','important');
+       node.style.clipPath=`inset(${sy*R}px ${(factor-sx-1)*R}px ${(factor-sy-1)*R}px ${sx*R}px)`;
+       const m=node.dataset.offset?.split(',').map(Number)||[0,0];
+       node.style.transform=`translate3d(${Math.round(m[0]-sx*R)}px,${Math.round(m[1]-sy*R)}px,0)`;
+       node.src=tileUrls[kind](z-level,Math.floor(x/factor),Math.floor(y/factor));
+       return;
+     }
+     node.dataset.failed='yes';failures++;node.removeAttribute('src');tileHealth(false);
+     if(failures>=3)notice('Kartenbilder konnten beim Anbieter nicht geladen werden. Offline-Karte oder anderen Stil wählen.',true);
+   });
+   tilesEl.append(node);tileNodes.set(key,node);node.src=url;
+ }
+ node.dataset.offset=left+','+top;
+ const factor=2**Number(node.dataset.parentLevel||0),sx=x%factor,sy=y%factor;
+ node.style.transform=`translate3d(${Math.round(left-sx*R)}px,${Math.round(top-sy*R)}px,0)`;
+ return node;
+}
 function renderTiles(){if(mode==='offline'||!visible()||!mapEl.clientWidth||!mapEl.clientHeight)return;const w=mapEl.clientWidth,h=mapEl.clientHeight,N=2**zoom,wx=lonX(center.lon,zoom),wy=latY(center.lat,zoom),minX=Math.floor((wx-w/2)/R),maxX=Math.floor((wx+w/2)/R),minY=Math.floor((wy-h/2)/R),maxY=Math.floor((wy+h/2)/R),used=new Set();let count=0;for(let y=Math.max(0,minY);y<=Math.min(N-1,maxY);y++){for(let x=minX;x<=maxX;x++){if(count++>35)break;const nx=(x%N+N)%N,left=x*R-wx+w/2,top=y*R-wy+h/2;if(mode==='standard'||mode==='hybrid'){const k='osm/'+zoom+'/'+nx+'/'+y;used.add(k);updateTile(k,tileUrls.standard(zoom,nx,y),left,top,mode==='hybrid'?.39:1)}if(mode==='satellite'||mode==='hybrid'){const k='sat/'+zoom+'/'+nx+'/'+y;used.add(k);updateTile(k,tileUrls.satellite(zoom,nx,y),left,top,1)}}}for(const [k,node] of tileNodes)if(!used.has(k)){node.remove();tileNodes.delete(k)}if(mode==='hybrid'){for(const node of [...tileNodes.values()].filter(n=>n.src.includes('tile.openstreetmap.org')))tilesEl.append(node)}watchTiles(`${mode}/${zoom}/${minX}/${minY}/${maxX}/${maxY}`);tileHealth(false)}
 function marker(kind,lat,lon,label,id,cls){const [x,y]=pointToPx(lat,lon);if(x< -55||x>mapEl.clientWidth+55||y< -45||y>mapEl.clientHeight+45)return;const b=document.createElement('button');b.type='button';b.className='p442-marker '+cls;b.dataset.kind=kind;b.dataset.id=id;b.textContent=label;b.style.left=x+'px';b.style.top=y+'px';b.title=kind==='depth'?'Eigener Tiefenpunkt – '+label:'Gespeicherter Angelplatz – '+label;overlayEl.append(b)}
 function renderMarkers(){if(!overlayEl||!visible())return;overlayEl.replaceChildren();if(mode!=='offline'){for(const p of M.places())if(validCoord(p.lat,p.lon))marker('place',p.lat,p.lon,'● '+p.name+(p.depth!==null&&p.depth!==undefined&&Number.isFinite(+p.depth)?' · '+Number(p.depth).toLocaleString('de-DE')+' m':''),p.id,'p442-spot');for(const p of points())if(validCoord(p.lat,p.lon))marker('depth',p.lat,p.lon,depthLabel(p),p.id,'p442-'+tone(p.depth))}renderOfflinePins()}

@@ -1,4 +1,4 @@
-/* Petri Heil Pro 4.4.6: universal back navigation in document flow, no overlay. */
+/* Petri Heil Pro 4.4.7: universal back navigation in document flow, no overlay. */
 (()=>{'use strict';
 if(window.__petri445NavReady)return;
 window.__petri445NavReady=true;
@@ -9,7 +9,7 @@ const localUrl=file=>new URL(file,base).href;
 const pageName=()=>location.pathname.split('/').pop()||'index.html';
 const fallback=()=>pageName()==='petri440.html'?'index.html':'petri440.html';
 function validReferrer(){try{const prev=new URL(document.referrer);return prev.origin===location.origin&&prev.pathname.startsWith(base.pathname)&&prev.pathname!==location.pathname;}catch{return false}}
-function goBack(){if(validReferrer()&&history.length>1){history.back();return}location.assign(localUrl(fallback()))}
+function goBack(){if(pageName()==='petri440.html'&&location.hash&&location.hash!=='#start'){location.hash='#start';return}if(validReferrer()&&history.length>1){history.back();return}location.assign(localUrl(fallback()))}
 function insertInFlow(nav){
  const workspace=document.querySelector('.app-shell .workspace');
  if(workspace){const bar=workspace.querySelector(':scope > .topbar, :scope > header');if(bar){bar.before(nav);return;}workspace.prepend(nav);return;}
@@ -29,6 +29,6 @@ function mount(){
  btn.textContent='← Zurück';btn.setAttribute('aria-label','Zurück zur vorherigen App-Seite oder zur Angelzentrale');
  btn.addEventListener('click',goBack);nav.append(btn);insertInFlow(nav);
 }
-const link=document.createElement('link');link.rel='stylesheet';link.href=localUrl('petri445-nav.css?v=4.4.6');(document.head||document.documentElement).append(link);
+const link=document.createElement('link');link.rel='stylesheet';link.href=localUrl('petri445-nav.css?v=4.4.7');(document.head||document.documentElement).append(link);
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount,{once:true});else mount();
 })();

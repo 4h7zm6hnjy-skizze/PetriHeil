@@ -1,0 +1,10 @@
+PETRI HEIL PRO 4.4.7 – TECHNISCHER PRÜFBERICHT
+Basis: GitHub main 4.4.6, Quelle 01531b10261a651ef2712fc7138ad66a009b667f.
+
+Geänderte App-Unterseiten: 37. Alle haben genau einen Zurück-Script-Verweis.
+Offline-Core-Einträge: 204; keine doppelten Dateinamen.
+Neue SW-/Version-/Offline-Manifest-Bezeichner stimmen überein.
+Keine Migration, keine Löschung persönlicher Daten oder vorhandener Medien.
+
+Nicht geprüft: echte iPhone-Laufzeit, Provider-Bildverfügbarkeit, reale Netzwerk-/GPS-Bedingungen,
+Funktion jedes Altmoduls. Unscharfe Kartenbilder bei Anbieterbeschränkungen möglich.

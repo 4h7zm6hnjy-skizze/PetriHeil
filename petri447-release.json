@@ -1,0 +1,9 @@
+{
+  "version": "4.4.7",
+  "baseVersion": "4.4.6",
+  "date": "2026-10-12",
+  "scope": "map-zoom, navigation, offline-check",
+  "dataMigration": false,
+  "backNavigationPages": 37,
+  "offlineAssets": 204
+}
