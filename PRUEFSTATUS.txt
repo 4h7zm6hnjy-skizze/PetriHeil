@@ -1,0 +1,27 @@
+PETRI HEIL PRO 4.4.8 – PRÜFSTATUS VOR VERÖFFENTLICHUNG
+
+GitHub main: 4.4.7 zum letzten Prüfzeitpunkt.
+Quellen-Audit: defekte Detailkarten-Links in karte.html und premium.html;
+mehrere veraltete meta[name=petri-app-version] auf Unterseiten;
+doppelte bzw. widersprüchliche Update-Anzeigetexte nach bestätigtem
+4.4.7-Update.
+
+Erstellt: Ein GitHub Actions Workflow mit integriertem Patch 4.4.8,
+Qualitätsprüfung, Release-ZIP und sicherheitsbedingter Abbruchlogik.
+
+Erfolgreich lokal geprüft (Simulationsprojekt, NICHT Original):
+- YAML lesbar und strukturell gültig
+- GitHub-Runner-Shellblöcke ausgeführt
+- 37 Meta-/Navigationsseiten geändert
+- Kartenlinks repariert
+- Update-Script kann syntaktisch geprüft werden
+- Offline-Kern/JSON/Bildköpfe im Mock geprüft
+
+Noch NICHT bewiesen:
+- Workflow-Ausführung auf echtem GitHub-Repo
+- JavaScript-Syntax aller ~164 Original-JS-Dateien
+- Verhalten auf iPhone/Safari, in Flugmodus oder bei GPS-Laufzeit
+- Integrität aller realen Bilder und aller Daten-Funktionen
+
+Versprechen: Keine Veröffentlichung bei Fehler im Workflow.
+Eine 100%-Fehlerfreiheits-Garantie ist technisch nicht möglich.
