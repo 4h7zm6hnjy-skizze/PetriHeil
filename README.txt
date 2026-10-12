@@ -1,33 +1,26 @@
-Petri Heil Pro 2.2.3 – Praktische Fischerprüfung NRW
+PETRI HEIL PRO 4.4.7 – UPDATE-PAKET
 
-Diese ZIP-Datei baut auf der bestehenden App ab 2.2.0 auf. Sie enthält AUCH
-die Datenschutzdateien aus 2.2.2 und die plattformübergreifenden Dateien
-aus 2.2.1, damit alle Dateien des Offline-Pakets vorhanden sind.
+Dies ist ein UPDATE-GENERATOR, KEINE bereits auf GitHub installierte Version.
+Der GitHub-Connector erlaubt Lesezugriff, aber keine Änderungen (HTTP 403).
 
-INSTALLATION
-1. ZIP entpacken. ALLE enthaltenen Dateien ins Hauptverzeichnis
-   https://github.com/4h7zm6hnjy-skizze/PetriHeil hochladen,
-   bestehende gleichnamige Dateien ersetzen.
-2. Veröffentlichung von GitHub Pages abwarten.
-3. In der installierten App die Funktion Update-Reparatur öffnen und
-   Version 2.2.3 installieren. Alte App nicht löschen.
-4. Unter Offline prüfen den Bestand von 228/228 Bildern fertig speichern.
-5. In der Haupt-App Praktische Prüfung NRW öffnen oder praxis.html direkt starten.
-6. Im Flugmodus die zehn Rutenlektionen, die Bildkarten und den 6er-Test
-   prüfen.
+Installation auf einem Rechner:
+1. Die ORIGINAL-REPOSITORY-ZIP-Datei von
+   https://github.com/4h7zm6hnjy-skizze/PetriHeil/archive/refs/heads/main.zip
+   herunterladen. Nicht mit dem vorhandenen Update-Paket verwechseln.
+2. Python 3 installieren, sofern es nicht vorhanden ist.
+3. In einem Terminal ausführen:
+   python update_petriheil.py PetriHeil-main.zip
+4. Die erstellte Datei 'PetriHeilPro_4.4.7_Vollversion.zip' enthält
+   ALLE bisherigen Repository-Dateien plus die geänderten Dateien.
+5. Das aktualisierte Projekt in einen Git-Klon entpacken, dann committen
+   und zu GitHub pushen. Eine ZIP als einzelnes GitHub-File hochzuladen
+   aktualisiert die Website NICHT!
 
-DATENSCHUTZ
-Persönliche Daten werden nicht an Drittanbieter gesendet.
-Der bestehende strikte Datenschutzmodus 2.2.2 bleibt eingebunden.
-Für Installation und Updates beim Webhost fallen technische Zugriffsdaten an.
+WICHTIG: Vor dem Update die persönlichen Daten der Web-App sichern.
+Keine iPhone-Safari-Daten, Caches, Fotos oder Einstellungen löschen.
+Externe Satellitenbilder benötigen eine Internetverbindung und können
+in manchen Zoomstufen trotz Rückfallstufen fehlen.
 
-GRUNDLAGEN (Stand 11.10.2026)
-NRW Fischerprüfungsordnung §§ 5–6, Anlage 2 und Anlage 3.
-https://recht.nrw.de/lrgv/rechtsverordnung/03072026-verordnung-ueber-die-fischerpruefung/
-https://www.fischereiverband-nrw.de/content/gesetze/fischerpruefung.php
-
-HINWEIS
-Lernmaterial mit didaktischen Montagebeispielen und eigenen App-Bildern.
-Keine amtlichen Tafeln, kein Nachweis über bestandene echte Prüfungsleistungen.
-
-VERSION: 2.2.3
+Prüfung: Das Skript führt strikte Versions-/Ankerkontrollen aus und bricht
+bei unerwarteten 4.4.6-Dateien ab, statt sie blind zu überschreiben.
+Die eigentliche browserbasierte Funktion muss anschließend getestet werden.
