@@ -1,0 +1,14 @@
+{
+  "version": "4.4.8",
+  "baseVersion": "4.4.7",
+  "releaseDate": "2026-10-12",
+  "modules": [
+    "versioning",
+    "dead-links",
+    "offline",
+    "navigation-consistency"
+  ],
+  "dataMigration": false,
+  "pages": 37,
+  "offlineAssets": 204
+}

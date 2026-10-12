@@ -1,4 +1,4 @@
-/* Petri Heil Pro 4.4.7: universal back navigation in document flow, no overlay. */
+/* Petri Heil Pro 4.4.8: universal back navigation in document flow, no overlay. */
 (()=>{'use strict';
 if(window.__petri445NavReady)return;
 window.__petri445NavReady=true;
@@ -29,6 +29,6 @@ function mount(){
  btn.textContent='← Zurück';btn.setAttribute('aria-label','Zurück zur vorherigen App-Seite oder zur Angelzentrale');
  btn.addEventListener('click',goBack);nav.append(btn);insertInFlow(nav);
 }
-const link=document.createElement('link');link.rel='stylesheet';link.href=localUrl('petri445-nav.css?v=4.4.7');(document.head||document.documentElement).append(link);
+const link=document.createElement('link');link.rel='stylesheet';link.href=localUrl('petri445-nav.css?v=4.4.8');(document.head||document.documentElement).append(link);
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount,{once:true});else mount();
 })();

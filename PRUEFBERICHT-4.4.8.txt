@@ -1,0 +1,22 @@
+PETRI HEIL PRO 4.4.8 - PRUEFBERICHT
+
+Basis: 4.4.7 und GitHub main.
+
+Behebung:
+- Falsche Versionswarnung und alter Update-Status werden aus der Ansicht entfernt.
+- Beide Kartenlinks (karte.html und premium.html) repariert.
+- 37 App-Seiten haben denselben Versions-Metatag und frisches Navigation-Script.
+- 204 Offline-Kern-Dateien im Versionsmanifest.
+- Installation loescht keine lokalen Fangdaten, Fotos oder IndexDB.
+
+Grenzen: Automatische Link-, Syntax-, JSON-, Medien- und PWA-Pruefungen,
+keine Vollgarantie fuer saemtliche Laufzeitablaeufe. Kein echter iPhone-/GPS-/Live-Kartentest.
+Siehe GitHub Actions Pruefprotokoll fuer Ergebnisse nach Ausfuehrung.
+
+STATIC QA RESULTS (not a full runtime certification)
+HTML pages: 37; JavaScript files parsed: 165; JSON files: 78; image headers: 228; core assets: 204.
+Hard errors: 0; warnings: 0.
+
+
+
+Limitations: No Safari/iOS, GPS, live third party maps, user data or all event flows tested.
