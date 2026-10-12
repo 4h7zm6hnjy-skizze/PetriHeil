@@ -136,7 +136,7 @@ jobs:
 
               for old,new in [('petri-offline-v4.4.7.js','petri-offline-v4.4.8.js'),('sw.js','sw.js')]:
                   s=original(old)
-                  expect_once(s,'4.4.7' if old=='sw.js' else "const V='4.4.7'",old)
+                  expect_once(s,"importScripts('./petri-sw.js?v=4.4.7');" if old=='sw.js' else "const V='4.4.7'",old)
                   edit(new,s.replace(OLD,NEW))
 
               sw=original('petri-sw.js').replace(OLD,NEW)
