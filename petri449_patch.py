@@ -1,0 +1,305 @@
+#!/usr/bin/env python3
+"""Petri Heil Pro 4.4.9: small, fail-closed update and static QA.
+
+Run from the original project root. No browser storage / user files are mutated.
+The generator changes only a known allowlist of source/release files.
+"""
+from __future__ import annotations
+import json
+import re
+import sys
+import subprocess
+from html.parser import HTMLParser
+from pathlib import Path
+from urllib.parse import urlsplit, unquote
+from datetime import date
+
+ROOT = Path.cwd()
+OLD = '4.4.8'
+NEW = '4.4.9'
+PAGES = '''angelbegleiter.html angelschule.html angelstudio.html angelwerkzeuge.html datenschutz.html erweiterungen.html gewaesser.html gezeiten.html index.html installieren.html karte.html karten-detail.html kinderwelt.html lernspiele.html montagen.html offline-check.html petri370.html petri400.html petri410.html petri411-bilderpruefung.html petri420-quality.html petri420.html petri430-angeltag.html petri430-arten.html petri430-ausruestung.html petri430-beissindex.html petri430-fangbuch.html petri430-qualitaet.html petri430.html petri440.html praxis.html premium.html sicherung410.html system410.html update-rettung.html werkzeuge.html zentrale.html'''.split()
+NEW_FILES: dict[str, bytes] = {}
+
+
+def original(path: str) -> str:
+    f = ROOT / path
+    if not f.is_file():
+        raise RuntimeError('Quelldatei fehlt: '+path)
+    return f.read_text(encoding='utf-8-sig')
+
+
+def require_once(source: str, needle: str, name: str) -> None:
+    n = source.count(needle)
+    if n != 1:
+        raise RuntimeError(f'{name}: erwartet genau einen Anker, gefunden {n}: {needle[:65]!r}')
+
+
+def edit(path: str, content: str) -> None:
+    if not path or '\x00' in content or path.startswith('/') or '..' in Path(path).parts:
+        raise RuntimeError('Unsicherer Ausgabepfad oder Text: '+path)
+    NEW_FILES[path] = content.encode('utf-8')
+
+
+def generate() -> None:
+    info = json.loads(original('version.json'))
+    if info.get('version') != OLD:
+        raise RuntimeError('Benötigt unveränderte '+OLD+'; gefunden '+str(info.get('version'))+'. Kein Downgrade.')
+    if len(PAGES) != 37 or len(set(PAGES)) != 37:
+        raise RuntimeError('Die Seitenliste ist unvollständig')
+    if len(list(ROOT.glob('*.webp'))) < 225:
+        raise RuntimeError('Originalbilder fehlen; Update abgebrochen')
+
+    for path in PAGES:
+        page = original(path)
+        m = re.search(r'(<meta\s+name="petri-app-version"\s+content=")[0-9.]+("\s*/?>)', page)
+        if not m:
+            raise RuntimeError('Version-Metatag fehlt: '+path)
+        if m.group(0).find(OLD) == -1:
+            raise RuntimeError('Unerwartete Version im Metatag: '+path)
+        page = page[:m.start()] + m.group(1) + NEW + m.group(2) + page[m.end():]
+        nav = 'petri445-nav.js?v='+OLD
+        require_once(page,nav,path)
+        page = page.replace(nav,'petri445-nav.js?v='+NEW,1)
+        if path in ('index.html','petri440.html'):
+            page = page.replace(OLD,NEW)
+        if path == 'index.html':
+            noop = """<script>
+  window.addEventListener('load',()=>{
+    if(!('serviceWorker' in navigator))return;
+    navigator.serviceWorker.ready.then(reg=>{
+      if(reg.active)reg.active.postMessage({type:'PREFETCH_IMAGES'});
+    }).catch(()=>{});
+  });
+</script>"""
+            require_once(page,noop,path)
+            page=page.replace(noop,'<!-- Bilder werden nur nach Nutzeraktion unter Offline vorbereitet. Keine wirkungslose automatische Worker-Nachricht. -->',1)
+            require_once(page,'petri-updater.js?v=2.4.0',path)
+            page=page.replace('petri-updater.js?v=2.4.0','petri-updater.js?v='+NEW,1)
+        edit(path,page)
+
+    app=original('petri440-app.js')
+    start=app.find('async function offlineCheck(){')
+    end=app.find('\n}',start)
+    # Function is a one-line function in the original. Use the entire declaration up to its final brace.
+    end2=app.find('}',start)
+    if start < 0 or end2 < 0:
+        raise RuntimeError('offlineCheck() nicht gefunden')
+    old_check="async function offlineCheck(){if(!('caches'in window))throw Error('Cache Storage nicht verfügbar');$('offlineText').textContent='Offline-Dateien werden geprüft …';const r=await fetch('./petri-core-v4.4.7.json',{cache:'no-store'});if(!r.ok)throw Error('Versionsmanifest HTTP '+r.status);const m=await r.json();if(m.version!=='4.4.7'||!Array.isArray(m.files))throw Error('Versionsmanifest nicht verfügbar');let ok=0;for(const path of m.files){const url=new URL(path,location.href).href;if(await caches.match(url,{ignoreSearch:true}))ok++}$('offlineText').textContent=`Kern: ${ok}/${m.files.length} gecacht. Dies prüft Dateien, keinen echten Flugmodus. Bilder und eigene Daten getrennt sichern.`}"
+    require_once(app,old_check,'petri440-app.js')
+    new_check="""async function offlineCheck(){
+ if(!('caches' in window))throw Error('Cache Storage nicht verfügbar');
+ const result=$('offlineText');result.textContent='Offline-Dateien werden geprüft …';
+ const running=document.querySelector('meta[name="petri-app-version"]')?.content||'';
+ if(!/^\\d+\\.\\d+\\.\\d+$/.test(running))throw Error('Geladene App-Version nicht feststellbar');
+ const r=await fetch('./petri-core-v'+running+'.json',{cache:'no-store'});
+ if(!r.ok)throw Error('Versionsmanifest '+running+': HTTP '+r.status);
+ const m=await r.json();
+ if(m.version!==running||!Array.isArray(m.files)||m.files.length<120)throw Error('Versionsmanifest passt nicht zur geladenen App');
+ const cacheName='petri-core-'+running;
+ const cacheNames=await caches.keys();
+ if(!cacheNames.includes(cacheName)){
+   result.textContent='App '+running+': Offline-Kern noch nicht installiert. Bitte unter Backup & Einstellungen das Update installieren. Fotos werden getrennt vorbereitet.';
+   return;
+ }
+ const own=await caches.open(cacheName);let ok=0;
+ for(const file of m.files){
+   const url=new URL(file,location.href).href;
+   if((await own.match(url))?.ok)ok++;
+ }
+ result.textContent='App '+running+' · Offline-Kern '+ok+'/'+m.files.length+' Dateien'+(ok===m.files.length?' vollständig':' unvollständig')+'. Dies ist eine Cache-Prüfung, kein echter Flugmodus-Test. Bilder und persönliche Daten separat sichern.';
+}"""
+    app=app.replace(old_check,new_check,1)
+    for old_name,new_name in [('PetriHeil_Angeltage_4.4.4.json','PetriHeil_Angeltage_'+NEW+'.json'),('PetriHeil_Fangbuch_4.4.4.csv','PetriHeil_Fangbuch_'+NEW+'.csv')]:
+        require_once(app,old_name,'petri440-app.js')
+        app=app.replace(old_name,new_name,1)
+    # The JSON export format version 4.4.0 is intentionally retained for backward compatibility.
+    edit('petri440-app.js',app)
+
+    base=original('petri440-core.js')
+    old_nav='petri445-nav.js?v=4.4.5'
+    require_once(base,old_nav,'petri440-core.js')
+    edit('petri440-core.js',base.replace(old_nav,'petri445-nav.js?v='+NEW,1))
+
+    updater=original('petri-updater.js')
+    first=updater.find('  async function check(){')
+    last=updater.find('  async function install(){',first)
+    if first<0 or last<0 or updater.count('  async function check(){')!=1 or last<=first:
+        raise RuntimeError('Updater-Prüffunktion ist unerwartet geändert')
+    new_updater_check="""  async function check(){
+    if(working)return;
+    if(!navigator.onLine){message('Keine Internetverbindung: Serverversion nicht prüfbar.');return}
+    disable(true);message('Prüfe Server, App und Offline-Worker …');
+    try{
+      const info=await fetchLatest();const r=await activeRegistration();
+      const installed=await workerVersion(r?.active||navigator.serviceWorker?.controller);
+      const app=loadedVersion(),difference=cmp(info.version,app);
+      if(difference===null)message('Server '+info.version+' · Geladene App-Version unklar. Bitte die App neu öffnen.');
+      else if(difference>0)message('Geladene App '+app+' · Server '+info.version+' · Offline-Worker '+(installed||'nicht bestätigt')+'. Bitte Update installieren.');
+      else if(difference<0)message('App '+app+' ist neuer als der Server '+info.version+'. Kein Downgrade durchführen.');
+      else if(installed&&cmp(installed,info.version)===0)message('App '+app+' · Offline-Worker '+installed+' · Server '+info.version+'. Alles aktuell.');
+      else if(installed&&cmp(installed,info.version)>0)message('App '+app+' · Offline-Worker '+installed+' ist neuer als Server '+info.version+'. Bitte Versionsstand prüfen.');
+      else if(installed)message('App '+app+' · Offline-Worker '+installed+' ist älter als '+info.version+'. Bitte Update installieren.');
+      else message('App '+app+' · Server '+info.version+' · Offline-Worker nicht bestätigt. Installation prüfen.');
+      if($('petri-repair-server'))$('petri-repair-server').textContent=info.version;
+    }catch(e){message('Prüfung fehlgeschlagen: '+(e.message||String(e)))}finally{disable(false)}
+  }
+"""
+    edit('petri-updater.js',updater[:first]+new_updater_check+updater[last:])
+
+    nav=original('petri445-nav.js')
+    if OLD not in nav: raise RuntimeError('Navigation hat keinen Versionsanker')
+    edit('petri445-nav.js',nav.replace(OLD,NEW))
+
+    offline=original('petri-offline-v4.4.8.js')
+    require_once(offline,"const V='4.4.8'",'petri-offline-v4.4.8.js')
+    offline=offline.replace(OLD,NEW)
+    # Check only the exact current core cache, not previous versions' caches.
+    find="let ok=0,missing=[];const own=await caches.open(CORE);"
+    require_once(offline,find,'petri-offline-v4.4.8.js')
+    offline=offline.replace(find,"let ok=0,missing=[];const available=await caches.keys();if(!available.includes(CORE)){status('Offline-Kern '+V+' ist noch nicht installiert. Bitte Update installieren.');return}const own=await caches.open(CORE);",1)
+    find2="const res=await own.match(u)||await caches.match(u,{ignoreSearch:true});"
+    require_once(offline,find2,'petri-offline-v4.4.8.js')
+    offline=offline.replace(find2,"const res=await own.match(u);",1)
+    edit('petri-offline-v4.4.9.js',offline)
+
+    oldcore=json.loads(original('petri-core-v4.4.8.json'))
+    if oldcore.get('version')!=OLD or not isinstance(oldcore.get('files'),list) or len(oldcore['files'])<200:
+        raise RuntimeError('Falsches 4.4.8-Core-Manifest')
+    core=dict(oldcore)
+    core['version']=NEW
+    core['base']=OLD
+    core['cache']='petri-core-'+NEW
+    core['files']=[f.replace(OLD,NEW) for f in oldcore['files']]
+    needle='petri-updater.js?v=2.4.0'
+    if core['files'].count(needle)!=1:raise RuntimeError('Updaterskript fehlt/mehrfach im Core-Manifest')
+    core['files']=[('petri-updater.js?v='+NEW if f==needle else f) for f in core['files']]
+    if len(set(core['files']))!=len(core['files']):raise RuntimeError('Doppelte Core-Dateien')
+    core['notes']='4.4.9: dyn. Offline-Prüfung, einheitliche Update-Bewertung, explizite Bildvorbereitung und keine Datenmigration.'
+    edit('petri-core-v4.4.9.json',json.dumps(core,ensure_ascii=False,indent=2)+'\n')
+
+    worker=original('petri-sw.js').replace(OLD,NEW)
+    match=re.search(r'const CHANGED=new Set\((\[[^\n]*\])\);',worker)
+    if not match:raise RuntimeError('Worker CHANGED Liste fehlt')
+    changed=json.loads(match.group(1))
+    force=PAGES+['petri440-app.js','petri440-core.js','petri445-nav.js','petri-updater.js','petri-sw.js','sw.js','version.json','petri-core-v4.4.9.json','petri-offline-v4.4.9.js','petri449-release.json']
+    changed=list(dict.fromkeys(changed+force))
+    worker=worker[:match.start()]+'const CHANGED=new Set('+json.dumps(changed,ensure_ascii=False,separators=(',',':'))+');'+worker[match.end():]
+    edit('petri-sw.js',worker)
+    sw=original('sw.js')
+    if sw.count(OLD)<2 or "importScripts('./petri-sw.js?v="+OLD+"');" not in sw:raise RuntimeError('Unerwarteter SW-Einstieg')
+    edit('sw.js',sw.replace(OLD,NEW))
+
+    info['version']=NEW
+    info['releaseDate']='2026-10-12'
+    info['changes']=[
+      'Offline-Kernprüfung verwendet die geladene App-Version statt eines fest codierten Manifests 4.4.7.',
+      'Offline-Prüfungen zeigen nur Dateien aus dem Cache der passenden Version als vollständig an.',
+      'Versionen von App, Server und Offline-Worker werden konsistent verglichen; Downgrades werden kenntlich gemacht.',
+      'Wirkungsloser PRE­FETCH_IMAGES-Aufruf entfernt; Bilder bleiben bewusst nur auf Nutzeraktion offline vorbereitbar.'.replace('\u00ad',''),
+      'Angeltag-/Fangbuch-Exportdateinamen an 4.4.9 angepasst (Export-Datenformat unverändert).',
+      'Navigation und Service-Worker-Cacheversionen aktualisiert; statische Qualitätstests und vollständiger GitHub-ZIP-Export.'
+    ]
+    info['limitations']=[
+      'Der 4.48-MB-Monolith app.js wurde bewusst nicht ohne vollständige Browser-Regressionstests aufgespalten.',
+      'Automatisierte statische Tests ersetzen keinen iPhone-/iPad-Test, kein echtes Offline-/GPS-/Karten-Testlabor.',
+      'Externe Karten können Zoomstufen sperren; es gibt keine amtlichen Tiefendaten.',
+      'Dieses Update verändert keine Fangbuchdaten, Nutzerfotos oder lokalen Datenspeicher. Vor einer Installation Backup erstellen.'
+    ]
+    edit('version.json',json.dumps(info,ensure_ascii=False,indent=2)+'\n')
+    edit('petri449-release.json',json.dumps({'version':NEW,'baseVersion':OLD,'date':'2026-10-12','scope':['offline-version','updater','media-status','cache','export-filenames'],'dataMigration':False,'pages':len(PAGES),'offlineCoreAssets':len(core['files'])},ensure_ascii=False,indent=2)+'\n')
+    edit('PRUEFBERICHT-4.4.9.txt','''PETRI HEIL PRO 4.4.9 - TECHNISCHER PRÜFBERICHT\n\nAusgangsbasis: unveränderte GitHub-Veröffentlichung 4.4.8.\nBehoben: feste 4.4.7-Offline-Prüfung, ungültige Vorablade-Nachricht, alte Export-Dateinamen, Versionsvergleich.\nKeine Migration / keine Löschung lokaler Fangdaten oder Bilder.\nDas Export-JSON-Schema 4.4.0 bleibt zur Rückwärtskompatibilität erhalten.\n\nQualitätsgate: 37 App-Seiten, HTML-Verweise, JSON, JavaScript-Syntax, Medien-Header, SW-Manifest, Core-Versionsabgleich.\nGrenzen: Statische Prüfungen; nicht alle 228 Bilder dekodiert, keine iPhone/iPad-Laufzeit, keine GPS-/Kartenanbieter-/Netzwerk-Garantie.\nPerformance: app.js (~4.48 MB) bleibt unangetastet, da Aufspaltung ohne vollständige Laufzeittests riskant wäre.\n''')
+
+    # Nothing is written until all guarded transformations above succeed.
+    for path,raw in NEW_FILES.items():
+        target=ROOT/path
+        if target.exists() and path.startswith(('petri-core-v4.4.9','petri449-release','PRUEFBERICHT-4.4.9','petri-offline-v4.4.9')):
+            raise RuntimeError('4.4.9-Datei existiert bereits; bitte keine zweite Veröffentlichung starten: '+path)
+        target.write_bytes(raw)
+    Path('/tmp/petri449-changed.txt').write_text('\n'.join(NEW_FILES)+'\n',encoding='utf-8')
+    print(f'PATCH OK: {NEW} / {len(NEW_FILES)} Dateien / {len(PAGES)} HTML / {len(core["files"])} Offline-Core-Einträge')
+
+
+class Refs(HTMLParser):
+    def __init__(self):
+        super().__init__();self.refs=[];self.ids=[]
+    def handle_starttag(self,tag,attrs):
+        a=dict(attrs)
+        if a.get('id'):self.ids.append(a['id'])
+        for k in ('href','src'):
+            if a.get(k):self.refs.append(a[k])
+
+
+def qa() -> None:
+    errors=[];warnings=[]
+    if json.loads(original('version.json')).get('version') != NEW:errors.append('Falsche Server-Version')
+    try:core=json.loads(original('petri-core-v4.4.9.json'))
+    except Exception as e:raise RuntimeError('4.4.9-Manifest fehlt/ungültig: '+str(e))
+    if core.get('version')!=NEW or len(core.get('files',[]))<200 or len(core['files'])!=len(set(core['files'])):
+        errors.append('Core-Manifest version / count / duplicates')
+    for path in PAGES:
+        html=original(path)
+        if len(re.findall('name="petri-app-version" content="'+re.escape(NEW)+'"',html))!=1:errors.append(path+' falscher Metatag')
+        if html.count('petri445-nav.js?v='+NEW)!=1:errors.append(path+' Navigation nicht einheitlich')
+        refs=Refs();refs.feed(html)
+        for val in refs.refs:
+            if val.startswith(('#','//','/','data:','mailto:','tel:','blob:','javascript:')):continue
+            parsed=urlsplit(val)
+            if parsed.scheme or not parsed.path:continue
+            target=unquote(parsed.path)
+            if '..' in Path(target).parts:errors.append(path+' unsicherer relativer Pfad '+val);continue
+            if not (ROOT/target).is_file():errors.append(path+' fehlender lokaler Verweis '+val)
+        doubles={x for x in refs.ids if refs.ids.count(x)>1}
+        if doubles:warnings.append(path+' doppelte HTML-IDs: '+','.join(sorted(doubles)[:5]))
+    for name in ('index.html','petri440.html'):
+        if OLD in original(name):errors.append('Startseite enthält alte Release-Version: '+name)
+    if 'PREFETCH_IMAGES' in original('index.html'):errors.append('Wirkungslose Worker-Nachricht weiterhin aktiv')
+    app=original('petri440-app.js')
+    if 'petri-core-v4.4.7.json' in app or "m.version!=='4.4.7'" in app:errors.append('Alter Offline-Checker im Angelcockpit')
+    if 'caches.keys()' not in app or 'cacheName' not in app:errors.append('Versionsgebundener Offline-Cache nicht geprüft')
+    if 'PetriHeil_Angeltage_4.4.4.json' in app or 'PetriHeil_Fangbuch_4.4.4.csv' in app:errors.append('Alter Exportdateiname')
+    if 'petri-updater.js?v='+NEW not in original('index.html'):errors.append('Updater-Bust fehlt')
+    if 'petri445-nav.js?v='+NEW not in original('petri440-core.js'):errors.append('Alter Nav-Fallback')
+    if 'petri-core-v'+NEW+'.json' not in original('petri-offline-v4.4.9.js'):errors.append('Offline-Manager-Manifest ungültig')
+    if 'const V=\''+NEW+'\'' not in original('petri-offline-v4.4.9.js'):errors.append('Offline-Manager-Version ungültig')
+    if "petri-sw.js?v="+NEW not in original('sw.js'):errors.append('Service-Worker-Entry alt')
+    if 'const VERSION=\''+NEW+'\'' not in original('petri-sw.js'):errors.append('Service-Worker-Version alt')
+    if 'petri-updater.js?v='+NEW not in core['files']:errors.append('Updater im Core-Manifest nicht aktualisiert')
+    for f in core['files']:
+        if not re.fullmatch(r'[a-zA-Z0-9._-]+(?:\?v=[0-9.]+)?',f):errors.append('Ungültiger Core-Dateiname: '+f);continue
+        if not (ROOT/f.split('?')[0]).is_file():errors.append('Core-Datei fehlt: '+f)
+    for f in ROOT.glob('*.json'):
+        try:json.loads(f.read_text(encoding='utf-8-sig'))
+        except Exception as e:errors.append('JSON '+f.name+': '+str(e))
+    for f in ROOT.glob('*.webmanifest'):
+        try:json.loads(f.read_text(encoding='utf-8-sig'))
+        except Exception as e:errors.append('Manifest '+f.name+': '+str(e))
+    scripts=sorted(ROOT.glob('*.js'))
+    for f in scripts:
+        p=subprocess.run(['node','--check',str(f)],capture_output=True,text=True,timeout=25)
+        if p.returncode:errors.append('JavaScript '+f.name+': '+p.stderr[-350:])
+    imgs=list(ROOT.glob('*.webp'))+list(ROOT.glob('*.png'))
+    if len(imgs)<228:errors.append('Ursprüngliche Medien fehlen')
+    for f in imgs:
+        b=f.read_bytes()[:16]
+        if f.suffix=='.webp' and not (b.startswith(b'RIFF') and b[8:12]==b'WEBP'):errors.append('WebP-Header '+f.name)
+        if f.suffix=='.png' and not b.startswith(b'\x89PNG\r\n\x1a\n'):errors.append('PNG-Header '+f.name)
+    report=('4.4.9 AUTOMATISCHE QUALITAETSPRUEFUNG\n'+
+        f'HTML {len(PAGES)}; JavaScript {len(scripts)}; JSON {len(list(ROOT.glob("*.json")))}; Bilder {len(imgs)}; Offline-Core {len(core["files"])}\n'+
+        f'Fehler: {len(errors)}; Warnungen: {len(warnings)}\n'+
+        '\n'.join('ERROR '+e for e in errors)+'\n'+
+        '\n'.join('WARN '+w for w in warnings)+'\n'+
+        'Grenzen: Keine echten iPhone-/Touch-/GPS-/Netzwerktests und keine vollstaendige Browser-Regression.\n')
+    print(report)
+    Path('/tmp/PetriHeilPro_4.4.9_QA.txt').write_text(report,encoding='utf-8')
+    with (ROOT/'PRUEFBERICHT-4.4.9.txt').open('a',encoding='utf-8') as out:out.write('\n'+report)
+    if errors:raise RuntimeError('Qualitaetsgate abgebrochen. Kein Commit.')
+
+
+if __name__ == '__main__':
+    try:
+        if len(sys.argv)>1 and sys.argv[1]=='--qa':qa()
+        elif len(sys.argv)==1:generate()
+        else:raise RuntimeError('Usage: petri449_patch.py [--qa]')
+    except Exception as e:
+        print('FAIL: '+str(e),file=sys.stderr)
+        sys.exit(2)
