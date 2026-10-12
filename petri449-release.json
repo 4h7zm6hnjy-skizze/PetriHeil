@@ -1,0 +1,15 @@
+{
+  "version": "4.4.9",
+  "baseVersion": "4.4.8",
+  "date": "2026-10-12",
+  "scope": [
+    "offline-version",
+    "updater",
+    "media-status",
+    "cache",
+    "export-filenames"
+  ],
+  "dataMigration": false,
+  "pages": 37,
+  "offlineCoreAssets": 204
+}

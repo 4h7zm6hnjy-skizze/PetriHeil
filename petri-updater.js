@@ -76,11 +76,15 @@
     disable(true);message('Prüfe Server, App und Offline-Worker …');
     try{
       const info=await fetchLatest();const r=await activeRegistration();
-      const installed=await workerVersion(r?.active||navigator.serviceWorker.controller);
-      const newer=cmp(info.version,loadedVersion());
-      if(newer>0)message('Geladene App '+loadedVersion()+' · Server '+info.version+' · Offline-Worker '+(installed||'nicht bestätigt')+'. Bitte Update installieren.');
-      else if(installed && cmp(installed,info.version)>=0)message('App '+loadedVersion()+' · Offline-Worker '+installed+' · Server '+info.version+'. Aktuell.');
-      else message('App '+loadedVersion()+' · Server '+info.version+' · Offline-Worker '+(installed||'nicht verfügbar')+'. Installation prüfen.');
+      const installed=await workerVersion(r?.active||navigator.serviceWorker?.controller);
+      const app=loadedVersion(),difference=cmp(info.version,app);
+      if(difference===null)message('Server '+info.version+' · Geladene App-Version unklar. Bitte die App neu öffnen.');
+      else if(difference>0)message('Geladene App '+app+' · Server '+info.version+' · Offline-Worker '+(installed||'nicht bestätigt')+'. Bitte Update installieren.');
+      else if(difference<0)message('App '+app+' ist neuer als der Server '+info.version+'. Kein Downgrade durchführen.');
+      else if(installed&&cmp(installed,info.version)===0)message('App '+app+' · Offline-Worker '+installed+' · Server '+info.version+'. Alles aktuell.');
+      else if(installed&&cmp(installed,info.version)>0)message('App '+app+' · Offline-Worker '+installed+' ist neuer als Server '+info.version+'. Bitte Versionsstand prüfen.');
+      else if(installed)message('App '+app+' · Offline-Worker '+installed+' ist älter als '+info.version+'. Bitte Update installieren.');
+      else message('App '+app+' · Server '+info.version+' · Offline-Worker nicht bestätigt. Installation prüfen.');
       if($('petri-repair-server'))$('petri-repair-server').textContent=info.version;
     }catch(e){message('Prüfung fehlgeschlagen: '+(e.message||String(e)))}finally{disable(false)}
   }

@@ -97,7 +97,7 @@ window.Petri440=Object.freeze({A,keys:{PLACES,SETTINGS,PHOTOS},esc,uid,fmt,now,p
  if(typeof window==='undefined'||window.__petri445NavRequested)return;
  window.__petri445NavRequested=true;
  const root=new URL('./',document.currentScript?.src||document.baseURI);
- const script=document.createElement('script');script.src=new URL('petri445-nav.js?v=4.4.5',root).href;
+ const script=document.createElement('script');script.src=new URL('petri445-nav.js?v=4.4.9',root).href;
  script.addEventListener('error',()=>{window.__petri445NavRequested=false;});
  (document.head||document.documentElement).appendChild(script);
 })();

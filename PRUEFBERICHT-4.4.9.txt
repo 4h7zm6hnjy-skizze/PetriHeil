@@ -1,0 +1,17 @@
+PETRI HEIL PRO 4.4.9 - TECHNISCHER PRÜFBERICHT
+
+Ausgangsbasis: unveränderte GitHub-Veröffentlichung 4.4.8.
+Behoben: feste 4.4.7-Offline-Prüfung, ungültige Vorablade-Nachricht, alte Export-Dateinamen, Versionsvergleich.
+Keine Migration / keine Löschung lokaler Fangdaten oder Bilder.
+Das Export-JSON-Schema 4.4.0 bleibt zur Rückwärtskompatibilität erhalten.
+
+Qualitätsgate: 37 App-Seiten, HTML-Verweise, JSON, JavaScript-Syntax, Medien-Header, SW-Manifest, Core-Versionsabgleich.
+Grenzen: Statische Prüfungen; nicht alle 228 Bilder dekodiert, keine iPhone/iPad-Laufzeit, keine GPS-/Kartenanbieter-/Netzwerk-Garantie.
+Performance: app.js (~4.48 MB) bleibt unangetastet, da Aufspaltung ohne vollständige Laufzeittests riskant wäre.
+
+4.4.9 AUTOMATISCHE QUALITAETSPRUEFUNG
+HTML 37; JavaScript 166; JSON 80; Bilder 228; Offline-Core 204
+Fehler: 0; Warnungen: 0
+
+
+Grenzen: Keine echten iPhone-/Touch-/GPS-/Netzwerktests und keine vollstaendige Browser-Regression.

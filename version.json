@@ -1,18 +1,20 @@
 {
-  "version": "4.4.8",
+  "version": "4.4.9",
   "releaseDate": "2026-10-12",
   "name": "Petri Heil Pro",
   "serviceWorker": "sw.js",
   "changes": [
-    "Falsche Meldung einer angeblich neueren identischen Version und veraltete Update-Statusanzeige ausgeblendet.",
-    "Versions-Metadaten auf 37 Anwendungsseiten einheitlich auf 4.4.8 aktualisiert.",
-    "Defekte Links zu detailkarte.html in Karten- und Premiumseite auf karten-detail.html korrigiert.",
-    "Offline-Manifest, Service Worker und Aktualisierungsprüfung für 4.4.8 vorbereitet.",
-    "Automatisierte statische Prüfung von JavaScript, JSON, HTML-Verweisen, Bildern und Offline-Dateien ergänzt."
+    "Offline-Kernprüfung verwendet die geladene App-Version statt eines fest codierten Manifests 4.4.7.",
+    "Offline-Prüfungen zeigen nur Dateien aus dem Cache der passenden Version als vollständig an.",
+    "Versionen von App, Server und Offline-Worker werden konsistent verglichen; Downgrades werden kenntlich gemacht.",
+    "Wirkungsloser PREFETCH_IMAGES-Aufruf entfernt; Bilder bleiben bewusst nur auf Nutzeraktion offline vorbereitbar.",
+    "Angeltag-/Fangbuch-Exportdateinamen an 4.4.9 angepasst (Export-Datenformat unverändert).",
+    "Navigation und Service-Worker-Cacheversionen aktualisiert; statische Qualitätstests und vollständiger GitHub-ZIP-Export."
   ],
   "limitations": [
-    "Statische Repository-Prüfung ist keine hundertprozentige Funktionsprüfung. Echte iPhone-, Touch-, GPS- und Netztests fehlen.",
-    "Online-Satellitenbilder sind abhängig von Drittanbietern; keine amtlichen Gewässertiefen zugesichert.",
-    "Vor Änderungen an lokalen Daten persönliches Backup erstellen. Dieses Update löscht keine lokalen Nutzerdaten."
+    "Der 4.48-MB-Monolith app.js wurde bewusst nicht ohne vollständige Browser-Regressionstests aufgespalten.",
+    "Automatisierte statische Tests ersetzen keinen iPhone-/iPad-Test, kein echtes Offline-/GPS-/Karten-Testlabor.",
+    "Externe Karten können Zoomstufen sperren; es gibt keine amtlichen Tiefendaten.",
+    "Dieses Update verändert keine Fangbuchdaten, Nutzerfotos oder lokalen Datenspeicher. Vor einer Installation Backup erstellen."
   ]
 }
