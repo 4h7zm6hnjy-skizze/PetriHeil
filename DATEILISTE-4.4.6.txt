@@ -1,0 +1,12 @@
+INSTALLATION-4.4.6.txt
+PRUEFBERICHT-4.4.6.txt
+index.html
+petri-core-v4.4.6.json
+petri-offline-v4.4.6.js
+petri-sw.js
+petri440.html
+petri445-nav.css
+petri445-nav.js
+petri446-release.json
+sw.js
+version.json

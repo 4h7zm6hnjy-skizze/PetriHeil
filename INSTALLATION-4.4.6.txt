@@ -1,0 +1,8 @@
+Petri Heil Pro 4.4.6 – Zurück-Button Layoutkorrektur
+
+Vorbereitung: Vor Upload ein verschlüsseltes Gesamtbackup speichern.
+Das Paket setzt GitHub-Stand 4.4.5 voraus.
+Alle Paketdateien in das Repository-Hauptverzeichnis hochladen; gleichnamige Dateien ersetzen. Bestehende andere Dateien niemals löschen.
+Nach erfolgreicher GitHub-Pages-Veröffentlichung die App mit Internet öffnen, damit der Service Worker 4.4.6 und der neue Cache vollständig installiert werden. Anschließend Seite erneut öffnen.
+Kontrolle: Im Hauptbereich Mehr → Backup & Einstellungen und beim persönlichen Beißindex muss ← Zurück oberhalb des Headers liegen und darf niemals darüber schweben.
+Alte Daten und Alt-Caches bleiben erhalten; keine Datenmigration.

@@ -1,19 +1,16 @@
 {
-  "version": "4.4.5",
-  "releaseDate": "2026-10-11",
+  "version": "4.4.6",
+  "releaseDate": "2026-10-12",
   "name": "Petri Heil Pro",
   "serviceWorker": "sw.js",
   "changes": [
-    "Überall auf den App-Seiten ein einheitlicher, sichtbarer Zurück-Button – auch Beißindex, Fangbuch, Kinderwelt, Angelschule und Karten.",
-    "Beim Wechsel von einer anderen App-Seite zur vorherigen Seite zurück; bei direktem Einstieg zur Angelzentrale (bzw. von der Angelzentrale zur klassischen App).",
-    "Kumulativ: Ortsarchiv und sicheres Entfernen von Angelplätzen aus 4.4.4 sind enthalten.",
-    "Keine Änderungen oder Migration an vorhandenen Fang-, Foto-, Angeltag-, Angelplatz- oder Tiefendaten.",
-    "Offline-Cache und alle modifizierten Hauptskripte mit 4.4.5 neu vorbereitet."
+    "Zurück-Button nicht mehr als schwebende Overlay-Schaltfläche: eigene Zeile vor dem Seitenkopf in allen bekannten App-Layoutvarianten.",
+    "Schaltfläche auf Smartphones (auch 320px) ohne Überdeckung und ohne horizontalen Überlauf.",
+    "Back-Verhalten: nur in der gleichen App zurück; ansonsten zur Angelzentrale.",
+    "Offline-Kerncache aktualisiert; vorherige Caches und private Daten bleiben bestehen."
   ],
   "limitations": [
-    "iPhone-Praxistest steht aus; überprüft im isolierten Chromium, kein echter GitHub-Pages-Gerätetest.",
-    "Externe offene Tools (Update-Assistenten und Bild-Designvorschauen) erhalten keinen Zurück-Button; alle produktiven App-Seiten sind abgedeckt.",
-    "Bei direkt geöffneten Seiten ohne interne Navigation führt Zurück zur 4.4.5-Angelzentrale; auf der Angelzentrale zur klassischen App.",
-    "Vorgängerversion des Buttons kann bis zur Aktivierung des neuen Service Workers im Cache liegen."
+    "Korrektur lokal in Chromium mit vier nachgebildeten App-Layouts und sechs Bildschirmbreiten geprüft; echter iPhone-Test ausstehend.",
+    "Bisherige Funktionen, Bilder, Karten und lokale Datenspeicher bleiben unverändert."
   ]
 }

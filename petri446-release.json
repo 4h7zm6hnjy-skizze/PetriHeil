@@ -1,0 +1,8 @@
+{
+  "version": "4.4.6",
+  "baseVersion": "4.4.5",
+  "type": "navigation-quality-hotfix",
+  "date": "2026-10-12",
+  "files": 204,
+  "scope": "Normal-flow back button, no data migration, safe offline worker upgrade"
+}

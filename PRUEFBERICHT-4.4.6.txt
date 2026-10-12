@@ -1,0 +1,11 @@
+Petri Heil Pro 4.4.6 – Prüfergebnis
+Basis: GitHub main 4.4.5, Commit 2f5ca05c6c64c4563d15976f80f6cad2f50996a8.
+Ursache: CSS #petri445-nav position:fixed; der Button überdeckte die Seite Backup & Einstellungen.
+Maßnahme: JavaScript setzt Navigationszeile in den Dokumentenfluss vor Kopfzeile; position:static!important. Kein Overlay.
+Chromium-Tests: 4 Layoutvarianten (klassische Haupt-App, alte Shell-Seiten, 4.4-Cockpit, 4.3-Beißindex) jeweils bei 320, 375, 390, 430, 768, 1024 px: 24/24 bestanden, Button oberhalb des Headers, kein horizontaler Überlauf.
+Node --check für petri445-nav.js und petri-sw.js erfolgreich.
+Manifest: 204 eindeutige Offline-Ressourcen; alle neuen Dateien in ZIP; andere Ressourcen existieren auf dem geprüften GitHub-Basisstand.
+Offline-Worker benutzt separaten 4.4.6-Cache; neue Navigationsdateien werden frisch geladen. Alter Cache wird nicht absichtlich gelöscht.
+Keine Änderung an Fangdaten, Angelplätzen, Tiefenmessungen, Fotos oder Backup-Dateien.
+Grenzen: echter iPhone-Endtest und Live-GitHub-Pages-Installation nach Upload offen. Kein 100%-Regressionsnachweis über alle historischen Unterseiten.
+GitHub-Direktupdate ist wegen fehlender Schreibberechtigung (403) nicht durchgeführt; ZIP zum manuellen Upload.
